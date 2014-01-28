@@ -8,15 +8,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.client.MockRestServiceServer;
+//import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
 import com.googlecode.happymarvin.jiraexplorer.RestClient;
 
 import static org.junit.Assert.assertEquals;
-import static org.springframework.test.web.client.match.RequestMatchers.method;
-import static org.springframework.test.web.client.match.RequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.ResponseCreators.withSuccess;
+//import static org.springframework.test.web.client.match.RequestMatchers.method;
+//import static org.springframework.test.web.client.match.RequestMatchers.requestTo;
+//import static org.springframework.test.web.client.response.ResponseCreators.withSuccess;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:jiraminer-context-test.xml")
@@ -28,13 +28,13 @@ public class RestClientTest {
 	@Autowired
 	private RestClient restClient;
 	
-	private MockRestServiceServer mockRestServiceServer;
+//	private MockRestServiceServer mockRestServiceServer;
 	
 	
 	@Before
 	public void setUp() {
 		// setting up the mocked REST server
-		mockRestServiceServer = MockRestServiceServer.createServer(restTemplate);
+//		mockRestServiceServer = MockRestServiceServer.createServer(restTemplate);
 	}
 	
 	
@@ -44,9 +44,9 @@ public class RestClientTest {
 		String numberJira = "IBTCPDCC-1470";
 		
 		String response = "{\"menu\": { \"id\": \"file\", \"value\": \"File\"}}";
-		mockRestServiceServer.expect(requestTo(urlJira + numberJira))
-		                     .andExpect(method(HttpMethod.GET))
-		                     .andRespond(withSuccess(response, MediaType.APPLICATION_JSON));
+//		mockRestServiceServer.expect(requestTo(urlJira + numberJira))
+//		                     .andExpect(method(HttpMethod.GET))
+//		                     .andRespond(withSuccess(response, MediaType.APPLICATION_JSON));
 		
 		restClient.getJiraIssueAsJson(urlJira, numberJira);
 	}

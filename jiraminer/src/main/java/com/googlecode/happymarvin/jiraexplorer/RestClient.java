@@ -2,8 +2,6 @@ package com.googlecode.happymarvin.jiraexplorer;
 
 import java.util.LinkedHashMap;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.client.RestTemplate;
 
 

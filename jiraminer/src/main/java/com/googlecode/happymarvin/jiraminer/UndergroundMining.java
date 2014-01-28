@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,7 @@ import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
 import com.googlecode.happymarvin.common.utils.Constants;
 import com.googlecode.happymarvin.common.utils.LoggerUtility;
 
+
 /*
  * When having the JiraIssueBean (and the textual description) we can get information from the description
  * this is the 2nd phase
@@ -33,8 +33,8 @@ import com.googlecode.happymarvin.common.utils.LoggerUtility;
  */
 public class UndergroundMining {
 
+	
 	private static enum Pointer {BEFORE, START, INSTRUCTION, END}
-	private static final String[] INTRUCTION_STARTING_STRING = {"TYPE", "TEMPLATE", "PROJECT", "NAME", "PLACE"};
 	private static final Logger LOGGER = LoggerFactory.getLogger(UndergroundMining.class);
 	
 
@@ -85,8 +85,80 @@ public class UndergroundMining {
 			// trying to find a matching sentence pattern
 			String fakeRegExpr = getMatchingRegExprCreatedFromPattern(sentence, instructionSentencePatternsBean, values);
 			// extracting the values from the sentence
-			values = extractValues(sentence, regExpr);
+			values = extractValues(sentence, fakeRegExpr);
+			instructionBeans.add(createInstructionBean(values));
 		}
+	}
+
+
+	private InstructionBean createInstructionBean(Map<String, String> values) {
+		InstructionBean instructionBean = new InstructionBean();
+		
+		instructionBean.setName(values.get("name"));
+		instructionBean.setPlace(values.get("place"));
+		instructionBean.setProject(values.get("project"));
+		instructionBean.setTemplate(values.get("template"));
+		instructionBean.setType(values.get("type"));
+		
+		values.remove("name");
+		values.remove("place");
+		values.remove("project");
+		values.remove("template");
+		values.remove("type");
+		instructionBean.setProperties(values);
+		
+		return instructionBean;
+	}
+
+
+	// sentence: I'd need a POJO Java component in the project tlem-validation-failures-report.
+	// regExp:   [I](['][d])?[ ][n][e][e][d][ ][a][ ]${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]${project}[\\.]
+	private Map<String, String> extractValues(String originalSentence, String fakeRegExpr) throws ConfigurationException {
+		String sentence = originalSentence;
+		Map<String, String> values = new HashMap<String, String>();
+		
+		while(true) {
+			// getting the start of the value in the reg expression
+			int start = fakeRegExpr.indexOf("${");
+			if (start == -1) {
+				break;
+			}
+			// getting the part of the reg expr till the value (-> [I](['][d])?[ ][n][e][e][d][ ][a][ ]  in the example below)
+			String partRegExpr = fakeRegExpr.substring(0, start-1);
+			// removing the characters till the value in the sentence and in the fake reg expr 
+			//     (the sentence will be: POJO Java component in the project tlem-validation-failures-report.)
+			//     (the fake reg expr will be: ${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]${project}[\\.])
+			sentence = sentence.replaceFirst(partRegExpr, "");
+			fakeRegExpr = fakeRegExpr.substring(start);
+			// I need the separation characters between the values -> to find the last character that belongs to the value (a space in the sample below)
+			// for that first I have to find the } character
+			int end = fakeRegExpr.indexOf("}");
+			if (end == -1) {
+				throw new ConfigurationException(String.format("No ending bracket ('}') in the pattern! pattern:%s",fakeRegExpr));
+			}
+			// I also need the name of the value
+			String nameOfValue = fakeRegExpr.substring(2, end - 1);
+			// getting the separation characters
+			int nextStart = fakeRegExpr.indexOf("${", 3);
+			//    if this is the last value in the fake reg expr
+			if (nextStart == -1) {
+				nextStart = fakeRegExpr.length();
+			}
+			String separationChars = fakeRegExpr.substring(end + 1, nextStart);
+			// getting the value from the sentence
+			Pattern pattern = Pattern.compile(separationChars);
+			Matcher matcher = pattern.matcher(sentence);
+			String value = sentence.substring(0, matcher.regionStart());
+			// rolling the sentence and the fake reg expr
+			//   sentence: 'POJO Java component in the project tlem-validation-failures-report.'  ->  ' Java component in the project tlem-validation-failures-report.'
+			//   fake reg expr: '${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t] ...'  ->  '[ ]${type}[ ][c][o][m][p][o][n][e][n][t] ...'
+			sentence = sentence.substring(value.length());
+			fakeRegExpr = fakeRegExpr.substring(2+nameOfValue.length()+1);
+			
+			values.put(nameOfValue, value);
+		}
+		
+		return values;
 	}
 
 
@@ -108,10 +180,10 @@ public class UndergroundMining {
 		main: for (String instructionSentencePattern : allInstructionSentencePatterns) {
 			if (!checkIfContainingAFoundValues(instructionSentencePattern, values)) {
 				// do the matching
-				List<String> regExps = getRegularExpressionFromPattern(instructionSentencePattern);
-				for(String _regExp : regExps) {
-					if (sentence.matches(_regExp)) {
-						regExp = _regExp;
+				List<Map<String,String>> regExps = getRegularExpressionFromPattern(instructionSentencePattern);
+				for(Map<String,String> record : regExps) {
+					if (sentence.matches(record.get("regExpr"))) {
+						regExp = record.get("fakeRegExpr");
 						break main;
 					}
 				}
@@ -129,14 +201,18 @@ public class UndergroundMining {
 	//           I['d] need a ${template} ${type} [XML file] in the project ${project}.
 	// regExp:   [I](['][d])?[ ][n][e][e][d][ ][a][ ].+[ ].+[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ].+[\\.]
 	//           ...
-	private List<String> getRegularExpressionFromPattern(String instructionSentencePattern) throws ConfigurationException {
-		List<String> regExprs = new ArrayList<String>();
+	//
+	// the return List will contain a the list of the normal and fake reg exp
+	//     fake expression for example: [I](['][d])?[ ][n][e][e][d][ ][a][ ]${template}[ ]${type}[ ] ...
+	private List<Map<String,String>> getRegularExpressionFromPattern(String instructionSentencePattern) throws ConfigurationException {
+		List<Map<String,String>> regExprs = new ArrayList<Map<String,String>>();
 		
 		List<String> patterns = createPatternsFromOptions(instructionSentencePattern);
 		LoggerUtility.logListInNewLine(LOGGER, patterns, "Simplified patterns created from the original pattern:", LoggerUtility.Level.DEBUG);
 		
 		for(String pattern : patterns) {
 			StringBuilder regExpr = new StringBuilder();
+			StringBuilder fakeRegExpr = new StringBuilder();
 			// 0 - not in value, 1 - found a $ char, 2 - found the ${ characters
 			int inValueProbability = 0;
 			// if we are between the characters '${' and '}' and the '.+' characters are already put (they should be put just once)
@@ -145,8 +221,10 @@ public class UndergroundMining {
 				// handling the '[', ']' characters
 				if (kar == '[') {
 					regExpr.append("(");
+					fakeRegExpr.append("(");
 				} else if (kar == ']') {
 					regExpr.append(")?");
+					fakeRegExpr.append(")?");
 				}
 				// handling the values (e.g. ${project})
 				else if (kar == '$') {
@@ -160,6 +238,7 @@ public class UndergroundMining {
 				// handling the normal characters
 				else if (inValueProbability != 2) {
 					regExpr.append("[").append(convertCharIfNeeded(kar)).append("]");
+					fakeRegExpr.append("[").append(convertCharIfNeeded(kar)).append("]");
 				} 
 				// if we are in the value - between the characters '${' and '}'
 				else if (inValueProbability == 2) {
@@ -167,12 +246,16 @@ public class UndergroundMining {
 						alreadyPutTheReplacementValueChar = true;
 						regExpr.append(".+");
 					}
+					fakeRegExpr.append(kar);
 				}
 			}
-			regExprs.add(regExpr.toString());
+			Map<String,String> record = new HashMap<String, String>();
+			record.put("regExpr", regExpr.toString());
+			record.put("fakeRegExpr", fakeRegExpr.toString());
+			regExprs.add(record);
 		}
 		
-		LoggerUtility.logListInNewLine(LOGGER, regExprs, "Regular expression created:", LoggerUtility.Level.DEBUG);
+		//LoggerUtility.logListInNewLine(LOGGER, regExprs, "Regular expression created:", LoggerUtility.Level.DEBUG);
 		return regExprs;
 	}
 
@@ -196,8 +279,7 @@ public class UndergroundMining {
 			default:
 				s = String.valueOf(kar);
 		}
-		// TODO Auto-generated method stub
-		return null;
+		return s;
 	}
 
 
@@ -361,12 +443,12 @@ public class UndergroundMining {
 		// checking if the first line is starting with the text of the common property 'TYPE:', the second...
 		for(int i=0; i < 5; i++) {
 			try {
-				getValue(instruction, INTRUCTION_STARTING_STRING[i]);
+				getValue(instruction, Constants.CONS_IN_DESC_NAMESOF_VALUES[i]);
 			} catch (InvalidInstructionException e) {
 				return false;
 			}
 		}
-		// checking if the additional linea are starting with the text of the property of the specific template
+		// checking if the additional lines are starting with the text of the property of the specific template
 		// TODO I am not examining this here, probably I don't have to
 		
 		return true;

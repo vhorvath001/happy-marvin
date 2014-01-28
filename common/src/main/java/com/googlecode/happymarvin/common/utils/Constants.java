@@ -13,6 +13,7 @@ public class Constants {
 	public static final String CONS_IN_DESC_INTRUCTION_START = "~~~HAPPYMARVIN-INSTRUCTION~~~";
 	public static final String CONS_IN_DESC_INTRUCTIONS_END = "~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 	public static final String CONS_IN_DESC_INTRUCTIONS_SENTENCE_SEPARATOR = ". ";
+	public static final String[] CONS_IN_DESC_NAMESOF_VALUES = {"TYPE", "TEMPLATE", "PROJECT", "NAME", "PLACE"};
 	
 	public static final String OPTION_CHARACTERS = "]/[";
 	public static final String REGEXP_PATTERN_BRACKETS = "([\\[][a-zA-Z0-9 _\\-'`\"£$&*\\+\\(\\)\\{\\}\\.]*[\\]])";
@@ -20,6 +21,8 @@ public class Constants {
 
 	public static final String PATH_TEMPLATE_CONFIG_XML = "hm-templates-config.xml";
 	public static final String PATH_CONFIG_XML = "hm-config.xml";
+	
+	
 	
 
 	public static void main(String[] args) {
