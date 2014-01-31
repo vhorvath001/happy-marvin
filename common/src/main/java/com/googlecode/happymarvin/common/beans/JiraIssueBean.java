@@ -23,4 +23,18 @@ public class JiraIssueBean {
 		this.instructions = instructions;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getName()).append("[");
+		sb.append("description=").append(description);
+		if (instructions != null && instructions.size() > 0) {
+			for(InstructionBean bean : instructions) {
+				sb.append(bean).append(",");			
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}	
+	
 }

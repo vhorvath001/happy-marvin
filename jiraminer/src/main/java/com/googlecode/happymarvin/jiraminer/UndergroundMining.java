@@ -16,13 +16,13 @@ import org.slf4j.LoggerFactory;
 
 import com.googlecode.happymarvin.common.beans.InstructionBean;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
-import com.googlecode.happymarvin.common.beans.configuration.config.InstructionSentencePatternsBean;
-import com.googlecode.happymarvin.common.beans.configuration.templatesConfig.TemplatePropertyBean;
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.config.InstructionSentencePatternsBean;
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatePropertyBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
-import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
+import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtilI;
 import com.googlecode.happymarvin.common.utils.Constants;
-import com.googlecode.happymarvin.common.utils.LoggerUtility;
+import com.googlecode.happymarvin.common.utils.StringUtility;
 
 
 /*
@@ -36,6 +36,8 @@ public class UndergroundMining {
 	
 	private static enum Pointer {BEFORE, START, INSTRUCTION, END}
 	private static final Logger LOGGER = LoggerFactory.getLogger(UndergroundMining.class);
+	
+	private ConfigurationReaderUtilI configurationReaderUtil = null;
 	
 
 	public JiraIssueBean mine(final JiraIssueBean jiraIssueBean) throws IOException, InvalidInstructionException, ConfigurationException {
@@ -51,6 +53,52 @@ public class UndergroundMining {
 		return jiraIssueBean;
 	}
 
+	
+	private List<List<String>> getInstructions(String description) throws IOException {
+		List<List<String>> instructions = new ArrayList<List<String>>();
+		List<String> instruction = null;
+		BufferedReader bufferedReader = null;
+
+		// looping through the lines of the description
+		String line = null;
+		try {
+			bufferedReader = new BufferedReader(new StringReader(description));
+			Pointer pointer = Pointer.BEFORE;
+			while((line = bufferedReader.readLine()) != null) {
+				// setting the pointer
+				// 		finding the end of the happy-marvin instructions
+				if (line.equals(Constants.CONS_IN_DESC_INTRUCTIONS_END)) {
+					pointer = Pointer.END;
+					instructions.add(instruction);
+					break;
+				}
+				// 		we are in an instruction
+				if (pointer.equals(Pointer.START)) {
+					pointer = Pointer.INSTRUCTION;
+				}
+				// 		finding the beginning of the happy-marvin instructions
+				if (line.equals(Constants.CONS_IN_DESC_INTRUCTION_START)) {
+					if (!pointer.equals(Pointer.BEFORE)) {
+						instructions.add(instruction);
+					}
+					instruction = new ArrayList<String>();
+					pointer = Pointer.START;
+				}
+				
+				// the line of the instruction has to be added to the list
+				if (pointer.equals(Pointer.INSTRUCTION)) {
+					instruction.add(line);
+				}
+			}
+		} finally {
+			if (bufferedReader != null) {
+				bufferedReader.close();
+			}
+		}
+		
+		return instructions;
+	}
+	
 	
 	private void updateJiraIssueBean(JiraIssueBean jiraIssueBean, List<List<String>> instructions) throws IOException, InvalidInstructionException, ConfigurationException {
 		List<InstructionBean> instructionBeans = new ArrayList<InstructionBean>();
@@ -77,17 +125,47 @@ public class UndergroundMining {
 	private void processSentenceInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws InvalidInstructionException, ConfigurationException {
 		// splitting the description by sentences (the end of a sentence can mean the '. ' characters or the end of the line)
 		List<String> sentences = getIndividualSentences(instruction);
-		// getting the sentence patterns
-		List<InstructionSentencePatternsBean> instructionSentencePatternsBean = ConfigurationReaderUtil.getSentencePatternsOfInstructions();
+		// getting the sentence patterns (from the hm-config.xml => only the general patterns will be loaded -> the specific patterns cannot be read 
+		//     at this moment as the values (e.g. type and template -> JAVA POJO) are not known now
+		//     they can be loaded after the general values have been extracted...)
+		List<InstructionSentencePatternsBean> instructionSentencePatternsBean = configurationReaderUtil.getSentencePatternsOfInstructions();
 		// processing the sentences
 		Map<String, String> values = new HashMap<String, String>();
+		boolean isTemplateSpecificPatternsLoaded = false;
 		for(String sentence : sentences) {
+			// refresh the pattern list (it is needed as earlier I couldn't load all the patterns only the general ones -> to load the template specific
+			//    patterns I need the type and template values which haven't been loaded then)
+			isTemplateSpecificPatternsLoaded = refreshPatternList(instructionSentencePatternsBean, values, isTemplateSpecificPatternsLoaded);
 			// trying to find a matching sentence pattern
-			String fakeRegExpr = getMatchingRegExprCreatedFromPattern(sentence, instructionSentencePatternsBean, values);
+			String fakeRegExpr = getMatchingFakeRegExprCreatedFromPattern(sentence, instructionSentencePatternsBean, values);
 			// extracting the values from the sentence
-			values = extractValues(sentence, fakeRegExpr);
-			instructionBeans.add(createInstructionBean(values));
+			values.putAll(extractValues(sentence, fakeRegExpr));
 		}
+		InstructionBean instructionBean = createInstructionBean(values);
+		instructionBeans.add(instructionBean);
+		LOGGER.debug("InstructionBean: {}", instructionBean.toString());
+	}
+
+
+	private boolean refreshPatternList(List<InstructionSentencePatternsBean> instructionSentencePatternsBean, Map<String, String> values,
+			boolean isTemplateSpecificPatternsLoaded) throws ConfigurationException {
+		// if we have the type and the template value then we can load the template specific pattern(s)
+		//    if it hasn't been loaded yet
+		if (values.containsKey("type") && values.containsKey("template") && !isTemplateSpecificPatternsLoaded) {
+			// getting the template specific pattern from config
+			List<TemplatePropertyBean> templatePropertyBeans = configurationReaderUtil.getTemplateProperties(values.get("type"), values.get("template"));
+			
+			InstructionSentencePatternsBean newInstructionSentencePatternsBean = new InstructionSentencePatternsBean();
+			newInstructionSentencePatternsBean.setSentences(new ArrayList<String>());
+			for(TemplatePropertyBean templatePropertyBean : templatePropertyBeans) {
+				newInstructionSentencePatternsBean.getSentences().addAll(templatePropertyBean.getTextDefs());
+			}
+			instructionSentencePatternsBean.add(newInstructionSentencePatternsBean);
+			
+			isTemplateSpecificPatternsLoaded = true;
+		}
+		
+		return isTemplateSpecificPatternsLoaded;
 	}
 
 
@@ -113,8 +191,9 @@ public class UndergroundMining {
 
 	// sentence: I'd need a POJO Java component in the project tlem-validation-failures-report.
 	// regExp:   [I](['][d])?[ ][n][e][e][d][ ][a][ ]${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]${project}[\\.]
-	private Map<String, String> extractValues(String originalSentence, String fakeRegExpr) throws ConfigurationException {
+	private Map<String, String> extractValues(final String originalSentence, final String originalFakeRegExpr) throws ConfigurationException, InvalidInstructionException {
 		String sentence = originalSentence;
+		String fakeRegExpr = originalFakeRegExpr;
 		Map<String, String> values = new HashMap<String, String>();
 		
 		while(true) {
@@ -124,7 +203,7 @@ public class UndergroundMining {
 				break;
 			}
 			// getting the part of the reg expr till the value (-> [I](['][d])?[ ][n][e][e][d][ ][a][ ]  in the example below)
-			String partRegExpr = fakeRegExpr.substring(0, start-1);
+			String partRegExpr = fakeRegExpr.substring(0, start);
 			// removing the characters till the value in the sentence and in the fake reg expr 
 			//     (the sentence will be: POJO Java component in the project tlem-validation-failures-report.)
 			//     (the fake reg expr will be: ${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]${project}[\\.])
@@ -137,7 +216,7 @@ public class UndergroundMining {
 				throw new ConfigurationException(String.format("No ending bracket ('}') in the pattern! pattern:%s",fakeRegExpr));
 			}
 			// I also need the name of the value
-			String nameOfValue = fakeRegExpr.substring(2, end - 1);
+			String nameOfValue = fakeRegExpr.substring(2, end);
 			// getting the separation characters
 			int nextStart = fakeRegExpr.indexOf("${", 3);
 			//    if this is the last value in the fake reg expr
@@ -146,9 +225,18 @@ public class UndergroundMining {
 			}
 			String separationChars = fakeRegExpr.substring(end + 1, nextStart);
 			// getting the value from the sentence
-			Pattern pattern = Pattern.compile(separationChars);
-			Matcher matcher = pattern.matcher(sentence);
-			String value = sentence.substring(0, matcher.regionStart());
+			String value = null;
+			if (separationChars == null || separationChars.length() == 0) {
+				value = sentence;
+			} else {
+				Pattern pattern = Pattern.compile(separationChars);
+				Matcher matcher = pattern.matcher(sentence);
+				if (matcher.find()) {
+					value = sentence.substring(0, matcher.start());
+				} else {
+					throw new InvalidInstructionException(String.format("The value ${%s} cannot be found in the sentence '%s'!", nameOfValue, originalSentence));
+				}
+			}
 			// rolling the sentence and the fake reg expr
 			//   sentence: 'POJO Java component in the project tlem-validation-failures-report.'  ->  ' Java component in the project tlem-validation-failures-report.'
 			//   fake reg expr: '${template}[ ]${type}[ ][c][o][m][p][o][n][e][n][t] ...'  ->  '[ ]${type}[ ][c][o][m][p][o][n][e][n][t] ...'
@@ -163,34 +251,29 @@ public class UndergroundMining {
 
 
 	// finding the pattern that matches the sentence
-	private String getMatchingRegExprCreatedFromPattern(String sentence,
-			                                            List<InstructionSentencePatternsBean> instructionSentencePatternsBeans,
-			                                            Map<String, String> values) throws ConfigurationException {
-		String regExp = null;
-		
+	private String getMatchingFakeRegExprCreatedFromPattern(final String sentence,
+			                                                final List<InstructionSentencePatternsBean> instructionSentencePatternsBeans,
+			                                                final Map<String, String> values) throws ConfigurationException, InvalidInstructionException {
 		// finding a pattern that can be used to match
 		List<String> allInstructionSentencePatterns = new ArrayList<String>();
 		for(InstructionSentencePatternsBean instructionSentencePatternsBean : instructionSentencePatternsBeans) {
-			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentence1s());
-			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentence2s());
-			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentence3s());
-			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentence4s());
-			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentence5s());
+			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentences());
 		}
-		main: for (String instructionSentencePattern : allInstructionSentencePatterns) {
+		for (String instructionSentencePattern : allInstructionSentencePatterns) {
 			if (!checkIfContainingAFoundValues(instructionSentencePattern, values)) {
 				// do the matching
 				List<Map<String,String>> regExps = getRegularExpressionFromPattern(instructionSentencePattern);
 				for(Map<String,String> record : regExps) {
 					if (sentence.matches(record.get("regExpr"))) {
-						regExp = record.get("fakeRegExpr");
-						break main;
+						LOGGER.debug(String.format("Found regular expression: %s", record.get("fakeRegExpr")));
+						return record.get("fakeRegExpr");
 					}
 				}
 			}
 		}
 		
-		return regExp;
+		throw new InvalidInstructionException(String.format("There is not matching pattern for the sentence '%s'! Perhaps the problem is that first you have to "
+				+ "define the general (not template specific) values in the sentences ...", sentence));
 	}
 
 	
@@ -204,11 +287,14 @@ public class UndergroundMining {
 	//
 	// the return List will contain a the list of the normal and fake reg exp
 	//     fake expression for example: [I](['][d])?[ ][n][e][e][d][ ][a][ ]${template}[ ]${type}[ ] ...
+	// TODO not allowed strings in the pattern: 
+	//           - [${project}]
 	private List<Map<String,String>> getRegularExpressionFromPattern(String instructionSentencePattern) throws ConfigurationException {
 		List<Map<String,String>> regExprs = new ArrayList<Map<String,String>>();
 		
 		List<String> patterns = createPatternsFromOptions(instructionSentencePattern);
-		LoggerUtility.logListInNewLine(LOGGER, patterns, "Simplified patterns created from the original pattern:", LoggerUtility.Level.DEBUG);
+		LOGGER.debug("Simplified patterns created from the original pattern:\nOriginal pattern:\n{}\nSimplified patterns:\n{}", instructionSentencePattern, 
+				StringUtility.toStringInNewLine(patterns));
 		
 		for(String pattern : patterns) {
 			StringBuilder regExpr = new StringBuilder();
@@ -216,7 +302,13 @@ public class UndergroundMining {
 			// 0 - not in value, 1 - found a $ char, 2 - found the ${ characters
 			int inValueProbability = 0;
 			// if we are between the characters '${' and '}' and the '.+' characters are already put (they should be put just once)
-			boolean alreadyPutTheReplacementValueChar = false; 
+			boolean alreadyPutTheReplacementValueChar = false;
+			// if the first character in the pattern is a '[' then the first character of the next word after the not mandatory word can be an uppercase or lowercase
+			//    e.g.: [Please ]put [a ]....  -> The sentence can start with 'Please put...' or 'Put...' => in the real regular expression the 'put' will be
+			//         something like this '...[pP]...'
+			//    the variable is for determining if the first character in the pattern is a '['
+			//        0 - not starting with a bracket, 1 - starting with a bracket, 2 - after the char ']' so upper/lowercase allowed in the reg expr
+			int isStartingWithaBracket = (pattern.charAt(0) == '[') ? 1 : 0;
 			for(char kar : pattern.toCharArray()) {
 				// handling the '[', ']' characters
 				if (kar == '[') {
@@ -225,26 +317,34 @@ public class UndergroundMining {
 				} else if (kar == ']') {
 					regExpr.append(")?");
 					fakeRegExpr.append(")?");
+					if (isStartingWithaBracket == 1) {
+						isStartingWithaBracket = 2;
+					}
 				}
 				// handling the values (e.g. ${project})
 				else if (kar == '$') {
 					inValueProbability = 1;
 				} else if (kar == '{' && inValueProbability == 1) {
 					inValueProbability = 2;
+					fakeRegExpr.append("${");
 				} else if (kar == '}') {
 					inValueProbability = 0;
 					alreadyPutTheReplacementValueChar = false;
+					fakeRegExpr.append("}");
 				}
 				// handling the normal characters
 				else if (inValueProbability != 2) {
-					regExpr.append("[").append(convertCharIfNeeded(kar)).append("]");
-					fakeRegExpr.append("[").append(convertCharIfNeeded(kar)).append("]");
+					regExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
+					fakeRegExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
+					if (isStartingWithaBracket == 2) {
+						isStartingWithaBracket = 0;
+					}
 				} 
 				// if we are in the value - between the characters '${' and '}'
 				else if (inValueProbability == 2) {
 					if (!alreadyPutTheReplacementValueChar) {
 						alreadyPutTheReplacementValueChar = true;
-						regExpr.append(".+");
+						regExpr.append(Constants.REGEXP_CHARS_ALLOWED_IN_VALUE + "+");
 					}
 					fakeRegExpr.append(kar);
 				}
@@ -262,7 +362,7 @@ public class UndergroundMining {
 	
 	// converting a char for the reg expression
 	// e.g. '.' -> '\\.'
-	private String convertCharIfNeeded(char kar) {
+	private String convertCharIfNeeded(char kar, int isStartingWithaBracket) {
 		String s = null;
 		switch(kar) {
 			case '.':
@@ -278,6 +378,9 @@ public class UndergroundMining {
 				s = "\\"+String.valueOf(kar);
 			default:
 				s = String.valueOf(kar);
+				if (isStartingWithaBracket == 2) {
+					s = s.toLowerCase() + s.toUpperCase();
+				}
 		}
 		return s;
 	}
@@ -285,12 +388,13 @@ public class UndergroundMining {
 
 	// creating more patterns if the original pattern contains options
 	// For example:
-	//     original pattern: I['d] need a ${template} ${type} [component]/[class]/[file]/[XML file] in the [project]/[folder] ${project}.
+	//     original pattern: I['d] need a ${template} ${type} [component]/[file]/[XML file] in the [project]/[folder] ${project}.
 	//     patterns:         I['d] need a ${template} ${type} [component] in the [project] ${project}.
 	//                       I['d] need a ${template} ${type} [file] in the [project] ${project}.
-	//                       I['d] need a ${template} ${type} [file]/[XML file] in the [project] ${project}.
+	//                       I['d] need a ${template} ${type} [XML file] in the [project] ${project}.
 	//                       I['d] need a ${template} ${type} [component] in the [folder] ${project}.
-	//                       ...
+	//                       I['d] need a ${template} ${type} [file] in the [folder] ${project}.
+	//                       I['d] need a ${template} ${type} [XML file] in the [folder] ${project}.
 	// in the example below there is an option with 3 choices and an other option with 2 choices => 3*2=6 patterns will be generated
 	private List<String> createPatternsFromOptions(String patternText) throws ConfigurationException {
 		List<String> newPatterns = new ArrayList<String>();
@@ -314,28 +418,32 @@ public class UndergroundMining {
 				throw new ConfigurationException(String.format("The end of the options cannot be found in the pattern %s!", patternText));
 			}
 			// getting the text option group
-			String optionGroup = patternText.substring(start, end);
+			String optionGroup = patternText.substring(start, end-1);
 			String[] options = optionGroup.split("/");
 			if (options.length < 2) {
 				throw new ConfigurationException(String.format("The optionGroup %s must contain at least 2 elements!", optionGroup));
 			}
 			// creating new patterns
 			for (String option : options) {
-				String newPattern = patternText.substring(0, start) + option + patternText.substring(end);
-				LOGGER.debug("new pattern: {}", newPattern);
+				String newPattern = patternText.substring(0, start) + 
+                                    option.substring(1, option.length() - 1) + 
+                                    patternText.substring(end-1);
 				newPatterns.add(newPattern);
 			}
 		} else {
 			newPatterns.add(patternText);
 		}
 		
+		List<String> result = new ArrayList<String>();
 		for (String newPattern : newPatterns) {
 			if (newPattern.indexOf(Constants.OPTION_CHARACTERS) != -1) {
-				newPatterns.addAll(createPatternsFromOptions(newPattern));
+				result.addAll(createPatternsFromOptions(newPattern));
+			} else {
+				result.add(newPattern);
 			}
 		}
 		
-		return newPatterns;
+		return result;
 	}
 
 	// the sentence pattern mustn't contain an already found value
@@ -358,6 +466,12 @@ public class UndergroundMining {
 		for(String line : instruction) {
 			sentences.addAll(Arrays.asList(line.split(Constants.CONS_IN_DESC_INTRUCTIONS_SENTENCE_SEPARATOR)));
 		}
+		// adding dot in the end of the sentences if there isn't any
+		for(int i = 0; i < sentences.size(); i++) {
+			if (sentences.get(i).charAt(sentences.get(i).length()-1) != '.') {
+				sentences.set(i, sentences.get(i) + ".");
+			}
+		}
 		// removing those elements whose length are zero
 		for(int i = 0; i < sentences.size(); i++) {
 			String sentence = sentences.get(i);
@@ -374,7 +488,7 @@ public class UndergroundMining {
 	// For exmaple:	TYPE:Java
 	//              TEMPLATE:POJO
 	// TYPE, TEMPLATE, PROJECT, NAME, PLACE , <template specific properties>
-	private void processKeyValueInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws InvalidInstructionException {
+	private void processKeyValueInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws ConfigurationException, InvalidInstructionException {
 		InstructionBean instructionBean = new InstructionBean();
 		
 		// getting the basic values
@@ -388,7 +502,7 @@ public class UndergroundMining {
 		String key = null;
 		String value = null;
 		Map<String, String> properties = new HashMap<String, String>();
-		List<TemplatePropertyBean> propertyBeans = ConfigurationReaderUtil.getTemplateProperties(type, template);
+		List<TemplatePropertyBean> propertyBeans = configurationReaderUtil.getTemplateProperties(type, template);
 		for (TemplatePropertyBean propertyBean : propertyBeans) {
 			key = propertyBean.getText();
 			value = getValue(instruction, key);
@@ -455,52 +569,6 @@ public class UndergroundMining {
 	}
 
 
-	private List<List<String>> getInstructions(String description) throws IOException {
-		List<List<String>> instructions = new ArrayList<List<String>>();
-		List<String> instruction = null;
-		BufferedReader bufferedReader = null;
-
-		// looping through the lines of the description
-		String line = null;
-		try {
-			bufferedReader = new BufferedReader(new StringReader(description));
-			Pointer pointer = Pointer.BEFORE;
-			while((line = bufferedReader.readLine()) != null) {
-				// setting the pointer
-				// 		finding the end of the happy-marvin instructions
-				if (line.equals(Constants.CONS_IN_DESC_INTRUCTIONS_END)) {
-					pointer = Pointer.END;
-					instructions.add(instruction);
-					break;
-				}
-				// 		we are in an instruction
-				if (pointer.equals(Pointer.START)) {
-					pointer = Pointer.INSTRUCTION;
-				}
-				// 		finding the beginning of the happy-marvin instructions
-				if (line.equals(Constants.CONS_IN_DESC_INTRUCTION_START)) {
-					if (!pointer.equals(Pointer.BEFORE)) {
-						instructions.add(instruction);
-					}
-					instruction = new ArrayList<String>();
-					pointer = Pointer.START;
-				}
-				
-				// the line of the instruction has to be added to the list
-				if (pointer.equals(Pointer.INSTRUCTION)) {
-					instruction.add(line);
-				}
-			}
-		} finally {
-			if (bufferedReader != null) {
-				bufferedReader.close();
-			}
-		}
-		
-		return instructions;
-	}
-
-
 	public static void main(String[] args) {
 		String sentence0 = "I'd need a POJO Java component in the project tlem-validation-failures-report.";
 		String pattern0 = "I['d] need a ${template} ${type} [component]/[class]/[file]/[XML file] in the project ${project}.";
@@ -524,4 +592,11 @@ public class UndergroundMining {
 		
 		System.out.println(sentence1.matches(reg1));
 	}
+
+
+	public void setConfigurationReaderUtil(ConfigurationReaderUtilI configurationReaderUtil) {
+		this.configurationReaderUtil = configurationReaderUtil;
+	}
+
+
 }

@@ -8,4 +8,8 @@ public class ConfigurationException extends Exception {
 		super(message);
 	}
 	
+	public ConfigurationException(String message, Throwable t) {
+		super(message, t);
+	}
+
 }

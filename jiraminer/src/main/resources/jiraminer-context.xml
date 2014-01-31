@@ -22,4 +22,11 @@ scope???
     <bean id="jiraAnalyzer" class="com.googlecode.happymarvin.jiraexplorer.utils.JiraAnalyzer">
         <property name="restClient" ref="restClient"/>
     </bean>
+    
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil" scope="singleton"/>
+    
+    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+    </bean>
+    
 </beans>

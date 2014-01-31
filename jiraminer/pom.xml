@@ -20,11 +20,11 @@
 
 	<dependencies>
 		<!-- Using for mocking the JIRA REST service -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-test-mvc</artifactId> -->
-<!-- 			<version>1.0.0.M2</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test-mvc</artifactId>
+			<version>1.0.0.M2</version>
+		</dependency>
 
 		<!-- Using Jackson for JSON marshaling -->
 		<dependency>

@@ -1,6 +1,8 @@
 package com.googlecode.happymarvin.common.beans;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InstructionBean {
 
@@ -47,5 +49,23 @@ public class InstructionBean {
 	public void setProperties(Map<String, String> properties) {
 		this.properties = properties;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getName()).append("[");
+		sb.append("type=").append(type);
+		sb.append(",template=").append(template);
+		sb.append(",project=").append(project);
+		sb.append(",name=").append(name);
+		sb.append(",properties={");
+		if (properties != null && properties.size() > 0) {
+			for(String key : properties.keySet()) {
+				sb.append(key).append("=").append(properties.get(key)).append(",");			
+			}
+		}
+		sb.append("}]");
+		return sb.toString();
+	}	
 	
 }
