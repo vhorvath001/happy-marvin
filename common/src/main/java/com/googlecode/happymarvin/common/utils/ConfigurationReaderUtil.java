@@ -1,7 +1,5 @@
 package com.googlecode.happymarvin.common.utils;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -15,15 +13,17 @@ import com.googlecode.happymarvin.common.beans.simplexml.configuration.templates
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatePropertyBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatesBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
-import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
 
-public class ConfigurationReaderUtil implements ConfigurationReaderUtilI {
+public class ConfigurationReaderUtil {
 
 	
-	private static TemplatesBean templatesBean = null;
-	private static ConfigBean configBean = null;
+	private TemplatesBean templatesBean = null;
+	private ConfigBean configBean = null;
 	private static final Object MONITOR_CONFIG_TEMPLATES = new Object();
 	private static final Object MONITOR_CONFIG = new Object();
+	
+	private String pathConfigFile = null;
+	private String pathTemplateConfigFile = null;
 	
 	
 	private void initTemplateConfig() throws ConfigurationException {
@@ -32,12 +32,11 @@ public class ConfigurationReaderUtil implements ConfigurationReaderUtilI {
 				if (templatesBean == null) {
 					Serializer serializer = new Persister();
 			
-//					InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(Constants.PATH_TEMPLATE_CONFIG_XML);
 					try {
-						InputStream in = new ClassPathResource(Constants.PATH_TEMPLATE_CONFIG_XML).getInputStream();
+						InputStream in = new ClassPathResource(pathTemplateConfigFile).getInputStream();
 						templatesBean = serializer.read(TemplatesBean.class, in);
 					} catch (Exception e) {
-						throw new ConfigurationException(String.format("The template config file %s cannot be read!", Constants.PATH_TEMPLATE_CONFIG_XML), e);
+						throw new ConfigurationException(String.format("The template config file %s cannot be read!", pathTemplateConfigFile), e);
 					}
 				}
 			}
@@ -51,12 +50,11 @@ public class ConfigurationReaderUtil implements ConfigurationReaderUtilI {
 				if (configBean == null) {
 					Serializer serializer = new Persister();
 			
-					//InputStream in = this.getClass().getResourceAsStream(Constants.PATH_CONFIG_XML);
 					try {
-						InputStream in = new ClassPathResource(Constants.PATH_CONFIG_XML).getInputStream();
+						InputStream in = new ClassPathResource(pathConfigFile).getInputStream();
 						configBean = serializer.read(ConfigBean.class, in);
 					} catch (Exception e) {
-						throw new ConfigurationException(String.format("The config file %s cannot be read!", Constants.PATH_CONFIG_XML), e);
+						throw new ConfigurationException(String.format("The config file %s cannot be read!", pathConfigFile), e);
 					}
 				}
 			}
@@ -84,6 +82,16 @@ public class ConfigurationReaderUtil implements ConfigurationReaderUtilI {
 		initConfig();
 		
 		return configBean.getInstructionSentencePatterns();
+	}
+
+
+	public void setPathConfigFile(String pathConfigFile) {
+		this.pathConfigFile = pathConfigFile;
+	}
+
+
+	public void setPathTemplateConfigFile(String pathTemplateConfigFile) {
+		this.pathTemplateConfigFile = pathTemplateConfigFile;
 	}
 	
 }

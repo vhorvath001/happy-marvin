@@ -18,7 +18,9 @@ public class Constants {
 	public static final String OPTION_CHARACTERS = "]/[";
 	public static final String REGEXP_PATTERN_BRACKETS = "([\\[][a-zA-Z0-9 _\\-'`\"£$&*\\+\\(\\)\\{\\}\\.]*[\\]])";
 	public static final String REGEXP_END_OF_OPTION_GROUPS = "[\\/]" + REGEXP_PATTERN_BRACKETS + "[^\\/^\\[]";
-	public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = "[a-zA-Z0-9-_:]";
+	//public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = "[a-zA-Z0-9-_:]";
+	//public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = "[a-zA-Z0-9_:-/=+\\.,\\[\\]\\{\\}#]";
+	public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = ".";
 
 	public static final String PATH_TEMPLATE_CONFIG_XML = "hm-templates-config.xml";
 	public static final String PATH_CONFIG_XML = "hm-config.xml";

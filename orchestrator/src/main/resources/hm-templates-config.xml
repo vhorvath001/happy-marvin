@@ -1,0 +1,11 @@
+<templates>
+	<template name="POJO" type="Java">
+		<file>templates/java/pojo.freemarker</file>
+		<property name="method" text="METHOD">
+			<!-- The [] means that the word is not mandatory -->
+			<!-- not case-sensitive: add or Add -->
+			<textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+			<textDef>[A ]method [is ]needed: '${method}'.</textDef>
+		</property>
+	</template>
+</templates>

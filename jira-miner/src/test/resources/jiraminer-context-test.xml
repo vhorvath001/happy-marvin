@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"> -->
+<!--         <property name="messageConverters"> -->
+<!--             <list> -->
+<!--                 <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--     </bean> -->
+    
+<!--     <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient"> -->
+<!--         <property name="restTemplate" ref="restTemplate"/> -->
+<!--     </bean> -->
+    
+    
+    <!-- ****************************** for SUCCESSFUL test ****************************** -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil" scope="singleton">
+    	<property name="pathConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_CONFIG_XML }"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+    </bean>
+
+
+    <!-- ****************************** for UNSUCCESSFUL test ****************************** -->
+    <!-- not closed a squared bracket -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil_notClosedSquaredBracket" scope="singleton">
+    	<property name="pathConfigFile" value="unsuccessful_tests/hm-config_notClosedSquaredBracket.xml"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining_notClosedSquaredBracket" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil_notClosedSquaredBracket"/>
+    </bean>
+    
+    <!-- a starting squared bracket is missing -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil_startingSquaredBracketMissing" scope="singleton">
+    	<property name="pathConfigFile" value="unsuccessful_tests/hm-config_startingSquaredBracketMissing.xml"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining_startingSquaredBracketMissing" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil_startingSquaredBracketMissing"/>
+    </bean>
+
+    <!-- not closed a curly bracket -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil_notClosedCurlyBracket" scope="singleton">
+    	<property name="pathConfigFile" value="unsuccessful_tests/hm-config_notClosedCurlyBracket.xml"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining_notClosedCurlyBracket" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil_notClosedCurlyBracket"/>
+    </bean>
+
+    <!-- a starting curly bracket is missing -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil_startingCurlyBracketMissing" scope="singleton">
+    	<property name="pathConfigFile" value="unsuccessful_tests/hm-config_startingCurlyBracketMissing.xml"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining_startingCurlyBracketMissing" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil_startingCurlyBracketMissing"/>
+    </bean>
+
+    <!-- a matching pattern cannot be found -->
+    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil_matchingPatternCannotBeFound" scope="singleton">
+    	<property name="pathConfigFile" value="unsuccessful_tests/hm-config_matchingPatternCannotBeFound.xml"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    <bean id="undergroundMining_matchingPatternCannotBeFound" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil_matchingPatternCannotBeFound"/>
+    </bean>
+
+
+</beans>
