@@ -4,17 +4,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-<!--     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"> -->
-<!--         <property name="messageConverters"> -->
-<!--             <list> -->
-<!--                 <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/> -->
-<!--             </list> -->
-<!--         </property> -->
-<!--     </bean> -->
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
     
-<!--     <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient"> -->
-<!--         <property name="restTemplate" ref="restTemplate"/> -->
-<!--     </bean> -->
+    <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient">
+        <property name="restTemplate" ref="restTemplate"/>
+    </bean>
     
     
     <!-- ****************************** for SUCCESSFUL test ****************************** -->
@@ -72,6 +72,5 @@
     <bean id="undergroundMining_matchingPatternCannotBeFound" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
     	<property name="configurationReaderUtil" ref="configurationReaderUtil_matchingPatternCannotBeFound"/>
     </bean>
-
 
 </beans>

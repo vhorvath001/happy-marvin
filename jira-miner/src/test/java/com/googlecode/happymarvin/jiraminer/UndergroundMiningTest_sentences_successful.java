@@ -50,7 +50,7 @@ public class UndergroundMiningTest_sentences_successful {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getPlace());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -78,7 +78,7 @@ public class UndergroundMiningTest_sentences_successful {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getPlace());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -100,7 +100,7 @@ public class UndergroundMiningTest_sentences_successful {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getPlace());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -125,7 +125,7 @@ public class UndergroundMiningTest_sentences_successful {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getPlace());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -150,7 +150,7 @@ public class UndergroundMiningTest_sentences_successful {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getPlace());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 }

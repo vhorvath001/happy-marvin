@@ -15,6 +15,9 @@ public class ConfigBean {
 	@ElementList(inline=true, required=false, entry="instructionSentencePatterns")
 	private List<InstructionSentencePatternsBean> instructionSentencePatterns;
 
+	@ElementList(inline=true, required=false, entry="project")
+	private List<ProjectBean> projects;
+
 	public String getPatternType() {
 		return patternType;
 	}
@@ -32,6 +35,14 @@ public class ConfigBean {
 		this.instructionSentencePatterns = instructionSentencePatterns;
 	}
 
+	public List<ProjectBean> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<ProjectBean> projects) {
+		this.projects = projects;
+	}	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -42,7 +53,13 @@ public class ConfigBean {
 				sb.append(bean).append(",");			
 			}
 		}
+		if (projects != null && projects.size() > 0) {
+			for(ProjectBean bean : projects) {
+				sb.append(bean).append(",");			
+			}
+		}
 		sb.append("]");
 		return sb.toString();
-	}	
+	}
+
 }

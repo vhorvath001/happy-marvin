@@ -38,6 +38,7 @@ import com.googlecode.happymarvin.common.utils.StringUtility;
 // TODO at the moment the values have to be defined between apostrophes -> think about if the apostrophes can be avoided!!!
 // TODO patternType: simplified or regularExpression
 // TODO creating a logic that will examine the patterns in the config files before actually trying to find a matching one...?
+// TODO writing unit tests for key-value instructions
 public class UndergroundMining {
 
 	
@@ -180,13 +181,13 @@ public class UndergroundMining {
 		InstructionBean instructionBean = new InstructionBean();
 		
 		instructionBean.setName(values.get("name"));
-		instructionBean.setPlace(values.get("place"));
+		instructionBean.setLocation(values.get("location"));
 		instructionBean.setProject(values.get("project"));
 		instructionBean.setTemplate(values.get("template"));
 		instructionBean.setType(values.get("type"));
 		
 		values.remove("name");
-		values.remove("place");
+		values.remove("location");
 		values.remove("project");
 		values.remove("template");
 		values.remove("type");
@@ -540,7 +541,7 @@ public class UndergroundMining {
 	// getting the values as key/value from description and return an updated JiraIssueBean
 	// For exmaple:	TYPE:Java
 	//              TEMPLATE:POJO
-	// TYPE, TEMPLATE, PROJECT, NAME, PLACE , <template specific properties>
+	// TYPE, TEMPLATE, PROJECT, NAME, LOCATION , <template specific properties>
 	private void processKeyValueInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws ConfigurationException, InvalidInstructionException {
 		InstructionBean instructionBean = new InstructionBean();
 		
@@ -549,7 +550,7 @@ public class UndergroundMining {
 		String template = getValue(instruction, "TEMPLATE");
 		String project = getValue(instruction, "PROJECT");
 		String name = getValue(instruction, "NAME");
-		String place = getValue(instruction, "PLACE");
+		String location = getValue(instruction, "LOCATION");
 		
 		// getting the template-specific value(s)
 		String key = null;
@@ -565,7 +566,7 @@ public class UndergroundMining {
 		// if no exception has been thrown then the instruction can be added to the list
 		instructionBean.setName(name);
 		instructionBean.setType(type);
-		instructionBean.setPlace(place);
+		instructionBean.setLocation(location);
 		instructionBean.setProject(project);
 		instructionBean.setTemplate(template);
 		instructionBean.setProperties(properties);
@@ -603,7 +604,7 @@ public class UndergroundMining {
 	 * Sample: TYPE:XQuery
 	 */
 	private boolean isKeyValueInstruction(List<String> instruction) {
-		// the instruction must be at least in 5 lines (1.TYPE, 2.TEMPLATE, 3.PROJECT, 4.NAME, 5.PLACE)
+		// the instruction must be at least in 5 lines (1.TYPE, 2.TEMPLATE, 3.PROJECT, 4.NAME, 5.LOCATION)
 		if (instruction.size() < 5) {
 			return false;
 		}

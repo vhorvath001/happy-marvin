@@ -7,7 +7,7 @@
     
     <bean id="surfaceMining" class="com.googlecode.happymarvin.jiraminer.FakeSurfaceMining"/>
     
-    <bean class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" id="configurationReaderUtil" scope="singleton">
+    <bean id="configurationReaderUtil" class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" scope="singleton">
     	<property name="pathConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_CONFIG_XML }"/>
     	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
     </bean>
@@ -16,10 +16,12 @@
     	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
     </bean>
     
-    <bean id="codeGenerator" class="com.googlecode.happymarvin.codegenerator.CodeGenerator"/>
+    <bean id="artefactGenerator" class="com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator">
+		<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+	</bean>
     
     <bean id="processOrchestrator" class="com.googlecode.happymarvin.orchestrator.ProcessOrchestrator">
-    	<property name="codeGenerator" ref="codeGenerator"/>
+    	<property name="artefactGenerator" ref="artefactGenerator"/>
     	<property name="restClient" ref="restClient"/>
     	<property name="surfaceMining" ref="surfaceMining"/>
     	<property name="undergroundMining" ref="undergroundMining" />

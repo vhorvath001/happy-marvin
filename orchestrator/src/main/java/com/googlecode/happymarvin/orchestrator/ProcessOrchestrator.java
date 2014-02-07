@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.googlecode.happymarvin.codegenerator.CodeGenerator;
+import com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
@@ -19,7 +19,7 @@ import freemarker.template.TemplateException;
 public class ProcessOrchestrator {
 
 	
-	private CodeGenerator codeGenerator;
+	private ArtefactGenerator artefactGenerator;
 	private RestClient restClient;
 	private SurfaceMining surfaceMining;
 	private UndergroundMining undergroundMining;
@@ -33,13 +33,13 @@ public class ProcessOrchestrator {
 		JiraIssueBean jiraIssueBean = surfaceMining.mine(responseFromREST);
 		undergroundMining.mine(jiraIssueBean);
 		
-		// calling the code generation
-		codeGenerator.generate(jiraIssueBean);
+		// calling the artefact generation
+		artefactGenerator.generate(jiraIssueBean);
 	}
 
 
-	public void setCodeGenerator(CodeGenerator codeGenerator) {
-		this.codeGenerator = codeGenerator;
+	public void setArtefactGenerator(ArtefactGenerator artefactGenerator) {
+		this.artefactGenerator = artefactGenerator;
 	}
 
 	public void setRestClient(RestClient restClient) {
@@ -62,4 +62,5 @@ public class ProcessOrchestrator {
 		
 		processOrchestrator.start();
 	}
+	
 }

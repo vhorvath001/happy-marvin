@@ -9,6 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.config.ConfigBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.config.InstructionSentencePatternsBean;
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.config.ProjectBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatePropertyBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatesBean;
@@ -78,6 +79,19 @@ public class ConfigurationReaderUtil {
 	}
 	
 	
+	public TemplateBean getTemplate(String type, String template) throws ConfigurationException {
+		initTemplateConfig();
+		
+		for(TemplateBean templateBean : templatesBean.getTemplate()) {
+			if (templateBean.getName().equals(template) && templateBean.getType().equals(type)) {
+				return templateBean;
+			}
+		}
+		
+		throw new ConfigurationException(String.format("The template (type=%s, template=%s) cannot be found!", type, template));
+	}	
+	
+	
 	public List<InstructionSentencePatternsBean> getSentencePatternsOfInstructions() throws ConfigurationException {
 		initConfig();
 		
@@ -85,6 +99,19 @@ public class ConfigurationReaderUtil {
 	}
 
 
+	public ProjectBean getProjects(String nameProject) throws ConfigurationException {
+		initConfig();
+		
+		for(ProjectBean projectBean : configBean.getProjects()) {
+			if (projectBean.getName().equals(nameProject)) {
+				return projectBean;
+			}
+		}
+		
+		throw new ConfigurationException(String.format("The project %s cannot be found in the config file!", nameProject));
+	}
+
+	
 	public void setPathConfigFile(String pathConfigFile) {
 		this.pathConfigFile = pathConfigFile;
 	}

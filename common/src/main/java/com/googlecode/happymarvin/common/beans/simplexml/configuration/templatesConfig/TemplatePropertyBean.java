@@ -17,6 +17,16 @@ public class TemplatePropertyBean implements Serializable {
 	@Attribute
 	private String text;
 
+	@Attribute
+	private String mandatory;
+	
+	// this attribute indicates two things:
+	//   - if the property exists as an attribute then it means that the property is a location type property and 
+	//        it will replace the common location value
+	//   - the value of the property means that the location belongs to which file
+	@Attribute(required=false)
+	private String locationOf;
+
 	@ElementList(inline=true, required=false, entry="textDef")
 	private List<String> textDefs;
 
@@ -27,6 +37,14 @@ public class TemplatePropertyBean implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getLocationOf() {
+		return locationOf;
+	}
+
+	public void setLocationOf(String locationOf) {
+		this.locationOf = locationOf;
 	}
 
 	public String getText() {
@@ -45,12 +63,26 @@ public class TemplatePropertyBean implements Serializable {
 		this.textDefs = textDefs;
 	}
 	
+	public String getMandatory() {
+		return mandatory;
+	}
+
+	public void setMandatory(String mandatory) {
+		this.mandatory = mandatory;
+	}	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("name=").append(name);
 		sb.append(",text=").append(text);
+		if (mandatory != null && mandatory.length() > 0) {
+			sb.append(",mandatory=").append(mandatory);
+		}
+		if (locationOf != null && locationOf.length() > 0) {
+			sb.append(",locationOf=").append(locationOf);
+		}
 		sb.append(",textDefs=");
 		if (textDefs != null && textDefs.size() > 0) {
 			for(String textDef : textDefs) {
@@ -59,6 +91,6 @@ public class TemplatePropertyBean implements Serializable {
 		}
 		sb.append("]");
 		return sb.toString();
-	}	
-	
+	}
+
 }

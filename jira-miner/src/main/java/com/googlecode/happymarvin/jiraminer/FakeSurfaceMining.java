@@ -3,12 +3,12 @@ package com.googlecode.happymarvin.jiraminer;
 import java.util.LinkedHashMap;
 
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
-import com.googlecode.happymarvin.common.utils.Constants;
 
 public class FakeSurfaceMining extends SurfaceMining {
 
 	
-	public JiraIssueBean mine(final LinkedHashMap<String, Object> reponseJiraRest) {
+	// Java POJO
+	public JiraIssueBean mine_(final LinkedHashMap<String, Object> reponseJiraRest) {
 		JiraIssueBean jiraIssueBean = new JiraIssueBean();
 		
 		String description = 
@@ -24,4 +24,21 @@ public class FakeSurfaceMining extends SurfaceMining {
 	}
 
 	
+	// Java Validator
+	public JiraIssueBean mine(final LinkedHashMap<String, Object> reponseJiraRest) {
+		JiraIssueBean jiraIssueBean = new JiraIssueBean();
+		
+		String description = 
+				"blahblah\n" +
+				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
+				"Create a 'Java' component in the project 'tlem-validation-failures-report'. Use the template 'JSR303Validator'.\n" +
+				"The name is 'PR2121'. The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'.\n" +
+				"The config XML file should be in 'src/main/resources/xmls' folder.\n" +
+				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
+		jiraIssueBean.setDescription(description);
+		
+		return jiraIssueBean;
+	}
+
+
 }

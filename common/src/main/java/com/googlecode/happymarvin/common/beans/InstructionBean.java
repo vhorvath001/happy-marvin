@@ -8,7 +8,7 @@ public class InstructionBean {
 	private String template;
 	private String project;
 	private String name;
-	private String place;
+	private String location;
 	private Map<String, String> properties;
 	
 	public String getType() {
@@ -35,17 +35,17 @@ public class InstructionBean {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPlace() {
-		return place;
-	}
-	public void setPlace(String place) {
-		this.place = place;
-	}
 	public Map<String, String> getProperties() {
 		return properties;
 	}
 	public void setProperties(Map<String, String> properties) {
 		this.properties = properties;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	@Override
@@ -56,6 +56,7 @@ public class InstructionBean {
 		sb.append(",template=").append(template);
 		sb.append(",project=").append(project);
 		sb.append(",name=").append(name);
+		sb.append(",location=").append(location);
 		sb.append(",properties={");
 		if (properties != null && properties.size() > 0) {
 			for(String key : properties.keySet()) {

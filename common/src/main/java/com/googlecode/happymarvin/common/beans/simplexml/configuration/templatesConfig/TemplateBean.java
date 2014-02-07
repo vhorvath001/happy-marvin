@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 public class TemplateBean implements Serializable {
@@ -19,8 +18,11 @@ public class TemplateBean implements Serializable {
 	@Attribute
 	private String type = null;
 	
-	@Element(name="file")
-	private String file = null;
+	@Attribute
+	private String extension = null;
+
+	@ElementList(inline=true, required=true, entry="file")
+	private List<TemplateFileBean> files = null;
 	
 	@ElementList(inline=true, required=false, entry="property")
 	private List<TemplatePropertyBean> properties = null;
@@ -42,12 +44,12 @@ public class TemplateBean implements Serializable {
 		this.type = type;
 	}
 
-	public String getFile() {
-		return file;
+	public List<TemplateFileBean> getFiles() {
+		return files;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFiles(List<TemplateFileBean> files) {
+		this.files = files;
 	}
 
 	public List<TemplatePropertyBean> getProperties() {
@@ -58,13 +60,27 @@ public class TemplateBean implements Serializable {
 		this.properties = properties;
 	}
 	
+	public String getExtension() {
+		return extension;
+	}
+
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}	
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("name=").append(name);
 		sb.append(",type=").append(type);
-		sb.append(",file=").append(file);
+		sb.append(",extension=").append(extension);
+		sb.append("file=");
+		if (files != null && files.size() > 0) {
+			for(TemplateFileBean file : files) {
+				sb.append(file).append(",");			
+			}
+		}
 		sb.append("properties=");
 		if (properties != null && properties.size() > 0) {
 			for(TemplatePropertyBean property : properties) {
@@ -73,6 +89,6 @@ public class TemplateBean implements Serializable {
 		}
 		sb.append("]");
 		return sb.toString();
-	}	
-	
+	}
+
 }
