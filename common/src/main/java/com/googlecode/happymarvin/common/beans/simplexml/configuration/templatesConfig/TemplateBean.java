@@ -18,9 +18,6 @@ public class TemplateBean implements Serializable {
 	@Attribute
 	private String type = null;
 	
-	@Attribute
-	private String extension = null;
-
 	@ElementList(inline=true, required=true, entry="file")
 	private List<TemplateFileBean> files = null;
 	
@@ -60,21 +57,12 @@ public class TemplateBean implements Serializable {
 		this.properties = properties;
 	}
 	
-	public String getExtension() {
-		return extension;
-	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}	
-	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("name=").append(name);
 		sb.append(",type=").append(type);
-		sb.append(",extension=").append(extension);
 		sb.append("file=");
 		if (files != null && files.size() > 0) {
 			for(TemplateFileBean file : files) {

@@ -23,6 +23,7 @@
 		<module>jira-miner</module>
 		<module>artefact-generator</module>
 		<module>orchestrator</module>
+		<module>utility-web</module>
 	</modules>
 
 </project>

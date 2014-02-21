@@ -37,7 +37,7 @@ public class ConfigurationReaderUtil {
 						InputStream in = new ClassPathResource(pathTemplateConfigFile).getInputStream();
 						templatesBean = serializer.read(TemplatesBean.class, in);
 					} catch (Exception e) {
-						throw new ConfigurationException(String.format("The template config file %s cannot be read!", pathTemplateConfigFile), e);
+						throw new ConfigurationException(String.format("The template config file %s cannot be read or incorrect template config file!", pathTemplateConfigFile), e);
 					}
 				}
 			}
@@ -55,7 +55,7 @@ public class ConfigurationReaderUtil {
 						InputStream in = new ClassPathResource(pathConfigFile).getInputStream();
 						configBean = serializer.read(ConfigBean.class, in);
 					} catch (Exception e) {
-						throw new ConfigurationException(String.format("The config file %s cannot be read!", pathConfigFile), e);
+						throw new ConfigurationException(String.format("The config file %s cannot be read or incorrect config file!", pathConfigFile), e);
 					}
 				}
 			}
@@ -111,6 +111,12 @@ public class ConfigurationReaderUtil {
 		throw new ConfigurationException(String.format("The project %s cannot be found in the config file!", nameProject));
 	}
 
+	
+	public String getPatternType() throws ConfigurationException {
+		initConfig();
+		return configBean.getPatternType();
+	}
+	
 	
 	public void setPathConfigFile(String pathConfigFile) {
 		this.pathConfigFile = pathConfigFile;

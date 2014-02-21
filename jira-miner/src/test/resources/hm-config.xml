@@ -12,6 +12,8 @@ this is not true at the moment: The next characters can be used in the values (i
 I decided other way -> all the values must be between apostrophes!!! however still only the characters below can be used -> maybe later I should
    think of changing this rule (as it seem too strict) but at this moment it is needed (see UndergroundMiningTest_sentences_successful.testMine_case1)
  -->
+ 
+<!-- in the field location the character '/' has to be used!!   -->
 	<instructionSentencePatterns>
 		<sentence>I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'.</sentence>
 		<sentence>[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.</sentence>
@@ -26,4 +28,8 @@ I decided other way -> all the values must be between apostrophes!!! however sti
 		<sentence>Name it as '${name}'.</sentence>
 		<sentence>The [destination ]folder [should be ]/[is ]'${location}'.</sentence>
 	</instructionSentencePatterns>
+	
+	<!-- in the value the character '/' has to be used!!   -->
+	<project name="tlem-validation-failures-report" value="C:/work/happy-marvin/temp" srcFolder="src/main/java" />
+	
 </config>

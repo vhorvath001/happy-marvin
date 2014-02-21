@@ -3,6 +3,8 @@ package com.googlecode.happymarvin.orchestrator;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,6 +21,8 @@ import freemarker.template.TemplateException;
 public class ProcessOrchestrator {
 
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ArtefactGenerator.class);
+	
 	private ArtefactGenerator artefactGenerator;
 	private RestClient restClient;
 	private SurfaceMining surfaceMining;
@@ -26,15 +30,25 @@ public class ProcessOrchestrator {
 	
 	
 	public void start() throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
-		// calling the JIRA REST service
-		LinkedHashMap<String, Object> responseFromREST = restClient.getJiraIssueAsJson("", "");
+		LOGGER.info("------------- START -------------");
 		
-		// mining the JIRA ticket received from REST
-		JiraIssueBean jiraIssueBean = surfaceMining.mine(responseFromREST);
-		undergroundMining.mine(jiraIssueBean);
-		
-		// calling the artefact generation
-		artefactGenerator.generate(jiraIssueBean);
+		try {
+			// calling the JIRA REST service
+			LOGGER.info("----- 1/4 Calling the JIRA REST service -----");
+			LinkedHashMap<String, Object> responseFromREST = restClient.getJiraIssueAsJson("", "");
+			
+			// mining the JIRA ticket received from REST
+			LOGGER.info("----- 2/4 Starting the surface mining -----");
+			JiraIssueBean jiraIssueBean = surfaceMining.mine(responseFromREST);
+			LOGGER.info("----- 3/4 Starting the underground mining -----");
+			undergroundMining.mine(jiraIssueBean);
+			
+			// calling the artefact generation
+			LOGGER.info("----- 4/4 Starting the artefact(s) generation -----");
+			artefactGenerator.generate(jiraIssueBean);
+		} finally {
+			LOGGER.info("------------- END -------------");
+		}
 	}
 
 

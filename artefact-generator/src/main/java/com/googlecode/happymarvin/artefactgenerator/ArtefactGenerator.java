@@ -3,7 +3,6 @@ package com.googlecode.happymarvin.artefactgenerator;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriter;
+import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager;
 import com.googlecode.happymarvin.common.beans.InstructionBean;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateBean;
@@ -33,9 +34,14 @@ public class ArtefactGenerator {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ArtefactGenerator.class);
 	
 	private ConfigurationReaderUtil configurationReaderUtil = null;
+	private VirtualWriterManager virtualWriterManager = null;
 	
 	
 	// generating the artefact(s) based on the JiraIssueBean
+	// TODO first must examine if all the artefacts can be generated (without creating the files!) and if they can
+	//      then do the creation of the files! (e.g. there is an exception while creating the 2nd file then the first 
+	//      file has been already created but not the others)
+	// DONE package in the Java classes! from location
 	public void generate(JiraIssueBean jiraIssueBean) throws IOException, TemplateException, InvalidInstructionException, ConfigurationException {
 		// initializing the Freemarker configuration
 		Configuration cfg = init();
@@ -46,26 +52,42 @@ public class ArtefactGenerator {
 		}
 		for(int i = 0; i < jiraIssueBean.getInstructions().size(); i++) {
 			InstructionBean instructionBean = jiraIssueBean.getInstructions().get(i);
-			LOGGER.info(String.format("Processing the instruction %d. type = %s, name = %s", i, instructionBean.getType(), instructionBean.getName()));
+			LOGGER.info(String.format("Processing the instruction %d - type = %s, template = %s, name = %s", i, instructionBean.getType(), 
+					instructionBean.getTemplate(), instructionBean.getName()));
 			TemplateBean templateBean = configurationReaderUtil.getTemplate(instructionBean.getType(), instructionBean.getTemplate());
 			
 			// checking if the JiraIssueBean contains all the necessary data that are needed for generating the artefact(s)
 			//   (e.g. Java POJO - a method is needed if mandatory = true)
 			examineJiraIssueBean(instructionBean, templateBean, i);
 
-			// creating the datamodel from JiraIssueBean for Freemarker
-			Map<String, Object> dataModel = creatingDataModel(instructionBean);
-
 			// looping through the template files defined in the template config XML
-			for(TemplateFileBean templateFile : templateBean.getFiles()) {
-				// getting the template
-				Template template = getTemplate(templateFile, cfg);
+			for(TemplateFileBean templateFileBean : templateBean.getFiles()) {
+				// creating the datamodel from JiraIssueBean for Freemarker
+				final Map<String, Object> dataModel = creatingDataModel(instructionBean, templateFileBean, templateBean.getProperties());
 
-				// setting where to write and writing the output there
-				Writer write = getWriter(instructionBean, templateFile, templateBean.getProperties());
-				template.process(dataModel, write);
+				// getting the template
+				final Template template = getTemplate(templateFileBean, cfg);
+
+				// getting the path + name of the artefact
+				final String artefactFileName = getArtefactFileName(instructionBean, templateFileBean, templateBean.getProperties());
+				
+				// I should create a VirtualWriter or something like this which won't create the file immediately but
+				//    collect the FileWriter -> to check if each file will be generated
+				VirtualWriter virtualWriter = new VirtualWriter("FILE", artefactFileName) {
+					@Override
+					public void work() throws TemplateException, IOException {
+						template.process(dataModel, new FileWriter(artefactFileName));
+					}
+				};
+				virtualWriterManager.add(virtualWriter);
+				
+				// creating the artefact virtually
+				template.process(dataModel, virtualWriter);
 			}
 		}
+
+		// creating the artefacts for real
+		virtualWriterManager.process();
 	}
 
 
@@ -96,9 +118,9 @@ public class ArtefactGenerator {
 	}
 
 	
-	private Writer getWriter(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans) throws IOException, ConfigurationException {
-		String pathProject = configurationReaderUtil.getProjects(instructionBean.getProject()).getValue();
-		pathProject = pathProject.endsWith("/") ? pathProject : pathProject + "/";
+	private String getArtefactFileName(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans) throws IOException, ConfigurationException {
+		String _pathProject = configurationReaderUtil.getProjects(instructionBean.getProject()).getValue();
+		final String pathProject = _pathProject.endsWith("/") ? _pathProject : _pathProject + "/";
 		
 		// if the path of the project doesn't exist then throw an exception
 		if (pathProject == null || pathProject.trim().length() == 0) {
@@ -110,37 +132,44 @@ public class ArtefactGenerator {
 		}
 		
 		// getting the location of the artefact file
-		String location = getLocation(instructionBean.getProperties(), templateFileBean.getName(), templatePropertyBeans, instructionBean.getLocation());
+		final String location = getLocation(instructionBean.getProperties(), templateFileBean.getName(), templatePropertyBeans, instructionBean.getLocation());
 		
 		// checking if the location folder exists in the project
 		if (!new File(pathProject + location).exists()) {
-			// if it doesn't exist then create the folder
-			LOGGER.info(String.format("The folder %s is going to be created...", pathProject + location));
-			StringBuilder pathArtefact = new StringBuilder(pathProject);
-			for(String folder : location.split("/")) {
-				pathArtefact.append(folder).append("/");
-				if (!new File(pathArtefact.toString()).exists()) {
-					new File(pathArtefact.toString()).mkdir();
+			// if it doesn't exist then create the folder virtually
+			LOGGER.debug(String.format("The folder %s is going to be created at the end of the process...", pathProject + location));
+			virtualWriterManager.add(new VirtualWriter("FOLDER", pathProject + location) {
+				@Override
+				public void work() throws TemplateException, IOException {
+					StringBuilder pathArtefact = new StringBuilder();
+					for(String folder : (pathProject + location).split("/")) {
+						pathArtefact.append(folder).append("/");
+						if (!new File(pathArtefact.toString()).exists()) {							
+							new File(pathArtefact.toString()).mkdir();
+						}
+					}
 				}
-			}
+			});
 		}
 		
 		// building the name of the file to be created
 		String artefactFileName = pathProject + location;
 		artefactFileName = artefactFileName.endsWith("/") ? artefactFileName : artefactFileName+"/";
 		artefactFileName = artefactFileName + 
+				           (templateFileBean.getPrefix() == null ? "" : templateFileBean.getPrefix()) +
                            instructionBean.getName() +
+				           (templateFileBean.getPostfix() == null ? "" : templateFileBean.getPostfix()) +
                            "." +
-                           configurationReaderUtil.getTemplate(instructionBean.getType(), instructionBean.getTemplate()).getExtension();
+                           templateFileBean.getExtension();
 		
-		LOGGER.info(String.format("The name of the file to be generated is %s.", artefactFileName));
+		LOGGER.debug(String.format("The name of the file to be generated is %s.", artefactFileName));
 		
 		// checking if the artefact file exists -> it cannot be overridden
 		if (new File(artefactFileName).exists()) {
 			throw new ConfigurationException(String.format("The artefact file %s exists, it cannot be overridden!", artefactFileName));
 		}
 		
-		return new FileWriter(artefactFileName);
+		return artefactFileName;
 	}
 
 	
@@ -176,7 +205,7 @@ public class ArtefactGenerator {
 	}
 
 	
-	private Map<String, Object> creatingDataModel(InstructionBean instructionBean) {
+	private Map<String, Object> creatingDataModel(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans) throws ConfigurationException {
 		Map<String, Object> dataModelProperties = new HashMap<String, Object>();
 
 		Map<String, Object> dataModelHm = new HashMap<String, Object>();
@@ -198,7 +227,26 @@ public class ArtefactGenerator {
 			dataModelProperties.put(name, instructionBean.getProperties().get(name));
 		}
 		
+		// setting the hm.package from location
+		String packageName = getPackageNameFromLocation(instructionBean, templateFileBean, templatePropertyBeans);
+		dataModelHm.put("package", packageName);
+		
 		return dataModelRoot;
+	}
+
+
+	private String getPackageNameFromLocation(InstructionBean instructionBean, TemplateFileBean templateFileBean, 
+			List<TemplatePropertyBean> templatePropertyBeans) throws ConfigurationException {
+		String location = getLocation(instructionBean.getProperties(), templateFileBean.getName(), templatePropertyBeans, instructionBean.getLocation());
+		String srcFolder = configurationReaderUtil.getProjects(instructionBean.getProject()).getSrcFolder();
+		String packageName = location.replaceFirst(srcFolder, "").replace("/", ".");
+		if (packageName.length() > 0) {
+			packageName = packageName.charAt(0) == '.' ? packageName.substring(1) : packageName;
+		}
+		if (packageName.length() > 0) {
+			packageName = packageName.charAt(packageName.length()-1) == '.' ? packageName.substring(0,packageName.length()-1) : packageName;
+		}
+		return packageName;
 	}
 
 	
@@ -223,4 +271,17 @@ public class ArtefactGenerator {
 	}
 
 
+	public static void main(String[] args) {
+		String location = "src/main/java.asd";
+		String srcFolder = "src/main/java";
+		String packageName = location.replaceFirst(srcFolder, "").replace("/", ".");
+		packageName = packageName.charAt(0) == '.' ? packageName.substring(1) : packageName;
+		packageName = packageName.charAt(packageName.length()-1) == '.' ? packageName.substring(0,packageName.length()-1) : packageName;
+		System.out.println("-"+packageName+"-");
+	}
+
+
+	public void setVirtualWriterManager(VirtualWriterManager virtualWriterManager) {
+		this.virtualWriterManager = virtualWriterManager;
+	}
 }

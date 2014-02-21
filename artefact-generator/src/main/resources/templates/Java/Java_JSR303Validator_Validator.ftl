@@ -1,4 +1,4 @@
-package ????;
+package ${hm.package};
 
 
 import javax.validation.ConstraintValidator;

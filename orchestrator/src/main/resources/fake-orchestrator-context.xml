@@ -16,8 +16,11 @@
     	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
     </bean>
     
+    <bean id="virtualWriterManager" class="com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager"/>
+    
     <bean id="artefactGenerator" class="com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator">
 		<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+    	<property name="virtualWriterManager" ref="virtualWriterManager"/>
 	</bean>
     
     <bean id="processOrchestrator" class="com.googlecode.happymarvin.orchestrator.ProcessOrchestrator">

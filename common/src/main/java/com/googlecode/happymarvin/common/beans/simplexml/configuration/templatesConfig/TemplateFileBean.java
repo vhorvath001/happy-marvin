@@ -10,7 +10,7 @@ public class TemplateFileBean implements Serializable {
 	private static final long serialVersionUID = 4312402107703840825L;
 	
 
-	@Attribute
+	@Attribute(required=false)
 	private String name = null;
 
 	@Attribute
@@ -18,7 +18,13 @@ public class TemplateFileBean implements Serializable {
 
 	@Attribute
 	private String path = null;
+	
+	@Attribute(required=false)
+	private String prefix = null;
 
+	@Attribute(required=false)
+	private String suffix = null;
+	
 	
 	public String getExtension() {
 		return extension;
@@ -44,12 +50,31 @@ public class TemplateFileBean implements Serializable {
 		this.name = name;
 	}
 
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+	public String getSuffix() {
+		return suffix;
+	}
+
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("name=").append(name);
 		sb.append("extension=").append(extension);
+		sb.append(",path=").append(path);
+		sb.append(",prefix=").append(prefix);
+		sb.append(",suffix=").append(suffix);
 		sb.append(",path=").append(path);
 		sb.append("]");
 		return sb.toString();

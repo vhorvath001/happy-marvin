@@ -30,6 +30,6 @@ I decided other way -> all the values must be between apostrophes!!! however sti
 	</instructionSentencePatterns>
 	
 	<!-- in the value the character '/' has to be used!!   -->
-	<project name="tlem-validation-failures-report" value="C:/work/happy-marvin/temp"/>
+	<project name="tlem-validation-failures-report" value="C:/work/happy-marvin/temp" srcFolder="src/main/java" />
 	
 </config>

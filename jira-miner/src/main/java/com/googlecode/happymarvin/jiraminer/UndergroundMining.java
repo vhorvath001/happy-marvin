@@ -36,9 +36,8 @@ import com.googlecode.happymarvin.common.utils.StringUtility;
 // TODO not allowed strings in the pattern: 
 //           - [${project}]
 // TODO at the moment the values have to be defined between apostrophes -> think about if the apostrophes can be avoided!!!
-// TODO patternType: simplified or regularExpression
 // TODO creating a logic that will examine the patterns in the config files before actually trying to find a matching one...?
-// TODO writing unit tests for key-value instructions
+// TODO writing unit tests to test when patternType = regularExpression
 public class UndergroundMining {
 
 	
@@ -130,7 +129,8 @@ public class UndergroundMining {
 
 	// getting the values from description sentences and return an updated JiraIssueBean
 	// For example: I’d need a POJO Java class in the project tlem-validation-failures-report.	
-	private void processSentenceInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws InvalidInstructionException, ConfigurationException {
+	private void processSentenceInstruction(List<InstructionBean> instructionBeans, List<String> instruction) throws InvalidInstructionException, 
+			ConfigurationException {
 		// splitting the description by sentences (the end of a sentence can mean the '. ' characters or the end of the line)
 		List<String> sentences = getIndividualSentences(instruction);
 		// getting the sentence patterns (from the hm-config.xml => only the general patterns will be loaded -> the specific patterns cannot be read 
@@ -282,8 +282,9 @@ public class UndergroundMining {
 			}
 		}
 		
-		throw new InvalidInstructionException(String.format("There is not matching pattern for the sentence '%s'! Perhaps the problem is that first you have to "
-				+ "define the general (not template specific) values in the sentences ...", sentence));
+		throw new InvalidInstructionException(String.format("There is not matching pattern for the sentence '%s'! Perhaps the problem is " +
+				"that first you have to define the general (%s) values in the sentences or in the key-values pairs...", 
+				sentence, Constants.NamesOfValues.allValues()));
 	}
 
 	
@@ -364,19 +365,8 @@ public class UndergroundMining {
 			//        0 - not starting with a bracket, 1 - starting with a bracket, 2 - after the char ']' so upper/lowercase allowed in the reg expr
 			int isStartingWithaBracket = (pattern.charAt(0) == '[') ? 1 : 0;
 			for(char kar : pattern.toCharArray()) {
-				// handling the '[', ']' characters
-				if (kar == '[') {
-					regExpr.append("(");
-					fakeRegExpr.append("(");
-				} else if (kar == ']') {
-					regExpr.append(")?");
-					fakeRegExpr.append(")?");
-					if (isStartingWithaBracket == 1) {
-						isStartingWithaBracket = 2;
-					}
-				}
 				// handling the values (e.g. ${project})
-				else if (kar == '$') {
+				if (kar == '$') {
 					inValueProbability = 1;
 				} else if (kar == '{' && inValueProbability == 1) {
 					inValueProbability = 2;
@@ -385,15 +375,7 @@ public class UndergroundMining {
 					inValueProbability = 0;
 					alreadyPutTheReplacementValueChar = false;
 					fakeRegExpr.append("}");
-				}
-				// handling the normal characters
-				else if (inValueProbability != 2) {
-					regExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
-					fakeRegExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
-					if (isStartingWithaBracket == 2) {
-						isStartingWithaBracket = 0;
-					}
-				} 
+				} 					
 				// if we are in the value - between the characters '${' and '}'
 				else if (inValueProbability == 2) {
 					if (!alreadyPutTheReplacementValueChar) {
@@ -402,6 +384,37 @@ public class UndergroundMining {
 					}
 					fakeRegExpr.append(kar);
 				}
+
+				// already regular expresions can be found in the config XMLs
+				else if (configurationReaderUtil.getPatternType().equals(Constants.PATTERNTYPE_REGULAREXPRESSION)) {
+					regExpr.append(kar);
+					fakeRegExpr.append(kar);
+				} 
+				// simplified expresions can be found in the config XMLs
+				else if (configurationReaderUtil.getPatternType().equals(Constants.PATTERNTYPE_SIMPLIFIED)) {
+					// handling the '[', ']' characters
+					if (kar == '[') {
+						regExpr.append("(");
+						fakeRegExpr.append("(");
+					} else if (kar == ']') {
+						regExpr.append(")?");
+						fakeRegExpr.append(")?");
+						if (isStartingWithaBracket == 1) {
+							isStartingWithaBracket = 2;
+						}
+					}
+					// handling the normal characters
+					else if (inValueProbability != 2) {
+						regExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
+						fakeRegExpr.append("[").append(convertCharIfNeeded(kar, isStartingWithaBracket)).append("]");
+						if (isStartingWithaBracket == 2) {
+							isStartingWithaBracket = 0;
+						}
+					} 
+				} else {
+					throw new ConfigurationException(String.format("Incorrect patternType value! correct values: %s, %s", Constants.PATTERNTYPE_REGULAREXPRESSION,
+							Constants.PATTERNTYPE_SIMPLIFIED));
+				}
 			}
 			Map<String,String> record = new HashMap<String, String>();
 			record.put("regExpr", regExpr.toString());
@@ -409,7 +422,6 @@ public class UndergroundMining {
 			regExprs.add(record);
 		}
 		
-		//LoggerUtility.logListInNewLine(LOGGER, regExprs, "Regular expression created:", LoggerUtility.Level.DEBUG);
 		return regExprs;
 	}
 
@@ -546,11 +558,11 @@ public class UndergroundMining {
 		InstructionBean instructionBean = new InstructionBean();
 		
 		// getting the basic values
-		String type = getValue(instruction, "TYPE");
-		String template = getValue(instruction, "TEMPLATE");
-		String project = getValue(instruction, "PROJECT");
-		String name = getValue(instruction, "NAME");
-		String location = getValue(instruction, "LOCATION");
+		String type = getValue(instruction, Constants.NamesOfValues.TYPE.getValue());
+		String template = getValue(instruction, Constants.NamesOfValues.TEMPLATE.getValue());
+		String project = getValue(instruction, Constants.NamesOfValues.PROJECT.getValue());
+		String name = getValue(instruction, Constants.NamesOfValues.NAME.getValue());
+		String location = getValue(instruction, Constants.NamesOfValues.LOCATION.getValue());
 		
 		// getting the template-specific value(s)
 		String key = null;
@@ -560,7 +572,7 @@ public class UndergroundMining {
 		for (TemplatePropertyBean propertyBean : propertyBeans) {
 			key = propertyBean.getText();
 			value = getValue(instruction, key);
-			properties.put(key, value);
+			properties.put(propertyBean.getName(), value);
 		}
 		
 		// if no exception has been thrown then the instruction can be added to the list
@@ -578,7 +590,7 @@ public class UndergroundMining {
 		String line = null;
 		// finding the key in the instruction list
 		for(String _line : instruction) {
-			if (_line.startsWith("key")) {
+			if (_line.startsWith(key + ":")) {
 				line = _line;
 				break;
 			}
@@ -609,9 +621,9 @@ public class UndergroundMining {
 			return false;
 		}
 		// checking if the first line is starting with the text of the common property 'TYPE:', the second...
-		for(int i=0; i < 5; i++) {
+		for(Constants.NamesOfValues nameOfOneValue : Constants.NamesOfValues.values()) {
 			try {
-				getValue(instruction, Constants.CONS_IN_DESC_NAMESOF_VALUES[i]);
+				getValue(instruction, nameOfOneValue.getValue());
 			} catch (InvalidInstructionException e) {
 				return false;
 			}
@@ -623,29 +635,29 @@ public class UndergroundMining {
 	}
 
 
-	public static void main(String[] args) {
-		String sentence0 = "I'd need a POJO Java component in the project tlem-validation-failures-report.";
-		String pattern0 = "I['d] need a ${template} ${type} [component]/[class]/[file]/[XML file] in the project ${project}.";
-		String reg0 = "[I](['][d])?[ ][n][e][e][d][ ][a][ ].+[ ].+[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ].+[\\.]";
-		System.out.println(sentence0.matches(reg0));
-		String updated = sentence0.replaceAll("([I](['][d])?[ ][n][e][e][d][ ][a][ ]){1}", "_7693674_");
-		System.out.println(updated);
-		updated = updated.replaceAll("([ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]){1}", "_7693674_");
-		System.out.println(updated);
-		updated = updated.replaceAll("([\\.]){1}", "_7693674_");
-		System.out.println(updated);
-		updated = updated.replaceAll("([ ]){1}", "_7693674_");
-		System.out.println(updated);
-		
-		for (String u : updated.split("_7693674_")) {
-			System.out.println("__"+u+"__");
-		}
-		
-		String sentence1 = "Hal ma";
-		String reg1 = "[H]?[a][l][ ][m][a]([f][a])?";
-		
-		System.out.println(sentence1.matches(reg1));
-	}
+//	public static void main(String[] args) {
+//		String sentence0 = "I'd need a POJO Java component in the project tlem-validation-failures-report.";
+//		String pattern0 = "I['d] need a ${template} ${type} [component]/[class]/[file]/[XML file] in the project ${project}.";
+//		String reg0 = "[I](['][d])?[ ][n][e][e][d][ ][a][ ].+[ ].+[ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ].+[\\.]";
+//		System.out.println(sentence0.matches(reg0));
+//		String updated = sentence0.replaceAll("([I](['][d])?[ ][n][e][e][d][ ][a][ ]){1}", "_7693674_");
+//		System.out.println(updated);
+//		updated = updated.replaceAll("([ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ]){1}", "_7693674_");
+//		System.out.println(updated);
+//		updated = updated.replaceAll("([\\.]){1}", "_7693674_");
+//		System.out.println(updated);
+//		updated = updated.replaceAll("([ ]){1}", "_7693674_");
+//		System.out.println(updated);
+//		
+//		for (String u : updated.split("_7693674_")) {
+//			System.out.println("__"+u+"__");
+//		}
+//		
+//		String sentence1 = "Hal ma";
+//		String reg1 = "[H]?[a][l][ ][m][a]([f][a])?";
+//		
+//		System.out.println(sentence1.matches(reg1));
+//	}
 
 
 	public void setConfigurationReaderUtil(ConfigurationReaderUtil configurationReaderUtil) {

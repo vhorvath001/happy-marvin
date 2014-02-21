@@ -1,5 +1,4 @@
-// generate the package from the location
-package ??????;
+package ${hm.package};
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

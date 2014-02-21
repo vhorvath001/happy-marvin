@@ -30,6 +30,7 @@ public class UndergroundMiningTest_sentences_successful {
 		ApplicationContext context = new ClassPathXmlApplicationContext("jiraminer-context-test.xml");
 		undergroundMining = context.getBean("undergroundMining", UndergroundMining.class);
 	}
+
 	
 	@Test
 	public void testMine_case0() throws IOException, InvalidInstructionException, ConfigurationException {

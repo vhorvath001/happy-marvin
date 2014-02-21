@@ -10,6 +10,20 @@ public class ProjectBean {
 	@Attribute
 	private String value;
 
+	@Attribute
+	// it is necessary as the package field at Java classes are generated from the location but the location
+	//   contains something like 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' so we 
+	//   need the path of the source folder -> 'src/main/java' in this case
+	private String srcFolder;
+
+	public String getSrcFolder() {
+		return srcFolder;
+	}
+
+	public void setSrcFolder(String srcFolder) {
+		this.srcFolder = srcFolder;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -32,6 +46,7 @@ public class ProjectBean {
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("name=").append(name);
 		sb.append(",value=").append(value);
+		sb.append(",srcFolder=").append(srcFolder);
 		sb.append("]");
 		return sb.toString();
 	}
