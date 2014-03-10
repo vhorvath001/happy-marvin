@@ -38,7 +38,7 @@ import com.googlecode.happymarvin.common.utils.StringUtility;
 // TODO at the moment the values have to be defined between apostrophes -> think about if the apostrophes can be avoided!!!
 // TODO creating a logic that will examine the patterns in the config files before actually trying to find a matching one...?
 // TODO writing unit tests to test when patternType = regularExpression
-public class UndergroundMining {
+public class UndergroundMining implements IUndergroundMining {
 
 	
 	private static enum Pointer {BEFORE, START, INSTRUCTION, END}

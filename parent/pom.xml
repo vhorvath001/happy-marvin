@@ -54,6 +54,17 @@
 <!-- 				</exclusion> -->
 <!-- 			</exclusions> -->
 		</dependency>
+		<!-- I don't know why I need these two dependencies... -->
+		<dependency> 
+		     <groupId>org.springframework</groupId> 
+		     <artifactId>spring-aspects</artifactId> 
+		     <version>${org.springframework.version}</version> 
+		</dependency>
+<dependency>
+	<groupId>org.aspectj</groupId>
+	<artifactId>aspectjrt</artifactId>
+	<version>1.7.4</version>
+</dependency>
 
 		<!-- JUnit -->
 		<dependency>

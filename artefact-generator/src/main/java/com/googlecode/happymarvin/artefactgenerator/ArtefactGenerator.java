@@ -158,7 +158,7 @@ public class ArtefactGenerator {
 		artefactFileName = artefactFileName + 
 				           (templateFileBean.getPrefix() == null ? "" : templateFileBean.getPrefix()) +
                            instructionBean.getName() +
-				           (templateFileBean.getPostfix() == null ? "" : templateFileBean.getPostfix()) +
+				           (templateFileBean.getSuffix() == null ? "" : templateFileBean.getSuffix()) +
                            "." +
                            templateFileBean.getExtension();
 		
