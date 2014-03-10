@@ -45,6 +45,8 @@ public class UndergroundMining implements IUndergroundMining {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UndergroundMining.class);
 	
 	private ConfigurationReaderUtil configurationReaderUtil = null;
+	// the list contains the found sentence-pattern pairs -> the utility-web needs it
+	private List<List<String[]>> sentencePatternPairs = new ArrayList<List<String[]>>();
 	
 
 	public JiraIssueBean mine(final JiraIssueBean jiraIssueBean) throws IOException, InvalidInstructionException, ConfigurationException {
@@ -112,6 +114,7 @@ public class UndergroundMining implements IUndergroundMining {
 		
 		// looping through the instructions
 		for(List<String> instruction : instructions) {
+			sentencePatternPairs.add(new ArrayList<String[]>());
 			// if key:value pairs can be found in the instruction...
 			if (isKeyValueInstruction(instruction)) {
 				processKeyValueInstruction(instructionBeans, instruction);
@@ -276,6 +279,8 @@ public class UndergroundMining implements IUndergroundMining {
 				for(Map<String,String> record : regExps) {
 					if (sentence.matches(record.get("regExpr"))) {
 						LOGGER.debug(String.format("Found regular expression: %s", record.get("fakeRegExpr")));
+						// adding the found sentence - pattern pair to the list for the web-utility
+						sentencePatternPairs.get(sentencePatternPairs.size()-1).add( new String[]{instructionSentencePattern, sentence});
 						return record.get("fakeRegExpr");
 					}
 				}
@@ -664,5 +669,9 @@ public class UndergroundMining implements IUndergroundMining {
 		this.configurationReaderUtil = configurationReaderUtil;
 	}
 
+
+	public List<List<String[]>> getSentencePatternPairs() {
+		return sentencePatternPairs;
+	}
 
 }
