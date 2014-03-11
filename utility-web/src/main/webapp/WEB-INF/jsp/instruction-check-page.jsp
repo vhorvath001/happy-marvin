@@ -8,7 +8,7 @@
    <title>Check instruction</title>
    
    <style type="text/css">
-      #result1, #result2 {
+      #div_result {
          background-color: #ccc;
          border:solid 2px black;
          display: none;
@@ -34,11 +34,31 @@
       jq.post("check",
              { instructionText: jq("#taInstruction").val() },
              function(data) {
-                jq("#result1").slideDown("slow", function() {
-                   jq("#result2").slideDown("slow");
+                jq("#div_result1").slideDown("slow", function() {
+                   jq("#div_result2").slideDown("slow");
                 });
              }
             )
+      })
+   }
+   
+   
+   function callbackResponseArrived(data) {
+      // replacing the progress bar to the text 'There are X instruction(s)'
+      // sliding down the div_result_body that contains the sentencePattern pairs and info getting from the instruction text
+   }
+   
+   function callbackDisplayingProgressBar() {
+      jq.post("check",
+              { instructionText: jq("#taInstruction").val() },
+              callbackResponseArrived
+             )
+   }
+   
+   function new_add() {
+      jq(document).ready(function() {
+         jq("#div_result_header").progressbar({ value: 37 });
+         jq("#div_result_header").show("drop", callbackDisplayingProgressBar);
       })
    }
    </script>
@@ -47,28 +67,36 @@
 
 <body>
 
-   <h3>Check the instruction</h3>
+   <table>
+      <tr>
+         <td>
+            <h3>Check the instruction!</h3>
+
+            <div id="div_ta">
+               Please write the instruction:
+               <textarea rows="10" cols="50" id="taInstruction"></textarea>
+               <input type="submit" value="Check!" onclick="add()"/>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <div id="div_result">
+               <div id="div_result_header"></div>
+               <div id="div_result_body"></div>
+            </div>
+         </td>
+      </tr>
+   </table>
+   
+   
+   
   
-   <div id="div_ta">
-      Please write the instruction:
-      <textarea rows="10" cols="50" id="taInstruction"></textarea>
-      <input type="submit" value="Check!" onclick="add()"/>
+   <div id="div_result1">
+      <table border="1" id="table_sentencePatternPairs"></table>
    </div>
   
-   <div id="result1">   
-      <table border="1">
-         <tr>
-            <th>Sentence</th>
-            <th>Pattern</th>		
-         </tr>
-         <tr>
-            <td>????</td>
-            <td>????</td>		
-         </tr>
-      </table>
-   </div>
-  
-   <div id="result2">
+   <div id="div_result2">
    </div>
 
 </body>
