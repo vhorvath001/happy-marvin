@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,14 +29,10 @@ public class CheckInstructionController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CheckInstructionController.class);
 	
+	@Autowired
 	private IUndergroundMining undergroundMining;
 	
 	
-	public void setUndergroundMining(IUndergroundMining undergroundMining) {
-		this.undergroundMining = undergroundMining;
-	}
-
-
 	@RequestMapping(value = "/check", method = RequestMethod.GET)
 	public String getInstructionCheckPage() {
 		LOGGER.debug("Received GET request to show the instruction check page.");
@@ -45,7 +42,7 @@ public class CheckInstructionController {
 	
 	@RequestMapping(value = "/check", method = RequestMethod.POST)
 	public @ResponseBody List<InstructionChechResultBean> checkInstruction(@RequestParam(value="instructionText", required=true) String instructionText,
-                                                                     Model model) throws IOException, InvalidInstructionException, ConfigurationException {
+                                                                           Model model) throws IOException, InvalidInstructionException, ConfigurationException {
 		LOGGER.debug(String.format("Received POST request to check the instruction. instruction:\n%s", instructionText));
 		
 		// create jiraIssueBean

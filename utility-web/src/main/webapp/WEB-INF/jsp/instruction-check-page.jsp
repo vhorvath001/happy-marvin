@@ -22,7 +22,8 @@
 	 }
    </style>
 
-   <script type="text/javascript" src="../../resources/js/jquery/jquery-1.11.0.js" ></script>
+   <script type="text/javascript" src="../../resources/js/jquery/jquery-1.10.2.js" ></script>
+   <script type="text/javascript" src="../../resources/js/jquery/jquery-ui-1.10.4.custom.js" ></script>
    
    <script type="text/javascript">
       var jq = jQuery.noConflict();
@@ -57,6 +58,7 @@
    
    function new_add() {
       jq(document).ready(function() {
+	  jq("#div_result").show();
          jq("#div_result_header").progressbar({ value: 37 });
          jq("#div_result_header").show("drop", callbackDisplayingProgressBar);
       })
@@ -75,7 +77,7 @@
             <div id="div_ta">
                Please write the instruction:
                <textarea rows="10" cols="50" id="taInstruction"></textarea>
-               <input type="submit" value="Check!" onclick="add()"/>
+               <input type="submit" value="Check!" onclick="new_add()"/>
             </div>
          </td>
       </tr>
