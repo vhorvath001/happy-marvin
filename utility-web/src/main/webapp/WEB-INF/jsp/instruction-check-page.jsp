@@ -52,6 +52,8 @@
       // replacing the header text to the text 'There are X instruction(s)'
 	  jq("#div_result_header").html("<b>There are " + data.length + " instruction(s)</b>");
       // sliding down the div_result_body that contains the sentencePattern pairs and info getting from the instruction text
+      jq("#div_result_body").show("scale");
+	  
    }
    
    function callbackDisplayingHeader() {
@@ -65,10 +67,12 @@
       jq(document).ready(function() {
 	     jq("#div_result").hide();
 		 jq("#div_result_header").hide();
+		 jq("#div_result_body").hide();
+		 
 		 jq("#div_result_header").html("<b>Please wait...</b>");
+		 
          jq("#div_result").show("slide", function() {
 		    jq("#div_result_header").show("scale", callbackDisplayingHeader);
-			jq("#div_result_body").show("scale");
          });
       })
    }
@@ -92,7 +96,54 @@
          <td>
             <div id="div_result">
                <div id="div_result_header"></div>
-               <div id="div_result_body"></div>
+               <div id="div_result_body">
+<div id="div" style="overflow:auto; height: 100px">
+<table border=1 id="qandatbl" align="center">
+    <tr>
+    <th class="col1">Question No</th>
+    <th class="col2">Option Type</th>
+    <th class="col1">Duration</th>
+    </tr>
+
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+</table>	
+</div>
+                  
+			   </div>
             </div>
          </td>
       </tr>
