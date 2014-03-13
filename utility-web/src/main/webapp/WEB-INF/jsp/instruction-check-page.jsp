@@ -8,13 +8,17 @@
    <title>Check instruction</title>
    
    <style type="text/css">
-      #div_result {
+      #div_result, #div_result_header, #div_result_body {
          background-color: #ccc;
          border:solid 2px black;
          display: none;
          padding: 10px;
          width: 250px
      }
+	 
+	 #div_progressbar {
+    background-color: #ccc;
+  }
 	 
 	 #div_ta {
         border: solid 2px #c3c3c3; 
@@ -45,11 +49,12 @@
    
    
    function callbackResponseArrived(data) {
-      // replacing the progress bar to the text 'There are X instruction(s)'
+      // replacing the header text to the text 'There are X instruction(s)'
+	  jq("#div_result_header").html("<b>There are " + data.length + " instruction(s)</b>");
       // sliding down the div_result_body that contains the sentencePattern pairs and info getting from the instruction text
    }
    
-   function callbackDisplayingProgressBar() {
+   function callbackDisplayingHeader() {
       jq.post("check",
               { instructionText: jq("#taInstruction").val() },
               callbackResponseArrived
@@ -58,9 +63,13 @@
    
    function new_add() {
       jq(document).ready(function() {
-	  jq("#div_result").show();
-         jq("#div_result_header").progressbar({ value: 37 });
-         jq("#div_result_header").show("drop", callbackDisplayingProgressBar);
+	     jq("#div_result").hide();
+		 jq("#div_result_header").hide();
+		 jq("#div_result_header").html("<b>Please wait...</b>");
+         jq("#div_result").show("slide", function() {
+		    jq("#div_result_header").show("scale", callbackDisplayingHeader);
+			jq("#div_result_body").show("scale");
+         });
       })
    }
    </script>
@@ -80,8 +89,6 @@
                <input type="submit" value="Check!" onclick="new_add()"/>
             </div>
          </td>
-      </tr>
-      <tr>
          <td>
             <div id="div_result">
                <div id="div_result_header"></div>
