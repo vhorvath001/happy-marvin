@@ -3,32 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!-- 
-scope???
- -->
-
-    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
-        <property name="messageConverters">
-            <list>
-                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient">
-        <property name="restTemplate" ref="restTemplate"/>
-    </bean>
-    
-    <bean id="surfaceMining" class="com.googlecode.happymarvin.jiraminer.SurfaceMining"/>
-    
-    <bean id="configurationReaderUtil" class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" scope="singleton">
-    	<property name="pathConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_CONFIG_XML }"/>
-    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
-    </bean>
-    
-    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
-    	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
-    </bean>
+    <import resource="jira-miner-context.xml"/>
     
     <bean id="virtualWriterManager" class="com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager"/>
     
