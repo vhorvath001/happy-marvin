@@ -9,9 +9,19 @@
 	
 	<import resource="classpath:jira-miner-context.xml"/>
 
+	<!-- For example @Repository to tell spring that a class is a Dao without having to extend JpaDaoSupport or some other subclass of DaoSupport. 
+	     Similarly @Controller tells spring that the the class specified contains methods that will handle http requests without you having to implement 
+	     the Controller interface or extend a subclass that implements controller.
+         When spring starts up it reads its xml configuration file and looks for <bean elements within it if it sees something like <bean class="com.example.Foo" /> 
+         and Foo was marked up with @Controller it knows that the class is a controller and treats it as such. -->
+	<!-- This tag registers the DefaultAnnotationHandlerMapping and AnnotationMethodHandlerAdapter beans that are required for Spring MVC to dispatch requests 
+	     to @Controllers. -->
 	<mvc:annotation-driven/>
 
-	<context:component-scan base-package="com.googlecode.happymarvin.webutility.controller" />
+	<!-- is telling spring that it should search the class path for all the classes under com.mycompany.maventestweapp and look at each class to see if it has 
+	     a @Controller, or @Repository, or @Service, or @Component and if it does then Spring will register the class with the bean factory as if you had 
+	     typed <bean class="..." /> in the xml configuration files. -->
+ 	<context:component-scan base-package="com.googlecode.happymarvin.webutility.controller" />
 
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>

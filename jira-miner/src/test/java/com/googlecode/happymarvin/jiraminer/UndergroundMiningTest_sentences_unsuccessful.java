@@ -19,7 +19,7 @@ import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:jiraminer-context-test.xml")
+@ContextConfiguration(locations="classpath:jira-miner-context-test.xml")
 public class UndergroundMiningTest_sentences_unsuccessful {
 
 	
@@ -28,7 +28,7 @@ public class UndergroundMiningTest_sentences_unsuccessful {
 	
 	@Before
 	public void setUp() {
-		context = new ClassPathXmlApplicationContext("jiraminer-context-test.xml");
+		context = new ClassPathXmlApplicationContext("jir-aminer-context-test.xml");
 	}
 	
 	
@@ -78,7 +78,7 @@ public class UndergroundMiningTest_sentences_unsuccessful {
 	}
 	
 	private void testMineCatchConfigurationException(String bean, String message) throws IOException, InvalidInstructionException {
-		UndergroundMining undergroundMining = new ClassPathXmlApplicationContext("jiraminer-context-test.xml").getBean(bean, UndergroundMining.class);
+		UndergroundMining undergroundMining = new ClassPathXmlApplicationContext("jira-miner-context-test.xml").getBean(bean, UndergroundMining.class);
 		
 		JiraIssueBean jiraIssueBean = new JiraIssueBean();
 		
@@ -100,7 +100,7 @@ public class UndergroundMiningTest_sentences_unsuccessful {
 	}
 
 	private void testMineCatchInvalidInstructionException(String bean, String message) throws IOException, ConfigurationException {
-		UndergroundMining undergroundMining = new ClassPathXmlApplicationContext("jiraminer-context-test.xml").getBean(bean, UndergroundMining.class);
+		UndergroundMining undergroundMining = new ClassPathXmlApplicationContext("jira-miner-context-test.xml").getBean(bean, UndergroundMining.class);
 		
 		JiraIssueBean jiraIssueBean = new JiraIssueBean();
 		

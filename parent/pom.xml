@@ -25,12 +25,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework.version}</version>
-<!--             <exclusions> -->
-<!--                 <exclusion> -->
-<!--                     <groupId>commons-logging</groupId> -->
-<!--                     <artifactId>commons-logging</artifactId> -->
-<!--                 </exclusion> -->
-<!--             </exclusions> -->
+			<!-- <exclusions> -->
+			<!-- <exclusion> -->
+			<!-- <groupId>commons-logging</groupId> -->
+			<!-- <artifactId>commons-logging</artifactId> -->
+			<!-- </exclusion> -->
+			<!-- </exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -47,24 +47,19 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
-<!-- 			<exclusions> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>commons-logging</groupId> -->
-<!-- 					<artifactId>commons-logging</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions> -->
 		</dependency>
+
 		<!-- I don't know why I need these two dependencies... -->
-		<dependency> 
-		     <groupId>org.springframework</groupId> 
-		     <artifactId>spring-aspects</artifactId> 
-		     <version>${org.springframework.version}</version> 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
-<dependency>
-	<groupId>org.aspectj</groupId>
-	<artifactId>aspectjrt</artifactId>
-	<version>1.7.4</version>
-</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.4</version>
+		</dependency>
 
 		<!-- JUnit -->
 		<dependency>
@@ -80,18 +75,18 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
 
-        <!-- simpleframework -->
-        <dependency>
-            <groupId>org.simpleframework</groupId>
-            <artifactId>simple-xml</artifactId>
-            <version>${simpleframework.version}</version>
-        </dependency>
+		<!-- simpleframework -->
+		<dependency>
+			<groupId>org.simpleframework</groupId>
+			<artifactId>simple-xml</artifactId>
+			<version>${simpleframework.version}</version>
+		</dependency>
 	</dependencies>
 
 	<!-- <repositories> -->

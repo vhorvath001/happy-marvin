@@ -18,7 +18,7 @@ import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:jiraminer-context-test.xml")
+@ContextConfiguration(locations="classpath:jira-miner-context-test.xml")
 public class UndergroundMiningTest_keyvalue_unsuccessful {
 
 	
@@ -27,7 +27,7 @@ public class UndergroundMiningTest_keyvalue_unsuccessful {
 	
 	@Before
 	public void setUp() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("jiraminer-context-test.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("jira-miner-context-test.xml");
 		undergroundMining = context.getBean("undergroundMining", UndergroundMining.class);
 	}
 	

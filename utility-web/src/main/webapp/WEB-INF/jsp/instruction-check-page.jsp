@@ -7,6 +7,8 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Check instruction</title>
    
+   <link rel="stylesheet" type="text/css" href="/css/jquery-ui.custom.css" />
+   
    <style type="text/css">
       #div_result, #div_result_header, #div_result_body {
          background-color: #ccc;
@@ -16,9 +18,13 @@
          width: 250px
      }
      
+      #div_error_modal_dialog {
+         display: none;
+     }
+
      #div_progressbar {
-    background-color: #ccc;
-  }
+        background-color: #ccc;
+     }
      
      #div_ta {
         border: solid 2px #c3c3c3; 
@@ -45,11 +51,10 @@
    function callbackDisplayingHeader() {
       jq.post("check",
               { instructionText: jq("#taInstruction").val() },
-              callbackResponseArrived
-             )
+              callbackResponseArrived)
    }
    
-   function new_add() {
+   function check() {
       jq(document).ready(function() {
          jq("#div_result").hide();
          jq("#div_result_header").hide();
@@ -65,7 +70,13 @@
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
       var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
-      alert(jsonExceptionResponse.message);
+      jq("#div_error_modal_dialog").append(jsonExceptionResponse.message);
+      jq("#div_error_modal_dialog").dialog({
+         height: 140,
+         modal: true
+      });
+      
+      //alert(jsonExceptionResponse.message);
    });
    </script>
 
@@ -81,7 +92,7 @@
             <div id="div_ta">
                Please write the instruction:
                <textarea rows="10" cols="50" id="taInstruction"></textarea>
-               <input type="submit" value="Check!" onclick="new_add()"/>
+               <input type="submit" value="Check!" onclick="check()"/>
             </div>
          </td>
          <td>
@@ -149,6 +160,7 @@
    <div id="div_result2">
    </div>
 
+   <div id="div_error_modal_dialog"><h4>Error happened!</h4><br></div>
 </body>
 
 </html>
