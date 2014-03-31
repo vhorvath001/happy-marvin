@@ -19,7 +19,6 @@
      
       #div_result {
           width: 650px;
-          height: 700px;
       }
 
       #div_result_header {
@@ -28,7 +27,6 @@
 
       #div_result_body {
           width: 630px
-          height: 690px;
       }
  
        #div_error_modal_dialog {
@@ -55,8 +53,8 @@
    <script type="text/javascript">
    function callbackResponseArrived(data) {
       // replacing the header text to the text 'There are X instruction(s)'
-	  var headerSentence = "<b>There is one instruction.</b>";
-	  if (data.length > 1) {
+      var headerSentence = "<b>There is one instruction.</b>";
+      if (data.length > 1) {
          headerSentence = "<b>There are " + data.length + " instructions.</b>";
       }
       jq("#div_result_header").html(headerSentence);
@@ -68,7 +66,9 @@
          jq("#div_accordion").append("<h3>Instruction "+i+"</h3>");
          jq("#div_accordion").append("<div><table border=1 id='table_sentencePatternPairs_"+i+"' align='center'><tr><th>Sentence</th><th>Pattern</th></tr></table></div>");
       }
-      jq( "#div_accordion" ).accordion();
+      jq( "#div_accordion" ).accordion({
+      heightStyle: "content"
+    });
 
       // building the sentence-pattern table
       for(var i = 0; i < data.length; i++) {
@@ -117,7 +117,7 @@
 
    <table>
       <tr>
-         <td>
+         <td valign="top">
             <h3>Check the instruction!</h3>
 
             <div id="div_ta">
