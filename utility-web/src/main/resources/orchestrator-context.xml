@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="jira-miner-context.xml"/>
+    
+    <bean id="virtualWriterManager" class="com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager"/>
+    
+    <bean id="artefactGenerator" class="com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator">
+		<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+    	<property name="virtualWriterManager" ref="virtualWriterManager"/>
+	</bean>
+    
+    <bean id="processOrchestrator" class="com.googlecode.happymarvin.orchestrator.ProcessOrchestrator">
+    	<property name="artefactGenerator" ref="artefactGenerator"/>
+    	<property name="restClient" ref="restClient"/>
+    	<property name="surfaceMining" ref="surfaceMining"/>
+    	<property name="undergroundMining" ref="undergroundMining" />
+    </bean>
+</beans>

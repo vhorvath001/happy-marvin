@@ -7,29 +7,42 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Check instruction</title>
    
-   <link rel="stylesheet" type="text/css" href="/css/jquery-ui.custom.css" />
+   <link rel="stylesheet" type="text/css" href="../../resources/css/smoothness/jquery-ui-1.10.4.custom.css" />
    
    <style type="text/css">
-      #div_result, #div_result_header, #div_result_body {
+      .panel {
          background-color: #ccc;
          border:solid 2px black;
          display: none;
          padding: 10px;
-         width: 250px
-     }
+      }
      
-      #div_error_modal_dialog {
-         display: none;
-     }
+      #div_result {
+          width: 650px;
+          height: 700px;
+      }
 
-     #div_progressbar {
-        background-color: #ccc;
-     }
+      #div_result_header {
+          width: 630px
+      }
+
+      #div_result_body {
+          width: 630px
+          height: 690px;
+      }
+ 
+       #div_error_modal_dialog {
+          display: none;
+      }
+
+      #div_progressbar {
+         background-color: #ccc;
+      }
      
-     #div_ta {
-        border: solid 2px #c3c3c3; 
-        width: 450px
-     }
+      #div_ta {
+         border: solid 2px #c3c3c3; 
+         width: 450px
+      }
    </style>
 
    <script type="text/javascript" src="../../resources/js/jquery/jquery-1.10.2.js" ></script>
@@ -42,20 +55,38 @@
    <script type="text/javascript">
    function callbackResponseArrived(data) {
       // replacing the header text to the text 'There are X instruction(s)'
-      jq("#div_result_header").html("<b>There are " + data.length + " instruction(s)</b>");
+	  var headerSentence = "<b>There is one instruction.</b>";
+	  if (data.length > 1) {
+         headerSentence = "<b>There are " + data.length + " instructions.</b>";
+      }
+      jq("#div_result_header").html(headerSentence);
       // sliding down the div_result_body that contains the sentencePattern pairs and info getting from the instruction text
       jq("#div_result_body").show("scale");
-      jq("#table_sentencePatternPairs").append("yeah");
+
+      // building the accordion
+      for(var i = 0; i < data.length; i++) {
+         jq("#div_accordion").append("<h3>Instruction "+i+"</h3>");
+         jq("#div_accordion").append("<div><table border=1 id='table_sentencePatternPairs_"+i+"' align='center'><tr><th>Sentence</th><th>Pattern</th></tr></table></div>");
+      }
+      jq( "#div_accordion" ).accordion();
+
+      // building the sentence-pattern table
+      for(var i = 0; i < data.length; i++) {
+         for(var j = 0; j < data[i].sentencePatternPairs.length; j++) {
+            jq("#table_sentencePatternPairs_"+i).append("<tr><td>"+data[i].sentencePatternPairs[j][1]+"</td><td>"+data[i].sentencePatternPairs[j][0]+"</td></tr>");
+         }
+      }
    }
    
    function callbackDisplayingHeader() {
       jq.post("check",
               { instructionText: jq("#taInstruction").val() },
-              callbackResponseArrived)
+              callbackResponseArrived);
    }
    
    function check() {
       jq(document).ready(function() {
+         // hiding the previous result
          jq("#div_result").hide();
          jq("#div_result_header").hide();
          jq("#div_result_body").hide();
@@ -65,7 +96,7 @@
          jq("#div_result").show("slide", function() {
             jq("#div_result_header").show("scale", callbackDisplayingHeader);
          });
-      })
+      });
    }
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
@@ -96,63 +127,16 @@
             </div>
          </td>
          <td>
-            <div id="div_result">
-               <div id="div_result_header"></div>
-               <div id="div_result_body">
-                  <div id="div" style="overflow:auto; height: 100px">
-                    <table border=1 id="table_sentencePatternPairs" align="center">
-                      <tr>
-                         <th class="col1">Sentence</th>
-                         <th class="col2">Pattern</th>
-                      </tr>
-
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    </tr>
-</table>    
-</div>
-                  
+            <div id="div_result" class="panel">
+               <div id="div_result_header" class="panel"></div>
+               <div id="div_result_body" class="panel">
+                  <div id="div_accordion"></div>
                </div>
             </div>
          </td>
       </tr>
    </table>
    
-   
-   
-  
    <div id="div_result1">
       <table border="1" id="table_sentencePatternPairs"></table>
    </div>
@@ -160,7 +144,8 @@
    <div id="div_result2">
    </div>
 
-   <div id="div_error_modal_dialog"><h4>Error happened!</h4><br></div>
+   <div id="div_error_modal_dialog" title="Error happened!"></div>
+   
 </body>
 
 </html>
