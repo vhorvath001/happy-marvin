@@ -1,0 +1,142 @@
+html * {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+textarea {
+    font-size: 12px;
+    max-width: 95%;
+    width: 95%;
+}
+
+div {
+    font-size: 11px;
+}
+
+#baseLayout_container {
+    min-height: 100%;
+    position: relative;
+    height:100%;
+}
+
+#baseLayout_header {
+    background: #FFFFCC;
+    padding: 10px;
+    text-align: center;
+}
+
+#baseLayout_menu {
+    background: #F8F8F8;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+}
+
+#baseLayout_body {
+    padding: 10px;
+    padding-bottom: 40px;   /* height of the footer */
+}
+
+#baseLayout_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;   /* height of the footer */
+    background: #EAF2D3;
+}
+
+.menu tr {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+.menu td {
+    float:left;
+}
+
+.menu a:link, .menu a:visited {
+    display:block;
+    width:180px;
+    font-weight:bold;
+    color: black;
+    background-color:#EAF2D3;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+.menu a:hover, .menu a:active {
+    background-color:#A7C942;
+}
+
+.result_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.result_table td, .result_table th {
+    border: 1px solid #98bf21;
+    padding:2px 5px 2px 5px;
+    word-wrap: break-word;
+}
+
+.result_table th {
+    font-size:1.1em;
+    text-align:left;
+    padding-top:3px;
+    padding-bottom:3px;
+    background-color:#A7C942;
+    color:#ffffff;
+    width: 100px;
+}
+
+.result_table tr.alteration_row_table td  {
+    color:#000000;
+    background-color:#EAF2D3;
+}
+
+.panel_result_rear, .panel_result_ahead {
+    background-color: #F8F8F8;
+    border:solid 1px #c3c3c3;
+    display: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+.panel_result_ahead {
+    background-color: #FFFFCC;
+}
+
+#div_result {
+    width: 650px;
+}
+
+#div_result_header {
+    width: 630px;
+}
+
+#div_result_body {
+    width: 630px;
+}
+
+ #div_error_modal_dialog {
+    display: none;
+}
+
+#div_progressbar {
+    background-color: #ccc;
+}
+
+#div_ta {
+    border: solid 2px #c3c3c3; 
+    width: 450px;
+}

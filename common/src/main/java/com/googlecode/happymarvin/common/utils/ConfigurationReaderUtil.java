@@ -112,12 +112,23 @@ public class ConfigurationReaderUtil {
 	}
 
 	
+	public String getInstructionSeparationStart() throws ConfigurationException {
+		initConfig();
+		return configBean.getInstructionSeparationStart();
+	}
+	
+	
+	public String getInstructionSeparationEnd() throws ConfigurationException {
+		initConfig();
+		return configBean.getInstructionSeparationEnd();
+	}
+
+	
 	public String getPatternType() throws ConfigurationException {
 		initConfig();
 		return configBean.getPatternType();
 	}
-	
-	
+
 	public void setPathConfigFile(String pathConfigFile) {
 		this.pathConfigFile = pathConfigFile;
 	}

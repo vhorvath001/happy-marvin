@@ -12,6 +12,12 @@ public class ConfigBean {
 	@Element(name="patternType")
 	private String patternType;
 	
+	@Element(name="instructionSeparationStart")
+	private String instructionSeparationStart;
+
+	@Element(name="instructionSeparationEnd")
+	private String instructionSeparationEnd;
+
 	@ElementList(inline=true, required=false, entry="instructionSentencePatterns")
 	private List<InstructionSentencePatternsBean> instructionSentencePatterns;
 
@@ -43,11 +49,29 @@ public class ConfigBean {
 		this.projects = projects;
 	}	
 
+	public String getInstructionSeparationStart() {
+		return instructionSeparationStart;
+	}
+
+	public void setInstructionSeparationStart(String instructionSeparationStart) {
+		this.instructionSeparationStart = instructionSeparationStart;
+	}
+
+	public String getInstructionSeparationEnd() {
+		return instructionSeparationEnd;
+	}
+
+	public void setInstructionSeparationEnd(String instructionSeparationEnd) {
+		this.instructionSeparationEnd = instructionSeparationEnd;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getClass().getName()).append("[");
 		sb.append("patternType=").append(patternType);
+		sb.append(",instructionSeparationStart=").append(instructionSeparationStart);
+		sb.append(",instructionSeparationEnd=").append(instructionSeparationEnd);
 		if (instructionSentencePatterns != null && instructionSentencePatterns.size() > 0) {
 			for(InstructionSentencePatternsBean bean : instructionSentencePatterns) {
 				sb.append(bean).append(",");			

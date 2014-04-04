@@ -42,7 +42,8 @@ public class CheckInstructionController {
 	@RequestMapping(value = "/check", method = RequestMethod.GET)
 	public String getInstructionCheckPage() {
 		LOGGER.debug("Received GET request to show the instruction check page.");
-		return "instruction-check-page";
+//		return "instruction-check-page";
+		return "/instruction/check.tiles";
 	}
 	
 

@@ -63,7 +63,7 @@ public class UndergroundMining implements IUndergroundMining {
 	}
 
 	
-	private List<List<String>> getInstructions(String description) throws IOException {
+	private List<List<String>> getInstructions(String description) throws IOException, ConfigurationException {
 		List<List<String>> instructions = new ArrayList<List<String>>();
 		List<String> instruction = null;
 		BufferedReader bufferedReader = null;
@@ -76,7 +76,7 @@ public class UndergroundMining implements IUndergroundMining {
 			while((line = bufferedReader.readLine()) != null) {
 				// setting the pointer
 				// 		finding the end of the happy-marvin instructions
-				if (line.equals(Constants.CONS_IN_DESC_INTRUCTIONS_END)) {
+				if (line.equals(configurationReaderUtil.getInstructionSeparationEnd())) {
 					pointer = Pointer.END;
 					instructions.add(instruction);
 					break;
@@ -86,7 +86,7 @@ public class UndergroundMining implements IUndergroundMining {
 					pointer = Pointer.INSTRUCTION;
 				}
 				// 		finding the beginning of the happy-marvin instructions
-				if (line.equals(Constants.CONS_IN_DESC_INTRUCTION_START)) {
+				if (line.equals(configurationReaderUtil.getInstructionSeparationStart())) {
 					if (!pointer.equals(Pointer.BEFORE)) {
 						instructions.add(instruction);
 					}
