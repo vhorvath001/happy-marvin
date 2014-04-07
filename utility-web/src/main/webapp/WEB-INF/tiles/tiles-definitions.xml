@@ -19,7 +19,7 @@
 	</definition>
 	
     <definition name="/instruction/create.tiles" extends="baseLayout">
-       <put-attribute name="title" value ="Check an instruction" />
+       <put-attribute name="title" value ="Create an instruction" />
        <put-attribute name="body" value ="/WEB-INF/jsp/instruction-create-page.jsp" />
     </definition>
 

@@ -79,6 +79,13 @@ public class ConfigurationReaderUtil {
 	}
 	
 	
+	public List<TemplateBean> getTemplates() throws ConfigurationException {
+		initTemplateConfig();
+		
+		return templatesBean.getTemplate();
+	}
+
+	
 	public TemplateBean getTemplate(String type, String template) throws ConfigurationException {
 		initTemplateConfig();
 		

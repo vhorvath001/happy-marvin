@@ -56,7 +56,8 @@ The name should be 'EmailSender'. You should put it into the 'src/main/java/com/
 	@RequestMapping(value = "/check", method = RequestMethod.POST)
 	public @ResponseBody List<InstructionChechResultBean> checkInstruction(@RequestParam(value="instructionText", required=true) String instructionText,
                                                                            Model model,
-                                                                           HttpServletResponse response) throws IOException, InvalidInstructionException, ConfigurationException {
+                                                                           HttpServletResponse response) 
+                                  throws IOException, InvalidInstructionException, ConfigurationException {
 		LOGGER.debug(String.format("Received POST request to check the instruction. instruction:\n%s", instructionText));
 		
 		// create jiraIssueBean
@@ -69,7 +70,7 @@ The name should be 'EmailSender'. You should put it into the 'src/main/java/com/
 			jiraIssueBean = undergroundMining.mine(jiraIssueBean);
 		} catch(Exception e) {
 			LOGGER.error("Error occurred when calling undergroundMining.mine(...)!", e);
-			throw new RuntimeException(e.getMessage());
+			throw new RuntimeException(e.getClass().getSimpleName() + " : " + e.getMessage());
 		}
 		List<List<String[]>> sentencePatternPairs = undergroundMining.getSentencePatternPairs();
 		
