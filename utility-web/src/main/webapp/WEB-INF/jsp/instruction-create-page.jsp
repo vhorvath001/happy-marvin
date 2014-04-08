@@ -31,10 +31,27 @@
       
       // loading the data
       jq.post("create/loadData",
-              function(data) {
-                 jq("#div_loading_modal_dialog").dialog("close");
-              });
+              callbackDataArrived);
    });
+   
+   function callbackDataArrived(data) {
+      jq("#div_loading_modal_dialog").dialog("close");
+      // building the type table
+      html = "<table id='table_type' class='result_table'><tr><th>Type</th></tr>";
+      var i = 0;
+      for (var key in data) {
+         if (data.hasOwnProperty(key)) {
+            var rowBackgroundColor = "";
+            if (i % 2 === 0) {
+               rowBackgroundColor = "class='alteration_row_table'";
+            }
+            html += "<tr " + rowBackgroundColor + "><td>" + key + "</td></tr>";
+            i += 1;
+         }
+      }
+      html += "</table>";
+      jq("#div_wizard_step1_table").html(html);
+   }   
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
       jq("#div_loading_modal_dialog").dialog("close");
@@ -72,7 +89,7 @@
    <!-- building the bodies of the steps -->
    <div id="step-1">
       <h2 class="StepTitle">Type list</h2>
-      valami list
+      <div id="div_wizard_step1_table" style="padding:40px"></div>
    </div>
    <div id="step-2">
       <h2 class="StepTitle">Template list</h2>

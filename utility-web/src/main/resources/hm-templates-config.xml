@@ -30,4 +30,124 @@
 		</property>
 	</template>
 
+
+
+    <template name="POJO" type="C++">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+
+    <template name="POJO" type="C#">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="XML">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="text">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="json">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Python">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Perl">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="PL/SQL">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="SQL">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="OSB">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Weblogic">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type=".Net">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Javascript">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
 </templates>

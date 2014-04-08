@@ -140,3 +140,8 @@ div {
     border: solid 2px #c3c3c3; 
     width: 450px;
 }
+
+#div_wizard_step1_table {
+    overflow:scroll;
+    height:100px;
+}
