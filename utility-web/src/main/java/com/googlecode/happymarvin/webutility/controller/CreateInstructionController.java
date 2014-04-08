@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,7 @@ public class CreateInstructionController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CreateInstructionController.class);
 	
+	@Autowired
 	private ConfigurationReaderUtil configurationReaderUtil = null;
 	
 	
@@ -61,7 +63,7 @@ public class CreateInstructionController {
 				templateList.add(templateName);
 				typeTemplateMap.put(type, templateList);
 			}
-			
+			return typeTemplateMap;
 		} catch(Exception e) {
 			LOGGER.error("Error occurred at getInstructionCheckPage()!", e);
 			throw new RuntimeException(e.getClass().getSimpleName() + " : " + e.getMessage());

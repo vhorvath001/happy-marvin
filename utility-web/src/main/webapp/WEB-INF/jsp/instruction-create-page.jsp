@@ -19,17 +19,32 @@
          jq('#div_wizard').smartWizard('showMessage','Finish Clicked');
       }
 
+      // displaying a modal Loading... window
+      jq("#div_loading_modal_dialog").dialog({
+          height: 70,
+          modal: true
+      });
+      jq("#div_loading_modal_dialog").closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
+      jq("#div_progressBar").progressbar({
+         value: false
+      });
+      
+      // loading the data
+      jq.post("create/loadData",
+              function(data) {
+                 jq("#div_loading_modal_dialog").dialog("close");
+              });
    });
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
-       var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
-       alert(jsonExceptionResponse.message);
-       jq("#div_error_modal_dialog").append(jsonExceptionResponse.message);
-       jq("#div_error_modal_dialog").dialog({
-          height: 140,
-          modal: true
-       });
-    });
+      jq("#div_loading_modal_dialog").dialog("close");
+      var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
+      jq("#div_error_modal_dialog").append(jsonExceptionResponse.message);
+      jq("#div_error_modal_dialog").dialog({
+         height: 140,
+         modal: true
+      });
+   });
 </script>
 
 
@@ -67,3 +82,7 @@
 </div>
 
 <div id="div_error_modal_dialog" title="Error happened!"></div>
+
+<div id="div_loading_modal_dialog" title="Loading...">
+   <div id="div_progressBar"/>
+</div>
