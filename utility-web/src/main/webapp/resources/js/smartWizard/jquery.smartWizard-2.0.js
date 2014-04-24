@@ -60,9 +60,9 @@
                   loader = $('<div>Loading</div>').addClass("loader");
                   elmActionBar = $('<div></div>').addClass("actionBar");
                   elmStepContainer = $('<div></div>').addClass("stepContainer");
-                  btNext = $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext");
-                  btPrevious = $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious");
-                  btFinish = $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish");
+                  btNext = $('<a id="wizardButton_next">'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext");
+                  btPrevious = $('<a id="wizardButton_previous">'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious");
+                  btFinish = $('<a id="wizardButton_finish">'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish");
                   
                   // highlight steps with errors
                   if(options.errorSteps && options.errorSteps.length>0){
@@ -87,6 +87,7 @@
                         return false;
                       }
                       doForwardProgress();
+                      buildNextPanel(curStepIdx);
                       return false;
                   }); 
                   $(btPrevious).click(function() {
@@ -273,6 +274,7 @@
                     nextStepIdx = 0;
                   }
                   LoadContent(nextStepIdx);
+                  $(btNext).addClass("buttonDisabled");
                 }
                 
                 function doBackwardProgress(){

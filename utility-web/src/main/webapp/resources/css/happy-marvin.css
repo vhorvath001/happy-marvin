@@ -116,6 +116,10 @@ div {
     background-color: #FFFFCC;
 }
 
+.result_table tr.highlight_in_table td  {
+    background-color: red !important;
+}
+
 #div_result {
     width: 650px;
 }
@@ -142,6 +146,7 @@ div {
 }
 
 #div_wizard_step1_table {
-    overflow:scroll;
-    height:100px;
+    overflow: auto;
+    height:220px;
+    width: 60%;
 }

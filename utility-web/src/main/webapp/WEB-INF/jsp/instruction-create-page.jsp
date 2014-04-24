@@ -50,8 +50,25 @@
          }
       }
       html += "</table>";
+
       jq("#div_wizard_step1_table").html(html);
-   }   
+
+      // adding a handler to select a row
+      var trs = jq("#table_type").find("tr");
+      trs.bind("click", function(event) {
+         trs.removeClass("highlight_in_table");
+         jq(this).addClass("highlight_in_table");
+         jq("#wizardButton_next").removeClass("buttonDisabled");
+      });
+
+      // default the next button if now row is selected
+      jq("#wizardButton_next").addClass("buttonDisabled");
+
+   }
+
+   function buildNextPanel(curStepIdx) {
+      alert("from: " + curStepIdx);
+   }
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
       jq("#div_loading_modal_dialog").dialog("close");
@@ -89,7 +106,7 @@
    <!-- building the bodies of the steps -->
    <div id="step-1">
       <h2 class="StepTitle">Type list</h2>
-      <div id="div_wizard_step1_table" style="padding:40px"></div>
+      <div style="padding:30px"><div id="div_wizard_step1_table"></div></div>
    </div>
    <div id="step-2">
       <h2 class="StepTitle">Template list</h2>
