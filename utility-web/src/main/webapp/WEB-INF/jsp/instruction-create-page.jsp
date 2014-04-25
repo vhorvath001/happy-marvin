@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="../../resources/css/smoothness/jquery-ui-1.10.4.custom.css" />
 <link rel="stylesheet" type="text/css" href="../../resources/css/happy-marvin.css" />
-<link rel="stylesheet" type="text/css" href="../../resources/css/smart_wizard.css" />
 
 <script type="text/javascript" src="../../resources/js/jquery/jquery-1.10.2.js" ></script>
 <script type="text/javascript" src="../../resources/js/jquery/jquery-ui-1.10.4.custom.js" ></script>
@@ -11,8 +10,11 @@
  
 <script type="text/javascript">
    jq(document).ready(function() {
-      // Smart Wizard   
+      // displaying the tabs
       jq('#div_fake_wizard').tabs();
+      // disable the next button on tab 1
+      jq("#button_tab_1_next").attr("disabled", true);
+      //jq("#button_tab_1_next").bind("click", 
       
       // displaying a modal Loading... window
       jq("#div_loading_modal_dialog").dialog({
@@ -54,6 +56,8 @@
          trs.removeClass("highlight_in_table");
          jq(this).addClass("highlight_in_table");
          jq("#wizardButton_next").removeClass("buttonDisabled");
+         // disable the next button on tab 1
+         jq("#button_tab_1_next").attr("disabled", false);
       });
    }
 
@@ -82,10 +86,18 @@
    </ul>
    
    <div id="div_tab_1">
+      <h2>Choose a type!</h2>
       <div style="padding:30px"><div id="div_tab_1_table"></div></div>
+      <div>
+         <input id="button_tab_1_next" type="submit" value="Next ->"/>
+      </div>
    </div>
    
    <div id="div_tab_2">
+      <div class="wizard_buttons">
+         <input id="button_tab_2_prev" type="submit" value="<- Previous"/>
+         <input id="button_tab_2_next" type="submit" value="Next ->"/>
+      </div>
    </div>
 </div>
 
@@ -99,7 +111,7 @@
 
 
 <!-- <div id="div_wizard" class="swMain"> -->
-<!--    <!-- building the headers of the steps --> -->
+<!--    <!-- building the headers of the steps -->
 <!--    <ul> -->
 <!--       <li> -->
 <!--          <a href="#step-1"> -->
@@ -119,7 +131,7 @@
 <!--       </li> -->
 <!--    </ul> -->
    
-<!--    <!-- building the bodies of the steps --> -->
+<!--    <!-- building the bodies of the steps -->
 <!--    <div id="step-1"> -->
 <!--       <h2 class="StepTitle">Type list</h2> -->
 <!--       <div style="padding:30px"><div id="div_wizard_step1_table"></div></div> -->

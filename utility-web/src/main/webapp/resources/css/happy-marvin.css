@@ -145,8 +145,12 @@ div {
     width: 450px;
 }
 
-#div_wizard_step1_table {
+#div_tab_1_table {
     overflow: auto;
     height:220px;
     width: 60%;
+}
+
+#div_fake_wizard {
+	width: 70%;
 }
