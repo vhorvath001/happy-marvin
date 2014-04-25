@@ -4,7 +4,6 @@
 
 <script type="text/javascript" src="../../resources/js/jquery/jquery-1.10.2.js" ></script>
 <script type="text/javascript" src="../../resources/js/jquery/jquery-ui-1.10.4.custom.js" ></script>
-<script type="text/javascript" src="../../resources/js/smartWizard/jquery.smartWizard-2.0.js" ></script>
    
 <script type="text/javascript">
    var jq = jQuery.noConflict();
@@ -13,12 +12,8 @@
 <script type="text/javascript">
    jq(document).ready(function() {
       // Smart Wizard   
-      jq('#div_wizard').smartWizard();
+      jq('#div_fake_wizard').tabs();
       
-      function onFinishCallback(){
-         jq('#div_wizard').smartWizard('showMessage','Finish Clicked');
-      }
-
       // displaying a modal Loading... window
       jq("#div_loading_modal_dialog").dialog({
           height: 70,
@@ -51,7 +46,7 @@
       }
       html += "</table>";
 
-      jq("#div_wizard_step1_table").html(html);
+      jq("#div_tab_1_table").html(html);
 
       // adding a handler to select a row
       var trs = jq("#table_type").find("tr");
@@ -60,10 +55,6 @@
          jq(this).addClass("highlight_in_table");
          jq("#wizardButton_next").removeClass("buttonDisabled");
       });
-
-      // default the next button if now row is selected
-      jq("#wizardButton_next").addClass("buttonDisabled");
-
    }
 
    function buildNextPanel(curStepIdx) {
@@ -82,38 +73,63 @@
 </script>
 
 
-<div id="div_wizard" class="swMain">
-   <!-- building the headers of the steps -->
+
+
+<div id="div_fake_wizard">
    <ul>
-      <li>
-         <a href="#step-1">
-            <span class="stepNumber">1</span>
-            <span class="stepDesc">Type<br>
-               <small>Choose a type!</small>
-            </span>
-         </a>
-      </li>
-      <li>
-         <a href="#step-2">
-            <span class="stepNumber">2</span>
-            <span class="stepDesc">Template<br>
-               <small>Choose a template!</small>
-            </span>
-         </a>
-      </li>
+      <li><a href="#div_tab_1">Type<a></a></li>
+      <li><a href="#div_tab_2">Template<a></a></li>
    </ul>
    
-   <!-- building the bodies of the steps -->
-   <div id="step-1">
-      <h2 class="StepTitle">Type list</h2>
-      <div style="padding:30px"><div id="div_wizard_step1_table"></div></div>
+   <div id="div_tab_1">
+      <div style="padding:30px"><div id="div_tab_1_table"></div></div>
    </div>
-   <div id="step-2">
-      <h2 class="StepTitle">Template list</h2>
-      valami list
+   
+   <div id="div_tab_2">
    </div>
-
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="div_wizard" class="swMain"> -->
+<!--    <!-- building the headers of the steps --> -->
+<!--    <ul> -->
+<!--       <li> -->
+<!--          <a href="#step-1"> -->
+<!--             <span class="stepNumber">1</span> -->
+<!--             <span class="stepDesc">Type<br> -->
+<!--                <small>Choose a type!</small> -->
+<!--             </span> -->
+<!--          </a> -->
+<!--       </li> -->
+<!--       <li> -->
+<!--          <a href="#step-2"> -->
+<!--             <span class="stepNumber">2</span> -->
+<!--             <span class="stepDesc">Template<br> -->
+<!--                <small>Choose a template!</small> -->
+<!--             </span> -->
+<!--          </a> -->
+<!--       </li> -->
+<!--    </ul> -->
+   
+<!--    <!-- building the bodies of the steps --> -->
+<!--    <div id="step-1"> -->
+<!--       <h2 class="StepTitle">Type list</h2> -->
+<!--       <div style="padding:30px"><div id="div_wizard_step1_table"></div></div> -->
+<!--    </div> -->
+<!--    <div id="step-2"> -->
+<!--       <h2 class="StepTitle">Template list</h2> -->
+<!--       valami list -->
+<!--    </div> -->
+
+<!-- </div> -->
 
 <div id="div_error_modal_dialog" title="Error happened!"></div>
 
