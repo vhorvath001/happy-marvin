@@ -29,6 +29,9 @@ public class TemplatePropertyBean implements Serializable {
 
 	@ElementList(inline=true, required=false, entry="textDef")
 	private List<String> textDefs;
+	
+	@Attribute(required=false)
+	private String textfieldLabel;
 
 	
 	public String getName() {
@@ -91,6 +94,14 @@ public class TemplatePropertyBean implements Serializable {
 		}
 		sb.append("]");
 		return sb.toString();
+	}
+
+	public String getTextfieldLabel() {
+		return textfieldLabel;
+	}
+
+	public void setTextfieldLabel(String textfieldLabel) {
+		this.textfieldLabel = textfieldLabel;
 	}
 
 }

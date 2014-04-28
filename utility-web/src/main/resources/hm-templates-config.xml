@@ -13,7 +13,7 @@
 		<file name="validator" extension="java" path="Java/Java_JSR303Validator_Validator.ftl" suffix="Validator"/>
 		<file name="constraint" extension="java" path="Java/Java_JSR303Validator_Constraint.ftl" suffix="Constraint"/>
 		<file name="configXML" extension="xml" path="XML/XML_JSR303Validator_configXML.ftl"/>
-		<!-- the key attribute of the property is used when the instructions are defined in JIRA description as key-value pairs -->
+		<!-- the text attribute of the property is used when the instructions are defined in JIRA description as key-value pairs -->
 		<property name="location_Java_JSR303Validator_Validator" text="LOCATION_JAVA_JSR303VALIDATOR_VALIDATOR" 
 				mandatory="false" locationOf="validator" textfieldLabel="The location of validator">
 			<textDef>The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.</textDef>

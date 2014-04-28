@@ -9,15 +9,17 @@
 </script>
  
 <script type="text/javascript">
-   var data;
+   var instructionCreateInputBean;
    var selectedType;
+   var selectedTemplate;
    
    jq(document).ready(function() {
       // displaying the tabs
       jq('#div_fake_wizard').tabs();
-      // disable the next button on tab 1 / 2
+      // disable the next button on tab 1 / 2 / 3
       jq("#button_tab_1_next").attr("disabled", true);
       jq("#button_tab_2_next").attr("disabled", true);
+      jq("#button_tab_3_next").attr("disabled", true);
       
       // displaying a modal Loading... window
       jq("#div_loading_modal_dialog").dialog({
@@ -29,13 +31,13 @@
          value: false
       });
       
-      // loading the data
+      // loading the instructionCreateInputBean
       jq.post("create/loadData",
               callbackDataArrived);
    });
    
    function callbackDataArrived(_data) {
-      data = _data;
+      instructionCreateInputBean = _data;
       jq("#div_loading_modal_dialog").dialog("close");
       
       initializeTab(1);
@@ -47,8 +49,8 @@
          // building the type table
          html = "<table id='table_type' class='result_table'><tr><th>Type</th></tr>";
          var i = 0;
-         for (var key in data) {
-            if (data.hasOwnProperty(key)) {
+         for (var key in instructionCreateInputBean.typeTemplatesTextfields) {
+            if (instructionCreateInputBean.typeTemplatesTextfields.hasOwnProperty(key)) {
                var rowBackgroundColor = "";
                if (i % 2 === 0) {
                   rowBackgroundColor = "class='alteration_row_table'";
@@ -73,7 +75,7 @@
             // getting the selected type
             selectedType = jq(this).closest('tr').text();
             // clearing and initializing the tabs
-            clearTabs(1);
+            clearTabs(2);
             initializeTab(2);
          });
 	  }
@@ -81,12 +83,14 @@
       else if (tabNr == 2) {
          // building the type table
          html = "<table id='table_template' class='result_table'><tr><th>Template</th></tr>";
-         for (var i in data[selectedType]) {
+         for (var key in instructionCreateInputBean.typeTemplatesTextfields[selectedType]) {
+            if (instructionCreateInputBean.typeTemplatesTextfields[selectedType].hasOwnProperty(key)) {
                var rowBackgroundColor = "";
                if (i % 2 === 0) {
                   rowBackgroundColor = "class='alteration_row_table'";
                }
-               html += "<tr " + rowBackgroundColor + "><td>" + data[selectedType][i] + "</td></tr>";
+               html += "<tr " + rowBackgroundColor + "><td>" + key + "</td></tr>";
+            }
          }
          html += "</table>";
 
@@ -100,15 +104,39 @@
             jq("#wizardButton_next").removeClass("buttonDisabled");
             // disable the next button on tab 2
             jq("#button_tab_2_next").attr("disabled", false);
+            // getting the selected template
+            selectedTemplate = jq(this).closest('tr').text();
+            // clearing and initializing the tabs
+            clearTabs(3);
+            initializeTab(3);
          });
+      }
+      // tab texfields
+      else if (tabNr == 3) {
+         html = "<table>";
+         for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedType][selectedTemplate]) {
+            name = instructionCreateInputBean.typeTemplatesTextfields[selectedType][selectedTemplate][i].name;
+            mandatory = instructionCreateInputBean.typeTemplatesTextfields[selectedType][selectedTemplate][i].mandatory;
+            label = instructionCreateInputBean.typeTemplatesTextfields[selectedType][selectedTemplate][i].textfieldLabel;
+            if (label == "" || label == null) {
+               label = instructionCreateInputBean.typeTemplatesTextfields[selectedType][selectedTemplate][i].text;
+            }
+            html += "<tr><td>" + label + ":</td><td>" + "<input type='text' id='tf'"+name+" size='70'></td></tr>";
+            if (mandatory.toUpperCase() == "TRUE" || mandatory.toUpperCase() == "YES") {
+               alert("IMPLEMENT!")
+            }
+         }
+         html += "<input type='submit' value='Submit'></table>";
+         jq("#div_tab_3_textfields").html(html);
       }
    }
    
    function clearTabs(actualTab) {
-      if (actualTab >= 3) {
-         //jq("#div_tab_3_textfields").html(html);
-      } else if (actualTab >= 2) {
-         jq("#div_tab_2_template").html(html);
+      if (actualTab <= 3) {
+         jq("#div_tab_3_textfields").html("");
+      } 
+      if (actualTab <= 2) {
+         jq("#div_tab_2_template").html("");
       }
    }
    
@@ -130,6 +158,7 @@
    <ul>
       <li><a href="#div_tab_1">Type<a></a></li>
       <li><a href="#div_tab_2">Template<a></a></li>
+      <li><a href="#div_tab_3">Values<a></a></li>
    </ul>
    
    <div id="div_tab_1">
@@ -148,6 +177,16 @@
          <input id="button_tab_2_next" type="submit" value="Next ->"/>
       </div>
    </div>
+
+   <div id="div_tab_3">
+      <h2>Please fill the textfields!</h2>
+      <div style="padding:30px"><div id="div_tab_3_textfields"></div></div>
+      <div class="wizard_buttons">
+         <input id="button_tab_3_prev" type="submit" value="<- Previous"/>
+         <input id="button_tab_3_next" type="submit" value="Next ->"/>
+      </div>
+   </div>
+
 </div>
 
 
