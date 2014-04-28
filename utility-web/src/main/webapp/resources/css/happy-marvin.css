@@ -120,6 +120,12 @@ div {
     background-color: red !important;
 }
 
+.div_tab_table {
+    overflow: auto;
+    height:220px;
+    width: 60%;
+}
+
 #div_result {
     width: 650px;
 }
@@ -143,12 +149,6 @@ div {
 #div_ta {
     border: solid 2px #c3c3c3; 
     width: 450px;
-}
-
-#div_tab_1_table {
-    overflow: auto;
-    height:220px;
-    width: 60%;
 }
 
 #div_fake_wizard {
