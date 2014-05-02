@@ -2,6 +2,7 @@ package com.googlecode.happymarvin.webutility.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,16 +17,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.config.InstructionSentencePatternsBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatePropertyBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
 import com.googlecode.happymarvin.webutility.beans.ExceptionBean;
+import com.googlecode.happymarvin.webutility.beans.InstructionCreateGetSentenceInputBean;
 import com.googlecode.happymarvin.webutility.beans.InstructionCreateInputBean;
 
 
@@ -50,6 +54,7 @@ public class CreateInstructionController {
 	
 	@RequestMapping(value = "/create/loadData", method = RequestMethod.POST)
 	public @ResponseBody InstructionCreateInputBean loadData() {
+		LOGGER.debug("Received POST request to load the data for displaying the tabs.");
 		InstructionCreateInputBean instructionCreateInputBean = new InstructionCreateInputBean();
 		try {
 			// building the type-template-textfields list to pass to the jquery wizard
@@ -68,11 +73,37 @@ public class CreateInstructionController {
 			}
 			instructionCreateInputBean.setTypeTemplatesTextfields(typeTemplateMap);
 			
+			// adding the default sentences
+			List<String> sentences = new ArrayList<String>();
+			for (InstructionSentencePatternsBean instructionSentencePatternsBean : configurationReaderUtil.getSentencePatternsOfInstructions()) {
+				sentences.addAll(instructionSentencePatternsBean.getSentences());
+			}
+			instructionCreateInputBean.setDefaultSentences(sentences);
+			
+			// adding the property dependant sentences
+			Map<String, List<String>> sentences2 = new HashMap<String, List<String>>();
+			for (TemplateBean templateBean : configurationReaderUtil.getTemplates()) {
+				String key = templateBean.getType() + "-" + templateBean.getName();
+				sentences = new ArrayList<String>();
+				for(TemplatePropertyBean templatePropertyBean : templateBean.getProperties()) {
+					sentences.addAll(templatePropertyBean.getTextDefs());
+				}
+				sentences2.put(key, sentences);
+			}
+			instructionCreateInputBean.setTemplateDependantSentences(sentences2);
+			
 			return instructionCreateInputBean;
 		} catch(Exception e) {
 			LOGGER.error("Error occurred at getInstructionCheckPage()!", e);
 			throw new RuntimeException(e.getClass().getSimpleName() + " : " + e.getMessage());
 		}
+	}
+	
+	
+	@RequestMapping(value = "create/getSentence", method = RequestMethod.POST)
+	public String getSentence(@RequestBody InstructionCreateGetSentenceInputBean input) {
+		LOGGER.debug(String.format("Received POST request to create the sentence. type:%s, template:%s", input.getType(), input.getTemplate()));
+		return "This is not the RESULT yet...";
 	}
 	
 
@@ -85,22 +116,8 @@ public class CreateInstructionController {
 	
 	private static List<TemplatePropertyBean> getDefaultTemplatePropertyBean() {
 		List<TemplatePropertyBean> templatePropertyBeans = new ArrayList<TemplatePropertyBean>();
-		// type
-		TemplatePropertyBean bean = new TemplatePropertyBean();
-		bean.setMandatory("true");
-		bean.setName("type");
-		bean.setText("TYPE");
-		bean.setTextfieldLabel("Type");
-		templatePropertyBeans.add(bean);
-		// template
-		bean = new TemplatePropertyBean();
-		bean.setMandatory("true");
-		bean.setName("template");
-		bean.setText("TEMPLATE");
-		bean.setTextfieldLabel("Template");
-		templatePropertyBeans.add(bean);
 		// project
-		bean = new TemplatePropertyBean();
+		TemplatePropertyBean bean = new TemplatePropertyBean();
 		bean.setMandatory("true");
 		bean.setName("project");
 		bean.setText("PROJECT");
