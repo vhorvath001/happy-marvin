@@ -126,6 +126,12 @@ div {
     width: 60%;
 }
 
+.div_tab_table_short {
+    overflow: auto;
+    height:110px;
+    width: 80%;
+}
+
 #div_result {
     width: 650px;
 }

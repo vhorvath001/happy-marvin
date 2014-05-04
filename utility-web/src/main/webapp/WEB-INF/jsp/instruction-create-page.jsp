@@ -14,6 +14,10 @@
    var selectedTemplate;
    var selectedTypeOfInstruction;
    var sentenceString;
+   var alreadyChosenProperties;
+   var orderOfProperties;
+   var selectedSentence;
+   var instruction;
    
    jq(document).ready(function() {
       // displaying the tabs
@@ -154,6 +158,12 @@
             // clearing and initializing the tabs
             clearTabs(3);
             initializeTab(3);
+            // putting all the properties in the array orderOfProperties
+            orderOfProperties = ["type", "template"];
+            for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate]) {
+            	name = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].name;
+            	orderOfProperties.push(name);
+            }
          });
       }
       
@@ -207,17 +217,22 @@
       // tab sentences
       if (tabNr == 5) {
          // building the sentence table
-         html = "<table id='table_sentences' class='result_table'><tr><th>Sentence</th></tr>";
+         html = "<div class='div_tab_table_short'><table id='table_sentences' class='result_table'><tr><th>Sentence</th></tr>";
          allSentences = getAllSentences();
          var i = 0;
          for (var i in allSentences) {
+//alert("for - allSentences:" + allSentences[i]);
+//alert(allSentences[i][1]);
                var rowBackgroundColor = "";
                if (i % 2 === 0) {
                   rowBackgroundColor = "class='alteration_row_table'";
                }
-               html += "<tr " + rowBackgroundColor + "><td>" + allSentences[i] + "</td></tr>";
+               html += "<tr " + rowBackgroundColor + "><td id='"+allSentences[i][0]+"'>" + allSentences[i][1] + "</td></tr>";
          }
-         html += "</table>";
+         html += "</table></div>";
+         html += "<input id='button_add_to_instruction' type='submit' value='Add to the Instruction'/>";
+         html += "<textarea rows='4' id='taInstruction'/>";
+//alert(html);
 
          jq("#div_tab_5_sentences").html(html);
 
@@ -227,8 +242,11 @@
             // highlighting the actual row
             trs.removeClass("highlight_in_table");
             jq(this).addClass("highlight_in_table");
-            // disable the next button on tab 1
-            //jq("#button_tab_1_next").attr("disabled", false);
+			selectedSentence = jq(this).closest('tr').text();
+         });
+		 // adding the handler to the button
+		 jq("#button_add_to_instruction").bind("click", function(event) {
+		    instruction += jq("#taInstruction").val() + " ";
          });
       }
 
@@ -241,30 +259,63 @@
       }
    }
    
-   function getAllSentences(notInProperty, inProperties) {
+   function getAllSentences() {
+//alert("orderOfProperties:"+orderOfProperties);
+//alert("alreadyChosenProperties:"+alreadyChosenProperties);
+      diff = jq(orderOfProperties).not(alreadyChosenProperties).get();
+      if (diff.length == 0) {
+         return [];
+      }
+//alert("diff:"+diff);
+      currentProperty = diff[0];
+//alert("currentProperty:"+currentProperty);
+      
       allPatterns = instructionCreateInputBean.defaultSentences;
-      allPatterns.concat(instructionCreateInputBean.templateDependantSentences[selectedTypeOfTemplate+"-"+selectedTemplate]);
-
+//alert("templateDependantSentences:"+instructionCreateInputBean.templateDependantSentences[selectedTypeOfTemplate+"-"+selectedTemplate]);
+      allPatterns = allPatterns.concat(instructionCreateInputBean.templateDependantSentences[selectedTypeOfTemplate+"-"+selectedTemplate]);
+      allSentences = [];
+//alert("allPatterns:"+allPatterns);
+	  
       for (var i in allPatterns) {
          // if the notInPorperty is in the pattern ...
-         if (allPatterns[i].indexOf("${"+notInProperty+"}") > -1) {
+//alert(allPatterns[i]+"    -    "+"\\${"+currentProperty+"}"+"       -  indexOf:"+allPatterns[i].indexOf("\\${"+currentProperty+"}"));
+         if (allPatterns[i].indexOf("\\${"+currentProperty+"}") > -1) {
             // ... and the inProperties are not in the pattern
             candidate = true;
-            for (var j in inProperties) {
-               if (allPatterns[i].indexOf("${"+inProperties[j]+"}") > -1) {
+            for (var j in alreadyChosenProperties) {
+//alert("alreadyChosenProperties____________"+allPatterns[i]+"    -    "+"\\${"+alreadyChosenProperties[j]+"}"+"       -  indexOf:"+allPatterns[i].indexOf("\\${"+alreadyChosenProperties[j]+"}"));
+               if (allPatterns[i].indexOf("\\${"+alreadyChosenProperties[j]+"}") > -1) {
                   candidate = false;
                   break;
                }
             }
             if (candidate) {
                // this pattern can be chosen so put it to the list
-               
+               allSentences.push([allPatterns[i], replacePropsWithValue(allPatterns[i])]);
             }
          }
       }
       return allSentences;
    }
 
+   function replacePropsWithValue(pattern) {
+      for(i in orderOfProperties) {
+    	  pattern = pattern.replace("\\${"+orderOfProperties[i]+"}", getValue(orderOfProperties[i]));
+      }
+      return pattern;
+   }
+   
+   function getValue(property) {
+      if (property == "type") {
+    	  return selectedTypeOfTemplate;
+      } else if (property == "template") {
+          return selectedTemplate;
+      } else {
+    	  return jq("#tf_"+property).val();
+      }
+   }
+   
+   
    function doNextStepAfterTypeOfInstruction() {
       // if key-value
       if (selectedTypeOfInstruction == "keyvalue") {
