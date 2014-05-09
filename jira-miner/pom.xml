@@ -33,10 +33,10 @@
 			<artifactId>spring-test-mvc</artifactId>
 			<version>1.0.0.M2</version>
 			<exclusions>
-			<exclusion>
-  <groupId>org.springframework</groupId>
-  <artifactId>spring-webmvc</artifactId>
-			</exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc</artifactId>
+                </exclusion>
 			</exclusions>
 		</dependency>
 

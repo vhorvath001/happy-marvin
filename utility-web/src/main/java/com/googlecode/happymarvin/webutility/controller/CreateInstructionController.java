@@ -92,18 +92,15 @@ public class CreateInstructionController {
 			}
 			instructionCreateInputBean.setTemplateDependantSentences(sentences2);
 			
+			// adding the instructionSeparationStart and instructionSeparationEnd
+			instructionCreateInputBean.setInstructionSeparationStart(configurationReaderUtil.getInstructionSeparationStart());
+			instructionCreateInputBean.setInstructionSeparationEnd(configurationReaderUtil.getInstructionSeparationEnd());
+			
 			return instructionCreateInputBean;
 		} catch(Exception e) {
 			LOGGER.error("Error occurred at getInstructionCheckPage()!", e);
 			throw new RuntimeException(e.getClass().getSimpleName() + " : " + e.getMessage());
 		}
-	}
-	
-	
-	@RequestMapping(value = "create/getSentence", method = RequestMethod.POST)
-	public String getSentence(@RequestBody InstructionCreateGetSentenceInputBean input) {
-		LOGGER.debug(String.format("Received POST request to create the sentence. type:%s, template:%s", input.getType(), input.getTemplate()));
-		return "This is not the RESULT yet...";
 	}
 	
 

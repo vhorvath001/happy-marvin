@@ -13,21 +13,142 @@
 		<file name="validator" extension="java" path="Java/Java_JSR303Validator_Validator.ftl" suffix="Validator"/>
 		<file name="constraint" extension="java" path="Java/Java_JSR303Validator_Constraint.ftl" suffix="Constraint"/>
 		<file name="configXML" extension="xml" path="XML/XML_JSR303Validator_configXML.ftl"/>
+		<!-- the text attribute of the property is used when the instructions are defined in JIRA description as key-value pairs -->
 		<property name="location_Java_JSR303Validator_Validator" text="LOCATION_JAVA_JSR303VALIDATOR_VALIDATOR" 
-				mandatory="false" locationOf="validator">
+				mandatory="false" locationOf="validator" textfieldLabel="The location of validator">
 			<textDef>The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.</textDef>
 			<textDef>[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].</textDef>
 		</property>
 		<property name="location_Java_JSR303Validator_Constraint" text="LOCATION_JAVA_JSR303VALIDATOR_CONSTRAINT" 
-				mandatory="false" locationOf="constraint">
+				mandatory="false" locationOf="constraint" textfieldLabel="The location of constraint">
 			<textDef>The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder.</textDef>
 			<textDef>[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].</textDef>
 		</property>
 		<property name="location_Java_JSR303Validator_configXML" text="LOCATION_JAVA_JSR303VALIDATOR_CONFIGXML" 
-				mandatory="false" locationOf="configXML">
+				mandatory="false" locationOf="configXML" textfieldLabel="The location of config XML">
 			<textDef>The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder.</textDef>
 			<textDef>[Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].</textDef>
 		</property>
 	</template>
 
+
+
+    <template name="POJO" type="C++">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+
+    <template name="POJO" type="C#">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="XML">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="text">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="json">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Python">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Perl">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="PL/SQL">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="SQL">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="OSB">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Weblogic">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type=".Net">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
+    <template name="POJO" type="Javascript">
+        <file extension="java" path="Java/Java-POJO.ftl"/>
+        <property name="method" text="METHOD" mandatory="true">
+            <!-- The [] means that the word is not mandatory -->
+            <!-- not case-sensitive: add or Add -->
+            <textDef>[Please ]add a method[ to it]: '${method}'[.]</textDef>
+            <textDef>[A ]method [is ]needed: '${method}'.</textDef>
+        </property>
+    </template>
 </templates>

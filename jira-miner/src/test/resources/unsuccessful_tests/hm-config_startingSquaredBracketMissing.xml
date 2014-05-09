@@ -2,6 +2,10 @@
 	<!-- simplified (like now) or regularExpression -->
 	<!-- not implemented yet  -->
 	<patternType>simplified</patternType>
+	
+    <instructionSeparationStart>~~~HAPPYMARVIN-INSTRUCTION~~~</instructionSeparationStart>
+    <instructionSeparationEnd>~~~HAPPYMARVIN-INSTRUCTIONS-END~~~</instructionSeparationEnd>
+	
 <!-- 1.TYPE, 2.TEMPLATE, 3.PROJECT, 4.NAME, 5.location -->
 <!-- in the simplified pattern the characters '[' , ']' are not allowed!!! so the '\[' and '\]' cannot be used! -->
 <!-- other not allowed characters: (,),{,} 

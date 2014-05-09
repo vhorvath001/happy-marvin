@@ -14,10 +14,11 @@
    var selectedTemplate;
    var selectedTypeOfInstruction;
    var sentenceString;
-   var alreadyChosenProperties;
-   var orderOfProperties;
+   var alreadyChosenProperties = [];
+   var orderOfProperties = [];
    var selectedSentence;
-   var instruction;
+   var instruction = " ";
+   var selectedPattern;
    
    jq(document).ready(function() {
       // displaying the tabs
@@ -57,6 +58,7 @@
          jq('#div_fake_wizard').tabs('option', 'active', 2);
       });
       jq("#button_tab_5_next").bind("click", function(event) {
+         initializeTab(999);
          jq('#div_fake_wizard').tabs('option', 'active', 5);
       });
       jq("#button_tab_5_prev").bind("click", function(event) {
@@ -126,8 +128,10 @@
             // clearing and initializing the tabs
             clearTabs(2);
             initializeTab(2);
+            // jump to the 2nd tab
+            jq('#div_fake_wizard').tabs('option', 'active', 1);
          });
-	  }
+      }
       
       // tab template
       else if (tabNr == 2) {
@@ -158,12 +162,8 @@
             // clearing and initializing the tabs
             clearTabs(3);
             initializeTab(3);
-            // putting all the properties in the array orderOfProperties
-            orderOfProperties = ["type", "template"];
-            for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate]) {
-            	name = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].name;
-            	orderOfProperties.push(name);
-            }
+            // jump to the 3rd tab
+            jq('#div_fake_wizard').tabs('option', 'active', 2);
          });
       }
       
@@ -199,6 +199,15 @@
       
       // tab type of instruction
       if (tabNr == 4) {
+         // putting all the properties in the array orderOfProperties
+         orderOfProperties = ["type", "template"];
+         for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate]) {
+            name = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].name;
+            if (getValue(name).length > 0) {
+               orderOfProperties.push(name);
+            }
+         }
+
          // building the radio buttons
          html = "";
          html += "<input type='radio' name='radio_instr_type' id='radio_instr_type_keyvalue' value='keyvalue'>Key-value</input>";
@@ -208,9 +217,14 @@
 
          // adding a handler to select a radio
          jq("input[name='radio_instr_type']").change(function(){
-        	 jq("#button_tab_4_next").attr("disabled", false);
-        	 selectedTypeOfInstruction = jq('input[name=radio_instr_type]').filter(':checked').val();
-        	 doNextStepAfterTypeOfInstruction();
+             jq("#button_tab_4_next").attr("disabled", false);
+             selectedTypeOfInstruction = jq('input[name=radio_instr_type]').filter(':checked').val();
+             doNextStepAfterTypeOfInstruction();
+            if (selectedTypeOfInstruction == "keyvalue") {
+               jq('#div_fake_wizard').tabs('option', 'active', 5);
+            } else {
+               jq('#div_fake_wizard').tabs('option', 'active', 4);
+            }
          });
       }
 
@@ -221,20 +235,32 @@
          allSentences = getAllSentences();
          var i = 0;
          for (var i in allSentences) {
-//alert("for - allSentences:" + allSentences[i]);
-//alert(allSentences[i][1]);
                var rowBackgroundColor = "";
                if (i % 2 === 0) {
                   rowBackgroundColor = "class='alteration_row_table'";
                }
-               html += "<tr " + rowBackgroundColor + "><td id='"+allSentences[i][0]+"'>" + allSentences[i][1] + "</td></tr>";
+               html += "<tr pattern='"+htmlEscape(allSentences[i][0])+"' " + rowBackgroundColor + "><td>" + allSentences[i][1] + "</td></tr>";
          }
          html += "</table></div>";
-         html += "<input id='button_add_to_instruction' type='submit' value='Add to the Instruction'/>";
-         html += "<textarea rows='4' id='taInstruction'/>";
-//alert(html);
+         html += "<br/><input id='button_add_to_instruction' type='submit' value='Add to the Instruction'/>";
+         html += "<input id='button_remove_instructions' type='submit' value='Remove the Instructions'/>";
+         html += "<br/><textarea rows='4' id='taInstruction'/>";
+         html += "<br/>The remaining properties:<b><span id='span_remaining_properties'/></b>";
 
          jq("#div_tab_5_sentences").html(html);
+
+         // adding the instructions to the text area
+         jq("#taInstruction").val(instruction);
+
+         // checking if the button 'Next' can be enabled
+         diff = jq(orderOfProperties).not(alreadyChosenProperties).get();
+         if (diff.length == 0) {
+            jq("#button_tab_5_next").attr("disabled", false);
+         }
+         jq("#span_remaining_properties").text(diff);
+
+         // disable the button_add_to_instruction button
+         jq("#button_add_to_instruction").attr("disabled", true);
 
          // adding a handler to select a row
          var trs = jq("#table_sentences").find("tr");
@@ -242,48 +268,91 @@
             // highlighting the actual row
             trs.removeClass("highlight_in_table");
             jq(this).addClass("highlight_in_table");
-			selectedSentence = jq(this).closest('tr').text();
+            // getting the selected sentence and pattern
+            selectedSentence = jq(this).closest('tr').text();
+            selectedPattern = jq(this).closest('tr').attr('pattern');
+            // enable the button_add_to_instruction button
+            jq("#button_add_to_instruction").attr("disabled", false);
          });
-		 // adding the handler to the button
-		 jq("#button_add_to_instruction").bind("click", function(event) {
-		    instruction += jq("#taInstruction").val() + " ";
+         // adding the handler to the button button_add_to_instruction
+         jq("#button_add_to_instruction").bind("click", function(event) {
+            instruction += selectedSentence + " ";
+            addChosenPropertiesToList(selectedPattern);
+            // clearing and initializing the tabs
+            clearTabs(5);
+            initializeTab(5);
+         });
+         // adding the handler to the button button_remove_instructions
+         jq("#button_remove_instructions").bind("click", function(event) {
+            instruction = " ";
+            alreadyChosenProperties = [];
+            // clearing and initializing the tabs
+            clearTabs(5);
+            initializeTab(5);
          });
       }
 
       // tab THE RESULT
       if (tabNr == 999) {
          // building the sentences
-         html = "<b>" + buildSentence() + "</b>";
+         html = "<span class='the_result'>" + buildSentence() + "</span>";
+
+         // if the type of instruction is sentence then a help button needs to be added
+         if (selectedTypeOfInstruction == "sentence") {
+            html += "<br/><br/><button id='button_help_the_result'>Help</button>";
+         }
 
          jq("#div_tab_999_result").html(html);
+
+         // configuring the help button
+         jq("#div_help_the_result").dialog({
+            autoOpen: false,
+            width: 500,
+            modal: true,
+            show: {
+               effect: "blind",
+               duration: 800,
+            },
+            hide: {
+               effect: "explode",
+               duration: 800
+            }
+         });
+         jq("#button_help_the_result").button({
+            icons: { primary: "ui-icon-help"},
+            text: false
+         }).bind("click", function(event) {
+            jq("#div_help_the_result").dialog( "open" );
+         }).css({ height: '20px'});
       }
    }
    
+   function addChosenPropertiesToList(pattern) {
+      while (pattern.indexOf("\${") > 0) {
+         start = pattern.indexOf("\${") + 2;
+         end = pattern.indexOf("}", start);
+         alreadyChosenProperties.push(pattern.substr(start, end-start));
+         pattern = pattern.substr(end);
+      }
+   }
+
    function getAllSentences() {
-//alert("orderOfProperties:"+orderOfProperties);
-//alert("alreadyChosenProperties:"+alreadyChosenProperties);
       diff = jq(orderOfProperties).not(alreadyChosenProperties).get();
       if (diff.length == 0) {
          return [];
       }
-//alert("diff:"+diff);
       currentProperty = diff[0];
-//alert("currentProperty:"+currentProperty);
       
       allPatterns = instructionCreateInputBean.defaultSentences;
-//alert("templateDependantSentences:"+instructionCreateInputBean.templateDependantSentences[selectedTypeOfTemplate+"-"+selectedTemplate]);
       allPatterns = allPatterns.concat(instructionCreateInputBean.templateDependantSentences[selectedTypeOfTemplate+"-"+selectedTemplate]);
       allSentences = [];
-//alert("allPatterns:"+allPatterns);
-	  
+      
       for (var i in allPatterns) {
          // if the notInPorperty is in the pattern ...
-//alert(allPatterns[i]+"    -    "+"\\${"+currentProperty+"}"+"       -  indexOf:"+allPatterns[i].indexOf("\\${"+currentProperty+"}"));
          if (allPatterns[i].indexOf("\\${"+currentProperty+"}") > -1) {
             // ... and the inProperties are not in the pattern
             candidate = true;
             for (var j in alreadyChosenProperties) {
-//alert("alreadyChosenProperties____________"+allPatterns[i]+"    -    "+"\\${"+alreadyChosenProperties[j]+"}"+"       -  indexOf:"+allPatterns[i].indexOf("\\${"+alreadyChosenProperties[j]+"}"));
                if (allPatterns[i].indexOf("\\${"+alreadyChosenProperties[j]+"}") > -1) {
                   candidate = false;
                   break;
@@ -300,28 +369,25 @@
 
    function replacePropsWithValue(pattern) {
       for(i in orderOfProperties) {
-    	  pattern = pattern.replace("\\${"+orderOfProperties[i]+"}", getValue(orderOfProperties[i]));
+          pattern = pattern.replace("\\${"+orderOfProperties[i]+"}", getValue(orderOfProperties[i]));
       }
       return pattern;
    }
    
    function getValue(property) {
       if (property == "type") {
-    	  return selectedTypeOfTemplate;
+          return selectedTypeOfTemplate;
       } else if (property == "template") {
           return selectedTemplate;
       } else {
-    	  return jq("#tf_"+property).val();
+          return jq("#tf_"+property).val();
       }
    }
-   
    
    function doNextStepAfterTypeOfInstruction() {
       // if key-value
       if (selectedTypeOfInstruction == "keyvalue") {
-    	  // sending a post request to get result
-          //jq.post("create/getSentence", {type: selectedTypeOfTemplate, template: selectedTemplate }, function(_sentenceString){        	  sentenceString = _sentenceString;          });
-    	  // displaying the result
+          // displaying the result
           initializeTab(999);
       } else {
          initializeTab(5);
@@ -329,14 +395,41 @@
    }
    
    function buildSentence() {
-      html = "TYPE:" + selectedTypeOfTemplate + "<br>";
-      html += "TEMPLATE:" + selectedTemplate + "<br>";
-      for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate]) {
-         name = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].name;
-         text = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].text;
-         value = jq("#tf_"+name).val();
-         html += text + ":" + value + "<br>";
+      html = instructionCreateInputBean.instructionSeparationStart + "<br/>";
+      // if key-value
+      if (selectedTypeOfInstruction == "keyvalue") {
+         html += "TYPE:" + selectedTypeOfTemplate + "<br/>";
+         html += "TEMPLATE:" + selectedTemplate + "<br/>";
+         for (var i in instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate]) {
+            name = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].name;
+            text = instructionCreateInputBean.typeTemplatesTextfields[selectedTypeOfTemplate][selectedTemplate][i].text;
+            value = jq("#tf_"+name).val();
+            html += text + ":" + value + "<br/>";
+         }
+      } 
+      // if sentence
+      else {
+         inside = false;
+         for (var i=0; i < instruction.length; i++) {
+            if (instruction.charAt(i) == "[" || instruction.charAt(i) == "]" || 
+                (instruction.charAt(i) == "/" && i > 0 && instruction.charAt(i-1) == "]" && instruction.charAt(i+1) == "[")) {
+               html += "<font color='red'>" + instruction.charAt(i) + "</font>";
+               if (instruction.charAt(i) == "[") {
+                  inside = true;
+               } else if (instruction.charAt(i) == "]") {
+                  inside = false;
+               }
+            } else {
+               if (inside) {
+                  html += "<font color='#a9a9a9'>" + instruction.charAt(i) + "</font>";
+               } else {
+                  html += instruction.charAt(i);
+               }
+            }
+         }
+         html += "<br>";
       }
+      html += instructionCreateInputBean.instructionSeparationEnd;
       return html;
    }
 
@@ -366,6 +459,8 @@
           jq("#button_tab_5_next").attr("disabled", true);
        } 
       if (actualTab <= 4) {
+         instruction = "";
+         alreadyChosenProperties = [];
          jq("#div_tab_4_choose").html("");
          jq("#button_tab_4_next").attr("disabled", true);
       } 
@@ -379,6 +474,15 @@
       }
    }
    
+   function htmlEscape(str) {
+       return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+   }
+
    jq(document).ajaxError(function (e, xhr, settings, exception) {
       jq("#div_loading_modal_dialog").dialog("close");
       var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
@@ -461,4 +565,11 @@
 
 <div id="div_loading_modal_dialog" title="Loading...">
    <div id="div_progressBar"/>
+</div>
+
+<div id="div_help_the_result" title="How to create the real instruction from the result">
+   <p>The black characters MUST exist in the instruction. The red square brackets MUST leave out and the characters being between the square brackets are optional. The []/[]/... characters mean an option i.e. one word has to be chosen from the options.<br/>Let's see an example:</p>
+   <p>The <font color="red">[</font><font color="#a9a9a9">d</font><font color="#a9a9a9">e</font><font color="#a9a9a9">s</font><font color="#a9a9a9">t</font><font color="#a9a9a9">i</font><font color="#a9a9a9">n</font><font color="#a9a9a9">a</font><font color="#a9a9a9">t</font><font color="#a9a9a9">i</font><font color="#a9a9a9">o</font><font color="#a9a9a9">n</font><font color="#a9a9a9"> </font><font color="red">]</font>folder <font color="red">[</font><font color="#a9a9a9">s</font><font color="#a9a9a9">h</font><font color="#a9a9a9">o</font><font color="#a9a9a9">u</font><font color="#a9a9a9">l</font><font color="#a9a9a9">d</font><font color="#a9a9a9"> </font><font color="#a9a9a9">b</font><font color="#a9a9a9">e</font><font color="#a9a9a9"> </font><font color="red">]</font><font color="red">/</font><font color="red">[</font><font color="#a9a9a9">i</font><font color="#a9a9a9">s</font><font color="#a9a9a9"> </font><font color="red">]</font>'3'.</p>
+   <p>The verbose instrustion: <b>The destination folder should be '3'.</b></p>
+   <p>The tight-lipped instrustion: <b>The folder is '3'.</b></p>
 </div>

@@ -11,18 +11,18 @@
         </property>
     </bean>
     
-    <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient">
+    <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.RestClient" scope="prototype">
         <property name="restTemplate" ref="restTemplate"/>
     </bean>
     
-    <bean id="surfaceMining" class="com.googlecode.happymarvin.jiraminer.SurfaceMining"/>
+    <bean id="surfaceMining" class="com.googlecode.happymarvin.jiraminer.SurfaceMining" scope="prototype"/>
     
     <bean id="configurationReaderUtil" class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" scope="singleton">
     	<property name="pathConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_CONFIG_XML }"/>
     	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
     </bean>
     
-    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining" scope="prototype">
     	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
     </bean>
     

@@ -46,10 +46,11 @@ public class UndergroundMining implements IUndergroundMining {
 	
 	private ConfigurationReaderUtil configurationReaderUtil = null;
 	// the list contains the found sentence-pattern pairs -> the utility-web needs it
-	private List<List<String[]>> sentencePatternPairs = new ArrayList<List<String[]>>();
+	private List<List<String[]>> sentencePatternPairs = null;
 	
 
 	public JiraIssueBean mine(final JiraIssueBean jiraIssueBean) throws IOException, InvalidInstructionException, ConfigurationException {
+		sentencePatternPairs = new ArrayList<List<String[]>>();
 		// getting the text of the description
 		String description = jiraIssueBean.getDescription();
 
@@ -563,11 +564,11 @@ public class UndergroundMining implements IUndergroundMining {
 		InstructionBean instructionBean = new InstructionBean();
 		
 		// getting the basic values
-		String type = getValue(instruction, Constants.NamesOfValues.TYPE.getValue());
-		String template = getValue(instruction, Constants.NamesOfValues.TEMPLATE.getValue());
-		String project = getValue(instruction, Constants.NamesOfValues.PROJECT.getValue());
-		String name = getValue(instruction, Constants.NamesOfValues.NAME.getValue());
-		String location = getValue(instruction, Constants.NamesOfValues.LOCATION.getValue());
+		String type = getValue(instruction, Constants.NamesOfValues.TYPE.getValue(), "TRUE");
+		String template = getValue(instruction, Constants.NamesOfValues.TEMPLATE.getValue(), "TRUE");
+		String project = getValue(instruction, Constants.NamesOfValues.PROJECT.getValue(), "TRUE");
+		String name = getValue(instruction, Constants.NamesOfValues.NAME.getValue(), "TRUE");
+		String location = getValue(instruction, Constants.NamesOfValues.LOCATION.getValue(), "TRUE");
 		
 		// getting the template-specific value(s)
 		String key = null;
@@ -576,8 +577,10 @@ public class UndergroundMining implements IUndergroundMining {
 		List<TemplatePropertyBean> propertyBeans = configurationReaderUtil.getTemplateProperties(type, template);
 		for (TemplatePropertyBean propertyBean : propertyBeans) {
 			key = propertyBean.getText();
-			value = getValue(instruction, key);
-			properties.put(propertyBean.getName(), value);
+			value = getValue(instruction, key, propertyBean.getMandatory());
+			if (value != null) {
+				properties.put(propertyBean.getName(), value);
+			}
 		}
 		
 		// if no exception has been thrown then the instruction can be added to the list
@@ -591,7 +594,7 @@ public class UndergroundMining implements IUndergroundMining {
 	}
 
 
-	private String getValue(List<String> instruction, String key) throws InvalidInstructionException {
+	private String getValue(List<String> instruction, String key, String mandatory) throws InvalidInstructionException {
 		String line = null;
 		// finding the key in the instruction list
 		for(String _line : instruction) {
@@ -601,15 +604,23 @@ public class UndergroundMining implements IUndergroundMining {
 			}
 		}
 		if (line == null) {
-			throw new InvalidInstructionException(String.format("The key %s cannot be found in the instruction!", key));
+			if ("true".equalsIgnoreCase(mandatory)) {
+				throw new InvalidInstructionException(String.format("The key %s cannot be found in the instruction!", key));
+			} else {
+				return null;
+			}
 		}
 		
 		// getting the value
-		String value = line.split(":")[1].trim();
+		String value = line.replace(key + ":", "").trim();
 		
 		// checking if the value is not empty
 		if (value.length() == 0) {
-			throw new InvalidInstructionException(String.format("The value of the key %s is empty!", key));
+			if ("true".equalsIgnoreCase(mandatory)) {
+				throw new InvalidInstructionException(String.format("The value of the key %s is empty!", key));
+			} else {
+				return null;
+			}
 		}
 		
 		return value;
@@ -628,7 +639,7 @@ public class UndergroundMining implements IUndergroundMining {
 		// checking if the first line is starting with the text of the common property 'TYPE:', the second...
 		for(Constants.NamesOfValues nameOfOneValue : Constants.NamesOfValues.values()) {
 			try {
-				getValue(instruction, nameOfOneValue.getValue());
+				getValue(instruction, nameOfOneValue.getValue(), "TRUE");
 			} catch (InvalidInstructionException e) {
 				return false;
 			}

@@ -132,6 +132,11 @@ div {
     width: 80%;
 }
 
+.the_result {
+	font-family: Arial;
+	font-size: 16px;
+}
+
 #div_result {
     width: 650px;
 }

@@ -10,6 +10,8 @@ public class InstructionCreateInputBean {
 	private Map<String, Map<String, List<TemplatePropertyBean>>> typeTemplatesTextfields;
 	private List<String> defaultSentences;
 	private Map<String, List<String>> templateDependantSentences;
+	private String instructionSeparationStart;
+	private String instructionSeparationEnd;
 
 	public Map<String, Map<String, List<TemplatePropertyBean>>> getTypeTemplatesTextfields() {
 		return typeTemplatesTextfields;
@@ -29,6 +31,18 @@ public class InstructionCreateInputBean {
 	public void setTemplateDependantSentences(
 			Map<String, List<String>> templateDependantSentences) {
 		this.templateDependantSentences = templateDependantSentences;
+	}
+	public String getInstructionSeparationStart() {
+		return instructionSeparationStart;
+	}
+	public void setInstructionSeparationStart(String instructionSeparationStart) {
+		this.instructionSeparationStart = instructionSeparationStart;
+	}
+	public String getInstructionSeparationEnd() {
+		return instructionSeparationEnd;
+	}
+	public void setInstructionSeparationEnd(String instructionSeparationEnd) {
+		this.instructionSeparationEnd = instructionSeparationEnd;
 	}
 	
 }

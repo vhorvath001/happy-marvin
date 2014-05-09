@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:jira-miner-context-test.xml")
 public class RestClientTest {
