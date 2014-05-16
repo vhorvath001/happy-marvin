@@ -12,6 +12,7 @@ import com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
+import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
 import com.googlecode.happymarvin.jiraexplorer.RestClient;
 import com.googlecode.happymarvin.jiraminer.SurfaceMining;
 import com.googlecode.happymarvin.jiraminer.UndergroundMining;
@@ -27,15 +28,20 @@ public class ArtefactGenerationOrchestrator {
 	private RestClient restClient;
 	private SurfaceMining surfaceMining;
 	private UndergroundMining undergroundMining;
+	private ConfigurationReaderUtil configurationReaderUtil;
 	
 	
-	public void start() throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
+	public void start(String... args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
 		LOGGER.info("------------- START -------------");
 		
 		try {
+			// checking the arguments
+			check(args);
+			
 			// calling the JIRA REST service
 			LOGGER.info("----- 1/4 Calling the JIRA REST service -----");
-			LinkedHashMap<String, Object> responseFromREST = restClient.getJiraIssueAsJson("", "");
+			LinkedHashMap<String, Object> responseFromREST = restClient.getJiraIssueAsJson(
+					configurationReaderUtil.getJiraRestUrlWithTrailingPer(), args[0]);
 			
 			// mining the JIRA ticket received from REST
 			LOGGER.info("----- 2/4 Starting the surface mining -----");
@@ -49,6 +55,17 @@ public class ArtefactGenerationOrchestrator {
 		} finally {
 			LOGGER.info("------------- END -------------");
 		}
+	}
+
+
+	private void check(String... args) {
+		if (args.length != 1) {
+			LOGGER.error("One argument is needed to start the artefact generation!");
+			LOGGER.error("---------- Usage ----------");
+			LOGGER.error("             start_generator.bat <JIRA number>");
+			LOGGER.error("     sample: start_generator.bat ABDF-145");
+		}
+		
 	}
 
 
@@ -74,7 +91,7 @@ public class ArtefactGenerationOrchestrator {
 		ApplicationContext context = new ClassPathXmlApplicationContext("fake-orchestrator-context.xml");
 		ArtefactGenerationOrchestrator processOrchestrator = context.getBean("artefactGenerationOrchestrator", ArtefactGenerationOrchestrator.class);
 		
-		processOrchestrator.start();
+		processOrchestrator.start(args);
 	}
 	
 }

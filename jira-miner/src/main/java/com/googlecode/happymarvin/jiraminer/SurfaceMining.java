@@ -2,6 +2,9 @@ package com.googlecode.happymarvin.jiraminer;
 
 import java.util.LinkedHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.utils.Constants;
 
@@ -12,10 +15,14 @@ import com.googlecode.happymarvin.common.utils.Constants;
 public class SurfaceMining {
 
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(SurfaceMining.class);
+	
+			
 	public JiraIssueBean mine(final LinkedHashMap<String, Object> reponseJiraRest) {
 		JiraIssueBean jiraIssueBean = new JiraIssueBean();
 		
 		jiraIssueBean.setDescription(get(reponseJiraRest, Constants.PATH_TO_DESCRIPTION, String.class));
+		LOGGER.debug("Getting the JIRA description from the REST response:n" + jiraIssueBean.getDescription());
 		
 		return jiraIssueBean;
 	}

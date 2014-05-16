@@ -158,6 +158,12 @@ public class ConfigurationReaderUtil {
 	}
 
 	
+	public String getJiraRestUrlWithTrailingPer() {
+		String jiraRestUrl = configBean.getJiraRestUrl();
+		return jiraRestUrl.endsWith("/") ? jiraRestUrl : jiraRestUrl + "/";
+	}
+
+	
 	public void setPathConfigFile(String pathConfigFile) {
 		this.pathConfigFile = pathConfigFile;
 	}
@@ -165,5 +171,6 @@ public class ConfigurationReaderUtil {
 	public void setPathTemplateConfigFile(String pathTemplateConfigFile) {
 		this.pathTemplateConfigFile = pathTemplateConfigFile;
 	}
-	
+
+
 }

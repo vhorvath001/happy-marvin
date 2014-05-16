@@ -26,6 +26,9 @@ public class ConfigBean implements Serializable {
 
 	@ElementList(inline=true, required=false, entry="project")
 	private List<ProjectBean> projects;
+	
+	@Element(name="jiraRestUrl")
+	private String jiraRestUrl;
 
 	public String getPatternType() {
 		return patternType;
@@ -68,6 +71,14 @@ public class ConfigBean implements Serializable {
 		this.instructionSeparationEnd = instructionSeparationEnd;
 	}
 
+	public String getJiraRestUrl() {
+		return jiraRestUrl;
+	}
+
+	public void setJiraRestUrl(String jiraRestUrl) {
+		this.jiraRestUrl = jiraRestUrl;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -75,6 +86,7 @@ public class ConfigBean implements Serializable {
 		sb.append("patternType=").append(patternType);
 		sb.append(",instructionSeparationStart=").append(instructionSeparationStart);
 		sb.append(",instructionSeparationEnd=").append(instructionSeparationEnd);
+		sb.append(",jiraRestUrl=").append(jiraRestUrl);
 		if (instructionSentencePatterns != null && instructionSentencePatterns.size() > 0) {
 			for(InstructionSentencePatternsBean bean : instructionSentencePatterns) {
 				sb.append(bean).append(",");			

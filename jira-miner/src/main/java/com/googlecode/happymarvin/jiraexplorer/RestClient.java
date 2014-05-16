@@ -2,11 +2,15 @@ package com.googlecode.happymarvin.jiraexplorer;
 
 import java.util.LinkedHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 
 public class RestClient {
 
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(RestClient.class);
 	
 	private RestTemplate restTemplate;
 
@@ -14,7 +18,9 @@ public class RestClient {
 	public LinkedHashMap<String, Object> getJiraIssueAsJson(final String urlJira, final String numberJira) {
 		// http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/IBTCPDCC-1470
 		String url = urlJira + numberJira;
+		LOGGER.info("Getting the JIRA issue from " + url);
 		Object storage = restTemplate.getForObject(url, Object.class);
+		LOGGER.info("Successful call!");
 		return (LinkedHashMap<String, Object>)storage;
 	}
 	

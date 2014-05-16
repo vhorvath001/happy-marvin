@@ -28,5 +28,6 @@
     	<property name="restClient" ref="restClient"/>
     	<property name="surfaceMining" ref="surfaceMining"/>
     	<property name="undergroundMining" ref="undergroundMining" />
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
     </bean>
 </beans>
