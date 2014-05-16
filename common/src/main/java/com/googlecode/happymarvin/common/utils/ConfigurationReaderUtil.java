@@ -1,6 +1,7 @@
 package com.googlecode.happymarvin.common.utils;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.simpleframework.xml.Serializer;
@@ -63,14 +64,17 @@ public class ConfigurationReaderUtil {
 	}
 
 	
+	// cloned
 	public List<TemplatePropertyBean> getTemplateProperties(String type, String template) throws ConfigurationException {
 		initTemplateConfig();
 		
-		List<TemplatePropertyBean> properties = null;
+		List<TemplatePropertyBean> properties = new ArrayList<TemplatePropertyBean>();
 		
 		for(TemplateBean templateBean : templatesBean.getTemplate()) {
 			if (templateBean.getName().equals(template) && templateBean.getType().equals(type)) {
-				properties = templateBean.getProperties();
+				for(TemplatePropertyBean templatePropertyBean : templateBean.getProperties()) {
+					properties.add(new TemplatePropertyBean(templatePropertyBean));
+				}
 				break;
 			}
 		}
@@ -79,19 +83,26 @@ public class ConfigurationReaderUtil {
 	}
 	
 	
+	// cloned
 	public List<TemplateBean> getTemplates() throws ConfigurationException {
 		initTemplateConfig();
 		
-		return templatesBean.getTemplate();
+		List<TemplateBean> templateBeans = new ArrayList<TemplateBean>();
+		for(TemplateBean templateBean : templatesBean.getTemplate()) {
+			templateBeans.add(new TemplateBean(templateBean));
+		}
+		
+		return templateBeans;
 	}
 
 	
+	// cloned
 	public TemplateBean getTemplate(String type, String template) throws ConfigurationException {
 		initTemplateConfig();
 		
 		for(TemplateBean templateBean : templatesBean.getTemplate()) {
 			if (templateBean.getName().equals(template) && templateBean.getType().equals(type)) {
-				return templateBean;
+				return new TemplateBean(templateBean);
 			}
 		}
 		
@@ -99,19 +110,26 @@ public class ConfigurationReaderUtil {
 	}	
 	
 	
+	// cloned
 	public List<InstructionSentencePatternsBean> getSentencePatternsOfInstructions() throws ConfigurationException {
 		initConfig();
 		
-		return configBean.getInstructionSentencePatterns();
+		List<InstructionSentencePatternsBean> instructionSentencePatternsBeans = new ArrayList<InstructionSentencePatternsBean>();
+		for(InstructionSentencePatternsBean instructionSentencePatternsBean : configBean.getInstructionSentencePatterns()) {
+			instructionSentencePatternsBeans.add(new InstructionSentencePatternsBean(instructionSentencePatternsBean));
+		}
+		
+		return instructionSentencePatternsBeans;
 	}
 
 
+	// cloned
 	public ProjectBean getProjects(String nameProject) throws ConfigurationException {
 		initConfig();
 		
 		for(ProjectBean projectBean : configBean.getProjects()) {
 			if (projectBean.getName().equals(nameProject)) {
-				return projectBean;
+				return new ProjectBean(projectBean);
 			}
 		}
 		
@@ -121,25 +139,28 @@ public class ConfigurationReaderUtil {
 	
 	public String getInstructionSeparationStart() throws ConfigurationException {
 		initConfig();
+		
 		return configBean.getInstructionSeparationStart();
 	}
 	
 	
 	public String getInstructionSeparationEnd() throws ConfigurationException {
 		initConfig();
+		
 		return configBean.getInstructionSeparationEnd();
 	}
 
 	
 	public String getPatternType() throws ConfigurationException {
 		initConfig();
+		
 		return configBean.getPatternType();
 	}
 
+	
 	public void setPathConfigFile(String pathConfigFile) {
 		this.pathConfigFile = pathConfigFile;
 	}
-
 
 	public void setPathTemplateConfigFile(String pathTemplateConfigFile) {
 		this.pathTemplateConfigFile = pathTemplateConfigFile;

@@ -18,7 +18,7 @@ import com.googlecode.happymarvin.jiraminer.UndergroundMining;
 
 import freemarker.template.TemplateException;
 
-public class ProcessOrchestrator {
+public class ArtefactGenerationOrchestrator {
 
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(ArtefactGenerator.class);
@@ -72,7 +72,7 @@ public class ProcessOrchestrator {
 	public static void main(String[] args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
 		//ApplicationContext context = new ClassPathXmlApplicationContext("orchestrator-context.xml");
 		ApplicationContext context = new ClassPathXmlApplicationContext("fake-orchestrator-context.xml");
-		ProcessOrchestrator processOrchestrator = context.getBean("processOrchestrator", ProcessOrchestrator.class);
+		ArtefactGenerationOrchestrator processOrchestrator = context.getBean("artefactGenerationOrchestrator", ArtefactGenerationOrchestrator.class);
 		
 		processOrchestrator.start();
 	}

@@ -74,7 +74,7 @@
 
       // displaying a modal Loading... window
       jq("#div_loading_modal_dialog").dialog({
-          height: 70,
+          height: 75,
           modal: true
       });
       jq("#div_loading_modal_dialog").closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
@@ -118,18 +118,20 @@
          // adding a handler to select a row
          var trs = jq("#table_type").find("tr");
          trs.bind("click", function(event) {
-            // highlighting the actual row
-            trs.removeClass("highlight_in_table");
-            jq(this).addClass("highlight_in_table");
-            // disable the next button on tab 1
-            jq("#button_tab_1_next").attr("disabled", false);
-            // getting the selected type
-            selectedTypeOfTemplate = jq(this).closest('tr').text();
-            // clearing and initializing the tabs
-            clearTabs(2);
-            initializeTab(2);
-            // jump to the 2nd tab
-            jq('#div_fake_wizard').tabs('option', 'active', 1);
+            if (jq(this).index() != 0) {
+               // highlighting the actual row
+               trs.removeClass("highlight_in_table");
+               jq(this).addClass("highlight_in_table");
+               // disable the next button on tab 1
+               jq("#button_tab_1_next").attr("disabled", false);
+               // getting the selected type
+               selectedTypeOfTemplate = jq(this).closest('tr').text();
+               // clearing and initializing the tabs
+               clearTabs(2);
+               initializeTab(2);
+               // jump to the 2nd tab
+               jq('#div_fake_wizard').tabs('option', 'active', 1);
+            }
          });
       }
       
@@ -153,17 +155,19 @@
          // adding a handler to select a row
          var trs = jq("#table_template").find("tr");
          trs.bind("click", function(event) {
-            trs.removeClass("highlight_in_table");
-            jq(this).addClass("highlight_in_table");
-            // disable the next button on tab 2
-            jq("#button_tab_2_next").attr("disabled", false);
-            // getting the selected template
-            selectedTemplate = jq(this).closest('tr').text();
-            // clearing and initializing the tabs
-            clearTabs(3);
-            initializeTab(3);
-            // jump to the 3rd tab
-            jq('#div_fake_wizard').tabs('option', 'active', 2);
+            if (jq(this).index() != 0) {
+               trs.removeClass("highlight_in_table");
+               jq(this).addClass("highlight_in_table");
+               // disable the next button on tab 2
+               jq("#button_tab_2_next").attr("disabled", false);
+               // getting the selected template
+               selectedTemplate = jq(this).closest('tr').text();
+               // clearing and initializing the tabs
+               clearTabs(3);
+               initializeTab(3);
+               // jump to the 3rd tab
+               jq('#div_fake_wizard').tabs('option', 'active', 2);
+            }
          });
       }
       
@@ -217,9 +221,14 @@
 
          // adding a handler to select a radio
          jq("input[name='radio_instr_type']").change(function(){
-             jq("#button_tab_4_next").attr("disabled", false);
-             selectedTypeOfInstruction = jq('input[name=radio_instr_type]').filter(':checked').val();
-             doNextStepAfterTypeOfInstruction();
+            jq("#button_tab_4_next").attr("disabled", false);
+            selectedTypeOfInstruction = jq('input[name=radio_instr_type]').filter(':checked').val();
+            doNextStepAfterTypeOfInstruction();
+            instruction = " ";
+            alreadyChosenProperties = [];
+            // clearing and initializing the tabs
+            clearTabs(5);
+            initializeTab(5);
             if (selectedTypeOfInstruction == "keyvalue") {
                jq('#div_fake_wizard').tabs('option', 'active', 5);
             } else {
@@ -265,14 +274,16 @@
          // adding a handler to select a row
          var trs = jq("#table_sentences").find("tr");
          trs.bind("click", function(event) {
-            // highlighting the actual row
-            trs.removeClass("highlight_in_table");
-            jq(this).addClass("highlight_in_table");
-            // getting the selected sentence and pattern
-            selectedSentence = jq(this).closest('tr').text();
-            selectedPattern = jq(this).closest('tr').attr('pattern');
-            // enable the button_add_to_instruction button
-            jq("#button_add_to_instruction").attr("disabled", false);
+            if (jq(this).index() != 0) {
+               // highlighting the actual row
+               trs.removeClass("highlight_in_table");
+               jq(this).addClass("highlight_in_table");
+               // getting the selected sentence and pattern
+               selectedSentence = jq(this).closest('tr').text();
+               selectedPattern = jq(this).closest('tr').attr('pattern');
+               // enable the button_add_to_instruction button
+               jq("#button_add_to_instruction").attr("disabled", false);
+            }
          });
          // adding the handler to the button button_add_to_instruction
          jq("#button_add_to_instruction").bind("click", function(event) {
@@ -301,6 +312,7 @@
          if (selectedTypeOfInstruction == "sentence") {
             html += "<br/><br/><button id='button_help_the_result'>Help</button>";
          }
+         html += "<button id='button_check_the_result' type='button'>Check the result</button>";
 
          jq("#div_tab_999_result").html(html);
 
@@ -323,7 +335,21 @@
             text: false
          }).bind("click", function(event) {
             jq("#div_help_the_result").dialog( "open" );
-         }).css({ height: '20px'});
+         }).css({ height: '25px'});
+         // configuring the 'check the result' button
+         html = instructionCreateInputBean.instructionSeparationStart + "<br/>";
+         // if key-value
+         if (selectedTypeOfInstruction == "keyvalue") {
+            url = "check?instruction=" + encodeURIComponent(instruction.trim());
+         } else {
+            url = "check?instruction=" + encodeURIComponent(instructionCreateInputBean.instructionSeparationStart + "\n" + instruction.trim() + "\n" + instructionCreateInputBean.instructionSeparationEnd);
+         }
+         jq("#button_check_the_result").button({
+            text: true
+         }).bind("click", function(event) {
+            window.open(url, 'Check the created instruction', 'fullscreen=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes');
+            return false;
+         }).css({ height: '25px'});
       }
    }
    
@@ -430,6 +456,10 @@
          html += "<br>";
       }
       html += instructionCreateInputBean.instructionSeparationEnd;
+      // this step is needed for the button_check_the_result
+      if (selectedTypeOfInstruction == "keyvalue") {
+         instruction = multiReplace(html, "<br/>", "\n");
+      }
       return html;
    }
 
@@ -481,6 +511,15 @@
             .replace(/'/g, '&#39;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
+   }
+
+   function multiReplace(str, match, repl) {
+      if (match === repl)
+         return str;
+      do {
+         str = str.replace(match, repl);
+      } while(str.indexOf(match) !== -1);
+      return str;
    }
 
    jq(document).ajaxError(function (e, xhr, settings, exception) {
@@ -564,7 +603,7 @@
 <div id="div_error_modal_dialog" title="Error happened!"></div>
 
 <div id="div_loading_modal_dialog" title="Loading...">
-   <div id="div_progressBar"/>
+   <div id="div_progressBar"></div>
 </div>
 
 <div id="div_help_the_result" title="How to create the real instruction from the result">

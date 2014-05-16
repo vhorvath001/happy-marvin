@@ -1,9 +1,21 @@
 package com.googlecode.happymarvin.common.beans.simplexml.configuration.config;
 
+import java.io.Serializable;
+
 import org.simpleframework.xml.Attribute;
 
-public class ProjectBean {
+public class ProjectBean implements Serializable {
 
+	private static final long serialVersionUID = -2098680058106072116L;
+
+	public ProjectBean() { }
+	
+	public ProjectBean(ProjectBean source) {
+		name = source.name;
+		value = source.value;
+		srcFolder = source.srcFolder;
+	}
+	
 	@Attribute
 	private String name;
 

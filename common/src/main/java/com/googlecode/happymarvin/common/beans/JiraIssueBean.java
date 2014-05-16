@@ -1,8 +1,11 @@
 package com.googlecode.happymarvin.common.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class JiraIssueBean {
+public class JiraIssueBean implements Serializable {
+
+	private static final long serialVersionUID = 1054704041275715063L;
 
 	private String description;
 	private List<InstructionBean> instructions;

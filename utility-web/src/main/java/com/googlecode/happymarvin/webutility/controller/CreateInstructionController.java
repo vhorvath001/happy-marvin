@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,7 +26,6 @@ import com.googlecode.happymarvin.common.beans.simplexml.configuration.templates
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
 import com.googlecode.happymarvin.webutility.beans.ExceptionBean;
-import com.googlecode.happymarvin.webutility.beans.InstructionCreateGetSentenceInputBean;
 import com.googlecode.happymarvin.webutility.beans.InstructionCreateInputBean;
 
 
@@ -76,7 +72,15 @@ public class CreateInstructionController {
 			// adding the default sentences
 			List<String> sentences = new ArrayList<String>();
 			for (InstructionSentencePatternsBean instructionSentencePatternsBean : configurationReaderUtil.getSentencePatternsOfInstructions()) {
+LOGGER.info("---------------instructionSentencePatternsBean.getSentences()-----------------");
+for(String getSentences : instructionSentencePatternsBean.getSentences()) {
+LOGGER.info(getSentences);
+}
 				sentences.addAll(instructionSentencePatternsBean.getSentences());
+LOGGER.info("---------------sentences-----------------");
+for(String sentence : sentences) {
+LOGGER.info(sentence);
+}
 			}
 			instructionCreateInputBean.setDefaultSentences(sentences);
 			

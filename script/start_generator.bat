@@ -1,0 +1,1 @@
+java -cp lib/artefact-generator-1.0-SNAPSHOT.jar;lib/* com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator

@@ -42,7 +42,6 @@ public class CheckInstructionController {
 	@RequestMapping(value = "/check", method = RequestMethod.GET)
 	public String getInstructionCheckPage() {
 		LOGGER.debug("Received GET request to show the instruction check page.");
-//		return "instruction-check-page";
 		return "/instruction/check.tiles";
 	}
 	
@@ -65,7 +64,6 @@ The name should be 'EmailSender'. You should put it into the 'src/main/java/com/
 		jiraIssueBean.setDescription(instructionText);
 		
 		// calling the UndergroundMining
-		// TODO handle the exception:  perhaps displaying a modal window and put the exception there???
 		try {
 			jiraIssueBean = undergroundMining.mine(jiraIssueBean);
 		} catch(Exception e) {

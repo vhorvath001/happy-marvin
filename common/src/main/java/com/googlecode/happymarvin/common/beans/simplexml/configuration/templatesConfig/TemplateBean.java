@@ -1,6 +1,7 @@
 package com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
@@ -8,9 +9,22 @@ import org.simpleframework.xml.ElementList;
 
 public class TemplateBean implements Serializable {
 
-
 	private static final long serialVersionUID = 4312402107703840825L;
 	
+	public TemplateBean() { }
+	
+	public TemplateBean(TemplateBean source) {
+		name = source.name;
+		type = source.type;
+		files = new ArrayList<TemplateFileBean>();
+		for(TemplateFileBean templateFileBean : source.files) {
+			files.add(new TemplateFileBean(templateFileBean));
+		}
+		properties = new ArrayList<TemplatePropertyBean>();
+		for(TemplatePropertyBean templatePropertyBean : source.properties) {
+			properties.add(new TemplatePropertyBean(templatePropertyBean));
+		}
+	}
 
 	@Attribute
 	private String name = null;

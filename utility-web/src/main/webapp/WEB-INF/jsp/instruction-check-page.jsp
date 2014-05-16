@@ -65,7 +65,6 @@ function callbackDisplayingHeader() {
 }
    
 function check() {
-   jq(document).ready(function() {
       // hiding the previous result
       jq("#div_result_header").empty();
       jq("#div_result_header").hide();
@@ -78,7 +77,6 @@ function check() {
       jq("#div_result").show("slide", function() {
          jq("#div_result_header").show("scale", callbackDisplayingHeader);
       });
-   });
 }
 
 jq(document).ajaxError(function (e, xhr, settings, exception) {
@@ -115,3 +113,15 @@ jq(document).ajaxError(function (e, xhr, settings, exception) {
 </table>
    
 <div id="div_error_modal_dialog" title="Error happened!"></div>
+
+
+<script type="text/javascript">
+sPageURL = window.location.search.substring(1);
+sURLVariables = sPageURL.split('&');
+for (var i = 0; i < sURLVariables.length; i++) {
+   sParameterName = sURLVariables[i].split('=');
+   if (sParameterName[0] == "instruction") {
+      jq("#taInstruction").val(decodeURIComponent(sParameterName[1]));
+   }
+}
+</script>

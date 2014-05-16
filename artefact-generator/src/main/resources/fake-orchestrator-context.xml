@@ -3,7 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="jira-miner-context.xml"/>
+    <bean id="restClient" class="com.googlecode.happymarvin.jiraexplorer.FakeRestClient"/>
+    
+    <bean id="surfaceMining" class="com.googlecode.happymarvin.jiraminer.FakeSurfaceMining"/>
+    
+    <bean id="configurationReaderUtil" class="com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil" scope="singleton">
+    	<property name="pathConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_CONFIG_XML }"/>
+    	<property name="pathTemplateConfigFile" value="#{ T(com.googlecode.happymarvin.common.utils.Constants).PATH_TEMPLATE_CONFIG_XML }"/>
+    </bean>
+    
+    <bean id="undergroundMining" class="com.googlecode.happymarvin.jiraminer.UndergroundMining">
+    	<property name="configurationReaderUtil" ref="configurationReaderUtil"/>
+    </bean>
     
     <bean id="virtualWriterManager" class="com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager"/>
     
@@ -12,7 +23,7 @@
     	<property name="virtualWriterManager" ref="virtualWriterManager"/>
 	</bean>
     
-    <bean id="processOrchestrator" class="com.googlecode.happymarvin.orchestrator.ProcessOrchestrator">
+    <bean id="artefactGenerationOrchestrator" class="com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator">
     	<property name="artefactGenerator" ref="artefactGenerator"/>
     	<property name="restClient" ref="restClient"/>
     	<property name="surfaceMining" ref="surfaceMining"/>

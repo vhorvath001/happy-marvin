@@ -9,7 +9,16 @@ public class TemplateFileBean implements Serializable {
 
 	private static final long serialVersionUID = 4312402107703840825L;
 	
-
+	public TemplateFileBean() { }
+	
+	public TemplateFileBean(TemplateFileBean source) {
+		name = source.name;
+		extension = source.extension;
+		path = source.path;
+		prefix = source.prefix;
+		suffix = source.suffix;
+	}
+	
 	@Attribute(required=false)
 	private String name = null;
 

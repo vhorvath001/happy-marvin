@@ -12,7 +12,7 @@
     	<property name="virtualWriterManager" ref="virtualWriterManager"/>
 	</bean>
     
-    <bean id="processOrchestrator" class="com.googlecode.happymarvin.orchestrator.ProcessOrchestrator">
+    <bean id="artefactGenerationOrchestrator" class="com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator">
     	<property name="artefactGenerator" ref="artefactGenerator"/>
     	<property name="restClient" ref="restClient"/>
     	<property name="surfaceMining" ref="surfaceMining"/>

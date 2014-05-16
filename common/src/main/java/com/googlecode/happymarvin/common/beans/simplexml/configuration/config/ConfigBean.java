@@ -1,5 +1,6 @@
 package com.googlecode.happymarvin.common.beans.simplexml.configuration.config;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.simpleframework.xml.Element;
@@ -7,7 +8,9 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(name="config")
-public class ConfigBean {
+public class ConfigBean implements Serializable {
+
+	private static final long serialVersionUID = -4744741321829343113L;
 
 	@Element(name="patternType")
 	private String patternType;

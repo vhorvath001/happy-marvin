@@ -1,9 +1,12 @@
 package com.googlecode.happymarvin.common.beans;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class InstructionBean {
+public class InstructionBean implements Serializable {
 
+	private static final long serialVersionUID = 3569491423268754849L;
+	
 	private String type;
 	private String template;
 	private String project;

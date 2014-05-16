@@ -149,7 +149,11 @@ div {
     width: 630px;
 }
 
- #div_error_modal_dialog {
+#div_error_modal_dialog {
+    display: none;
+}
+
+#div_help_the_result{
     display: none;
 }
 

@@ -1,16 +1,31 @@
 package com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 
 public class TemplatePropertyBean implements Serializable {
-
 	
 	private static final long serialVersionUID = -7162034148754570245L;
 
+	public TemplatePropertyBean() {}
+	
+	public TemplatePropertyBean(TemplatePropertyBean source) {
+		name = source.name;
+		text = source.text;
+		mandatory = source.mandatory;
+		locationOf = source.locationOf;
+		textfieldLabel = source.textfieldLabel;
+		
+		textDefs = new ArrayList<String>();
+		for(String textDef : source.textDefs) {
+			textDefs.add(textDef);
+		}
+	}
+	
 	@Attribute
 	private String name;
 
@@ -74,6 +89,14 @@ public class TemplatePropertyBean implements Serializable {
 		this.mandatory = mandatory;
 	}	
 
+	public String getTextfieldLabel() {
+		return textfieldLabel;
+	}
+
+	public void setTextfieldLabel(String textfieldLabel) {
+		this.textfieldLabel = textfieldLabel;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -86,6 +109,9 @@ public class TemplatePropertyBean implements Serializable {
 		if (locationOf != null && locationOf.length() > 0) {
 			sb.append(",locationOf=").append(locationOf);
 		}
+		if (textfieldLabel != null && textfieldLabel.length() > 0) {
+			sb.append(",textfieldLabel=").append(textfieldLabel);
+		}
 		sb.append(",textDefs=");
 		if (textDefs != null && textDefs.size() > 0) {
 			for(String textDef : textDefs) {
@@ -94,14 +120,6 @@ public class TemplatePropertyBean implements Serializable {
 		}
 		sb.append("]");
 		return sb.toString();
-	}
-
-	public String getTextfieldLabel() {
-		return textfieldLabel;
-	}
-
-	public void setTextfieldLabel(String textfieldLabel) {
-		this.textfieldLabel = textfieldLabel;
 	}
 
 }
