@@ -18,32 +18,40 @@ public class VirtualWriterManager {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(ArtefactGenerator.class);
 	
-	private List<VirtualWriter> writers = new ArrayList<VirtualWriter>();
+	private List<List<VirtualWriter>> writers = new ArrayList<List<VirtualWriter>>();
 	
 	
-	public void add(VirtualWriter writer) {
+	public void add(int ind, VirtualWriter writer) {
 		// checking if the the same artefact exists already in the writers list
 		// if yes the do nothing
-		for(VirtualWriter w : writers) {
-			if (w.getArtefactType().equals(writer.getArtefactType()) && w.getArtefactName().equals(writer.getArtefactName())) {
-				return;
+		for(List<VirtualWriter> writerList : writers) {
+			for(VirtualWriter w : writerList) {
+				if (w.getArtefactType().equals(writer.getArtefactType()) && w.getArtefactName().equals(writer.getArtefactName())) {
+					return;
+				}
 			}
 		}
-		writers.add(writer);
+		
+		if (writers.size() < ind+1) {
+			writers.add(ind, new ArrayList<VirtualWriter>());
+		}
+		writers.get(ind).add(writer);
 	}
 	
 	
 	public void process() throws TemplateException, IOException {
 		LOGGER.info("Artefacts to be created:");
-		for(VirtualWriter writer : writers) {
-			writer.work();
-			LOGGER.info(String.format("\tType:%s\t\tName:%s", writer.getArtefactType(), writer.getArtefactName()));
+		for(List<VirtualWriter> writerList : writers) {
+			for(VirtualWriter writer : writerList) {
+				writer.work();
+				LOGGER.info(String.format("\tType:%s\t\tName:%s", writer.getArtefactType(), writer.getArtefactName()));
+			}
 		}
 	}
 
 	
-	public List<VirtualWriter> getVirtualWriters() {
-		return writers;
+	public List<VirtualWriter> getVirtualWriters(int ind) {
+		return writers.get(ind);
 	}
 	
 }

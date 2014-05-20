@@ -1,1 +1,1 @@
-java -cp lib/artefact-generator-1.0-SNAPSHOT.jar;lib/*;config/ -Dlogback.configurationFile=config/logback.xml com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator %1 %2
+java -cp lib/artefact-generator-1.0-SNAPSHOT.jar;lib/*;config/ -Dlogback.configurationFile=config/logback.xml com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator %1 %2 %3

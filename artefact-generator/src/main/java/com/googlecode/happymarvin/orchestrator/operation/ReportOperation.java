@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator;
 import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriter;
+import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager;
 import com.googlecode.happymarvin.common.beans.InstructionBean;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
@@ -72,11 +73,13 @@ public class ReportOperation implements IOperation {
 
 		// generating the report
 		LOGGER.info(String.format("----- 5/5 Generating the report to %s -----", reportPath));
-		generateReport(jiraIssueBean, artefactGenerator.getVirtualWriterManager().getVirtualWriters(), reportPath);
+		generateReport(jiraIssueBean, artefactGenerator.getVirtualWriterManager(), reportPath, 
+				undergroundMining.getSentencePatternPairs());
 	}
 
 	
-	private void generateReport(JiraIssueBean jiraIssueBean, List<VirtualWriter> virtualWriters, String reportPath) throws IOException {
+	private void generateReport(JiraIssueBean jiraIssueBean, VirtualWriterManager virtualWriterManager, String reportPath, 
+			List<List<String[]>> sentencePatternPairs) throws IOException {
 		File reportFile = new File(reportPath);
 		BufferedWriter writer = null;
 		try {
@@ -98,18 +101,27 @@ public class ReportOperation implements IOperation {
 					writer.write(String.format("\n\tProperties:", instructionBean.getProperties()));
 				}
 				for(String propKey : instructionBean.getProperties().keySet()) {
-					writer.write(String.format("\n\t\t%s: %s", propKey, instructionBean.getProperties().get(propKey)));
+					writer.write(String.format("\n\t\t%s:\t\t%s", propKey, instructionBean.getProperties().get(propKey)));
 				}
+				
+				// writing the artefacts to be created
+				writer.write("\nThe artefacts to be created:");
+				for(VirtualWriter virtualWriter : virtualWriterManager.getVirtualWriters(ind)) {
+					String exist = new Boolean(new File(virtualWriter.getArtefactName()).exists()).toString();
+					writer.write(String.format("\n\tType: %s Exist: %s,\t Path: %s", StringUtility.padRight(virtualWriter.getArtefactType()+",",10), 
+							exist, virtualWriter.getArtefactName() ));
+				}
+
+				// the used patterns
+				writer.write("\nThe used patterns:");
+				for(String[] pair : sentencePatternPairs.get(ind)) {
+					writer.write(String.format("\n\t%s\t\t-\t%s", pair[1], pair[0]));
+				}
+				
 				ind++;
 			}
 			
-			// writing the artefacts to be created
-			writer.write("\nThe artefacts to be created:");
-			for(VirtualWriter virtualWriter : virtualWriters) {
-				String exist = new Boolean(new File(virtualWriter.getArtefactName()).exists()).toString();
-				writer.write(String.format("\n\tType: %s Exist: %s,\t Path: %s", StringUtility.padRight(virtualWriter.getArtefactType()+",",10), 
-						exist, virtualWriter.getArtefactName() ));
-			}
+			
 		} finally {
 			if (writer != null) {
 				writer.close();

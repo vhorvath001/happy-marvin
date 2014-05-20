@@ -65,7 +65,7 @@ public class ArtefactGenerationOrchestrator {
 
 
 	private boolean checkArguments(String... args) {
-		if (args.length != 2) {
+		if (args.length < 2) {
 			LOGGER.error("At least two arguments are needed to start the artefact generation!");
 			LOGGER.error("---------- Usage ----------");
 			LOGGER.error("             start_generator.bat <JIRA number> <COMMAND>");

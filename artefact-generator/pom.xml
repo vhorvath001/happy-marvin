@@ -41,6 +41,7 @@
 	            <excludes>
 	                <exclude>hm-config.xml</exclude>
 	                <exclude>hm-templates-config.xml</exclude>
+                    <exclude>logback.xml</exclude>
 	            </excludes>
 	            <filtering>false</filtering>
 	        </resource>

@@ -70,7 +70,7 @@ public class ArtefactGenerator {
 				final Template template = getTemplate(templateFileBean, cfg);
 
 				// getting the path + name of the artefact
-				final String artefactFileName = getArtefactFileName(instructionBean, templateFileBean, templateBean.getProperties(), generate);
+				final String artefactFileName = getArtefactFileName(i, instructionBean, templateFileBean, templateBean.getProperties(), generate);
 				
 				// I should create a VirtualWriter or something like this which won't create the file immediately but
 				//    collect the FileWriter -> to check if each file will be generated
@@ -80,7 +80,7 @@ public class ArtefactGenerator {
 						template.process(dataModel, new FileWriter(artefactFileName));
 					}
 				};
-				virtualWriterManager.add(virtualWriter);
+				virtualWriterManager.add(i, virtualWriter);
 				
 				// creating the artefact virtually
 				template.process(dataModel, virtualWriter);
@@ -121,7 +121,7 @@ public class ArtefactGenerator {
 	}
 
 	
-	private String getArtefactFileName(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans, boolean generate) throws IOException, ConfigurationException {
+	private String getArtefactFileName(int ind, InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans, boolean generate) throws IOException, ConfigurationException {
 		String _pathProject = configurationReaderUtil.getProjects(instructionBean.getProject()).getValue();
 		final String pathProject = _pathProject.endsWith("/") ? _pathProject : _pathProject + "/";
 		
@@ -141,7 +141,7 @@ public class ArtefactGenerator {
 		if (!new File(pathProject + location).exists()) {
 			// if it doesn't exist then create the folder virtually
 			LOGGER.debug(String.format("The folder %s is going to be created at the end of the process...", pathProject + location));
-			virtualWriterManager.add(new VirtualWriter("FOLDER", pathProject + location) {
+			virtualWriterManager.add(ind, new VirtualWriter("FOLDER", pathProject + location) {
 				@Override
 				public void work() throws TemplateException, IOException {
 					StringBuilder pathArtefact = new StringBuilder();
