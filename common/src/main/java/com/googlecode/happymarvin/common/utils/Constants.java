@@ -28,6 +28,9 @@ public class Constants {
 
 	public static final String PATTERNTYPE_SIMPLIFIED = "simplified";
 	public static final String PATTERNTYPE_REGULAREXPRESSION = "regularExpression";
+	
+	public static final String REPORT_DEFAULT_FILE_PREFIX = "REPORT_";
+	public static final String REPORT_FILE_NAME_DATEFORMAT = "yyyyMMdd-HHmmss-SSS";	
 
 	public enum NamesOfValues {
 		TYPE("TYPE"), TEMPLATE("TEMPLATE"), PROJECT("PROJECT"), NAME("NAME"), LOCATION("LOCATION");

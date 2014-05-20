@@ -158,7 +158,9 @@ public class ConfigurationReaderUtil {
 	}
 
 	
-	public String getJiraRestUrlWithTrailingPer() {
+	public String getJiraRestUrlWithTrailingPer() throws ConfigurationException {
+		initConfig();
+		
 		String jiraRestUrl = configBean.getJiraRestUrl();
 		return jiraRestUrl.endsWith("/") ? jiraRestUrl : jiraRestUrl + "/";
 	}

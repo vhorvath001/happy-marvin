@@ -41,4 +41,9 @@ public class VirtualWriterManager {
 		}
 	}
 
+	
+	public List<VirtualWriter> getVirtualWriters() {
+		return writers;
+	}
+	
 }

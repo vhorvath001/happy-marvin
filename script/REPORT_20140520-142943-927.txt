@@ -1,0 +1,22 @@
+JIRA description:
+blahblah
+~~~HAPPYMARVIN-INSTRUCTION~~~
+Create a 'Java' component in the project 'tlem-validation-failures-report'. Use the template 'JSR303Validator'.
+The name is 'PR2121'. The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'.
+The config XML file should be in 'src/main/resources/xmls' folder.
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~
+
+
+**************************** The 0th instruction ****************************
+	Type:      Java
+	Template:  JSR303Validator
+	Name:      PR2121
+	Project:   tlem-validation-failures-report
+	Location:  src/main/java/com/jpmorgan/ib/cp/tlem/validator
+	Properties:
+		location_Java_JSR303Validator_configXML: src/main/resources/xmls
+The artefacts to be created:
+	Type: FILE,      Exist: true,	 Path: C:/work/happy-marvin/temp/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Validator.java
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Constraint.java
+	Type: FOLDER,    Exist: false,	 Path: C:/work/happy-marvin/temp/src/main/resources/xmls
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/src/main/resources/xmls/PR2121.xml

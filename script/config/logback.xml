@@ -1,0 +1,34 @@
+<configuration debug="false" scan="true" scanPeriod="2 seconds">
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-5level [%logger{35}:%line] - %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/generator.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>generator.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-5level [%logger{35}:%line] - %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<!--logger name="com.googlecode.happymarvin" level="INFO">
+		<appender-ref ref="STDOUT" />
+	</logger-->
+
+	<root level="TRACE">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING_FILE" />
+	</root>
+
+</configuration>

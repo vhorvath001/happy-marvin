@@ -21,6 +21,7 @@ import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
 import com.googlecode.happymarvin.common.exceptions.InvalidInstructionException;
 import com.googlecode.happymarvin.common.utils.ConfigurationReaderUtil;
 import com.googlecode.happymarvin.common.utils.Constants;
+import com.googlecode.happymarvin.common.utils.StringUtility;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -38,11 +39,11 @@ public class ArtefactGenerator {
 	
 	
 	// generating the artefact(s) based on the JiraIssueBean
-	// TODO first must examine if all the artefacts can be generated (without creating the files!) and if they can
+	// first must examine if all the artefacts can be generated (without creating the files!) and if they can
 	//      then do the creation of the files! (e.g. there is an exception while creating the 2nd file then the first 
 	//      file has been already created but not the others)
 	// DONE package in the Java classes! from location
-	public void generate(JiraIssueBean jiraIssueBean) throws IOException, TemplateException, InvalidInstructionException, ConfigurationException {
+	public void generate(JiraIssueBean jiraIssueBean, boolean generate) throws IOException, TemplateException, InvalidInstructionException, ConfigurationException {
 		// initializing the Freemarker configuration
 		Configuration cfg = init();
 		
@@ -52,7 +53,7 @@ public class ArtefactGenerator {
 		}
 		for(int i = 0; i < jiraIssueBean.getInstructions().size(); i++) {
 			InstructionBean instructionBean = jiraIssueBean.getInstructions().get(i);
-			LOGGER.info(String.format("Processing the instruction %d - type = %s, template = %s, name = %s", i, instructionBean.getType(), 
+			LOGGER.info(String.format("Processing the %s instruction - type = %s, template = %s, name = %s", StringUtility.ordinal(i), instructionBean.getType(), 
 					instructionBean.getTemplate(), instructionBean.getName()));
 			TemplateBean templateBean = configurationReaderUtil.getTemplate(instructionBean.getType(), instructionBean.getTemplate());
 			
@@ -69,7 +70,7 @@ public class ArtefactGenerator {
 				final Template template = getTemplate(templateFileBean, cfg);
 
 				// getting the path + name of the artefact
-				final String artefactFileName = getArtefactFileName(instructionBean, templateFileBean, templateBean.getProperties());
+				final String artefactFileName = getArtefactFileName(instructionBean, templateFileBean, templateBean.getProperties(), generate);
 				
 				// I should create a VirtualWriter or something like this which won't create the file immediately but
 				//    collect the FileWriter -> to check if each file will be generated
@@ -87,7 +88,9 @@ public class ArtefactGenerator {
 		}
 
 		// creating the artefacts for real
-		virtualWriterManager.process();
+		if (generate) {
+			virtualWriterManager.process();
+		}
 	}
 
 
@@ -118,7 +121,7 @@ public class ArtefactGenerator {
 	}
 
 	
-	private String getArtefactFileName(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans) throws IOException, ConfigurationException {
+	private String getArtefactFileName(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans, boolean generate) throws IOException, ConfigurationException {
 		String _pathProject = configurationReaderUtil.getProjects(instructionBean.getProject()).getValue();
 		final String pathProject = _pathProject.endsWith("/") ? _pathProject : _pathProject + "/";
 		
@@ -165,7 +168,7 @@ public class ArtefactGenerator {
 		LOGGER.debug(String.format("The name of the file to be generated is %s.", artefactFileName));
 		
 		// checking if the artefact file exists -> it cannot be overridden
-		if (new File(artefactFileName).exists()) {
+		if (generate && new File(artefactFileName).exists()) {
 			throw new ConfigurationException(String.format("The artefact file %s exists, it cannot be overridden!", artefactFileName));
 		}
 		
@@ -266,22 +269,28 @@ public class ArtefactGenerator {
 	}
 
 
+	
+	
 	public void setConfigurationReaderUtil(ConfigurationReaderUtil configurationReaderUtil) {
 		this.configurationReaderUtil = configurationReaderUtil;
 	}
 
 
-	public static void main(String[] args) {
-		String location = "src/main/java.asd";
-		String srcFolder = "src/main/java";
-		String packageName = location.replaceFirst(srcFolder, "").replace("/", ".");
-		packageName = packageName.charAt(0) == '.' ? packageName.substring(1) : packageName;
-		packageName = packageName.charAt(packageName.length()-1) == '.' ? packageName.substring(0,packageName.length()-1) : packageName;
-		System.out.println("-"+packageName+"-");
-	}
+//	public static void main(String[] args) {
+//		String location = "src/main/java.asd";
+//		String srcFolder = "src/main/java";
+//		String packageName = location.replaceFirst(srcFolder, "").replace("/", ".");
+//		packageName = packageName.charAt(0) == '.' ? packageName.substring(1) : packageName;
+//		packageName = packageName.charAt(packageName.length()-1) == '.' ? packageName.substring(0,packageName.length()-1) : packageName;
+//		System.out.println("-"+packageName+"-");
+//	}
 
 
 	public void setVirtualWriterManager(VirtualWriterManager virtualWriterManager) {
 		this.virtualWriterManager = virtualWriterManager;
+	}
+
+	public VirtualWriterManager getVirtualWriterManager() {
+		return virtualWriterManager;
 	}
 }
