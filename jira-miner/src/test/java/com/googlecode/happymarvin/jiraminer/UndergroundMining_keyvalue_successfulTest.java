@@ -180,5 +180,47 @@ public class UndergroundMining_keyvalue_successfulTest {
 		assertEquals("C:\\svn3\\validator", jiraIssueBean.getInstructions().get(0).getProperties().get("location_Java_JSR303Validator_Validator"));
 		assertEquals("aaa", jiraIssueBean.getInstructions().get(0).getProperties().get("location_Java_JSR303Validator_Constraint"));
 	}
+
+
+	@Test
+	public void testMine_case5_more_instructions() throws IOException, InvalidInstructionException, ConfigurationException {
+		JiraIssueBean jiraIssueBean = new JiraIssueBean();
+		
+		String description = 
+				"blahblah\n" +
+				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
+				"TYPE:Java\n" +
+				"TEMPLATE: POJO   \n" +
+				"PROJECT: tlem-validation-failures-report \n" +
+				"NAME:   EmailSender\n" +
+				"LOCATION:src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils\n" +
+				"METHOD: int send(String emailTo, String filePath, String reportName)\n" +
+				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
+				"TYPE:Java\n" +
+				"TEMPLATE: POJO   \n" +
+				"PROJECT: tlem-validation-failures-report2 \n" +
+				"NAME:   EmailSender2\n" +
+				"LOCATION:src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils2\n" +
+				"METHOD: int send(String emailTo, String filePath, String reportName)2\n" +
+				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~\n" +
+				"continue";
+		jiraIssueBean.setDescription(description);
+		
+		undergroundMining.mine(jiraIssueBean);
+		
+		assertEquals(2, jiraIssueBean.getInstructions().size());
+		assertEquals("Java", jiraIssueBean.getInstructions().get(0).getType());
+		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
+		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
+		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
+		assertEquals("Java", jiraIssueBean.getInstructions().get(1).getType());
+		assertEquals("POJO", jiraIssueBean.getInstructions().get(1).getTemplate());
+		assertEquals("tlem-validation-failures-report2", jiraIssueBean.getInstructions().get(1).getProject());
+		assertEquals("EmailSender2", jiraIssueBean.getInstructions().get(1).getName());
+		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils2", jiraIssueBean.getInstructions().get(1).getLocation());
+		assertEquals("int send(String emailTo, String filePath, String reportName)2", jiraIssueBean.getInstructions().get(1).getProperties().get("method"));
+	}
 }
 

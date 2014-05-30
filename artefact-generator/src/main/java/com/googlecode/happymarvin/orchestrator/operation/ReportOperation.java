@@ -135,7 +135,7 @@ public class ReportOperation implements IOperation {
 			return args[2];
 		} else {
 			DateFormat dateFormat = new SimpleDateFormat(Constants.REPORT_FILE_NAME_DATEFORMAT);
-			return Constants.REPORT_DEFAULT_FILE_PREFIX + dateFormat.format(new Date()) + ".txt";
+			return Constants.REPORT_DEFAULT_FILE_PREFIX + "-" + args[0] + "-" + dateFormat.format(new Date()) + ".txt";
 		}
 	}
 

@@ -8,16 +8,11 @@ public class Constants {
 	public static final String PATH_TO_DESCRIPTION = "/fields/description";
 	
 	// text constants in the JIRA description text
-//	public static final String CONS_IN_DESC_INTRUCTION_START = "~~~HAPPYMARVIN-INSTRUCTION~~~";
-//	public static final String CONS_IN_DESC_INTRUCTIONS_END = "~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 	public static final String CONS_IN_DESC_INTRUCTIONS_SENTENCE_SEPARATOR = "\\. ";
-//	public static final String[] CONS_IN_DESC_NAMESOF_VALUES = {"TYPE", "TEMPLATE", "PROJECT", "NAME", "LOCATION"};
 	
 	public static final String OPTION_CHARACTERS = "]/[";
 	public static final String REGEXP_PATTERN_BRACKETS = "([\\[][a-zA-Z0-9 _\\-'`\"£$&*\\+\\(\\)\\{\\}\\.]*[\\]])";
 	public static final String REGEXP_END_OF_OPTION_GROUPS = "[\\/]" + REGEXP_PATTERN_BRACKETS + "[^\\/^\\[]";
-	//public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = "[a-zA-Z0-9-_:]";
-	//public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = "[a-zA-Z0-9_:-/=+\\.,\\[\\]\\{\\}#]";
 	public static final String REGEXP_CHARS_ALLOWED_IN_VALUE = ".";
 
 	public static final String PATH_TEMPLATE_CONFIG_XML = "hm-templates-config.xml";
@@ -29,7 +24,7 @@ public class Constants {
 	public static final String PATTERNTYPE_SIMPLIFIED = "simplified";
 	public static final String PATTERNTYPE_REGULAREXPRESSION = "regularExpression";
 	
-	public static final String REPORT_DEFAULT_FILE_PREFIX = "REPORT_";
+	public static final String REPORT_DEFAULT_FILE_PREFIX = "REPORT";
 	public static final String REPORT_FILE_NAME_DATEFORMAT = "yyyyMMdd-HHmmss-SSS";	
 
 	public enum NamesOfValues {

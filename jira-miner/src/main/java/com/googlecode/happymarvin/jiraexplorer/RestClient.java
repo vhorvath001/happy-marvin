@@ -16,10 +16,16 @@ public class RestClient {
 
 	
 	public LinkedHashMap<String, Object> getJiraIssueAsJson(final String urlJira, final String numberJira) {
-		// http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/IBTCPDCC-1470
+		// https://ibjira.uk.jpmorgan.com/jira15/rest/api/latest/issue/DCPPPS-495
 		String url = urlJira + numberJira;
 		LOGGER.info("Getting the JIRA issue from " + url);
 		Object storage = restTemplate.getForObject(url, Object.class);
+		if (storage == null) {
+			throw new RuntimeException("The response of the REST call is empty!");
+		}
+		if (!(storage instanceof LinkedHashMap)) {
+			throw new RuntimeException("The response of the REST call is not a LinkedHashMap!");
+		}
 		LOGGER.info("Successful call!");
 		return (LinkedHashMap<String, Object>)storage;
 	}

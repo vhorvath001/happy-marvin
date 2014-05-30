@@ -22,7 +22,7 @@ public class SurfaceMining {
 		JiraIssueBean jiraIssueBean = new JiraIssueBean();
 		
 		jiraIssueBean.setDescription(get(reponseJiraRest, Constants.PATH_TO_DESCRIPTION, String.class));
-		LOGGER.debug("Getting the JIRA description from the REST response:n" + jiraIssueBean.getDescription());
+		LOGGER.debug("Getting the JIRA description from the REST response:\n" + jiraIssueBean.getDescription());
 		
 		return jiraIssueBean;
 	}

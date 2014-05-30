@@ -1,0 +1,108 @@
+16:25:37.562 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+
+----------------------------------------------------------- 
+16:25:37.565 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
+16:25:37.565 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
+16:25:37.566 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
+16:25:37.689 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/DC-93 
+16:25:37.969 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
+org.springframework.web.client.HttpClientErrorException: 404 Not Found
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:88) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.handleResponseError(RestTemplate.java:556) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:514) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:472) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:237) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at com.googlecode.happymarvin.jiraexplorer.RestClient.getJiraIssueAsJson(RestClient.java:22) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:61) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
+16:25:37.972 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
+16:26:48.088 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+
+----------------------------------------------------------- 
+16:26:48.091 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
+16:26:48.092 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
+16:26:48.093 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
+16:26:48.193 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/DCPPPS-495 
+16:26:48.464 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
+org.springframework.web.client.HttpClientErrorException: 404 Not Found
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:88) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.handleResponseError(RestTemplate.java:556) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:514) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:472) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:237) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
+	at com.googlecode.happymarvin.jiraexplorer.RestClient.getJiraIssueAsJson(RestClient.java:22) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:61) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
+16:26:48.468 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
+16:31:21.785 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+
+----------------------------------------------------------- 
+16:31:21.788 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
+16:31:21.789 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
+16:31:21.790 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
+16:31:21.885 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from https://ibjira.uk.jpmorgan.com/jira15/rest/api/latest/issue/DCPPPS-495 
+16:31:23.242 INFO  [c.g.h.jiraexplorer.RestClient:29] - Successful call! 
+16:31:23.243 INFO  [c.g.h.o.operation.GenerateOperation:65] - ----- 2/5 Starting the surface mining ----- 
+16:31:23.243 DEBUG [c.g.h.jiraminer.SurfaceMining:25] - Getting the JIRA description from the REST response:nFrom: Wagle, Sandeep M 
+Sent: Monday, April 07, 2014 10:41 AM
+To: Chauhan, Kashyap S
+Cc: Vichare, Kedar M; Naidu, Shveta X; IBT CP DCP Settlements Pod 4; IBT CP DCP Settlements Pod 1
+Subject: FW: Need details on how to kill SEO workflows on production
+
+Hi Kashyap,
+
+Can you please confirm - if we can reuse same dataCR to kill waiting ExecuteSettlement workflow.
+
+Thanks,
+Sandeep Wagle
+
+From: Vichare, Kedar M 
+Sent: 07 April 2014 10:35
+To: Wagle, Sandeep M; IBT CP DCP Settlements Pod 4
+Cc: Naidu, Shveta X; IBT CP DCP Settlements Pod 1
+Subject: RE: Need details on how to kill SEO workflows on production
+
+Hello Sandeep,
+
+In order to avoid subsequent higher versions  RSAMs to kick workflow we had run a DM data CR to mark the higher versions of RSAMs as processed in DM database.
+
+DM data CR :  DCPP.dm-data-cr.cparch  version 2014.01.1000 
+
+Input to this data CR is a text file which includes all the business entity UUIDs  whose status you want to mark as PROCESSED in DM database.
+I have attached the sample input file and the release plan for your reference.
+
+Thanks and Regards,
+
+Kedar
+________________________________________
+From: Wagle, Sandeep M
+Sent: Friday, April 04, 2014 10:00 PM
+To: IBT CP DCP Settlements Pod 4
+Cc: Naidu, Shveta X; IBT CP DCP Settlements Pod 1
+Subject: Need details on how to kill SEO workflows on production
+Hi POD4,
+ 
+We have identified around 67 SEOs in production which got stucked due to lower version of SEO has live workflow.
+ 
+We want to kill this live workflows and also don’t want to allow subsequent higher version to kick workflow.
+ 
+Have you done similar activity recently by running dataCR? 
+If yes, can you please share the procedure in detail?
+ 
+Thanks,
+Sandeep Wagle
+ 
+16:31:23.243 INFO  [c.g.h.o.operation.GenerateOperation:67] - ----- 3/5 Starting the underground mining ----- 
+16:31:23.244 INFO  [c.g.h.o.operation.GenerateOperation:71] - ----- 4/5 Getting the artefact information without generating them ----- 
+16:31:23.309 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
+com.googlecode.happymarvin.common.exceptions.InvalidInstructionException: There is no instruction in the JIRA!
+	at com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator.generate(ArtefactGenerator.java:52) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:72) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
+	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
+16:31:23.311 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
