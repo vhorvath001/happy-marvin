@@ -311,7 +311,9 @@
          // if the type of instruction is sentence then a help button needs to be added
          if (selectedTypeOfInstruction == "sentence") {
             html += "<br/><br/><button id='button_help_the_result'>Help</button>";
-         }
+         } else {
+            html += "<br/>";
+		 }
          html += "<button id='button_check_the_result' type='button'>Check the result</button>";
 
          jq("#div_tab_999_result").html(html);
@@ -525,9 +527,9 @@
    jq(document).ajaxError(function (e, xhr, settings, exception) {
       jq("#div_loading_modal_dialog").dialog("close");
       var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
-      jq("#div_error_modal_dialog").append(jsonExceptionResponse.message);
+      jq("#div_error_modal_dialog").text(jsonExceptionResponse.message);
       jq("#div_error_modal_dialog").dialog({
-         height: 140,
+         height: 200,
          modal: true
       });
    });

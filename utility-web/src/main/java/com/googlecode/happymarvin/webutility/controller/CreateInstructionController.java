@@ -72,15 +72,7 @@ public class CreateInstructionController {
 			// adding the default sentences
 			List<String> sentences = new ArrayList<String>();
 			for (InstructionSentencePatternsBean instructionSentencePatternsBean : configurationReaderUtil.getSentencePatternsOfInstructions()) {
-LOGGER.info("---------------instructionSentencePatternsBean.getSentences()-----------------");
-for(String getSentences : instructionSentencePatternsBean.getSentences()) {
-LOGGER.info(getSentences);
-}
 				sentences.addAll(instructionSentencePatternsBean.getSentences());
-LOGGER.info("---------------sentences-----------------");
-for(String sentence : sentences) {
-LOGGER.info(sentence);
-}
 			}
 			instructionCreateInputBean.setDefaultSentences(sentences);
 			

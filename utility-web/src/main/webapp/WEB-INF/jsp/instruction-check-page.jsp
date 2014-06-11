@@ -81,9 +81,9 @@ function check() {
 
 jq(document).ajaxError(function (e, xhr, settings, exception) {
    var jsonExceptionResponse = jQuery.parseJSON(xhr.responseText);
-   jq("#div_error_modal_dialog").append(jsonExceptionResponse.message);
+   jq("#div_error_modal_dialog").text(jsonExceptionResponse.message);
    jq("#div_error_modal_dialog").dialog({
-      height: 140,
+      height: 200,
       modal: true
    });
 });
