@@ -1,108 +1,1279 @@
-16:25:37.562 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
-
------------------------------------------------------------ 
-16:25:37.565 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
-16:25:37.565 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
-16:25:37.566 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
-16:25:37.689 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/DC-93 
-16:25:37.969 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
-org.springframework.web.client.HttpClientErrorException: 404 Not Found
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:88) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.handleResponseError(RestTemplate.java:556) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:514) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:472) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:237) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at com.googlecode.happymarvin.jiraexplorer.RestClient.getJiraIssueAsJson(RestClient.java:22) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:61) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
-16:25:37.972 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
-16:26:48.088 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
-
------------------------------------------------------------ 
-16:26:48.091 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
-16:26:48.092 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
-16:26:48.093 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
-16:26:48.193 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/DCPPPS-495 
-16:26:48.464 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
-org.springframework.web.client.HttpClientErrorException: 404 Not Found
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:88) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.handleResponseError(RestTemplate.java:556) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:514) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:472) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:237) ~[spring-web-3.2.8.RELEASE.jar:3.2.8.RELEASE]
-	at com.googlecode.happymarvin.jiraexplorer.RestClient.getJiraIssueAsJson(RestClient.java:22) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:61) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
-16:26:48.468 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
-16:31:21.785 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
-
------------------------------------------------------------ 
-16:31:21.788 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - -------------------------- START -------------------------- 
-16:31:21.789 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - ----------------------------------------------------------- 
-16:31:21.790 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
-16:31:21.885 INFO  [c.g.h.jiraexplorer.RestClient:21] - Getting the JIRA issue from https://ibjira.uk.jpmorgan.com/jira15/rest/api/latest/issue/DCPPPS-495 
-16:31:23.242 INFO  [c.g.h.jiraexplorer.RestClient:29] - Successful call! 
-16:31:23.243 INFO  [c.g.h.o.operation.GenerateOperation:65] - ----- 2/5 Starting the surface mining ----- 
-16:31:23.243 DEBUG [c.g.h.jiraminer.SurfaceMining:25] - Getting the JIRA description from the REST response:nFrom: Wagle, Sandeep M 
-Sent: Monday, April 07, 2014 10:41 AM
-To: Chauhan, Kashyap S
-Cc: Vichare, Kedar M; Naidu, Shveta X; IBT CP DCP Settlements Pod 4; IBT CP DCP Settlements Pod 1
-Subject: FW: Need details on how to kill SEO workflows on production
-
-Hi Kashyap,
-
-Can you please confirm - if we can reuse same dataCR to kill waiting ExecuteSettlement workflow.
-
-Thanks,
-Sandeep Wagle
-
-From: Vichare, Kedar M 
-Sent: 07 April 2014 10:35
-To: Wagle, Sandeep M; IBT CP DCP Settlements Pod 4
-Cc: Naidu, Shveta X; IBT CP DCP Settlements Pod 1
-Subject: RE: Need details on how to kill SEO workflows on production
-
-Hello Sandeep,
-
-In order to avoid subsequent higher versions  RSAMs to kick workflow we had run a DM data CR to mark the higher versions of RSAMs as processed in DM database.
-
-DM data CR :  DCPP.dm-data-cr.cparch  version 2014.01.1000 
-
-Input to this data CR is a text file which includes all the business entity UUIDs  whose status you want to mark as PROCESSED in DM database.
-I have attached the sample input file and the release plan for your reference.
-
-Thanks and Regards,
-
-Kedar
-________________________________________
-From: Wagle, Sandeep M
-Sent: Friday, April 04, 2014 10:00 PM
-To: IBT CP DCP Settlements Pod 4
-Cc: Naidu, Shveta X; IBT CP DCP Settlements Pod 1
-Subject: Need details on how to kill SEO workflows on production
-Hi POD4,
+15:50:20.703 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
  
-We have identified around 67 SEOs in production which got stucked due to lower version of SEO has live workflow.
+15:50:20.706 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
+15:50:20.707 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
+15:50:20.707 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
+15:50:20.708 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 1/5 Calling the JIRA REST service ----- 
+15:50:20.795 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/asd-324 
+15:50:20.795 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
+15:50:20.796 INFO  [c.g.h.o.operation.GenerateOperation:65] - ----- 2/5 Starting the surface mining ----- 
+15:50:20.796 INFO  [c.g.h.o.operation.GenerateOperation:67] - ----- 3/5 Starting the underground mining ----- 
+15:50:20.797 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Create a 'Java' component in the project 'tlem-validation-failures-report'. --- 
+15:50:20.798 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.798 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.798 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.799 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.799 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.799 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.799 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.800 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.800 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.800 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.800 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.801 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.801 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.801 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.801 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.802 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.802 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.802 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.802 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.810 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.
+Simplified patterns:
+[Please ]put [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' XML file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' XML file in the project '${project}'.
  
-We want to kill this live workflows and also don’t want to allow subsequent higher version to kick workflow.
+15:50:20.813 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.
+Simplified patterns:
+[A ]'${template}' '${type}' component [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' class [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' file [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' XML file [is ]needed in the project '${project}'.
  
-Have you done similar activity recently by running dataCR? 
-If yes, can you please share the procedure in detail?
+15:50:20.814 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'.
+Simplified patterns:
+I['d] need a '${template}' '${type}' component in the project '${project}'.
+I['d] need a '${template}' '${type}' component in the folder '${project}'.
+I['d] need a '${template}' '${type}' class in the project '${project}'.
+I['d] need a '${template}' '${type}' class in the folder '${project}'.
+I['d] need a '${template}' '${type}' file in the project '${project}'.
+I['d] need a '${template}' '${type}' file in the folder '${project}'.
+I['d] need a '${template}' '${type}' XML file in the project '${project}'.
+I['d] need a '${template}' '${type}' XML file in the folder '${project}'.
  
-Thanks,
-Sandeep Wagle
+15:50:20.816 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] a '${type}' component in the project '${project}'.
+Simplified patterns:
+[Please ]put a '${type}' component in the project '${project}'.
+[Please ]create a '${type}' component in the project '${project}'.
  
-16:31:23.243 INFO  [c.g.h.o.operation.GenerateOperation:67] - ----- 3/5 Starting the underground mining ----- 
-16:31:23.244 INFO  [c.g.h.o.operation.GenerateOperation:71] - ----- 4/5 Getting the artefact information without generating them ----- 
-16:31:23.309 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:47] - Error happened during the execution! 
-com.googlecode.happymarvin.common.exceptions.InvalidInstructionException: There is no instruction in the JIRA!
-	at com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator.generate(ArtefactGenerator.java:52) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.operation.ReportOperation.perform(ReportOperation.java:72) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:63) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:44) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:113) [artefact-generator-1.0-SNAPSHOT.jar:na]
-16:31:23.311 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:49] - --------------------------- END --------------------------- 
+15:50:20.817 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[cC][r][e][a][t][e][ ][a][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
+15:50:20.817 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Use the template 'JSR303Validator'. --- 
+15:50:20.817 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.817 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.818 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.818 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.818 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.818 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.818 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.819 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.820 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.821 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.822 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.823 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.825 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:50:20.825 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+15:50:20.826 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The template [that ]should be used is '${template}'.
+Simplified patterns:
+The template [that ]should be used is '${template}'.
+ 
+15:50:20.826 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Use the template '${template}'.
+Simplified patterns:
+Use the template '${template}'.
+ 
+15:50:20.826 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [U][s][e][ ][t][h][e][ ][t][e][m][p][l][a][t][e][ ][']${template}['][.] 
+15:50:20.826 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The name is 'PR2121'. --- 
+15:50:20.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.841 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.842 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.843 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.844 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.845 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.846 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.847 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.848 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.854 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:50:20.855 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:50:20.856 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder.
+Simplified patterns:
+The [JSR303 ]config XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]config XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+ 
+15:50:20.857 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+ 
+15:50:20.858 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder.
+Simplified patterns:
+The [JSR303 ]constraint class should be put to '${location_Java_JSR303Validator_Constraint}' folder.
+The [JSR303 ]constraint class should be in '${location_Java_JSR303Validator_Constraint}' folder.
+ 
+15:50:20.859 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+ 
+15:50:20.859 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.
+Simplified patterns:
+The [JSR303 ]validator class should be put to '${location_Java_JSR303Validator_Validator}' folder.
+The [JSR303 ]validator class should be in '${location_Java_JSR303Validator_Validator}' folder.
+ 
+15:50:20.861 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:50:20.861 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+15:50:20.862 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[You should ]put it into the '${location}' folder.
+Simplified patterns:
+[You should ]put it into the '${location}' folder.
+ 
+15:50:20.863 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The name [should be]/[is] '${name}'.
+Simplified patterns:
+The name should be '${name}'.
+The name is '${name}'.
+ 
+15:50:20.863 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][n][a][m][e][ ][i][s][ ][']${name}['][.] 
+15:50:20.864 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'. --- 
+15:50:20.864 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.864 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.865 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.865 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.865 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.865 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.865 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.866 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.866 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.866 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.866 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.866 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.867 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.867 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.867 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.867 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.867 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.868 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.868 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.868 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.868 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.868 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.869 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.869 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.869 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.869 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.869 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.870 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.870 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.870 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.870 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.870 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.871 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.871 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.871 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.871 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.871 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.872 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.872 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.872 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.872 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.872 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.873 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.873 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.873 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.873 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.874 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.874 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.874 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.874 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.874 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.884 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:50:20.885 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:50:20.886 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder.
+Simplified patterns:
+The [JSR303 ]config XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]config XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+ 
+15:50:20.887 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+ 
+15:50:20.888 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder.
+Simplified patterns:
+The [JSR303 ]constraint class should be put to '${location_Java_JSR303Validator_Constraint}' folder.
+The [JSR303 ]constraint class should be in '${location_Java_JSR303Validator_Constraint}' folder.
+ 
+15:50:20.888 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+ 
+15:50:20.889 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.
+Simplified patterns:
+The [JSR303 ]validator class should be put to '${location_Java_JSR303Validator_Validator}' folder.
+The [JSR303 ]validator class should be in '${location_Java_JSR303Validator_Validator}' folder.
+ 
+15:50:20.889 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:50:20.890 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ]([d][e][s][t][i][n][a][t][i][o][n][ ])?[f][o][l][d][e][r][ ][s][h][o][u][l][d][ ][b][e][ ][']${location}['][.] 
+15:50:20.890 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder. --- 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.891 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.892 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.893 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.894 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:50:20.895 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.896 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.896 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.896 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.896 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.896 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.897 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.898 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.899 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.900 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:50:20.901 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.901 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.901 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.901 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.901 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:50:20.902 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.903 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:50:20.904 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.905 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:50:20.905 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:50:20.905 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:50:20.905 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:50:20.906 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[v][a][l][i][d][a][t][o][r][ ][c][l][a][s][s][ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_Validator}[']([ ][f][o][l][d][e][r])?[,][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[c][o][n][s][t][r][a][i][n][t][ ][c][l][a][s][s][ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_Constraint}[']([ ][f][o][l][d][e][r])?[ ][a][n][d][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[c][o][n][f][i][g][ ][X][M][L]([ ][f][i][l][e])?[ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_configXML}[']([ ][f][o][l][d][e][r])?[.] 
+15:50:20.908 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=Java,template=JSR303Validator,project=tlem-validation-failures-report,name=PR2121,location=src/main/java/com/jpmorgan/ib/cp/tlem/validator,properties={location_Java_JSR303Validator_configXML=src/main/resources,location_Java_JSR303Validator_Validator=src/main/java/com/jpmorgan/ib/cp/tlem/validator,location_Java_JSR303Validator_Constraint=src/main/java/com/jpmorgan/ib/cp/tlem/validator,}] 
+15:50:20.909 INFO  [c.g.h.o.operation.GenerateOperation:71] - ----- 4/5 Getting the artefact information without generating them ----- 
+15:50:20.951 INFO  [c.g.h.a.ArtefactGenerator:58] - Processing the 0th instruction - type = Java, template = JSR303Validator, name = PR2121 
+15:50:21.022 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:50:21.022 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:50:21.022 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Validator.java. 
+15:50:21.033 INFO  [c.g.h.a.ArtefactGenerator:111] - 2___Java/JSR303Validator/validator.ftl 
+15:50:21.034 INFO  [c.g.h.a.ArtefactGenerator:118] - 3___Java/JSR303Validator/validator_UnitTest.ftl 
+15:50:21.039 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:50:21.039 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:50:21.040 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Constraint.java. 
+15:50:21.041 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/resources 
+15:50:21.042 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/resources is going to be created at the end of the process... 
+15:50:21.042 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/resources/PR2121.xml. 
+15:50:21.045 INFO  [c.g.h.a.ArtefactGenerator:179] - ....UnitTest___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:50:21.046 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:50:21.046 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator/PR2121ValidatorTest.java. 
+15:50:21.046 INFO  [c.g.h.o.operation.GenerateOperation:75] - ----- 5/5 Generating the report to REPORT-asd-324-20140616-155020-708.txt ----- 
+15:50:21.049 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 
+15:51:36.678 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+ 
+15:51:36.681 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
+15:51:36.682 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
+15:51:36.682 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
+15:51:36.682 INFO  [c.g.h.o.operation.GenerateOperation:49] - ----- 1/4 Calling the JIRA REST service ----- 
+15:51:36.783 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue/asd-324 
+15:51:36.783 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
+15:51:36.784 INFO  [c.g.h.o.operation.GenerateOperation:54] - ----- 2/4 Starting the surface mining ----- 
+15:51:36.784 INFO  [c.g.h.o.operation.GenerateOperation:56] - ----- 3/4 Starting the underground mining ----- 
+15:51:36.785 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Create a 'Java' component in the project 'tlem-validation-failures-report'. --- 
+15:51:36.786 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.786 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.787 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.788 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.788 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.788 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.788 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.788 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.789 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.789 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.789 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.789 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.790 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.790 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.790 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.790 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.791 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.791 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.791 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.791 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.792 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.792 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.792 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.792 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.792 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.793 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.794 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.795 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.795 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.795 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.796 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.
+Simplified patterns:
+[Please ]put [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' XML file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' XML file in the project '${project}'.
+ 
+15:51:36.798 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.
+Simplified patterns:
+[A ]'${template}' '${type}' component [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' class [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' file [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' XML file [is ]needed in the project '${project}'.
+ 
+15:51:36.800 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'.
+Simplified patterns:
+I['d] need a '${template}' '${type}' component in the project '${project}'.
+I['d] need a '${template}' '${type}' component in the folder '${project}'.
+I['d] need a '${template}' '${type}' class in the project '${project}'.
+I['d] need a '${template}' '${type}' class in the folder '${project}'.
+I['d] need a '${template}' '${type}' file in the project '${project}'.
+I['d] need a '${template}' '${type}' file in the folder '${project}'.
+I['d] need a '${template}' '${type}' XML file in the project '${project}'.
+I['d] need a '${template}' '${type}' XML file in the folder '${project}'.
+ 
+15:51:36.801 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] a '${type}' component in the project '${project}'.
+Simplified patterns:
+[Please ]put a '${type}' component in the project '${project}'.
+[Please ]create a '${type}' component in the project '${project}'.
+ 
+15:51:36.802 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[cC][r][e][a][t][e][ ][a][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
+15:51:36.802 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Use the template 'JSR303Validator'. --- 
+15:51:36.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.803 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.804 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.805 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.806 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.807 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.808 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.809 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.810 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.810 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:51:36.811 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+15:51:36.811 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The template [that ]should be used is '${template}'.
+Simplified patterns:
+The template [that ]should be used is '${template}'.
+ 
+15:51:36.811 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Use the template '${template}'.
+Simplified patterns:
+Use the template '${template}'.
+ 
+15:51:36.812 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [U][s][e][ ][t][h][e][ ][t][e][m][p][l][a][t][e][ ][']${template}['][.] 
+15:51:36.812 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The name is 'PR2121'. --- 
+15:51:36.824 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.825 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.825 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.825 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.825 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.825 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.826 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.827 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.828 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.829 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.830 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.831 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.832 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.832 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.832 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.832 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.833 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.834 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.834 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.834 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.834 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.834 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.835 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.835 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.835 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.835 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.835 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.836 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.836 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.836 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.836 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.837 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.838 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.839 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.840 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.841 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:51:36.842 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:51:36.843 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder.
+Simplified patterns:
+The [JSR303 ]config XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]config XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+ 
+15:51:36.844 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+ 
+15:51:36.845 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder.
+Simplified patterns:
+The [JSR303 ]constraint class should be put to '${location_Java_JSR303Validator_Constraint}' folder.
+The [JSR303 ]constraint class should be in '${location_Java_JSR303Validator_Constraint}' folder.
+ 
+15:51:36.846 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+ 
+15:51:36.847 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.
+Simplified patterns:
+The [JSR303 ]validator class should be put to '${location_Java_JSR303Validator_Validator}' folder.
+The [JSR303 ]validator class should be in '${location_Java_JSR303Validator_Validator}' folder.
+ 
+15:51:36.847 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:51:36.848 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+15:51:36.848 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[You should ]put it into the '${location}' folder.
+Simplified patterns:
+[You should ]put it into the '${location}' folder.
+ 
+15:51:36.849 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The name [should be]/[is] '${name}'.
+Simplified patterns:
+The name should be '${name}'.
+The name is '${name}'.
+ 
+15:51:36.849 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][n][a][m][e][ ][i][s][ ][']${name}['][.] 
+15:51:36.849 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'. --- 
+15:51:36.849 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.850 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.851 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.852 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.853 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.854 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.855 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.856 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.857 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.858 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.859 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.860 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.861 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.862 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.863 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.863 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.863 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.863 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.863 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.864 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.864 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:51:36.866 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:51:36.868 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder.
+Simplified patterns:
+The [JSR303 ]config XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]config XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be put to '${location_Java_JSR303Validator_configXML}' folder.
+The [JSR303 ]configuration XML[ file] should be in '${location_Java_JSR303Validator_configXML}' folder.
+ 
+15:51:36.870 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].
+ 
+15:51:36.871 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder.
+Simplified patterns:
+The [JSR303 ]constraint class should be put to '${location_Java_JSR303Validator_Constraint}' folder.
+The [JSR303 ]constraint class should be in '${location_Java_JSR303Validator_Constraint}' folder.
+ 
+15:51:36.872 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+ 
+15:51:36.873 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder.
+Simplified patterns:
+The [JSR303 ]validator class should be put to '${location_Java_JSR303Validator_Validator}' folder.
+The [JSR303 ]validator class should be in '${location_Java_JSR303Validator_Validator}' folder.
+ 
+15:51:36.874 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+15:51:36.874 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ]([d][e][s][t][i][n][a][t][i][o][n][ ])?[f][o][l][d][e][r][ ][s][h][o][u][l][d][ ][b][e][ ][']${location}['][.] 
+15:51:36.875 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder. --- 
+15:51:36.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.875 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.876 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.877 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The name [should be]/[is] '${name}'. : 1 
+15:51:36.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.878 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.879 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.880 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [You should ]put it into the '${location}' folder. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Use the template '${template}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.881 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The template [that ]should be used is '${template}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - Name it as '${name}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.882 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.883 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [destination ]folder [should be ]/[is ]'${location}'. : 1 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.884 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.885 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.885 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.885 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.885 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.885 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.886 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 3 
+15:51:36.886 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'. : 3 
+15:51:36.886 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.886 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]validator class should be [put to]/[in] '${location_Java_JSR303Validator_Validator}' folder. : 1 
+15:51:36.886 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.887 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'. : 3 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder]. : 1 
+15:51:36.888 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder]. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ]constraint class should be [put to]/[in] '${location_Java_JSR303Validator_Constraint}' folder. : 1 
+15:51:36.889 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'. : 3 
+15:51:36.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - The [JSR303 ][config]/[configuration] XML[ file] should be [put to]/[in] '${location_Java_JSR303Validator_configXML}' folder. : 1 
+15:51:36.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ]put the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder]. : 1 
+15:51:36.890 TRACE [c.g.h.jiraminer.UndergroundMining:709] - [Please ][put]/[create] a '${type}' component in the project '${project}'. : 2 
+15:51:36.891 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+Simplified patterns:
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]config XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ]configuration XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+ 
+15:51:36.893 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[v][a][l][i][d][a][t][o][r][ ][c][l][a][s][s][ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_Validator}[']([ ][f][o][l][d][e][r])?[,][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[c][o][n][s][t][r][a][i][n][t][ ][c][l][a][s][s][ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_Constraint}[']([ ][f][o][l][d][e][r])?[ ][a][n][d][ ][t][h][e][ ]([J][S][R][3][0][3][ ])?[c][o][n][f][i][g][ ][X][M][L]([ ][f][i][l][e])?[ ][t][o][ ]([t][h][e][ ])?[']${location_Java_JSR303Validator_configXML}[']([ ][f][o][l][d][e][r])?[.] 
+15:51:36.895 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=Java,template=JSR303Validator,project=tlem-validation-failures-report,name=PR2121,location=src/main/java/com/jpmorgan/ib/cp/tlem/validator,properties={location_Java_JSR303Validator_configXML=src/main/resources,location_Java_JSR303Validator_Validator=src/main/java/com/jpmorgan/ib/cp/tlem/validator,location_Java_JSR303Validator_Constraint=src/main/java/com/jpmorgan/ib/cp/tlem/validator,}] 
+15:51:36.895 INFO  [c.g.h.o.operation.GenerateOperation:60] - ----- 4/4 Starting the artefact(s) generation ----- 
+15:51:36.938 INFO  [c.g.h.a.ArtefactGenerator:58] - Processing the 0th instruction - type = Java, template = JSR303Validator, name = PR2121 
+15:51:37.009 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:51:37.010 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:51:37.010 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Validator.java. 
+15:51:37.021 INFO  [c.g.h.a.ArtefactGenerator:111] - 2___Java/JSR303Validator/validator.ftl 
+15:51:37.022 INFO  [c.g.h.a.ArtefactGenerator:118] - 3___Java/JSR303Validator/validator_UnitTest.ftl 
+15:51:37.027 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:51:37.028 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:51:37.028 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Constraint.java. 
+15:51:37.030 INFO  [c.g.h.a.ArtefactGenerator:179] - ....null___src/main/resources 
+15:51:37.031 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/main/resources is going to be created at the end of the process... 
+15:51:37.031 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/resources/PR2121.xml. 
+15:51:37.033 INFO  [c.g.h.a.ArtefactGenerator:179] - ....UnitTest___src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:51:37.034 DEBUG [c.g.h.a.ArtefactGenerator:188] - The folder C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator is going to be created at the end of the process... 
+15:51:37.034 DEBUG [c.g.h.a.ArtefactGenerator:214] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator/PR2121ValidatorTest.java. 
+15:51:37.034 INFO  [c.g.h.a.ArtefactGenerator:43] - Artefacts to be created: 
+15:51:37.037 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FOLDER		Name:C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator 
+15:51:37.039 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FILE		Name:C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Validator.java 
+15:51:37.040 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FILE		Name:C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Constraint.java 
+15:51:37.041 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FOLDER		Name:C:/work/happy-marvin/temp/generated-java/src/main/resources 
+15:51:37.043 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FILE		Name:C:/work/happy-marvin/temp/generated-java/src/main/resources/PR2121.xml 
+15:51:37.045 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FOLDER		Name:C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator 
+15:51:37.047 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type:FILE		Name:C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator/PR2121ValidatorTest.java 
+15:51:37.048 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 

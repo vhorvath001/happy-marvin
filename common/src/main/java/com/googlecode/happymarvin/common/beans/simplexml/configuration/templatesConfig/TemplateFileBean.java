@@ -17,6 +17,7 @@ public class TemplateFileBean implements Serializable {
 		path = source.path;
 		prefix = source.prefix;
 		suffix = source.suffix;
+		additionalArtefactsToBeGenerated = source.additionalArtefactsToBeGenerated;
 	}
 	
 	@Attribute(required=false)
@@ -34,6 +35,10 @@ public class TemplateFileBean implements Serializable {
 	@Attribute(required=false)
 	private String suffix = null;
 	
+	@Attribute(required=false)
+	private String additionalArtefactsToBeGenerated = null;
+	
+	private transient String type = null;
 	
 	public String getExtension() {
 		return extension;
@@ -75,6 +80,22 @@ public class TemplateFileBean implements Serializable {
 		this.suffix = suffix;
 	}
 
+	public String getAdditionalArtefactsToBeGenerated() {
+		return additionalArtefactsToBeGenerated;
+	}
+
+	public void setAdditionalArtefactsToBeGenerated(String additionalArtefactsToBeGenerated) {
+		this.additionalArtefactsToBeGenerated = additionalArtefactsToBeGenerated;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -84,6 +105,7 @@ public class TemplateFileBean implements Serializable {
 		sb.append(",path=").append(path);
 		sb.append(",prefix=").append(prefix);
 		sb.append(",suffix=").append(suffix);
+		sb.append(",additionalArtefactsToBeGenerated=").append(additionalArtefactsToBeGenerated);
 		sb.append(",path=").append(path);
 		sb.append("]");
 		return sb.toString();

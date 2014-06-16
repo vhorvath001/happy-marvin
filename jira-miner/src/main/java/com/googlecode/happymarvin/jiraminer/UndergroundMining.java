@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -145,6 +147,7 @@ public class UndergroundMining implements IUndergroundMining {
 		Map<String, String> values = new HashMap<String, String>();
 		boolean isTemplateSpecificPatternsLoaded = false;
 		for(String sentence : sentences) {
+			LOGGER.debug(String.format("--- instructuction sentence: %s ---", sentence));
 			// refresh the pattern list (it is needed as earlier I couldn't load all the patterns only the general ones -> to load the template specific
 			//    patterns I need the type and template values which haven't been loaded then)
 			isTemplateSpecificPatternsLoaded = refreshPatternList(instructionSentencePatternsBean, values, isTemplateSpecificPatternsLoaded);
@@ -271,6 +274,9 @@ public class UndergroundMining implements IUndergroundMining {
 		for(InstructionSentencePatternsBean instructionSentencePatternsBean : instructionSentencePatternsBeans) {
 			allInstructionSentencePatterns.addAll(instructionSentencePatternsBean.getSentences());
 		}
+		// sorting the pattern list based on the number of the properties that exist in pattern (more info see the signature of the comparator class) 
+		Collections.sort(allInstructionSentencePatterns, new ComparatorBasedOnProperties());
+		Collections.reverse(allInstructionSentencePatterns);
 		for (String instructionSentencePattern : allInstructionSentencePatterns) {
 			// checking if there is a closed bracket for each starting bracket and the other way around
 			checkIfPatternValid(instructionSentencePattern);
@@ -684,5 +690,32 @@ public class UndergroundMining implements IUndergroundMining {
 	public List<List<String[]>> getSentencePatternPairs() {
 		return sentencePatternPairs;
 	}
+
+
+// sorting the pattern list based on the number of the properties that exist in pattern (more info see the signature of the method)
+// why is it needed? => 
+//			[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
+//			[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
+//		the sentence is:	Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder.
+//		so the 2nd pattern should match but theoretically the 1st matches too (try in an online reg expr editor)! So I sort the list the number of the properties occurs in the pattern so 
+//			that the sentences having the max number of properties will be examined first
+class ComparatorBasedOnProperties<String> implements Comparator<String> {
+
+	public int compare(String s1, String s2) {
+		return count(s1).compareTo(count(s2));
+	}
+	
+	private Integer count(String s1) {
+		Pattern pattern = Pattern.compile("[$][{][^${]+[}]");   // starting with a $, following a {, after those any character except $ and {, and ending with }
+		Matcher matcher = pattern.matcher((CharSequence) s1);
+		int count = 0;
+	    while (matcher.find()) {
+	    	count +=1;
+	    }
+LOGGER.trace(s1 + " : " + count);
+	    return count;
+	}
+	
+}
 
 }

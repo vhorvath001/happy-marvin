@@ -1,3 +1,5 @@
+<#assign actualDateTime = .now>
+
 package ${hm.package};
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
@@ -11,28 +13,29 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.jpmorgan.ibtcp.tlem.framework.validation.validator.PR2181Validator;
 
 /**
  * This annotation is a JSR303 validator constraint.
  * 
- * Requirement: !!! Please fill this !!!
+ * Requirement: TODO Please fill this!
  *
- * @author 
+ * @author      Firstname Lastname <address @ example.com>
+ * @since       ${actualDateTime?string("yyyy-MM-dd")}
  */
 @Target({ TYPE, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = ${hm.name}Validator.class)
 @Documented
-public @interface ${hm.name}Constraint {
+public @interface ${hm.name}${hm.file.suffix} {
 
 	// These next parameters exist in every constraint
 	// TODO Please fill this !
 	String message() default "{????????????}";
 
-	String constraintName() default "${hm.name}Constraint";
+	String constraintName() default "${hm.name}${hm.file.suffix}";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
+	
 }

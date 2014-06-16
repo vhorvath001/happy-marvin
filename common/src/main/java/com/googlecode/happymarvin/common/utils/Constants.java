@@ -26,6 +26,13 @@ public class Constants {
 	
 	public static final String REPORT_DEFAULT_FILE_PREFIX = "REPORT";
 	public static final String REPORT_FILE_NAME_DATEFORMAT = "yyyyMMdd-HHmmss-SSS";	
+	
+	public static final String TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST = "UnitTest";
+	public static final String JAVA_DEFAULT_SRC_FOLDER = "src/main/java";
+	public static final String JAVA_DEFAULT_TEST_FOLDER = "src/test/java";
+	public static final String JAVA_UNITTEST_SUFFIX = "Test";
+	public static final String TEMPLATE_FILE_EXTENSION = "ftl";
+	
 
 	public enum NamesOfValues {
 		TYPE("TYPE"), TEMPLATE("TEMPLATE"), PROJECT("PROJECT"), NAME("NAME"), LOCATION("LOCATION");

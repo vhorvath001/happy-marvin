@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,9 +62,12 @@ public class ArtefactGenerator {
 			// checking if the JiraIssueBean contains all the necessary data that are needed for generating the artefact(s)
 			//   (e.g. Java POJO - a method is needed if mandatory = true)
 			examineJiraIssueBean(instructionBean, templateBean, i);
-
+			
 			// looping through the template files defined in the template config XML
-			for(TemplateFileBean templateFileBean : templateBean.getFiles()) {
+			Queue<TemplateFileBean> queueFiles = new LinkedList<TemplateFileBean>(templateBean.getFiles());
+			while (!queueFiles.isEmpty()) {
+				TemplateFileBean templateFileBean = queueFiles.remove();
+			
 				// creating the datamodel from JiraIssueBean for Freemarker
 				final Map<String, Object> dataModel = creatingDataModel(instructionBean, templateFileBean, templateBean.getProperties());
 
@@ -84,6 +89,9 @@ public class ArtefactGenerator {
 				
 				// creating the artefact virtually
 				template.process(dataModel, virtualWriter);
+				
+				// adding a new TemplateFileBean to the queue if the artefactsToBeGenerated property of templateFileBean is not empty in hm-templates-config.xml
+				addNewTemplateFileBeanIfNeeded(queueFiles, templateFileBean);
 			}
 		}
 
@@ -93,6 +101,35 @@ public class ArtefactGenerator {
 		}
 	}
 
+	
+	private void addNewTemplateFileBeanIfNeeded(Queue<TemplateFileBean> queueFiles, TemplateFileBean templateFileBean) throws ConfigurationException {
+		if (templateFileBean.getAdditionalArtefactsToBeGenerated() != null) {
+			// if the additional file to be generated is UnitTest
+			if (templateFileBean.getAdditionalArtefactsToBeGenerated().equals(Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST)) {
+				TemplateFileBean additionalArtefactsToBeGenerated = new TemplateFileBean(templateFileBean);
+				String path = additionalArtefactsToBeGenerated.getPath();
+LOGGER.info("2___" + path);
+				// the template file name must end with the text _UnitTest
+				//    for example: if the original file path is Java/POJO.ftl then the new file path will be Java/POJO_UnitTest.ftl
+				if (path.lastIndexOf(Constants.TEMPLATE_FILE_EXTENSION) == -1) {
+					throw new ConfigurationException(String.format("The extension of the file must be %s! path=%s", Constants.TEMPLATE_FILE_EXTENSION, templateFileBean.getPath()));
+				}
+				path = path.substring(0, path.lastIndexOf(Constants.TEMPLATE_FILE_EXTENSION)-1) + "_" + Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST + "." + Constants.TEMPLATE_FILE_EXTENSION;
+LOGGER.info("3___" + path);
+				
+				additionalArtefactsToBeGenerated.setPath(path);
+				additionalArtefactsToBeGenerated.setAdditionalArtefactsToBeGenerated(null);
+				additionalArtefactsToBeGenerated.setSuffix((additionalArtefactsToBeGenerated.getSuffix() == null ? "" : additionalArtefactsToBeGenerated.getSuffix()) + 
+						Constants.JAVA_UNITTEST_SUFFIX);
+				additionalArtefactsToBeGenerated.setType(Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST);
+				
+				queueFiles.add(additionalArtefactsToBeGenerated);
+			} else {
+				throw new ConfigurationException(String.format("Incorrect value in the property additionalArtefactsToBeGenerated! path=%s, incorrect value=%s", templateFileBean.getPath(), 
+					templateFileBean.getAdditionalArtefactsToBeGenerated()));
+			}
+		}
+	}
 
 	private void examineJiraIssueBean(InstructionBean instructionBean, TemplateBean templateBean, int i) throws InvalidInstructionException, ConfigurationException {
 		// checking the type, template, project, name and location
@@ -135,20 +172,29 @@ public class ArtefactGenerator {
 		}
 		
 		// getting the location of the artefact file
-		final String location = getLocation(instructionBean.getProperties(), templateFileBean.getName(), templatePropertyBeans, instructionBean.getLocation());
+		String location = getLocation(instructionBean.getProperties(), templateFileBean.getName(), templatePropertyBeans, instructionBean.getLocation());
 		
+		// if this is a unit test then the artefact should be put to src/test/java/... instead of src/main/java/
+		//    if the location doesn't contain the src/main/java then do nothing i.e. the location of the unit test will be the same the location of the normal class
+LOGGER.info("...." + templateFileBean.getType() + "___" + location);
+		if (templateFileBean.getType() != null && templateFileBean.getType().equals(Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST)) {
+			location = location.replace(Constants.JAVA_DEFAULT_SRC_FOLDER, Constants.JAVA_DEFAULT_TEST_FOLDER);
+		}
+
+		final String locationFinal = location;
 		// checking if the location folder exists in the project
-		if (!new File(pathProject + location).exists()) {
+		if (!new File(pathProject + locationFinal).exists()) {
 			// if it doesn't exist then create the folder virtually
-			LOGGER.debug(String.format("The folder %s is going to be created at the end of the process...", pathProject + location));
-			virtualWriterManager.add(ind, new VirtualWriter("FOLDER", pathProject + location) {
+			LOGGER.debug(String.format("The folder %s is going to be created at the end of the process...", pathProject + locationFinal));
+			virtualWriterManager.add(ind, new VirtualWriter("FOLDER", pathProject + locationFinal) {
 				@Override
 				public void work() throws TemplateException, IOException {
 					StringBuilder pathArtefact = new StringBuilder();
-					for(String folder : (pathProject + location).split("/")) {
+					for(String folder : (pathProject + locationFinal).split("/")) {
 						pathArtefact.append(folder).append("/");
-						if (!new File(pathArtefact.toString()).exists()) {							
-							new File(pathArtefact.toString()).mkdir();
+						File folderPath = new File(pathArtefact.toString());
+						if (!folderPath.exists()) {							
+							folderPath.mkdir();
 						}
 					}
 				}
@@ -156,7 +202,7 @@ public class ArtefactGenerator {
 		}
 		
 		// building the name of the file to be created
-		String artefactFileName = pathProject + location;
+		String artefactFileName = pathProject + locationFinal;
 		artefactFileName = artefactFileName.endsWith("/") ? artefactFileName : artefactFileName+"/";
 		artefactFileName = artefactFileName + 
 				           (templateFileBean.getPrefix() == null ? "" : templateFileBean.getPrefix()) +
@@ -217,11 +263,11 @@ public class ArtefactGenerator {
 		Map<String, Object> dataModelRoot = new HashMap<String, Object>();
 		dataModelRoot.put("hm", dataModelHm);
 		
-		
 		// setting the type, template, project, name and location
 		dataModelHm.put("type", instructionBean.getName());
 		dataModelHm.put("template", instructionBean.getTemplate());
 		dataModelHm.put("project", instructionBean.getProject());
+		
 		dataModelHm.put("name", instructionBean.getName());
 		dataModelHm.put("location", instructionBean.getLocation());
 
@@ -233,6 +279,12 @@ public class ArtefactGenerator {
 		// setting the hm.package from location
 		String packageName = getPackageNameFromLocation(instructionBean, templateFileBean, templatePropertyBeans);
 		dataModelHm.put("package", packageName);
+		
+		// setting the file prefix and suffix
+		Map<String, Object> dataModelFile = new HashMap<String, Object>();
+		dataModelHm.put("file", dataModelFile);
+		dataModelFile.put("prefix", templateFileBean.getPrefix());
+		dataModelFile.put("suffix", templateFileBean.getSuffix());
 		
 		return dataModelRoot;
 	}
