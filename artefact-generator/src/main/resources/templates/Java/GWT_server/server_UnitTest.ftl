@@ -15,12 +15,12 @@ package ${hm.package};
 //@RunWith(SpringJUnit4ClassRunner.class)
 // TODO Please add the context XML path!
 //@ContextConfiguration(locations="classpath:???.xml")
-public class ${hm.name}Test {
+public class ${hm.name}ServiceImplTest {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}ServiceImpl.class);
 
 //	@Autowired
-	private ${hm.name} test${hm.name};
+	private ${hm.name}${hm.name}ServiceImpl test${hm.name}${hm.name}ServiceImpl;
 
 
 	@Before

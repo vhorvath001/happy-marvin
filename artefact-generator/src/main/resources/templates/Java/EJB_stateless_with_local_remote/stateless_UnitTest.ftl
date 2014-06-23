@@ -35,6 +35,7 @@ import com.google.common.base.Preconditions;
  *
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
+// TODO Please add the context XML path!
 //@ContextConfiguration(locations="classpath:???.xml")
 public class ${hm.name}${hm.file.suffix}Test{
 	

@@ -712,7 +712,6 @@ class ComparatorBasedOnProperties<String> implements Comparator<String> {
 	    while (matcher.find()) {
 	    	count +=1;
 	    }
-LOGGER.trace(s1 + " : " + count);
 	    return count;
 	}
 	

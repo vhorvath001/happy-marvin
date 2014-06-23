@@ -25,7 +25,7 @@ public class ${hm.name} {
 	 */
 	 ${hm.property.method} {
         // TODO auto generated method - Please fill the method!
-		LOGGER.info("The method {hm.property.method} has been called!");
+		LOGGER.info("The method ${hm.property.method} has been called!");
     }
     
 }

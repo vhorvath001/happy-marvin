@@ -3,15 +3,19 @@ package com.googlecode.happymarvin.artefactgenerator;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.googlecode.happymarvin.artefactgenerator.extractor.ExtractorI;
 import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriter;
 import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager;
 import com.googlecode.happymarvin.common.beans.InstructionBean;
@@ -108,14 +112,12 @@ public class ArtefactGenerator {
 			if (templateFileBean.getAdditionalArtefactsToBeGenerated().equals(Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST)) {
 				TemplateFileBean additionalArtefactsToBeGenerated = new TemplateFileBean(templateFileBean);
 				String path = additionalArtefactsToBeGenerated.getPath();
-LOGGER.info("2___" + path);
 				// the template file name must end with the text _UnitTest
 				//    for example: if the original file path is Java/POJO.ftl then the new file path will be Java/POJO_UnitTest.ftl
 				if (path.lastIndexOf(Constants.TEMPLATE_FILE_EXTENSION) == -1) {
 					throw new ConfigurationException(String.format("The extension of the file must be %s! path=%s", Constants.TEMPLATE_FILE_EXTENSION, templateFileBean.getPath()));
 				}
 				path = path.substring(0, path.lastIndexOf(Constants.TEMPLATE_FILE_EXTENSION)-1) + "_" + Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST + "." + Constants.TEMPLATE_FILE_EXTENSION;
-LOGGER.info("3___" + path);
 				
 				additionalArtefactsToBeGenerated.setPath(path);
 				additionalArtefactsToBeGenerated.setAdditionalArtefactsToBeGenerated(null);
@@ -176,7 +178,6 @@ LOGGER.info("3___" + path);
 		
 		// if this is a unit test then the artefact should be put to src/test/java/... instead of src/main/java/
 		//    if the location doesn't contain the src/main/java then do nothing i.e. the location of the unit test will be the same the location of the normal class
-LOGGER.info("...." + templateFileBean.getType() + "___" + location);
 		if (templateFileBean.getType() != null && templateFileBean.getType().equals(Constants.TEMPLATE_FILE_ADDITIONALARTEFACTSTOBEGENERATED_UNIT_TEST)) {
 			location = location.replace(Constants.JAVA_DEFAULT_SRC_FOLDER, Constants.JAVA_DEFAULT_TEST_FOLDER);
 		}
@@ -259,7 +260,7 @@ LOGGER.info("...." + templateFileBean.getType() + "___" + location);
 
 		Map<String, Object> dataModelHm = new HashMap<String, Object>();
 		dataModelHm.put("property", dataModelProperties);
-
+		
 		Map<String, Object> dataModelRoot = new HashMap<String, Object>();
 		dataModelRoot.put("hm", dataModelHm);
 		
@@ -269,12 +270,15 @@ LOGGER.info("...." + templateFileBean.getType() + "___" + location);
 		dataModelHm.put("project", instructionBean.getProject());
 		
 		dataModelHm.put("name", instructionBean.getName());
-		dataModelHm.put("location", instructionBean.getLocation());
+		dataModelHm.put("location", instructionBean.getLocation().endsWith("/") ? instructionBean.getLocation() : instructionBean.getLocation()+"/");
 
 		// setting the properties
 		for(String name : instructionBean.getProperties().keySet()) {
 			dataModelProperties.put(name, instructionBean.getProperties().get(name));
 		}
+		
+		// setting the extracted properties
+		dataModelHm.put("extractedProperty", getExtractedProperties(templateFileBean.getExtractorClass(), instructionBean.getProperties()));
 		
 		// setting the hm.package from location
 		String packageName = getPackageNameFromLocation(instructionBean, templateFileBean, templatePropertyBeans);
@@ -287,6 +291,28 @@ LOGGER.info("...." + templateFileBean.getType() + "___" + location);
 		dataModelFile.put("suffix", templateFileBean.getSuffix());
 		
 		return dataModelRoot;
+	}
+
+
+	private Object getExtractedProperties(String extractorString, Map<String, String> properties) {
+		// extractorString = com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor($proxy_wsdl_path)
+		// check if the value in the extractorString is correct
+		Pattern pattern = Pattern.compile(".+[(][$].+[)]");   // starting with a $, following a {, after those any character except $ and {, and ending with }
+		Matcher matcher = pattern.matcher((CharSequence) extractorString);
+		int count = 0;
+	    if (!matcher.find()) {
+	    	throw new ConfigurationException("Incorrect value in the extractorClass attribute!");
+	    }
+
+	    // getting the values
+		String classNameExtractor = extractorString.substring(extractorString.indexOf("(")-1);
+		String propertyName = extractorString.substring(extractorString.indexOf("(")+2, extractorString.length()-1);
+		
+		// executing the extractor class
+		Class<ExtractorI> extractorClass = (Class<ExtractorI>) Class.forName(classNameExtractor);
+		Constructor<ExtractorI> extractorConstructor = extractorClass.getConstructor(String.class);
+		ExtractorI extractorInstance = extractorConstructor.newInstance(properties.get(propertyName));
+		return extractorInstance.extract(properties);
 	}
 
 
