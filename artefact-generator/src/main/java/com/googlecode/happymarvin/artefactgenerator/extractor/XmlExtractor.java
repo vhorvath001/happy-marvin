@@ -3,6 +3,7 @@ package com.googlecode.happymarvin.artefactgenerator.extractor;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -10,7 +11,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathException;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
@@ -18,28 +18,31 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateExtractedPropertyBean;
+
 public class XmlExtractor implements ExtractorI {
 
+	private static Map<String, Document> docStore = new HashMap<String, Document>();
 
-	private String path;
 	private XPath xpath;
+	private String path;
 
 	
-	public XmlExtractor(String path) {
-		this.path = path;
+	public XmlExtractor() {
 		xpath = XPathFactory.newInstance().newXPath();
+		path = null;
 	}
 
 	
-	public Map<String, String> extract(Map<String, String> propertiesXpath) {
+	public Map<String, String> extract(List<TemplateExtractedPropertyBean> templateExtractedPropertyBeans, Map<String, String> properties) {
 		Map<String, String> propertiesValue = new HashMap<String, String>();
 		
 		try {
-			Document doc = loadDocument();
-			
-			for (String propName : propertiesXpath.keySet()) {
-				String value = getValue(doc, propertiesXpath.get(propName));
-				propertiesValue.put(propName, value);
+			for(TemplateExtractedPropertyBean templateExtractedPropertyBean : templateExtractedPropertyBeans) {
+				Document doc = loadDocument(properties.get(templateExtractedPropertyBean.getFrom()));
+				
+				String value = getValue(doc, templateExtractedPropertyBean.getWhere());
+				propertiesValue.put(templateExtractedPropertyBean.getName(), value);
 			}
 			
 			return propertiesValue;
@@ -49,20 +52,28 @@ public class XmlExtractor implements ExtractorI {
 	}
 	
 	
-	private Document loadDocument() throws ParserConfigurationException, SAXException, IOException {
-		// only the filename needed from the path
-		String[] pathArray = path.split("/");
-		File file = new File("resource/" + pathArray[pathArray.length-1]);
-		
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		return builder.parse(file);
+	private Document loadDocument(String from) throws ParserConfigurationException, SAXException, IOException {
+		if (docStore.get(from) == null) {
+			// only the filename needed from the path
+			String[] pathArray = from.split("/");
+			path = "resource/" + pathArray[pathArray.length-1];
+			File file = new File(path);
+			
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			docStore.put(from, builder.parse(file));
+		}
+		return docStore.get(from);
 	}
 	
 	
 	private String getValue(Document doc, String xpathString) throws XPathExpressionException {
 		XPathExpression expression = xpath.compile(xpathString);
-		return (String) expression.evaluate(doc, XPathConstants.STRING);
+		String value = (String) expression.evaluate(doc, XPathConstants.STRING);
+		if (value == null) {
+			throw new RuntimeException("There is no value in the document '" + path + "' on the XPath '" + xpathString + "'!");
+		}
+		return value;
 	}
 
 }

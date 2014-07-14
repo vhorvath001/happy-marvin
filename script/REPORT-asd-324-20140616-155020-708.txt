@@ -1,0 +1,33 @@
+JIRA description:
+blahblah
+~~~HAPPYMARVIN-INSTRUCTION~~~
+Create a 'Java' component in the project 'tlem-validation-failures-report'. Use the template 'JSR303Validator'.
+The name is 'PR2121'. The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'.
+Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder.
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~
+
+
+**************************** The 0th instruction ****************************
+	Type:      Java
+	Template:  JSR303Validator
+	Name:      PR2121
+	Project:   tlem-validation-failures-report
+	Location:  src/main/java/com/jpmorgan/ib/cp/tlem/validator
+	Properties:
+		location_Java_JSR303Validator_configXML:		src/main/resources
+		location_Java_JSR303Validator_Validator:		src/main/java/com/jpmorgan/ib/cp/tlem/validator
+		location_Java_JSR303Validator_Constraint:		src/main/java/com/jpmorgan/ib/cp/tlem/validator
+The artefacts to be created:
+	Type: FOLDER,    Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Validator.java
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/main/java/com/jpmorgan/ib/cp/tlem/validator/PR2121Constraint.java
+	Type: FOLDER,    Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/main/resources
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/main/resources/PR2121.xml
+	Type: FOLDER,    Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator
+	Type: FILE,      Exist: false,	 Path: C:/work/happy-marvin/temp/generated-java/src/test/java/com/jpmorgan/ib/cp/tlem/validator/PR2121ValidatorTest.java
+The used patterns:
+	Create a 'Java' component in the project 'tlem-validation-failures-report'.		-	[Please ][put]/[create] a '${type}' component in the project '${project}'.
+	Use the template 'JSR303Validator'.		-	Use the template '${template}'.
+	The name is 'PR2121'.		-	The name [should be]/[is] '${name}'.
+	The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validator'.		-	The [destination ]folder [should be ]/[is ]'${location}'.
+	Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder.		-	[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].

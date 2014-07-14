@@ -44,7 +44,8 @@ public class GenerateOperation implements IOperation {
 	}
 
 	
-	public void perform(String... args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
+	public void perform(String... args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException, ClassNotFoundException, 
+			InstantiationException, IllegalAccessException {
 		// calling the JIRA REST service
 		LOGGER.info("----- 1/4 Calling the JIRA REST service -----");
 		LinkedHashMap<String, Object> responseFromREST = restClient.getJiraIssueAsJson(

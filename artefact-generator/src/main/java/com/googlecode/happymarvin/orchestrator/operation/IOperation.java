@@ -9,6 +9,6 @@ import freemarker.template.TemplateException;
 
 public interface IOperation {
 
-	void perform(String... args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException;
+	void perform(String... args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException, ClassNotFoundException, InstantiationException, IllegalAccessException;
 	
 }

@@ -2,8 +2,8 @@
 
 package ${hm.package};
 
-//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -12,14 +12,14 @@ package ${hm.package};
  * @since       ${actualDateTime?string("yyyy-MM-dd")}
  *
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 // TODO Please add the context XML path!
-//@ContextConfiguration(locations="classpath:???.xml")
+@ContextConfiguration(locations="classpath:???.xml")
 public class ${hm.name}Test {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}.class);
 
-//	@Autowired
+	@Autowired
 	private ${hm.name} test${hm.name};
 
 

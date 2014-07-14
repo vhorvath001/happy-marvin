@@ -21,6 +21,7 @@ import com.googlecode.happymarvin.artefactgenerator.writer.VirtualWriterManager;
 import com.googlecode.happymarvin.common.beans.InstructionBean;
 import com.googlecode.happymarvin.common.beans.JiraIssueBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateBean;
+import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateExtractedPropertyBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean;
 import com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplatePropertyBean;
 import com.googlecode.happymarvin.common.exceptions.ConfigurationException;
@@ -49,7 +50,8 @@ public class ArtefactGenerator {
 	//      then do the creation of the files! (e.g. there is an exception while creating the 2nd file then the first 
 	//      file has been already created but not the others)
 	// DONE package in the Java classes! from location
-	public void generate(JiraIssueBean jiraIssueBean, boolean generate) throws IOException, TemplateException, InvalidInstructionException, ConfigurationException {
+	public void generate(JiraIssueBean jiraIssueBean, boolean generate) throws IOException, TemplateException, InvalidInstructionException, ConfigurationException, 
+			ClassNotFoundException, InstantiationException, IllegalAccessException {
 		// initializing the Freemarker configuration
 		Configuration cfg = init();
 		
@@ -73,7 +75,7 @@ public class ArtefactGenerator {
 				TemplateFileBean templateFileBean = queueFiles.remove();
 			
 				// creating the datamodel from JiraIssueBean for Freemarker
-				final Map<String, Object> dataModel = creatingDataModel(instructionBean, templateFileBean, templateBean.getProperties());
+				final Map<String, Object> dataModel = creatingDataModel(instructionBean, templateFileBean, templateBean.getProperties(), templateBean.getExtractedProperties());
 
 				// getting the template
 				final Template template = getTemplate(templateFileBean, cfg);
@@ -255,7 +257,8 @@ public class ArtefactGenerator {
 	}
 
 	
-	private Map<String, Object> creatingDataModel(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans) throws ConfigurationException {
+	private Map<String, Object> creatingDataModel(InstructionBean instructionBean, TemplateFileBean templateFileBean, List<TemplatePropertyBean> templatePropertyBeans,
+			List<TemplateExtractedPropertyBean> templateExtractedProperties) throws ConfigurationException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		Map<String, Object> dataModelProperties = new HashMap<String, Object>();
 
 		Map<String, Object> dataModelHm = new HashMap<String, Object>();
@@ -278,7 +281,7 @@ public class ArtefactGenerator {
 		}
 		
 		// setting the extracted properties
-		dataModelHm.put("extractedProperty", getExtractedProperties(templateFileBean.getExtractorClass(), instructionBean.getProperties()));
+		dataModelHm.put("extractedProperty", getExtractedProperties(templateFileBean.getExtractorClass(), templateExtractedProperties, instructionBean.getProperties()));
 		
 		// setting the hm.package from location
 		String packageName = getPackageNameFromLocation(instructionBean, templateFileBean, templatePropertyBeans);
@@ -294,25 +297,30 @@ public class ArtefactGenerator {
 	}
 
 
-	private Object getExtractedProperties(String extractorString, Map<String, String> properties) {
-		// extractorString = com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor($proxy_wsdl_path)
-		// check if the value in the extractorString is correct
-		Pattern pattern = Pattern.compile(".+[(][$].+[)]");   // starting with a $, following a {, after those any character except $ and {, and ending with }
-		Matcher matcher = pattern.matcher((CharSequence) extractorString);
-		int count = 0;
-	    if (!matcher.find()) {
-	    	throw new ConfigurationException("Incorrect value in the extractorClass attribute!");
-	    }
-
-	    // getting the values
-		String classNameExtractor = extractorString.substring(extractorString.indexOf("(")-1);
-		String propertyName = extractorString.substring(extractorString.indexOf("(")+2, extractorString.length()-1);
+	private Object getExtractedProperties(String extractorClassString, List<TemplateExtractedPropertyBean> templateExtractedPropertyBeans,
+			Map<String, String> properties) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		// if the extractorClass doesn't exist then no need to return any extracted property as they won't be used in the template
+		if (extractorClassString == null) {
+			return null;
+		}
+		
+//		// extractorString = com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor($proxy_wsdl_path)
+//		// check if the value in the extractorString is correct
+//		Pattern pattern = Pattern.compile(".+[(][$].+[)]");   // starting with a $, following a {, after those any character except $ and {, and ending with }
+//		Matcher matcher = pattern.matcher((CharSequence) extractorString);
+//		int count = 0;
+//	    if (!matcher.find()) {
+//	    	throw new ConfigurationException("Incorrect value in the extractorClass attribute!");
+//	    }
+//
+//	    // getting the values
+//		String classNameExtractor = extractorString.substring(extractorString.indexOf("(")-1);
+//		String propertyName = extractorString.substring(extractorString.indexOf("(")+2, extractorString.length()-1);
 		
 		// executing the extractor class
-		Class<ExtractorI> extractorClass = (Class<ExtractorI>) Class.forName(classNameExtractor);
-		Constructor<ExtractorI> extractorConstructor = extractorClass.getConstructor(String.class);
-		ExtractorI extractorInstance = extractorConstructor.newInstance(properties.get(propertyName));
-		return extractorInstance.extract(properties);
+		Class<ExtractorI> extractorClass = (Class<ExtractorI>) Class.forName(extractorClassString);
+		ExtractorI extractorInstance = extractorClass.newInstance();
+		return extractorInstance.extract(templateExtractedPropertyBeans, properties);
 	}
 
 

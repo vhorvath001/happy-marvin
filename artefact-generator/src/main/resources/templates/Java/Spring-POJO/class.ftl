@@ -28,7 +28,7 @@ public class ${hm.name}Bean {
   </#if>
 
   
-  <#if hm.property.method_Java_Spring_POJO??>
+  <#if hm.property.method_Java_Spring-POJO??>
 	/**
 	 * TODO please define what the method does!
 	 *
@@ -36,7 +36,7 @@ public class ${hm.name}Bean {
 	 * @return The value to return
 	 * @throws The exception to be thrown
 	 */
-	 ${hm.property.method_Java_Spring_POJO} {
+	 ${hm.property.method_Java_Spring-POJO} {
         // TODO auto generated method - Please fill the method!
 		LOGGER.info("The method has been called!");
     }

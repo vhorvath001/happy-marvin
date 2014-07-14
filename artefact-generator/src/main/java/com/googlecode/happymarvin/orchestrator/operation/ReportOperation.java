@@ -53,7 +53,8 @@ public class ReportOperation implements IOperation {
 		this.artefactGenerator = artefactGenerator;
 	}
 	
-	public void perform(String... args) throws ConfigurationException, IOException, InvalidInstructionException, TemplateException {
+	public void perform(String... args) throws ConfigurationException, IOException, InvalidInstructionException, TemplateException, ClassNotFoundException, 
+			InstantiationException, IllegalAccessException {
 		String reportPath = getReportPath(args);
 		
 		// calling the JIRA REST service

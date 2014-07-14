@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+     name="WSDL_UpdateCableInventory"
+     targetNamespace="http://virginmedia/wsdl/UpdateCableInventory/1/0"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:ns1="http://virginmedia/schema/faults/1/0"
+     xmlns:ns="http://virginmedia/schema/UpdateCableInventory"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:tns="http://virginmedia/wsdl/UpdateCableInventory/1/0"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="WSDL_UpdateCableInventory">
+        <plnk:role name="VirginMediaPortTypeRole" portType="tns:VirginMediaPortType"/>
+    </plnk:partnerLinkType>
+    <types>
+        <xsd:schema targetNamespace="http://virginmedia/wsdl/UpdateCableInventory/1/0">
+            <xsd:import namespace="http://virginmedia/schema/UpdateCableInventory" schemaLocation="xsd/mockUpdateCableInventoryBinding_WSDL_interface_UpdateCableInventoryBinding_part_UpdateCableInventory.xsd"/>
+            <xsd:import namespace="http://virginmedia/schema/faults/1/0" schemaLocation="xsd/SOAPFault.1.0.0.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="ProcessAdjustmentRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessAdjustmentRequest"/>
+    </message>
+    <message name="ProcessAdjustmentResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessAdjustmentResponse"/>
+    </message>
+    <message name="ProcessAdjustmentFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessReceiptRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessReceiptRequest"/>
+    </message>
+    <message name="ProcessReceiptResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessReceiptResponse"/>
+    </message>
+    <message name="ProcessReceiptFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessShipmentRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessShipmentRequest"/>
+    </message>
+    <message name="ProcessShipmentResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessShipmentResponse"/>
+    </message>
+    <message name="ProcessShipmentFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessInventoryAllocationRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessAllocationRequest"/>
+    </message>
+    <message name="ProcessInventoryAllocationResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessAllocationResponse"/>
+    </message>
+    <message name="ProcessInventoryAllocationFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessInventoryDeallocationRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessDeallocationRequest"/>
+    </message>
+    <message name="ProcessInventoryDeallocationResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessDeallocationResponse"/>
+    </message>
+    <message name="ProcessInventoryDeallocationFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <portType name="VirginMediaPortType">
+        <operation name="ProcessAdjustment">
+            <input name="inputMsgUP" message="tns:ProcessAdjustmentRequest"/>
+            <output name="outputMsgUP" message="tns:ProcessAdjustmentResponse"/>
+            <fault name="errorMsgUP" message="tns:ProcessAdjustmentFault"/>
+        </operation>
+        <operation name="ProcessReceipt">
+            <input name="inputMsgUP1" message="tns:ProcessReceiptRequest"/>
+            <output name="outputMsgUP1" message="tns:ProcessReceiptResponse"/>
+            <fault name="errorMsgUP1" message="tns:ProcessReceiptFault"/>
+        </operation>
+        <operation name="ProcessShipment">
+            <input name="inputMsgUP2" message="tns:ProcessShipmentRequest"/>
+            <output name="outputMsgUP2" message="tns:ProcessShipmentResponse"/>
+            <fault name="errorMsgUP2" message="tns:ProcessShipmentFault"/>
+        </operation>
+        <operation name="ProcessInventoryAllocation">
+            <input name="inputMsgUP3" message="tns:ProcessInventoryAllocationRequest"/>
+            <output name="outputMsgUP3" message="tns:ProcessInventoryAllocationResponse"/>
+            <fault name="errorMsgUP3" message="tns:ProcessInventoryAllocationFault"/>
+        </operation>
+        <operation name="ProcessInventoryDeallocation">
+            <input name="inputMsgUP4" message="tns:ProcessInventoryDeallocationRequest"/>
+            <output name="outputMsgUP4" message="tns:ProcessInventoryDeallocationResponse"/>
+            <fault name="errorMsgUP4" message="tns:ProcessInventoryDeallocationFault"/>
+        </operation>
+    </portType>
+    <binding name="UpdateCableInventoryBinding" type="tns:VirginMediaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="ProcessAdjustment">
+            <soap:operation style="document" soapAction="urn:ProcessAdjustment"/>
+            <input name="inputMsgUP">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP">
+                <soap:fault name="errorMsgUP" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessReceipt">
+            <soap:operation style="document" soapAction="urn:ProcessReceipt"/>
+            <input name="inputMsgUP1">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP1">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP1">
+                <soap:fault name="errorMsgUP1" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessShipment">
+            <soap:operation style="document" soapAction="urn:ProcessShipment"/>
+            <input name="inputMsgUP2">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP2">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP2">
+                <soap:fault name="errorMsgUP2" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessInventoryAllocation">
+            <soap:operation style="document" soapAction="urn:ProcessInventoryAllocation"/>
+            <input name="inputMsgUP3">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP3">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP3">
+                <soap:fault name="errorMsgUP3" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessInventoryDeallocation">
+            <soap:operation style="document" soapAction="urn:ProcessInventoryDeallocation"/>
+            <input name="inputMsgUP4">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP4">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP4">
+                <soap:fault name="errorMsgUP4" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="UpdateCableInventory">
+        <port name="VirginMedia" binding="tns:UpdateCableInventoryBinding">
+            <soap:address location="http://Viktor-PC:8088/mockUpdateCableInventoryBinding"/>
+        </port>
+    </service>
+</definitions>

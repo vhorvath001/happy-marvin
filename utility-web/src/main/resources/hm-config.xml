@@ -32,8 +32,8 @@ I decided other way -> all the values must be between apostrophes!!! however sti
 		<sentence>Name it as '${name}'.</sentence>
 		<sentence>The [destination ]folder [should be ]/[is ]'${location}'.</sentence>
 	</instructionSentencePatterns>
-
-    <jiraRestUrl>https://jira.uk.acme.com/jira/rest/api/latest/issue</jiraRestUrl>
+	
+	<jiraRestUrl>https://jira.uk.acme.com/jira/rest/api/latest/issue</jiraRestUrl>
 	
 	<!-- in the value the character '/' has to be used!!   -->
 	<project name="tlem-validation-failures-report" value="C:/work/happy-marvin/temp" srcFolder="src/main/java" />

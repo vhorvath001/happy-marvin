@@ -52,7 +52,7 @@ public class ArtefactGenerationOrchestrator {
 	}
 
 
-	private void doOperation(String[] args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
+	private void doOperation(String[] args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		IOperation oneOperation = null;
 		
 		if (Operation.GENERATE.equals(operation)) {

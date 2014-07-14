@@ -38,7 +38,19 @@ public class TemplateBean implements Serializable {
 	@ElementList(inline=true, required=false, entry="property")
 	private List<TemplatePropertyBean> properties = null;
 
+	@ElementList(inline=true, required=false, entry="extractedProperty")
+	private List<TemplateExtractedPropertyBean> extractedProperties = null;
+
 	
+	public List<TemplateExtractedPropertyBean> getExtractedProperties() {
+		return extractedProperties;
+	}
+
+	public void setExtractedProperties(
+			List<TemplateExtractedPropertyBean> extractedProperties) {
+		this.extractedProperties = extractedProperties;
+	}
+
 	public String getName() {
 		return name;
 	}
