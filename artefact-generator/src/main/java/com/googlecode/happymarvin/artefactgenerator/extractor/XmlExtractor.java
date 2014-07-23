@@ -15,6 +15,8 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -23,6 +25,7 @@ import com.googlecode.happymarvin.common.beans.simplexml.configuration.templates
 public class XmlExtractor implements ExtractorI {
 
 	private static Map<String, Document> docStore = new HashMap<String, Document>();
+	private static final Logger LOGGER = LoggerFactory.getLogger(XmlExtractor.class);
 
 	private XPath xpath;
 	private String path;
@@ -44,6 +47,7 @@ public class XmlExtractor implements ExtractorI {
 				String value = getValue(doc, templateExtractedPropertyBean.getWhere());
 				propertiesValue.put(templateExtractedPropertyBean.getName(), value);
 			}
+			LOGGER.debug("The extracted properties: " + propertiesValue);
 			
 			return propertiesValue;
 		} catch(Exception e) {
@@ -58,6 +62,9 @@ public class XmlExtractor implements ExtractorI {
 			String[] pathArray = from.split("/");
 			path = "resource/" + pathArray[pathArray.length-1];
 			File file = new File(path);
+			if (!file.exists()) {
+				throw new RuntimeException(String.format("The file '%s' doesn't exist!", path));
+			}
 			
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();

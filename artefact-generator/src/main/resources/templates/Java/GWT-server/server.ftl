@@ -4,7 +4,8 @@ package ${hm.package};
 
 import com.google.gwt.sample.stockwatcher.client.GreetingService;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * The server side implementation of the RPC service.
  *
@@ -13,9 +14,9 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  *
  */
 @SuppressWarnings("serial")
-public class ${hm.name}ServiceImpl extends RemoteServiceServlet implements ${hm.name}Service {
+public class ${hm.name}${hm.file.suffix} extends RemoteServiceServlet implements ${hm.name}Service {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}ServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}${hm.file.suffix}.class);
 	
 	/*
 	 * (non-Javadoc)
@@ -23,8 +24,8 @@ public class ${hm.name}ServiceImpl extends RemoteServiceServlet implements ${hm.
 	 * @see ${hm.name}Service
 	 */
 	${hm.property.method} {
-        // TODO auto generated method - Please fill the method!
-		LOGGER.info("The method {hm.property.method} has been called!");
+        // TODO auto generated method - Please implement the method!
+		LOGGER.info("The method ${hm.property.method} has been called!");
 	}
 
 }

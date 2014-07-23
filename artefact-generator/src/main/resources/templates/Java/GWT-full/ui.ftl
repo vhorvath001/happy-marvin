@@ -20,7 +20,7 @@ import com.google.gwt.user.client.Window;
  */
 public class ${hm.name}Entry implements EntryPoint {
 	
-	private static Logger logger = Logger.getLogger("${hm.name}Entry");
+	private static Logger LOGGER = Logger.getLogger("${hm.name}Entry");
 	private ${hm.name}ServiceAsync ${hm.name?uncap_first}Service = (${hm.name}ServiceAsync) GWT.create(${hm.name}Service.class);
 	
 	
@@ -39,7 +39,7 @@ public class ${hm.name}Entry implements EntryPoint {
 
 			public void onFailure(Throwable caught) {
 				Window.alert("RPC call failed!" + caught.getMessage());
-				logger.log(Level.SEVERE, "RPC call failed!", caught);
+				LOGGER.log(Level.SEVERE, "RPC call failed!", caught);
 			}
 
 			public void onSuccess(Object result) {

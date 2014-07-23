@@ -3,14 +3,11 @@ package com.googlecode.happymarvin.artefactgenerator;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +70,7 @@ public class ArtefactGenerator {
 			Queue<TemplateFileBean> queueFiles = new LinkedList<TemplateFileBean>(templateBean.getFiles());
 			while (!queueFiles.isEmpty()) {
 				TemplateFileBean templateFileBean = queueFiles.remove();
+				LOGGER.debug(String.format("The next template file in the queue is %s", templateFileBean.toString()));
 			
 				// creating the datamodel from JiraIssueBean for Freemarker
 				final Map<String, Object> dataModel = creatingDataModel(instructionBean, templateFileBean, templateBean.getProperties(), templateBean.getExtractedProperties());
@@ -353,23 +351,11 @@ public class ArtefactGenerator {
 		
 		return cfg;
 	}
-
-
 	
 	
 	public void setConfigurationReaderUtil(ConfigurationReaderUtil configurationReaderUtil) {
 		this.configurationReaderUtil = configurationReaderUtil;
 	}
-
-
-//	public static void main(String[] args) {
-//		String location = "src/main/java.asd";
-//		String srcFolder = "src/main/java";
-//		String packageName = location.replaceFirst(srcFolder, "").replace("/", ".");
-//		packageName = packageName.charAt(0) == '.' ? packageName.substring(1) : packageName;
-//		packageName = packageName.charAt(packageName.length()-1) == '.' ? packageName.substring(0,packageName.length()-1) : packageName;
-//		System.out.println("-"+packageName+"-");
-//	}
 
 
 	public void setVirtualWriterManager(VirtualWriterManager virtualWriterManager) {

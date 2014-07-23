@@ -1,5 +1,8 @@
 package com.googlecode.happymarvin.common.utils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Constants {
 
@@ -44,35 +47,37 @@ public class Constants {
 	}
 	
 	
-//	public static void main(String[] args) {
-//		String s = "I['d] need a ${template} ${type} [component]/[class]/[file]/[XML file] in the [project]/[folder] ${project}.";
-//		String bracketsPattern = "([\\[][a-zA-Z0-9 _\\-'`\"£$&*\\+\\(\\)\\{\\}\\.]*[\\]])";
-//		
-//		//System.out.println(s.replaceAll(p, "____"));
-//		Pattern pattern = Pattern.compile("[\\/]" + bracketsPattern + "[^\\/^\\[]");
-//		Matcher matcher = pattern.matcher(s);
-//		while (matcher.find()) {
-//			int start = matcher.start();
-//			int end = matcher.end();
-//			System.out.println(start + "    " + end + "   " + matcher.group());
-//			System.out.println(s.substring(0, start));
-//			System.out.println(s.substring(0, end));
-//			System.out.println("________________");
-//		}
-//		
-//		
-//		String sentence = "POJO Java component in the project tlem-validation-failures-report.";
-//		String regExpr = "[ ]";
-//		
-//		pattern = Pattern.compile(regExpr);
-//		matcher = pattern.matcher(sentence);
-//		if (matcher.find()) {
-//			int aaa = matcher.start();
-//			int aaa2 = matcher.end();
-//			System.out.println(aaa + "  " + aaa2);
-//		}
-//		
-//	}
+	public static void main(String[] args) {
+//		String s = "[Please ][put]/[create][a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}' [component]/[class]/[file]/[XML file]m  [a]/[2]/n,,";
+		String s = "'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}' "
+				+ "[component]/[class]/[file]/[XML file]m  [a]/[2]/n,,";
+		
+		//System.out.println(s.replaceAll(p, "____"));
+		Pattern pattern = Pattern.compile(REGEXP_END_OF_OPTION_GROUPS);
+//		Pattern pattern = Pattern.compile("[\\]]{1}[^\\/]{1}[^\\[]{1}");
+		Matcher matcher = pattern.matcher(s);
+		while (matcher.find()) {
+			int start = matcher.start();
+			int end = matcher.end();
+			System.out.println(start + "    " + end + "   " + matcher.group());
+			System.out.println(s.substring(0, start));
+			System.out.println(s.substring(0, end));
+			System.out.println("________________");
+		}
+		
+		
+		String sentence = "POJO Java component in the project tlem-validation-failures-report.";
+		String regExpr = "[ ]";
+		
+		pattern = Pattern.compile(regExpr);
+		matcher = pattern.matcher(sentence);
+		if (matcher.find()) {
+			int aaa = matcher.start();
+			int aaa2 = matcher.end();
+			System.out.println(aaa + "  " + aaa2);
+		}
+		
+	}
 	
 	
 }

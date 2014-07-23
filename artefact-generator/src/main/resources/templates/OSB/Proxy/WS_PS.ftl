@@ -5,7 +5,7 @@
       <con:wsdl ref="${hm.property.proxy_wsdl_path}"/>
       <con:port>
         <con:name>${hm.extractedProperty.port_name}</con:name>
-        <con:namespace>${hm.extractedProperty.port_namespace}</con:namespace>
+        <con:namespace>${hm.extractedProperty.proxy_targetNamespace}</con:namespace>
       </con:port>
       <con:selector type="SOAP body"/>
     </ser:binding>
@@ -46,7 +46,7 @@
               <con1:actions>
                 <con1:validate>
                   <con2:id>_ActionId-1168617826443513018--54145756.137acf3f9df.-7b4d</con2:id>
-                  <con1:schema ref="${hm.property.xsd_path}"/>
+                  <con1:schema ref="${hm.property.proxy_xsd_path}"/>
                   <con1:schemaElement xmlns:not="http://virginmedia/schema/NotifyInventoryChange">not:${hm.extractedProperty.request_root_element}</con1:schemaElement>
                   <con1:varName>body</con1:varName>
                   <con1:location>
@@ -102,11 +102,7 @@
                   <con2:id>_ActionId-5438086606170537229--6f1e14b2.137b26c199b.-7f74</con2:id>
                   <con1:expr>
                     <con2:xqueryTransform>
-                    <#if hm.property.xquery_path??>
                       <con2:resource ref="${hm.property.xquery_path}"/>
-                    <#else>
-                      <con2:resource ref="PLEASE_DEFINE_ME"/>
-                    </#if>
                       <con2:param name="externalServiceRequest1">
                         <con2:path>$body/not:${hm.extractedProperty.request_root_element}</con2:path>
                       </con2:param>
@@ -123,12 +119,8 @@
         <con:actions>
           <con1:wsCallout>
             <con2:id>_ActionId-1994248388348932979--69286bed.137b3ae0edb.-7f93</con2:id>
-          <#if hm.property.location_business_service??>
             <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.location_business_service}${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-          <#else>
-            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.location}${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-          </#if>
-            <con1:operation>PLEASE_DEFINE_ME</con1:operation>
+            <con1:operation>${hm.extractedProperty.business_operation}</con1:operation>			
             <con1:request>
               <con1:body wrapped="false">$req_ExternalServiceRequest</con1:body>
             </con1:request>

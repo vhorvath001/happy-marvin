@@ -35,7 +35,7 @@
 	</dependencies>
 
     <build>
-	    <resources>
+	    <!--resources>
 	        <resource>
 	            <directory>src/main/resources</directory>
 	            <excludes>
@@ -45,7 +45,7 @@
 	            </excludes>
 	            <filtering>false</filtering>
 	        </resource>
-	    </resources>    
+	    </resources-->    
         <plugins>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -65,6 +65,7 @@
                                 common
                             </includeArtifactIds>
                             <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+							<excludes>hm-config.xml, hm-templates-config.xml, logback.xml</excludes>
                         </configuration>
                     </execution>
                 </executions>

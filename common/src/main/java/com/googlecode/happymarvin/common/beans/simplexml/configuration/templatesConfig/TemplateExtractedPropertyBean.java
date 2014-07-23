@@ -1,14 +1,13 @@
 package com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.ElementList;
 
 public class TemplateExtractedPropertyBean implements Serializable {
 	
+	private static final long serialVersionUID = 7648547724472600426L;
+
 	public TemplateExtractedPropertyBean() {}
 	
 	public TemplateExtractedPropertyBean(TemplateExtractedPropertyBean source) {

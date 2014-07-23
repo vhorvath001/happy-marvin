@@ -32,9 +32,9 @@ public class ${hm.name}Test {
 	/**
 	 * Testing the method ${hm.property.method}
 	 */
+    // TODO Please put the text 'test' to the beginning of the method; e.g. testGetCustomer!
     ${hm.property.method} {
-        // TODO Please put the text 'test' to the beginning of the method; e.g. testGetCustomer!
-		// TODO auto generated method - Please fill the method!
+		// TODO auto generated method - Please implement the method!
     }
     
 }

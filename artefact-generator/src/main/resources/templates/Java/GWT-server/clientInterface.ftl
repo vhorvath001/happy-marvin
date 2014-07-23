@@ -13,7 +13,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  *
  */
 @RemoteServiceRelativePath("${hm.name?uncap_first}")
-public interface ${hm.name}Service extends RemoteService {
+public interface ${hm.name}${hm.file.suffix} extends RemoteService {
 
 	/**
 	 * TODO please define what the method does!

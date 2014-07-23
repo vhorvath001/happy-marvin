@@ -44,16 +44,4 @@ public class InstructionSentencePatternsBean implements Serializable {
 		return sb.toString();
 	}	
 	
-//	@ElementList(inline=true, required=false, entry="sentence2")
-//	private List<String> sentence2s = null;
-//
-//	@ElementList(inline=true, required=false, entry="sentence3")
-//	private List<String> sentence3s = null;
-//
-//	@ElementList(inline=true, required=false, entry="sentence4")
-//	private List<String> sentence4s = null;
-//
-//	@ElementList(inline=true, required=false, entry="sentence5")
-//	private List<String> sentence5s = null;
-
 }

@@ -254,7 +254,7 @@
          html += "<br/><input id='button_add_to_instruction' type='submit' value='Add to the Instruction'/>";
          html += "<input id='button_remove_instructions' type='submit' value='Remove the Instructions'/>";
          html += "<br/><textarea rows='4' id='taInstruction'/>";
-         html += "<br/>The remaining properties:<b><span id='span_remaining_properties'/></b>";
+         html += "<br/>The remaining properties: <b><span id='span_remaining_properties'/></b>";
 
          jq("#div_tab_5_sentences").html(html);
 
@@ -376,16 +376,26 @@
       allSentences = [];
       
       for (var i in allPatterns) {
-         // if the notInPorperty is in the pattern ...
+         // if the current (examined) property is in the pattern ...
          if (allPatterns[i].indexOf("\\${"+currentProperty+"}") > -1) {
-            // ... and the inProperties are not in the pattern
             candidate = true;
+            // ... and an already chosen property is not in the pattern
             for (var j in alreadyChosenProperties) {
                if (allPatterns[i].indexOf("\\${"+alreadyChosenProperties[j]+"}") > -1) {
                   candidate = false;
                   break;
                }
             }
+            // ... only those properties are in the pattern that not being chosen yet (e.g. a not mandatory property doesn't have value -> location-kind property)
+            temp_pattern = allPatterns[i];
+            for (var k in diff) {
+               temp_pattern = temp_pattern.replace("\\${"+diff[k]+"}", "_");
+            }
+			// if after the replace there is still a '\\${' characters in the pattern then it means that there is a property that doesn't have value so this pattern should be showed
+            if (temp_pattern.indexOf("\\${") > -1) {
+               candidate = false;
+            }
+            
             if (candidate) {
                // this pattern can be chosen so put it to the list
                allSentences.push([allPatterns[i], replacePropsWithValue(allPatterns[i])]);

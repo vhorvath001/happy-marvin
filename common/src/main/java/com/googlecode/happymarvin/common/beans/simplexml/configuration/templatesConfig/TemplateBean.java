@@ -20,9 +20,17 @@ public class TemplateBean implements Serializable {
 		for(TemplateFileBean templateFileBean : source.files) {
 			files.add(new TemplateFileBean(templateFileBean));
 		}
-		properties = new ArrayList<TemplatePropertyBean>();
-		for(TemplatePropertyBean templatePropertyBean : source.properties) {
-			properties.add(new TemplatePropertyBean(templatePropertyBean));
+		if (source.properties != null) {
+			properties = new ArrayList<TemplatePropertyBean>();
+			for(TemplatePropertyBean templatePropertyBean : source.properties) {
+				properties.add(new TemplatePropertyBean(templatePropertyBean));
+			}
+		}
+		if (source.extractedProperties != null) {
+			extractedProperties = new ArrayList<TemplateExtractedPropertyBean>();
+			for(TemplateExtractedPropertyBean templateExtractedPropertyBean : source.extractedProperties) {
+				extractedProperties.add(new TemplateExtractedPropertyBean(templateExtractedPropertyBean));
+			}
 		}
 	}
 
@@ -46,8 +54,7 @@ public class TemplateBean implements Serializable {
 		return extractedProperties;
 	}
 
-	public void setExtractedProperties(
-			List<TemplateExtractedPropertyBean> extractedProperties) {
+	public void setExtractedProperties(List<TemplateExtractedPropertyBean> extractedProperties) {
 		this.extractedProperties = extractedProperties;
 	}
 
@@ -99,6 +106,12 @@ public class TemplateBean implements Serializable {
 		if (properties != null && properties.size() > 0) {
 			for(TemplatePropertyBean property : properties) {
 				sb.append(property).append(",");			
+			}
+		}
+		sb.append("extractedProperties=");
+		if (extractedProperties != null && extractedProperties.size() > 0) {
+			for(TemplateExtractedPropertyBean extractedProperty : extractedProperties) {
+				sb.append(extractedProperty).append(",");			
 			}
 		}
 		sb.append("]");

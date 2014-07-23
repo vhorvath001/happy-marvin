@@ -1,3 +1,5 @@
+<#assign actualDateTime = .now>
+
 package ${hm.package};
 
 import java.io.Serializable;

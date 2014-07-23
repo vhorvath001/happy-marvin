@@ -5,7 +5,7 @@
 			<con:wsdl ref="${hm.property.proxy_wsdl_path}"/>
 			<con:port>
 				<con:name>${hm.extractedProperty.port_name}</con:name>
-				<con:namespace>${hm.extractedProperty.port_namespace}</con:namespace>
+				<con:namespace>${hm.extractedProperty.proxy_targetNamespace}</con:namespace>
 			</con:port>
 			<con:selector type="SOAP body"/>
 		</ser:binding>
@@ -46,7 +46,7 @@
 				<con:actions>
 					<con4:route>
 						<con2:id>_ActionId-877522618316018714--64dec08.137e4ad8071.-7d48</con2:id>
-						<con4:service ref="${hm.location}${hm.name}_WF_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+						<con4:service ref="${hm.location}WORKFLOW_${hm.name}PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
 						<con4:outboundTransform>
 							<con1:routing-options>
 								<con2:id>_ActionId-8443755941730629262--2e758916.137fc3a0528.-7fae</con2:id>

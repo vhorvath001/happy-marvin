@@ -2,7 +2,6 @@
 
 package ${hm.package};
 
-import com.tutorialspoint.shared.FieldVerifier;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -28,17 +27,19 @@ public class ${hm.name}Entry extends GWTTestCase {
 	/**
 	 * Testing the method ${hm.property.method}
 	 */
+    // TODO Please put the text 'test' to the beginning of the method; e.g. testGetCustomer!
     ${hm.property.method} {
-        // TODO Please put the text 'test' to the beginning of the method; e.g. testGetCustomer!
-		// TODO auto generated method - Please fill the method!
+		// TODO auto generated method - Please implement the method!
 		
 		// sample for testing a server call
 		//		create the service that we will test
 		ServiceDefTarget target = (ServiceDefTarget) ${hm.name?uncap_first}Service;
+		// TODO please specify the endpoint
 		target.setServiceEntryPoint(GWT.getModuleBaseURL() + "????");
 		//		the RPC calls are asynchronous, we will need to wait for the response
 		delayTestFinish(10000);
 		//		send a request to the server
+		// TODO please set the method
 		${hm.name?uncap_first}Service.???(new Object(), 
 			new AsyncCallback<String>() {
 				public void onFailure(Throwable caught) {
@@ -47,6 +48,7 @@ public class ${hm.name}Entry extends GWTTestCase {
 				}
 				public void onSuccess(String result) {
 					// Verify that the response is correct.
+					// TODO
 					assertTrue(result.startsWith("unknown"));
 					// now that we have received a response, we need to tell the test runner that the test is complete. You must call finishTest() after an asynchronous test finishes successfully, or the test will time out.
 					finishTest();

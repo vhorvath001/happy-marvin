@@ -18,6 +18,7 @@ public class TemplateFileBean implements Serializable {
 		prefix = source.prefix;
 		suffix = source.suffix;
 		additionalArtefactsToBeGenerated = source.additionalArtefactsToBeGenerated;
+		extractorClass = source.extractorClass;
 	}
 	
 	@Attribute(required=false)

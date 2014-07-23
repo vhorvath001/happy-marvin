@@ -17,8 +17,8 @@
 	<set-property name="gwt.logging.enabled" value="TRUE"/>
 
 	<!-- Specify the app entry point class.                         -->
+	
 	<!-- TODO Please add the package name -->
-
 	<entry-point class='${hm.name}Entry'/>
 
 </module>

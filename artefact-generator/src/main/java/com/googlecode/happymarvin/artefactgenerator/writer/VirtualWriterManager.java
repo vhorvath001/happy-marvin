@@ -44,7 +44,7 @@ public class VirtualWriterManager {
 		for(List<VirtualWriter> writerList : writers) {
 			for(VirtualWriter writer : writerList) {
 				writer.work();
-				LOGGER.info(String.format("\tType:%s\t\tName:%s", writer.getArtefactType(), writer.getArtefactName()));
+				LOGGER.info(String.format("\tType: %s\t\tName: %s", writer.getArtefactType(), writer.getArtefactName()));
 			}
 		}
 	}

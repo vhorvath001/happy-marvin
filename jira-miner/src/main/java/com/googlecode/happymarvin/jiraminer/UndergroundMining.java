@@ -493,7 +493,7 @@ public class UndergroundMining implements IUndergroundMining {
 			if (matcher.find()) {
 				end = matcher.end();
 			} else {
-				throw new ConfigurationException(String.format("The end of the options cannot be found in the pattern %s!", patternText));
+				throw new ConfigurationException(String.format("The end of the options cannot be found in the pattern \"%s\"!", patternText));
 			}
 			// getting the text option group
 			String optionGroup = patternText.substring(start, end-1);

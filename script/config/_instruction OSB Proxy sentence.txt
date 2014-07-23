@@ -1,0 +1,3 @@
+~~~HAPPYMARVIN-INSTRUCTION~~~
+Please create a 'Proxy' 'OSB' component in the project 'tlem-validation-failures-report'. The name should be 'GetCustomer'. The destination folder should be 'proxy'. The WSDL file of the proxy service can be found in the folder 'proxy/wsdl/WSDL_NotifyInventoryChange.wsdl', the XSD is in 'proxy/xsd/NotifyInventoryChange.xsd'. The business service file should be put to 'business' folder. The WSDL of the business service can be found in the folder 'business/wsdl/WSDL_UpdateCableInventory.wsdl', the XSD file is in 'business/xsd/UpdateCableInventory.xsd'. The xquery file can be found in 'xquery/createSomethingRequest.xqy'.
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

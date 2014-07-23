@@ -1,3 +1,5 @@
+<#assign actualDateTime = .now>
+
 package ${hm.package};
 
 import java.io.Serializable;
@@ -33,22 +35,25 @@ import com.google.common.base.Preconditions;
  * @since       ${actualDateTime?string("yyyy-MM-dd")}
  *
  */
-@Stateless(mappedName = ${hm.name}${hm.file.suffix})
+@Stateless(mappedName = "${hm.name}${hm.file.suffix}")
 @Local(${hm.name}ServiceLocal.class)
 @Remote(${hm.name}ServiceRemote.class)
 public class ${hm.name}${hm.file.suffix} implements ${hm.name}ServiceLocal, ${hm.name}ServiceRemote {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}${hm.file.suffix}.class);
 
+	// TODO Please define the name of the entity manager
 	@PersistenceContext(unitName = "???")
 	EntityManager entityManager;
 	
+	// TODO Please define the bean being used 
 	@EJB
 	private ??? ???;
 	
 	@Resource(mappedName = "javax.jms.QueueConnectionFactory")
 	private ConnectionFactory connectionFactory;
 	
+	// TODO Please define the destination queue mapped name
 	@Resource(mappedName = "queue/???")
 	private Destination queue;
 	
@@ -72,6 +77,7 @@ public class ${hm.name}${hm.file.suffix} implements ${hm.name}ServiceLocal, ${hm
 	}
 
 
+	// TODO Please remove this method if you don't need to send JMS message
 	/**
 	 * Sending a JMS message to the queue defined above
 	 *
