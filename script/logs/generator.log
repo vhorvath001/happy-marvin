@@ -1,15 +1,15 @@
-16:36:36.449 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+10:42:31.780 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
  
-16:36:36.453 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
-16:36:36.453 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
-16:36:36.453 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
-16:36:36.453 INFO  [c.g.h.o.operation.GenerateOperation:50] - ----- 1/4 Calling the JIRA REST service ----- 
-16:36:36.561 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from https://jira.uk.acme.com/jira/rest/api/latest/issue/asfdas 
-16:36:36.561 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
-16:36:36.562 INFO  [c.g.h.o.operation.GenerateOperation:55] - ----- 2/4 Starting the surface mining ----- 
-16:36:36.562 INFO  [c.g.h.o.operation.GenerateOperation:57] - ----- 3/4 Starting the underground mining ----- 
-16:36:36.563 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please create a 'Proxy' 'OSB' component in the project 'tlem-validation-failures-report'. --- 
-16:36:36.568 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.790 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
+10:42:31.790 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
+10:42:31.791 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
+10:42:31.791 INFO  [c.g.h.o.operation.GenerateOperation:50] - ----- 1/4 Calling the JIRA REST service ----- 
+10:42:31.932 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from https://jira.uk.acme.com/jira/rest/api/latest/issue/asfdas 
+10:42:31.933 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
+10:42:31.933 INFO  [c.g.h.o.operation.GenerateOperation:55] - ----- 2/4 Starting the surface mining ----- 
+10:42:31.934 INFO  [c.g.h.o.operation.GenerateOperation:57] - ----- 3/4 Starting the underground mining ----- 
+10:42:31.935 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put a 'Java' component in the project 'tlem-validation-failures-report'. --- 
+10:42:31.941 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
 [Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.
 Simplified patterns:
@@ -22,1038 +22,232 @@ Simplified patterns:
 [Please ]create [a ]'${template}' '${type}' file in the project '${project}'.
 [Please ]create [a ]'${template}' '${type}' XML file in the project '${project}'.
  
-16:36:36.569 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[cC][r][e][a][t][e][ ]([a][ ])?[']${template}['][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
-16:36:36.570 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The name should be 'GetCustomer'. --- 
-16:36:36.640 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.944 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.
+[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.
 Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
+[A ]'${template}' '${type}' component [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' class [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' file [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' XML file [is ]needed in the project '${project}'.
  
-16:36:36.644 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.946 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.
+I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'.
 Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}'.
+I['d] need a '${template}' '${type}' component in the project '${project}'.
+I['d] need a '${template}' '${type}' component in the folder '${project}'.
+I['d] need a '${template}' '${type}' class in the project '${project}'.
+I['d] need a '${template}' '${type}' class in the folder '${project}'.
+I['d] need a '${template}' '${type}' file in the project '${project}'.
+I['d] need a '${template}' '${type}' file in the folder '${project}'.
+I['d] need a '${template}' '${type}' XML file in the project '${project}'.
+I['d] need a '${template}' '${type}' XML file in the folder '${project}'.
  
-16:36:36.645 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.948 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${proxy_xsd_path}'.
+[Please ][put]/[create] a '${type}' component in the project '${project}'.
 Simplified patterns:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the XSD [file ]is in '${proxy_xsd_path}'.
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the schema [file ]is in '${proxy_xsd_path}'.
+[Please ]put a '${type}' component in the project '${project}'.
+[Please ]create a '${type}' component in the project '${project}'.
  
-16:36:36.647 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-Simplified patterns:
-The xquery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-The XQuery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
- 
-16:36:36.647 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].
-Simplified patterns:
-The path of the xquery [file ][in the project ]is '${xquery_path}'[ in the project].
-The path of the XQuery [file ][in the project ]is '${xquery_path}'[ in the project].
- 
-16:36:36.648 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-The schema [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
- 
-16:36:36.650 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-The path of the schema [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
- 
-16:36:36.651 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
- 
-16:36:36.651 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
- 
-16:36:36.652 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
-Simplified patterns:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
- 
-16:36:36.653 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The business service[ file] should be [put to]/[in]/[generated into] '${location_business_service}' folder.
-Simplified patterns:
-The business service[ file] should be put to '${location_business_service}' folder.
-The business service[ file] should be in '${location_business_service}' folder.
-The business service[ file] should be generated into '${location_business_service}' folder.
- 
-16:36:36.654 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
-The schema [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
- 
-16:36:36.655 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
-The path of the schema [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
- 
-16:36:36.656 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].
- 
-16:36:36.656 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].
- 
-16:36:36.657 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.949 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][a][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
+10:42:31.950 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The template that should be used is 'Struts'. --- 
+10:42:31.953 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
 The [destination ]folder [should be ]/[is ]'${location}'.
 Simplified patterns:
 The [destination ]folder should be '${location}'.
 The [destination ]folder is '${location}'.
  
-16:36:36.658 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.953 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
 Name it as '${name}'.
 Simplified patterns:
 Name it as '${name}'.
  
-16:36:36.659 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The template [that ]should be used is '${template}'.
+Simplified patterns:
+The template [that ]should be used is '${template}'.
+ 
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][t][e][m][p][l][a][t][e][ ]([t][h][a][t][ ])?[s][h][o][u][l][d][ ][b][e][ ][u][s][e][d][ ][i][s][ ][']${template}['][.] 
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Name it as 'GetCustomer'. --- 
+10:42:32.019 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.022 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.024 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.025 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.
+Simplified patterns:
+The config [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+ 
+10:42:32.027 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.028 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.
+Simplified patterns:
+The jsp [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be in '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be in '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+ 
+10:42:32.030 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+10:42:32.031 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+10:42:32.031 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [N][a][m][e][ ][i][t][ ][a][s][ ][']${name}['][.] 
+10:42:32.032 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Put it into the 'src/main/java/com/acme/server/controller' folder. --- 
+10:42:32.036 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.039 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.042 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.043 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.
+Simplified patterns:
+The config [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+ 
+10:42:32.045 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.046 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.
+Simplified patterns:
+The jsp [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be in '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be in '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+ 
+10:42:32.048 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+10:42:32.050 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
 Original pattern:
 [You should ]put it into the '${location}' folder.
 Simplified patterns:
 [You should ]put it into the '${location}' folder.
  
-16:36:36.660 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The name [should be]/[is] '${name}'.
-Simplified patterns:
-The name should be '${name}'.
-The name is '${name}'.
- 
-16:36:36.660 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][n][a][m][e][ ][s][h][o][u][l][d][ ][b][e][ ][']${name}['][.] 
-16:36:36.661 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The destination folder should be 'proxy'. --- 
-16:36:36.670 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
- 
-16:36:36.675 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}'.
- 
-16:36:36.678 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${proxy_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the XSD [file ]is in '${proxy_xsd_path}'.
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the schema [file ]is in '${proxy_xsd_path}'.
- 
-16:36:36.681 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-Simplified patterns:
-The xquery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-The XQuery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
- 
-16:36:36.683 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].
-Simplified patterns:
-The path of the xquery [file ][in the project ]is '${xquery_path}'[ in the project].
-The path of the XQuery [file ][in the project ]is '${xquery_path}'[ in the project].
- 
-16:36:36.685 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-The schema [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
- 
-16:36:36.688 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-The path of the schema [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
- 
-16:36:36.689 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
- 
-16:36:36.690 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
- 
-16:36:36.691 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
-Simplified patterns:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
- 
-16:36:36.692 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The business service[ file] should be [put to]/[in]/[generated into] '${location_business_service}' folder.
-Simplified patterns:
-The business service[ file] should be put to '${location_business_service}' folder.
-The business service[ file] should be in '${location_business_service}' folder.
-The business service[ file] should be generated into '${location_business_service}' folder.
- 
-16:36:36.693 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
-The schema [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].
- 
-16:36:36.696 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
-The path of the schema [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].
- 
-16:36:36.697 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].
- 
-16:36:36.698 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].
- 
-16:36:36.699 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [destination ]folder [should be ]/[is ]'${location}'.
-Simplified patterns:
-The [destination ]folder should be '${location}'.
-The [destination ]folder is '${location}'.
- 
-16:36:36.700 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ]([d][e][s][t][i][n][a][t][i][o][n][ ])?[f][o][l][d][e][r][ ][s][h][o][u][l][d][ ][b][e][ ][']${location}['][.] 
-16:36:36.700 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The WSDL file of the proxy service can be found in the folder 'proxy/wsdl/WSDL_NotifyInventoryChange.wsdl', the XSD is in 'proxy/xsd/NotifyInventoryChange.xsd'. --- 
-16:36:36.708 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
- 
-16:36:36.714 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}'.
- 
-16:36:36.716 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${proxy_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the XSD [file ]is in '${proxy_xsd_path}'.
-The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the schema [file ]is in '${proxy_xsd_path}'.
- 
-16:36:36.718 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][W][S][D][L]([ ][f][i][l][e])?[ ][o][f][ ][t][h][e][ ][p][r][o][x][y]([ ][s][e][r][v][i][c][e])?[ ][c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${proxy_wsdl_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[,][ ][t][h][e][ ][X][S][D][ ]([f][i][l][e][ ])?[i][s][ ][i][n][ ][']${proxy_xsd_path}['][.] 
-16:36:36.719 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The business service file should be put to 'business' folder. --- 
-16:36:36.721 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
- 
-16:36:36.723 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}'.
- 
-16:36:36.724 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-Simplified patterns:
-The xquery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-The XQuery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
- 
-16:36:36.724 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].
-Simplified patterns:
-The path of the xquery [file ][in the project ]is '${xquery_path}'[ in the project].
-The path of the XQuery [file ][in the project ]is '${xquery_path}'[ in the project].
- 
-16:36:36.725 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
-The schema [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].
- 
-16:36:36.725 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
-The path of the schema [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].
- 
-16:36:36.726 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].
- 
-16:36:36.726 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].
- 
-16:36:36.727 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
-Simplified patterns:
-[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].
- 
-16:36:36.727 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The business service[ file] should be [put to]/[in]/[generated into] '${location_business_service}' folder.
-Simplified patterns:
-The business service[ file] should be put to '${location_business_service}' folder.
-The business service[ file] should be in '${location_business_service}' folder.
-The business service[ file] should be generated into '${location_business_service}' folder.
- 
-16:36:36.728 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][b][u][s][i][n][e][s][s][ ][s][e][r][v][i][c][e]([ ][f][i][l][e])?[ ][s][h][o][u][l][d][ ][b][e][ ][p][u][t][ ][t][o][ ][']${location_business_service}['][ ][f][o][l][d][e][r][.] 
-16:36:36.728 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The WSDL of the business service can be found in the folder 'business/wsdl/WSDL_UpdateCableInventory.wsdl', the XSD file is in 'business/xsd/UpdateCableInventory.xsd'. --- 
-16:36:36.729 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the xquery [file ]is in[ the folder] '${xquery_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}' and the XQuery [file ]is in[ the folder] '${xquery_path}'.
- 
-16:36:36.730 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.
-Simplified patterns:
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the XSD [file ]is in '${business_xsd_path}'.
-The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the schema [file ]is in '${business_xsd_path}'.
- 
-16:36:36.731 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][W][S][D][L]([ ][f][i][l][e])?[ ][o][f][ ][t][h][e][ ][b][u][s][i][n][e][s][s]([ ][s][e][r][v][i][c][e])?[ ][c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${business_wsdl_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[,][ ][t][h][e][ ][X][S][D][ ]([f][i][l][e][ ])?[i][s][ ][i][n][ ][']${business_xsd_path}['][.] 
-16:36:36.731 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The xquery file can be found in 'xquery/createSomethingRequest.xqy'. --- 
-16:36:36.735 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-Simplified patterns:
-The xquery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
-The XQuery [file ]can be found in[ the folder] '${xquery_path}'[ in the project].
- 
-16:36:36.735 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][x][q][u][e][r][y][ ]([f][i][l][e][ ])?[c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${xquery_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[.] 
-16:36:36.737 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=OSB,template=Proxy,project=tlem-validation-failures-report,name=GetCustomer,location=proxy,properties={proxy_wsdl_path=proxy/wsdl/WSDL_NotifyInventoryChange.wsdl,location_business_service=business,proxy_xsd_path=proxy/xsd/NotifyInventoryChange.xsd,xquery_path=xquery/createSomethingRequest.xqy,business_wsdl_path=business/wsdl/WSDL_UpdateCableInventory.wsdl,business_xsd_path=business/xsd/UpdateCableInventory.xsd,}] 
-16:36:36.737 INFO  [c.g.h.o.operation.GenerateOperation:61] - ----- 4/4 Starting the artefact(s) generation ----- 
-16:36:36.805 INFO  [c.g.h.a.ArtefactGenerator:61] - Processing the 0th instruction - type = OSB, template = Proxy, name = GetCustomer 
-16:36:36.805 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=WS_PSextension=proxy,path=OSB/Proxy/WS_PS.ftl,prefix=null,suffix=PS,additionalArtefactsToBeGenerated=null,extractorClass=com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor,path=OSB/Proxy/WS_PS.ftl] 
-16:36:37.469 DEBUG [c.g.h.a.extractor.XmlExtractor:50] - The extracted properties: {port_name=VirginMedia, business_binding=UpdateCableInventoryBinding, port_namespace=http://virginmedia/schema/NotifyInventoryChange, proxy_targetNamespace=http://virginmedia/wsdl/NotifyInventoryChange/0/1, business_operation=ProcessAdjustment, business_targetNamespace=http://virginmedia/wsdl/UpdateCableInventory/1/0, request_root_element=NtfyInvChngProcessAdjustmentRequest} 
-16:36:37.540 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/proxy is going to be created at the end of the process... 
-16:36:37.540 DEBUG [c.g.h.a.ArtefactGenerator:215] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/proxy/GetCustomerPS.proxy. 
-16:36:37.554 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=BSextension=biz,path=OSB/Proxy/BS.ftl,prefix=null,suffix=BS,additionalArtefactsToBeGenerated=null,extractorClass=com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor,path=OSB/Proxy/BS.ftl] 
-16:36:37.559 DEBUG [c.g.h.a.extractor.XmlExtractor:50] - The extracted properties: {port_name=VirginMedia, business_binding=UpdateCableInventoryBinding, port_namespace=http://virginmedia/schema/NotifyInventoryChange, proxy_targetNamespace=http://virginmedia/wsdl/NotifyInventoryChange/0/1, business_operation=ProcessAdjustment, business_targetNamespace=http://virginmedia/wsdl/UpdateCableInventory/1/0, request_root_element=NtfyInvChngProcessAdjustmentRequest} 
-16:36:37.562 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/business is going to be created at the end of the process... 
-16:36:37.562 DEBUG [c.g.h.a.ArtefactGenerator:215] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/business/GetCustomerBS.biz. 
-16:36:37.562 INFO  [c.g.h.a.ArtefactGenerator:43] - Artefacts to be created: 
-16:36:37.563 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/proxy 
-16:36:37.565 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/proxy/GetCustomerPS.proxy 
-16:36:37.566 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/business 
-16:36:37.567 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/business/GetCustomerBS.biz 
-16:36:37.567 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 
-17:04:36.225 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
- 
-17:04:36.228 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
-17:04:36.228 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
-17:04:36.228 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
-17:04:36.228 INFO  [c.g.h.o.operation.GenerateOperation:50] - ----- 1/4 Calling the JIRA REST service ----- 
-17:04:36.320 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from https://jira.uk.acme.com/jira/rest/api/latest/issue/asfdas 
-17:04:36.320 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
-17:04:36.321 INFO  [c.g.h.o.operation.GenerateOperation:55] - ----- 2/4 Starting the surface mining ----- 
-17:04:36.323 INFO  [c.g.h.o.operation.GenerateOperation:57] - ----- 3/4 Starting the underground mining ----- 
-17:04:36.324 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Put a 'Simple' 'Oracle-BPEL' component in the project 'tlem-validation-failures-report'. --- 
-17:04:36.328 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-[Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.
-Simplified patterns:
-[Please ]put [a ]'${template}' '${type}' component in the project '${project}'.
-[Please ]put [a ]'${template}' '${type}' class in the project '${project}'.
-[Please ]put [a ]'${template}' '${type}' file in the project '${project}'.
-[Please ]put [a ]'${template}' '${type}' XML file in the project '${project}'.
-[Please ]create [a ]'${template}' '${type}' component in the project '${project}'.
-[Please ]create [a ]'${template}' '${type}' class in the project '${project}'.
-[Please ]create [a ]'${template}' '${type}' file in the project '${project}'.
-[Please ]create [a ]'${template}' '${type}' XML file in the project '${project}'.
- 
-17:04:36.329 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ]([a][ ])?[']${template}['][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
-17:04:36.330 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Name it as 'GetCustomer'. --- 
-17:04:36.401 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.404 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.408 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.412 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] [XSD]/[schema] [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the partner link XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the partner link schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.415 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the partner link can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the external service can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the third party can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.417 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The partner link WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The external service WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The third party WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.419 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the [partner link]/[external service]/[third party] [in the project ]is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the partner link [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the external service [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the third party [in the project ]is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.421 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the partner link WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the external service WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the third party WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.422 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The schema [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.423 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] [XSD]/[schema] [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] XSD [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The BPEL[ process] schema [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.424 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-The path of the schema [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.426 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the BPEL[ process] [XSD]/[schema] [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the BPEL[ process] XSD [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-The path of the BPEL[ process] schema [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.427 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.428 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.429 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the BPEL[ process][ in the project] is '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the BPEL[ process][ in the project] is '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.430 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the BPEL[ process] WSDL[ file][ in the project] is '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the BPEL[ process] WSDL[ file][ in the project] is '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.431 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [destination ]folder [should be ]/[is ]'${location}'.
-Simplified patterns:
-The [destination ]folder should be '${location}'.
-The [destination ]folder is '${location}'.
- 
-17:04:36.432 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-Name it as '${name}'.
-Simplified patterns:
-Name it as '${name}'.
- 
-17:04:36.432 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [N][a][m][e][ ][i][t][ ][a][s][ ][']${name}['][.] 
-17:04:36.432 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The destination folder is '.'. --- 
-17:04:36.443 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.447 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.451 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.456 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] [XSD]/[schema] [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the partner link XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the partner link schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.459 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the partner link can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the external service can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the third party can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.461 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The partner link WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The external service WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The third party WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.464 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the [partner link]/[external service]/[third party] [in the project ]is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the partner link [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the external service [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the third party [in the project ]is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.466 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the partner link WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the external service WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the third party WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.468 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The schema [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.471 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] [XSD]/[schema] [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] XSD [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The BPEL[ process] schema [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.472 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-The path of the schema [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.473 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the BPEL[ process] [XSD]/[schema] [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the BPEL[ process] XSD [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-The path of the BPEL[ process] schema [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.474 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.474 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.475 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the BPEL[ process][ in the project] is '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the BPEL[ process][ in the project] is '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.475 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the BPEL[ process] WSDL[ file][ in the project] is '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the BPEL[ process] WSDL[ file][ in the project] is '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.476 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [destination ]folder [should be ]/[is ]'${location}'.
-Simplified patterns:
-The [destination ]folder should be '${location}'.
-The [destination ]folder is '${location}'.
- 
-17:04:36.476 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ]([d][e][s][t][i][n][a][t][i][o][n][ ])?[f][o][l][d][e][r][ ][i][s][ ][']${location}['][.] 
-17:04:36.476 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The BPEL process WSDL can be found in the folder 'WSDL_NotifyInventoryChange.wsdl'. --- 
-17:04:36.479 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.480 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.481 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.482 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] [XSD]/[schema] [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the partner link XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the partner link schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.483 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the partner link can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the external service can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the third party can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.484 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The partner link WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The external service WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The third party WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.485 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the [partner link]/[external service]/[third party] [in the project ]is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the partner link [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the external service [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the third party [in the project ]is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.486 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the partner link WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the external service WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the third party WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.486 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The schema [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.487 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] [XSD]/[schema] [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] XSD [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The BPEL[ process] schema [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.488 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
-The path of the schema [file ]of the BPEL[ process][ in the project] is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.488 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the BPEL[ process] [XSD]/[schema] [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the BPEL[ process] XSD [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
-The path of the BPEL[ process] schema [file ][in the project ]is '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.489 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the BPEL[ process] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.489 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] WSDL[ file] can be found in[ the folder] '${bpel_wsdl_path}'[ in the project].
- 
-17:04:36.490 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][B][P][E][L]([ ][p][r][o][c][e][s][s])?[ ][W][S][D][L]([ ][f][i][l][e])?[ ][c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${bpel_wsdl_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[.] 
-17:04:36.490 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The BPEL XSD file can be found in 'xsd/NotifyInventoryChange.xsd'. --- 
-17:04:36.492 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.493 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.494 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.496 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] [XSD]/[schema] [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the partner link XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the partner link schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.497 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the partner link can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the external service can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the third party can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.498 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The partner link WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The external service WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The third party WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.499 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the WSDL[ file] of the [partner link]/[external service]/[third party] [in the project ]is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the WSDL[ file] of the partner link [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the external service [in the project ]is '${pl_wsdl_path}'[ in the project].
-The path of the WSDL[ file] of the third party [in the project ]is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.500 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The path of the partner link WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the external service WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
-The path of the third party WSDL[ file][ in the project] is '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.501 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The schema [file ]of the BPEL[ process] can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.502 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The BPEL[ process] [XSD]/[schema] [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-Simplified patterns:
-The BPEL[ process] XSD [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
-The BPEL[ process] schema [file ]can be found in[ the folder] '${bpel_xsd_path}'[ in the project].
- 
-17:04:36.502 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][B][P][E][L]([ ][p][r][o][c][e][s][s])?[ ][X][S][D][ ]([f][i][l][e][ ])?[c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${bpel_xsd_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[.] 
-17:04:36.502 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The partner link WSDL can be found in 'WSDL_UpdateCableInventory.wsdl'. --- 
-17:04:36.504 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.505 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.507 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.509 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [partner link]/[external service]/[third party] [XSD]/[schema] [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the partner link XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the partner link schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the external service schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party XSD [file ][in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the third party schema [file ][in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.510 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The WSDL[ file] of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The WSDL[ file] of the partner link can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the external service can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The WSDL[ file] of the third party can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.511 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-Simplified patterns:
-The partner link WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The external service WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
-The third party WSDL[ file] can be found in[ the folder] '${pl_wsdl_path}'[ in the project].
- 
-17:04:36.512 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][p][a][r][t][n][e][r][ ][l][i][n][k][ ][W][S][D][L]([ ][f][i][l][e])?[ ][c][a][n][ ][b][e][ ][f][o][u][n][d][ ][i][n]([ ][t][h][e][ ][f][o][l][d][e][r])?[ ][']${pl_wsdl_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[.] 
-17:04:36.512 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The path of the XSD file of the partner link is 'xsd/UpdateCableInventory.xsd'. --- 
-17:04:36.515 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The XSD [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The XSD [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the partner link can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the external service can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The schema [file ]of the third party can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.516 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The [partner link]/[external service]/[third party] [XSD]/[schema] [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The partner link XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The partner link schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The external service schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party XSD [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
-The third party schema [file ]can be found in[ the folder] '${pl_xsd_path}'[ in the project].
- 
-17:04:36.517 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
-Original pattern:
-The path of the [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] [in the project ]is '${pl_xsd_path}'[ in the project].
-Simplified patterns:
-The path of the XSD [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the XSD [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the partner link [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the external service [in the project ]is '${pl_xsd_path}'[ in the project].
-The path of the schema [file ]of the third party [in the project ]is '${pl_xsd_path}'[ in the project].
- 
-17:04:36.517 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][p][a][t][h][ ][o][f][ ][t][h][e][ ][X][S][D][ ]([f][i][l][e][ ])?[o][f][ ][t][h][e][ ][p][a][r][t][n][e][r][ ][l][i][n][k][ ]([i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ])?[i][s][ ][']${pl_xsd_path}[']([ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t])?[.] 
-17:04:36.518 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=Oracle-BPEL,template=Simple,project=tlem-validation-failures-report,name=GetCustomer,location=.,properties={pl_wsdl_path=WSDL_UpdateCableInventory.wsdl,bpel_xsd_path=xsd/NotifyInventoryChange.xsd,pl_xsd_path=xsd/UpdateCableInventory.xsd,bpel_wsdl_path=WSDL_NotifyInventoryChange.wsdl,}] 
-17:04:36.518 INFO  [c.g.h.o.operation.GenerateOperation:61] - ----- 4/4 Starting the artefact(s) generation ----- 
-17:04:36.584 INFO  [c.g.h.a.ArtefactGenerator:61] - Processing the 0th instruction - type = Oracle-BPEL, template = Simple, name = GetCustomer 
-17:04:36.585 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=WS_PSextension=proxy,path=OSB/Proxy/WS_PS.ftl,prefix=null,suffix=PS,additionalArtefactsToBeGenerated=null,extractorClass=com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor,path=OSB/Proxy/WS_PS.ftl] 
-17:04:37.065 ERROR [c.g.h.o.ArtefactGenerationOrchestrator:48] - Error happened during the execution! 
-java.lang.RuntimeException: javax.xml.xpath.XPathExpressionException: net.sf.saxon.trans.XPathException: Prefix wsdl has not been declared
-	at com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor.extract(XmlExtractor.java:54) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator.getExtractedProperties(ArtefactGenerator.java:321) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator.creatingDataModel(ArtefactGenerator.java:282) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.artefactgenerator.ArtefactGenerator.generate(ArtefactGenerator.java:76) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.operation.GenerateOperation.perform(GenerateOperation.java:62) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.doOperation(ArtefactGenerationOrchestrator.java:64) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.start(ArtefactGenerationOrchestrator.java:45) [artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.orchestrator.ArtefactGenerationOrchestrator.main(ArtefactGenerationOrchestrator.java:114) [artefact-generator-1.0-SNAPSHOT.jar:na]
-Caused by: javax.xml.xpath.XPathExpressionException: net.sf.saxon.trans.XPathException: Prefix wsdl has not been declared
-	at net.sf.saxon.xpath.XPathEvaluator.compile(XPathEvaluator.java:411) ~[saxon9he.jar:na]
-	at com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor.getValue(XmlExtractor.java:78) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	at com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor.extract(XmlExtractor.java:47) ~[artefact-generator-1.0-SNAPSHOT.jar:na]
-	... 7 common frames omitted
-Caused by: net.sf.saxon.trans.XPathException: Prefix wsdl has not been declared
-	at net.sf.saxon.expr.parser.ExpressionParser.grumble(ExpressionParser.java:272) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.makeNameCode(ExpressionParser.java:2745) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.makeNameTest(ExpressionParser.java:2886) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseNodeTest(ExpressionParser.java:1994) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseBasicStep(ExpressionParser.java:1779) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseStepExpression(ExpressionParser.java:1636) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseRemainingPath(ExpressionParser.java:1598) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parsePathExpression(ExpressionParser.java:1503) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseSimpleMappingExpression(ExpressionParser.java:1539) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseUnaryExpression(ExpressionParser.java:1419) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseExprSingle(ExpressionParser.java:525) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parseExpression(ExpressionParser.java:464) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionParser.parse(ExpressionParser.java:400) ~[saxon9he.jar:na]
-	at net.sf.saxon.expr.parser.ExpressionTool.make(ExpressionTool.java:101) ~[saxon9he.jar:na]
-	at net.sf.saxon.xpath.XPathEvaluator.createExpressionInternal(XPathEvaluator.java:268) ~[saxon9he.jar:na]
-	at net.sf.saxon.xpath.XPathEvaluator.compile(XPathEvaluator.java:409) ~[saxon9he.jar:na]
-	... 9 common frames omitted
-17:04:37.065 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 
+10:42:32.050 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([Y][o][u][ ][s][h][o][u][l][d][ ])?[pP][u][t][ ][i][t][ ][i][n][t][o][ ][t][h][e][ ][']${location}['][ ][f][o][l][d][e][r][.] 
+10:42:32.051 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put the JSP to the 'src/main/webapp/jsp' folder, the config XML  file to 'src/main/resources' folder. --- 
+10:42:32.059 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.062 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.065 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][t][h][e][ ][J][S][P][ ]([f][i][l][e][ ])?[t][o][ ]([t][h][e][ ])?[']${location_Java_Struts_jsp}[']([ ][f][o][l][d][e][r])?[,][ ][t][h][e][ ][c][o][n][f][i][g][ ]([X][M][L][ ])?([ ][f][i][l][e])?[ ][t][o][ ]([t][h][e][ ])?[']${location_Java_Struts_config-xml}[']([ ][f][o][l][d][e][r])?[.] 
+10:42:32.067 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=Java,template=Struts,project=tlem-validation-failures-report,name=GetCustomer,location=src/main/java/com/acme/server/controller,properties={location_Java_Struts_jsp=src/main/webapp/jsp,location_Java_Struts_config-xml=src/main/resources,}] 
+10:42:32.067 INFO  [c.g.h.o.operation.GenerateOperation:61] - ----- 4/4 Starting the artefact(s) generation ----- 
+10:42:32.130 INFO  [c.g.h.a.ArtefactGenerator:61] - Processing the 0th instruction - type = Java, template = Struts, name = GetCustomer 
+10:42:32.130 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=action-classextension=java,path=Java/Struts/action-class.ftl,prefix=null,suffix=Action,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/action-class.ftl,fileName=null] 
+10:42:32.221 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller is going to be created at the end of the process... 
+10:42:32.222 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller/GetCustomerAction.java. 
+10:42:32.242 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=jspextension=jsp,path=Java/Struts/jsp.ftl,prefix=null,suffix=-edit,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/jsp.ftl,fileName=null] 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp is going to be created at the end of the process... 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp/GetCustomer-edit.jsp. 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=config-xmlextension=xml,path=Java/Struts/config-xml.ftl,prefix=null,suffix=-struts,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/config-xml.ftl,fileName=null] 
+10:42:32.248 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/resources is going to be created at the end of the process... 
+10:42:32.248 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/resources/GetCustomer-struts.xml. 
+10:42:32.248 INFO  [c.g.h.a.ArtefactGenerator:43] - Artefacts to be created: 
+10:42:32.251 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller 
+10:42:32.253 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller/GetCustomerAction.java 
+10:42:32.254 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp 
+10:42:32.255 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp/GetCustomer-edit.jsp 
+10:42:32.256 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/resources 
+10:42:32.257 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/resources/GetCustomer-struts.xml 
+10:42:32.258 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 

@@ -13,12 +13,12 @@
             location="${hm.property.pl_wsdl_path}" 
             importType="wsdl"/>
     <import namespace="${hm.extractedProperty.bpel_namespace}"
-            location="${hm.propery.bpel_wsdl_path}" 
+            location="${hm.property.bpel_wsdl_path}" 
             importType="wsdl"/>
-    <service name="bpelprocess_${hm.name?lower}_ep"
-             ui:wsdlLocation="${hm.propery.bpel_wsdl_path}">
+    <service name="bpelprocess_${hm.name?lower_case}_ep"
+             ui:wsdlLocation="${hm.property.bpel_wsdl_path}">
         <interface.wsdl interface="${hm.extractedProperty.bpel_namespace}#wsdl.interface(${hm.extractedProperty.bpel_port_type})"/>
-        <binding.ws port="${hm.extractedProperty.bpel_namespace}#wsdl.endpoint(bpelprocess_${hm.name?lower}_ep/${hm.extractedProperty.bpel_port})">
+        <binding.ws port="${hm.extractedProperty.bpel_namespace}#wsdl.endpoint(bpelprocess_${hm.name?lower_case}_ep/${hm.extractedProperty.bpel_port})">
             <property name="weblogic.wsee.wsat.transaction.flowOption"
                       type="xs:string" 
                       many="false">NEVER</property>
@@ -52,7 +52,7 @@
         <target.uri>PL_${hm.extractedProperty.pl_name}</target.uri>
     </wire>
     <wire>
-        <source.uri>bpelprocess_${hm.name?lower}_ep</source.uri>
-        <target.uri>BPELProcess_${hm.name}/bpelprocess_${hm.name?lower}_ep</target.uri>
+        <source.uri>bpelprocess_${hm.name?lower_case}_ep</source.uri>
+        <target.uri>BPELProcess_${hm.name}/bpelprocess_${hm.name?lower_case}_ep</target.uri>
     </wire>
 </composite>

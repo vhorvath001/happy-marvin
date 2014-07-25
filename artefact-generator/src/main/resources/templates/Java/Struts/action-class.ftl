@@ -23,7 +23,7 @@ public class ${hm.name}Action extends ActionSupport {
 	private String buttonName;
 
 	
-	public String execute() throws ThrottlingConfigurationException {
+	public String execute() {
 		if (buttonName.equals("Save")) {
 			// TODO Please implement the save logic!
 		}
@@ -40,7 +40,7 @@ public class ${hm.name}Action extends ActionSupport {
 	}
 	
 	
-	private void checkInteger(ThrottlingActionSupport action, String value, String field, String fieldLabel, int... ranges) {
+	private void checkInteger(${hm.name}Action action, String value, String field, String fieldLabel, int... ranges) {
 		checkRequired(action, value, field, fieldLabel);
 		if (action.getFieldErrors().isEmpty()) {
 			try {
@@ -56,13 +56,13 @@ public class ${hm.name}Action extends ActionSupport {
 		}
 	}
 	
-	private void checkRequired(ThrottlingActionSupport action, String value, String field, String fieldLabel) {
+	private void checkRequired(${hm.name}Action action, String value, String field, String fieldLabel) {
 		if (value.length() == 0) {
 			action.addFieldError(field, String.format("%s is required.",fieldLabel));
 		}
 	}
 
-	private void checkPossibleValues(ThrottlingActionSupport action, String value, String field, String fieldLabel, String... values) {
+	private void checkPossibleValues(${hm.name}Action action, String value, String field, String fieldLabel, String... values) {
 		checkRequired(action, value, field, fieldLabel);
 		if (action.getFieldErrors().isEmpty()) {
 			if (Arrays.binarySearch(values, value) < 0) {

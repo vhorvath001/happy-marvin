@@ -1,8 +1,8 @@
 <?xml version = "1.0" encoding = "UTF-8" ?>
 <process name="BPELProcess_${hm.name}"
-         targetNamespace="http://xmlns.oracle.com/SOA_VM_Application/${hm.name}/BPELProcess_${hm.name}"
+         targetNamespace="http://xmlns.oracle.com/${hm.name}/BPELProcess_${hm.name}"
          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-         xmlns:client="http://xmlns.oracle.com/SOA_VM_Application/${hm.name}/BPELProcess_${hm.name}"
+         xmlns:client="http://xmlns.oracle.com/${hm.name}/BPELProcess_${hm.name}"
          xmlns:ora="http://schemas.oracle.com/xpath/extension"
          xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
          xmlns:ns1="${hm.extractedProperty.bpel_namespace}"
@@ -50,9 +50,9 @@
     <partnerLink name="PL_${hm.extractedProperty.pl_name}"
                  partnerLinkType="ns10:${hm.extractedProperty.pl_partnerLinkType}"
                  partnerRole="${hm.extractedProperty.pl_partnerRoleType}"/>
-    <partnerLink name="bpelprocess_${hm.name?lower}_ep"
+    <partnerLink name="bpelprocess_${hm.name?lower_case}_ep"
                  partnerLinkType="ns1:${hm.extractedProperty.bpel_partnerLinkType}"
-                 myRole="${hm.extractedProperty.bpel_partnerRoleType}""/>
+                 myRole="${hm.extractedProperty.bpel_partnerRoleType}"/>
   </partnerLinks>
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@
   <sequence name="main">
     <!-- Receive input from requestor. -->
     <pick name="Pick_start_process" createInstance="yes">
-      <onMessage partnerLink="bpelprocess_${hm.name?lower}_ep"
+      <onMessage partnerLink="bpelprocess_${hm.name?lower_case}_ep"
                  portType="ns1:${hm.extractedProperty.bpel_port_type}"
                  operation="${hm.extractedProperty.bpel_operation}"
                  variable="req_${hm.extractedProperty.bpel_operation}Op">
@@ -100,7 +100,7 @@
 <ServiceName xmlns:ns661="${hm.extractedProperty.pl_namespace}">ns661:${hm.extractedProperty.pl_name}</ServiceName>
 </EndpointReference>
 </sref:service-ref></literal></from>
-          <to partnerLink="PL_${hm.extractedProperty.pl_name"/>
+          <to partnerLink="PL_${hm.extractedProperty.pl_name}"/>
         </copy>
       </assign>
     </scope>
@@ -153,7 +153,7 @@
       </variables>
               <sequence>
                 <assign name="Assign_set_req_${hm.extractedProperty.pl_name}">
-                  <documentation>Please create the request of the ${hm.extractedProperty.pl_name} from the req_${hm.extractedProperty.bpel_operation}Op!</documentation>
+                  <documentation>TODO - Please create the request of the ${hm.extractedProperty.pl_name} from the req_${hm.extractedProperty.bpel_operation}Op!</documentation>
                 </assign>
                 <invoke name="Invoke_PL_${hm.extractedProperty.pl_name}"
                         partnerLink="PL_${hm.extractedProperty.pl_name}"
@@ -163,10 +163,10 @@
                         bpelx:invokeAsDetail="no"
                         inputVariable="req_${hm.extractedProperty.pl_name}"/>
                 <assign name="Assign_set_resp">
-                  <documentation>Please create the response of the BPEL process from the $resp_${hm.extractedProperty.pl_name}!</documentation>
+                  <documentation>TODO - Please create the response of the BPEL process from the resp_${hm.extractedProperty.pl_name}!</documentation>
                 </assign>
                 <reply name="replyOutput"
-                       partnerLink="bpelprocess_${hm.name?lower}_ep"
+                       partnerLink="bpelprocess_${hm.name?lower_case}_ep"
                        portType="ns1:${hm.extractedProperty.bpel_partnerRoleType}"
                        operation="${hm.extractedProperty.bpel_operation}"
                        variable="resp_${hm.extractedProperty.bpel_operation}Op"/>

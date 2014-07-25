@@ -205,12 +205,20 @@ public class ArtefactGenerator {
 		// building the name of the file to be created
 		String artefactFileName = pathProject + locationFinal;
 		artefactFileName = artefactFileName.endsWith("/") ? artefactFileName : artefactFileName+"/";
-		artefactFileName = artefactFileName + 
-				           (templateFileBean.getPrefix() == null ? "" : templateFileBean.getPrefix()) +
-                           instructionBean.getName() +
-				           (templateFileBean.getSuffix() == null ? "" : templateFileBean.getSuffix()) +
-                           "." +
-                           templateFileBean.getExtension();
+		//    if the 'fileName; attribute exists in the TemplateFileBean then the name has to be constant
+		if (templateFileBean.getFileName() != null) {
+			artefactFileName = artefactFileName + 
+					           templateFileBean.getFileName() +
+					           "." +
+					           templateFileBean.getExtension();
+		} else {
+			artefactFileName = artefactFileName + 
+					           (templateFileBean.getPrefix() == null ? "" : templateFileBean.getPrefix()) +
+	                           instructionBean.getName() +
+					           (templateFileBean.getSuffix() == null ? "" : templateFileBean.getSuffix()) +
+	                           "." +
+	                           templateFileBean.getExtension();
+		}
 		
 		LOGGER.debug(String.format("The name of the file to be generated is %s.", artefactFileName));
 		

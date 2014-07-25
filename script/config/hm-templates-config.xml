@@ -250,26 +250,11 @@
 		<extractedProperty name="business_operation" where="/*:definitions/*:portType/*:operation[1]/@name" from="business_wsdl_path"/>
 	</template>
 
-	<template name="Struts" type="Java">
-		<file name="action-class" extension="java" path="Java/Struts/action-class.ftl" suffix="Action"/>
-		<file name="jsp" extension="jsp" path="Java/Struts/jsp.ftl" suffix="-edit"/>
-		<file name="config-xml" extension="xml" path="Java/Struts/config-xml.ftl" suffix="-struts"/>
-
-		<property name="location_Java_Struts_jsp" mandatory="false" text="LOCATION_JSP" textfieldLabel="The location of the jsp file" locationOf="jsp">
-			<textDef>The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.</textDef>
-			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].</textDef>
-		</property>
-		<property name="location_Java_Struts_config-xml" mandatory="false" text="LOCATION_CONFIG_XML" textfieldLabel="The location of the Struts config file" locationOf="config-xml">
-			<textDef>The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.</textDef>
-			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].</textDef>
-		</property>
-	</template>
-
-
+	
 	<template name="Simple" type="Oracle-BPEL">
-		<file name="WS_PS" extension="proxy" path="OSB/Proxy/WS_PS.ftl" suffix="PS" 
-			extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor" />
-		<file name="BS" extension="biz" path="OSB/Proxy/BS.ftl" suffix="BS" />
+		<file name="bpel" extension="bpel" path="Oracle-BPEL/Simple/bpel.ftl" prefix="BPELProcess_" extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor" />
+		<file name="componentType" extension="componentType" path="Oracle-BPEL/Simple/componentType.ftl" prefix="BPELProcess_" extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor"/>
+		<file name="composite" fileName="composite" extension="xml" path="Oracle-BPEL/Simple/composite.ftl" extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor"/>
 		
 		<property name="bpel_wsdl_path" mandatory="true" text="BPEL_WSDL_PATH" textfieldLabel="The path of the WSDL of the BPEL process">
 			<textDef>The path of the BPEL[ process] WSDL[ file][ in the project] is '${bpel_wsdl_path}'[ in the project].</textDef>
@@ -296,88 +281,45 @@
 			<textDef>The [XSD]/[schema] [file ]of the [partner link]/[external service]/[third party] can be found in[ the folder] '${pl_xsd_path}'[ in the project].</textDef>
 		</property>
 
-		<extractedProperty name="pl_namespace" where="/definitions/@targetNamespace" from="pl_wsdl_path" />
-		<extractedProperty name="bpel_namespace" where="/definitions/@targetNamespace" from="bpel_wsdl_path" />
-		<extractedProperty name="bpel_port_type" where="/wsdl:definitions/wsdl:portType/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="bpel_port" where="/wsdl:definitions/wsdl:service/wsdl:port/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="pl_name" where="/definitions/service/@name" from="pl_wsdl_path" />
-		<extractedProperty name="pl_port_type" where="/wsdl:definitions/wsdl:portType/@name" from="pl_wsdl_path" />
-		<extractedProperty name="pl_port" where="/wsdl:definitions/wsdl:service/wsdl:port/@name" from="pl_wsdl_path" />
-		<extractedProperty name="pl_namespace" where="/definitions/@targetNamespace" from="pl_wsdl_path" />
-		<extractedProperty name="bpel_xsd_namespace" where="/schema/@targetNamespace" from="bpel_xsd_path" />
-		<extractedProperty name="pl_xsd_namespace" where="/schema/@targetNamespace" from="pl_xsd_path" />
-		<extractedProperty name="pl_partnerLinkType" where="/definitions/plnk:partnerLinkType[0]/@name" from="pl_wsdl_path" />
-		<extractedProperty name="pl_partnerRoleType" where="/definitions/plnk:partnerLinkType[0]/plnk:role/@name" from="pl_wsdl_path" />
-		<extractedProperty name="bpel_partnerLinkType" where="/definitions/plnk:partnerLinkType[0]/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="bpel_partnerRoleType" where="/definitions/plnk:partnerLinkType[0]/plnk:role/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="bpel_operation" where="/definitions/bindings/operation[0]/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="pl_operation" where="/definitions/bindings/operation[0]/@name" from="pl_wsdl_path" />
-		<extractedProperty name="bpel_request_messageType" where="/definitions/message[ends-with(text(),'Request')]/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="bpel_response_messageType" where="/definitions/message[ends-with(text(),'Response')]/@name" from="bpel_wsdl_path" />
-		<extractedProperty name="pl_request_messageType" where="/definitions/message[ends-with(text(),'Request')]/@name" from="pl_wsdl_path" />
-		<extractedProperty name="pl_response_messageType" where="/definitions/message[ends-with(text(),'Response')]/@name" from="pl_wsdl_path" />
-
-<!-- 	- extractedProperty.pl_namespace : partner link namespace: mandatory=false -->
-<!-- 		http://virginmedia/wsdl/UpdateCableInventory/1/0 -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/@targetNamespace -->
-<!-- 	- extractedProperty.bpel_namespace -->
-<!-- 		http://virginmedia/wsdl/NotifyInventoryChange/0/1 -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/@targetNamespace -->
-<!-- 	- extractedProperty.bpel_port_type -->
-<!-- 		VirginMediaPortType -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /wsdl:definitions/wsdl:portType/@name -->
-<!-- 	- extractedProperty.bpel_port -->
-<!-- 		VirginMediaPort -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /wsdl:definitions/wsdl:service/wsdl:port/@name -->
-<!-- 	- extractedProperty.pl_name: partner link name -->
-<!-- 		UpdateCableInventory -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/service/@name -->
-<!-- 	- extractedProperty.pl_port_type -->
-<!-- 		VirginMediaPortType -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl ->  -> /wsdl:definitions/wsdl:portType/@name -->
-<!-- 	- extractedProperty.pl_port -->
-<!-- 		VirginMedia -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /wsdl:definitions/wsdl:service/wsdl:port/@name -->
-<!-- 	- extractedProperty.pl_namespace -->
-<!-- 		http://virginmedia/wsdl/UpdateCableInventory/1/0 -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/@targetNamespace -->
-<!-- 	- extractedProperty.bpel_xsd_namespace -->
-<!-- 		http://virginmedia/schema/NotifyInventoryChange -->
-<!-- 		NotifyInventoryChange.xsd -> /schema/@targetNamespace -->
-<!-- 	- extractedProperty.pl_xsd_namespace -->
-<!-- 		http://virginmedia/schema/UpdateCableInventory -->
-<!-- 		mockUpdateCableInventoryBinding.xsd -> /schema/@targetNamespace -->
-<!-- 	- extractedProperty.pl_partnerLinkType -->
-<!-- 		WSDL_UpdateCableInventory -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/plnk:partnerLinkType[0]/@name -->
-<!-- 	- extractedProperty.pl_partnerRoleType -->
-<!-- 		VirginMediaPortTypeRole -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/plnk:partnerLinkType[0]/plnk:role/@name -->
-<!-- 	- extractedProperty.bpel_partnerLinkType -->
-<!-- 		wsdlNotifyInventoryChange -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/plnk:partnerLinkType[0]/@name -->
-<!-- 	- extractedProperty.bpel_partnerRoleType -->
-<!-- 		VirginMediaPortTypeRole -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/plnk:partnerLinkType[0]/plnk:role/@name -->
-<!-- 	- extractedProperty.bpel_operation -->
-<!-- 		ProcessAdjustment -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/bindings/operation[0]/@name -->
-<!-- 	- extractedProperty.pl_operation -->
-<!-- 		ProcessAdjustment -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/bindings/operation[0]/@name -->
-<!-- 	- extractedProperty.bpel_request_messageType -->
-<!-- 		ProcessAdjustmentRequest -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/message[ends-with(text(),'Request')]/@name -->
-<!-- 	- extractedProperty.bpel_response_messageType -->
-<!-- 		ProcessAdjustmentResponse -->
-<!-- 		WSDL_NotifyInventoryChange.wsdl -> /definitions/message[ends-with(text(),'Response')]/@name -->
-<!-- 	- extractedProperty.pl_request_messageType -->
-<!-- 		ProcessAdjustmentRequest -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/message[ends-with(text(),'Request')]/@name -->
-<!-- 	- extractedProperty.pl_response_messageType -->
-<!-- 		ProcessAdjustmentResponse -->
-<!-- 		mockUpdateCableInventoryBinding.wsdl -> /definitions/message[ends-with(text(),'Response')]/@name -->
+		<extractedProperty name="pl_namespace" where="/*:definitions/@targetNamespace" from="pl_wsdl_path" />
+		<extractedProperty name="bpel_namespace" where="/*:definitions/@targetNamespace" from="bpel_wsdl_path" />
+		<extractedProperty name="bpel_port_type" where="/*:definitions/*:portType/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="bpel_port" where="/*:definitions/*:service/*:port/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="pl_name" where="/*:definitions/*:service/@name" from="pl_wsdl_path" />
+		<extractedProperty name="pl_port_type" where="/*:definitions/*:portType/@name" from="pl_wsdl_path" />
+		<extractedProperty name="pl_port" where="/*:definitions/*:service/*:port/@name" from="pl_wsdl_path" />
+		<extractedProperty name="pl_namespace" where="/*:definitions/@targetNamespace" from="pl_wsdl_path" />
+		<extractedProperty name="bpel_xsd_namespace" where="/*:schema/@targetNamespace" from="bpel_xsd_path" />
+		<extractedProperty name="pl_xsd_namespace" where="/*:schema/@targetNamespace" from="pl_xsd_path" />
+		<extractedProperty name="pl_partnerLinkType" where="/*:definitions/*:partnerLinkType[1]/@name" from="pl_wsdl_path" />
+		<extractedProperty name="pl_partnerRoleType" where="/*:definitions/*:partnerLinkType[1]/*:role/@name" from="pl_wsdl_path" />
+		<extractedProperty name="bpel_partnerLinkType" where="/*:definitions/*:partnerLinkType[1]/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="bpel_partnerRoleType" where="/*:definitions/*:partnerLinkType[1]/*:role/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="bpel_operation" where="/*:definitions/*:binding/*:operation[1]/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="pl_operation" where="/*:definitions/*:binding/*:operation[1]/@name" from="pl_wsdl_path" />
+		<extractedProperty name="bpel_request_messageType" where="/*[local-name()='definitions']/*[local-name()='message' and ends-with(@name,'Request')][1]/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="bpel_response_messageType" where="/*[local-name()='definitions']/*[local-name()='message' and ends-with(@name,'Response')][1]/@name" from="bpel_wsdl_path" />
+		<extractedProperty name="pl_request_messageType" where="/*[local-name()='definitions']/*[local-name()='message' and ends-with(@name,'Request')][1]/@name" from="pl_wsdl_path" />
+		<extractedProperty name="pl_response_messageType" where="/*[local-name()='definitions']/*[local-name()='message' and ends-with(@name,'Response')][1]/@name" from="pl_wsdl_path" />
 	</template>
 
 
+	<template name="Struts" type="Java">
+		<file name="action-class" extension="java" path="Java/Struts/action-class.ftl" suffix="Action"/>
+		<file name="jsp" extension="jsp" path="Java/Struts/jsp.ftl" suffix="-edit"/>
+		<file name="config-xml" extension="xml" path="Java/Struts/config-xml.ftl" suffix="-struts"/>
+
+		<property name="location_Java_Struts_jsp" mandatory="false" text="LOCATION_JSP" textfieldLabel="The location of the jsp file" locationOf="jsp">
+			<textDef>The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.</textDef>
+			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].</textDef>
+			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].</textDef>
+		</property>
+		<property name="location_Java_Struts_config-xml" mandatory="false" text="LOCATION_CONFIG_XML" textfieldLabel="The location of the Struts config file" locationOf="config-xml">
+			<textDef>The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.</textDef>
+			<textDef>[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].</textDef>
+			<textDef>[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].</textDef>
+		</property>
+	</template>
+
+	
 </templates>
