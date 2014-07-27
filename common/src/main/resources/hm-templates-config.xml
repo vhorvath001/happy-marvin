@@ -171,12 +171,13 @@
 			extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor"/>
 		<file name="BS" extension="biz" path="OSB/Proxy_with_facade/BS.ftl" suffix="BS" extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor" />
 		
-		<property name="proxy_wsdl_path" mandatory="true" text="PROXY_WSDL_PATH" textfieldLabel="The path of the WSDL of the proxy service">
+		<!-- removeCharacters="[\.]([a-z])+$"  ->  removing the extension from the filename -->
+		<property name="proxy_wsdl_path" mandatory="true" text="PROXY_WSDL_PATH" textfieldLabel="The path of the WSDL of the proxy service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${proxy_xsd_path}'.</textDef>
 		</property>
-		<property name="proxy_xsd_path" mandatory="true" text="PROXY_XSD_PATH" textfieldLabel="The path of the XSD of the proxy service" >
+		<property name="proxy_xsd_path" mandatory="true" text="PROXY_XSD_PATH" textfieldLabel="The path of the XSD of the proxy service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [XSD]/[schema] [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].</textDef>
 			<textDef>The [XSD]/[schema] [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].</textDef>
 		</property>		
@@ -184,19 +185,22 @@
 			<textDef>The business service[ file] should be [put to]/[in]/[generated into] '${location_business_service}' folder.</textDef>
 			<textDef>[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].</textDef>
 		</property>
-		<property name="business_wsdl_path" mandatory="true" text="BUSINESS_WSDL_PATH" textfieldLabel="The path of the WSDL of the business service" >
+		<property name="business_wsdl_path" mandatory="true" text="BUSINESS_WSDL_PATH" textfieldLabel="The path of the WSDL of the business service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.</textDef>
 		</property>
-		<property name="business_xsd_path" mandatory="true" text="BUSINESS_XSD_PATH" textfieldLabel="The path of the XSD of the business service" >
+		<property name="business_xsd_path" mandatory="true" text="BUSINESS_XSD_PATH" textfieldLabel="The path of the XSD of the business service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [XSD]/[schema] [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].</textDef>
 			<textDef>The [XSD]/[schema] [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].</textDef>
 		</property>
-		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" >
+		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].</textDef>
 			<textDef>The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].</textDef>
+		</property>
+		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
+			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
 		</property>
 
 		<extractedProperty name="port_name" where="/*:definitions/*:service/*:port/@name" from="proxy_wsdl_path" />
@@ -239,6 +243,9 @@
 		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" >
 			<textDef>The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].</textDef>
 			<textDef>The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].</textDef>
+		</property>
+		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
+			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
 		</property>
 		
 		<extractedProperty name="port_name" where="/*:definitions/*:service/*:port/@name" from="proxy_wsdl_path" />

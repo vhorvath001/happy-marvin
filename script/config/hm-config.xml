@@ -36,6 +36,7 @@ I decided other way -> all the values must be between apostrophes!!! however sti
 	<jiraRestUrl>https://jira.uk.acme.com/jira/rest/api/latest/issue</jiraRestUrl>
 	
 	<!-- in the value the character '/' has to be used!!   -->
-	<project name="tlem-validation-failures-report" value="C:/work/happy-marvin/temp/generated-java" srcFolder="src/main/java" />
+	<project name="tlem-validation-failures-report_" value="C:/work/happy-marvin/temp/generated-java" srcFolder="src/main/java" />
+	<project name="OSBProject" value="D:/work/happy-marvin/tmp/osb/Generated" srcFolder="" />
 	
 </config>

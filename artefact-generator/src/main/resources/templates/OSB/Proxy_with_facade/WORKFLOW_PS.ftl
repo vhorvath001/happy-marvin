@@ -39,7 +39,7 @@
               <con1:actions>
                 <con1:validate>
                   <con2:id>_ActionId-1168617826443513018--54145756.137acf3f9df.-7b4d</con2:id>
-                  <con1:schema ref="${hm.property.proxy_xsd_path}"/>
+                  <con1:schema ref="${hm.property.osb_project_name}/${hm.property.proxy_xsd_path}"/>
                   <con1:schemaElement xmlns:not="http://virginmedia/schema/NotifyInventoryChange">not:${hm.extractedProperty.request_root_element}</con1:schemaElement>
                   <con1:varName>body</con1:varName>
                   <con1:location>
@@ -95,7 +95,7 @@
                   <con2:id>_ActionId-5438086606170537229--6f1e14b2.137b26c199b.-7f74</con2:id>
                   <con1:expr>
                     <con2:xqueryTransform>
-                      <con2:resource ref="${hm.property.xquery_path}"/>
+                      <con2:resource ref="${hm.property.osb_project_name}/${hm.property.xquery_path}"/>
                       <con2:param name="externalServiceRequest1">
                         <con2:path>$body/not:${hm.extractedProperty.request_root_element}</con2:path>
                       </con2:param>
@@ -112,7 +112,7 @@
         <con:actions>
           <con1:wsCallout>
             <con2:id>_ActionId-1994248388348932979--69286bed.137b3ae0edb.-7f93</con2:id>
-            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.location_business_service}${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.osb_project_name}/${hm.property.location_business_service}/${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
             <con1:operation>${hm.extractedProperty.business_operation}</con1:operation>
             <con1:request>
               <con1:body wrapped="false">$req_ExternalServiceRequest</con1:body>

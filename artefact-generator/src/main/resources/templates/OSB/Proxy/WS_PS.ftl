@@ -119,7 +119,7 @@
         <con:actions>
           <con1:wsCallout>
             <con2:id>_ActionId-1994248388348932979--69286bed.137b3ae0edb.-7f93</con2:id>
-            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.location_business_service}${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.location_business_service}/${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
             <con1:operation>${hm.extractedProperty.business_operation}</con1:operation>			
             <con1:request>
               <con1:body wrapped="false">$req_ExternalServiceRequest</con1:body>
