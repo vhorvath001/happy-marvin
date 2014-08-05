@@ -83,7 +83,7 @@
 			<version>${simpleframework.version}</version>
 		</dependency>
 	</dependencies>
-	
+
 	<scm>
 		<connection>scm:hg:https://code.google.com/p/happy-marvin</connection>
 		<tag>HEAD</tag>
@@ -101,7 +101,20 @@
 			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.9.1</version>
+				<configuration>
+					<username>ric.flair.wcw</username>
+					<password>BA2fx9Vy4aX4</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
 	<!-- <repositories> -->
 	<!-- <repository> -->
 	<!-- <id>com.springsource.repository.bundles.release</id> -->
