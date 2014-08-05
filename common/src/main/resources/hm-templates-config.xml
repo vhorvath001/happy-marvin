@@ -247,6 +247,9 @@
 		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
 			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
 		</property>
+		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
+			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
+		</property>
 		
 		<extractedProperty name="port_name" where="/*:definitions/*:service/*:port/@name" from="proxy_wsdl_path" />
 		<extractedProperty name="proxy_targetNamespace" where="/*:definitions/@targetNamespace" from="proxy_wsdl_path"/>

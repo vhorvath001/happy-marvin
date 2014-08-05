@@ -2,7 +2,7 @@
 <xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/alert/config" xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
   <ser:coreEntry isProxy="true" isEnabled="true">
     <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
-      <con:wsdl ref="${hm.property.proxy_wsdl_path}"/>
+      <con:wsdl ref="${hm.property.osb_project_name}/${hm.property.proxy_wsdl_path}"/>
       <con:port>
         <con:name>${hm.extractedProperty.port_name}</con:name>
         <con:namespace>${hm.extractedProperty.proxy_targetNamespace}</con:namespace>
@@ -23,12 +23,23 @@
     <ser:pipeline-alerting isEnabled="true">
       <ser:alertLevel>normal</ser:alertLevel>
     </ser:pipeline-alerting>
+		<ser:ws-policy>
+			<ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+		</ser:ws-policy>
   </ser:coreEntry>
   <ser:endpointConfig>
+    <!--tran:provider-id>local</tran:provider-id-->
     <tran:provider-id>local</tran:provider-id>
     <tran:inbound>true</tran:inbound>
+		<tran:URI>
+			<env:value>${hm.location}${hm.name}PS</env:value>
+		</tran:URI>
     <tran:inbound-properties/>
-    <tran:all-headers>true</tran:all-headers>
+    <!--tran:all-headers>true</tran:all-headers-->
+		<tran:all-headers>false</tran:all-headers>
+		<tran:provider-specific>
+			<http:inbound-properties/>
+		</tran:provider-specific>
   </ser:endpointConfig>
   <ser:router>
     <con:pipeline type="request" name="validating the request_request">
@@ -46,7 +57,7 @@
               <con1:actions>
                 <con1:validate>
                   <con2:id>_ActionId-1168617826443513018--54145756.137acf3f9df.-7b4d</con2:id>
-                  <con1:schema ref="${hm.property.proxy_xsd_path}"/>
+                  <con1:schema ref="${hm.property.osb_project_name}/${hm.property.proxy_xsd_path}"/>
                   <con1:schemaElement xmlns:not="${hm.extractedProperty.port_namespace}">not:${hm.extractedProperty.request_root_element}</con1:schemaElement>
                   <con1:varName>body</con1:varName>
                   <con1:location>
@@ -102,7 +113,7 @@
                   <con2:id>_ActionId-5438086606170537229--6f1e14b2.137b26c199b.-7f74</con2:id>
                   <con1:expr>
                     <con2:xqueryTransform>
-                      <con2:resource ref="${hm.property.xquery_path}"/>
+                      <con2:resource ref="${hm.property.osb_project_name}/${hm.property.xquery_path}"/>
                       <con2:param name="externalServiceRequest1">
                         <con2:path>$body/not:${hm.extractedProperty.request_root_element}</con2:path>
                       </con2:param>
@@ -119,7 +130,7 @@
         <con:actions>
           <con1:wsCallout>
             <con2:id>_ActionId-1994248388348932979--69286bed.137b3ae0edb.-7f93</con2:id>
-            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.location_business_service}/${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:service xsi:type="ref:BusinessServiceRef" ref="${hm.property.osb_project_name}/${hm.property.location_business_service}/${hm.name}BS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
             <con1:operation>${hm.extractedProperty.business_operation}</con1:operation>			
             <con1:request>
               <con1:body wrapped="false">$req_ExternalServiceRequest</con1:body>
