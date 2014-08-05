@@ -1,3 +1,0 @@
-~~~HAPPYMARVIN-INSTRUCTION~~~
-Please put a 'Java' component in the project 'tlem-validation-failures-report'. The template that should be used is 'Struts'. Name it as 'GetCustomer'. Put it into the 'src/main/java/com/acme/server/controller' folder. Please put the JSP to the 'src/main/webapp/jsp' folder, the config XML  file to 'src/main/resources' folder.
-~~~HAPPYMARVIN-INSTRUCTIONS-END~~~
