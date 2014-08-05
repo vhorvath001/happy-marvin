@@ -1,0 +1,253 @@
+10:42:31.780 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:38] - 
+ 
+10:42:31.790 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:39] - ----------------------------------------------------------- 
+10:42:31.790 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:40] - -------------------------- START -------------------------- 
+10:42:31.791 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:41] - ----------------------------------------------------------- 
+10:42:31.791 INFO  [c.g.h.o.operation.GenerateOperation:50] - ----- 1/4 Calling the JIRA REST service ----- 
+10:42:31.932 INFO  [c.g.h.jiraexplorer.FakeRestClient:16] - Getting the JIRA issue from https://jira.uk.acme.com/jira/rest/api/latest/issue/asfdas 
+10:42:31.933 INFO  [c.g.h.jiraexplorer.FakeRestClient:17] - Successful call! 
+10:42:31.933 INFO  [c.g.h.o.operation.GenerateOperation:55] - ----- 2/4 Starting the surface mining ----- 
+10:42:31.934 INFO  [c.g.h.o.operation.GenerateOperation:57] - ----- 3/4 Starting the underground mining ----- 
+10:42:31.935 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put a 'Java' component in the project 'tlem-validation-failures-report'. --- 
+10:42:31.941 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.
+Simplified patterns:
+[Please ]put [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]put [a ]'${template}' '${type}' XML file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' component in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' class in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' file in the project '${project}'.
+[Please ]create [a ]'${template}' '${type}' XML file in the project '${project}'.
+ 
+10:42:31.944 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.
+Simplified patterns:
+[A ]'${template}' '${type}' component [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' class [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' file [is ]needed in the project '${project}'.
+[A ]'${template}' '${type}' XML file [is ]needed in the project '${project}'.
+ 
+10:42:31.946 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+I['d] need a '${template}' '${type}' [component]/[class]/[file]/[XML file] in the [project]/[folder] '${project}'.
+Simplified patterns:
+I['d] need a '${template}' '${type}' component in the project '${project}'.
+I['d] need a '${template}' '${type}' component in the folder '${project}'.
+I['d] need a '${template}' '${type}' class in the project '${project}'.
+I['d] need a '${template}' '${type}' class in the folder '${project}'.
+I['d] need a '${template}' '${type}' file in the project '${project}'.
+I['d] need a '${template}' '${type}' file in the folder '${project}'.
+I['d] need a '${template}' '${type}' XML file in the project '${project}'.
+I['d] need a '${template}' '${type}' XML file in the folder '${project}'.
+ 
+10:42:31.948 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ][put]/[create] a '${type}' component in the project '${project}'.
+Simplified patterns:
+[Please ]put a '${type}' component in the project '${project}'.
+[Please ]create a '${type}' component in the project '${project}'.
+ 
+10:42:31.949 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][a][ ][']${type}['][ ][c][o][m][p][o][n][e][n][t][ ][i][n][ ][t][h][e][ ][p][r][o][j][e][c][t][ ][']${project}['][.] 
+10:42:31.950 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: The template that should be used is 'Struts'. --- 
+10:42:31.953 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+10:42:31.953 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The template [that ]should be used is '${template}'.
+Simplified patterns:
+The template [that ]should be used is '${template}'.
+ 
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [T][h][e][ ][t][e][m][p][l][a][t][e][ ]([t][h][a][t][ ])?[s][h][o][u][l][d][ ][b][e][ ][u][s][e][d][ ][i][s][ ][']${template}['][.] 
+10:42:31.954 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Name it as 'GetCustomer'. --- 
+10:42:32.019 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.022 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.024 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.025 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.
+Simplified patterns:
+The config [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+ 
+10:42:32.027 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.028 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.
+Simplified patterns:
+The jsp [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be in '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be in '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+ 
+10:42:32.030 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+10:42:32.031 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+Name it as '${name}'.
+Simplified patterns:
+Name it as '${name}'.
+ 
+10:42:32.031 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: [N][a][m][e][ ][i][t][ ][a][s][ ][']${name}['][.] 
+10:42:32.032 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Put it into the 'src/main/java/com/acme/server/controller' folder. --- 
+10:42:32.036 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.039 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.042 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.043 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.
+Simplified patterns:
+The config [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The config [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be put to '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be in '${location_Java_Struts_config-xml}' folder.
+The configuration [XML ][file ]should be generated into '${location_Java_Struts_config-xml}' folder.
+ 
+10:42:32.045 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.046 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.
+Simplified patterns:
+The jsp [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be in '${location_Java_Struts_jsp}' folder.
+The jsp [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be put to '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be in '${location_Java_Struts_jsp}' folder.
+The JSP [file ]should be generated into '${location_Java_Struts_jsp}' folder.
+ 
+10:42:32.048 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+The [destination ]folder [should be ]/[is ]'${location}'.
+Simplified patterns:
+The [destination ]folder should be '${location}'.
+The [destination ]folder is '${location}'.
+ 
+10:42:32.050 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[You should ]put it into the '${location}' folder.
+Simplified patterns:
+[You should ]put it into the '${location}' folder.
+ 
+10:42:32.050 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([Y][o][u][ ][s][h][o][u][l][d][ ])?[pP][u][t][ ][i][t][ ][i][n][t][o][ ][t][h][e][ ][']${location}['][ ][f][o][l][d][e][r][.] 
+10:42:32.051 DEBUG [c.g.h.jiraminer.UndergroundMining:150] - --- instructuction sentence: Please put the JSP to the 'src/main/webapp/jsp' folder, the config XML  file to 'src/main/resources' folder. --- 
+10:42:32.059 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+Simplified patterns:
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the config [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+[Please ]put the configuration [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder], the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].
+ 
+10:42:32.062 DEBUG [c.g.h.jiraminer.UndergroundMining:363] - Simplified patterns created from the original pattern:
+Original pattern:
+[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+Simplified patterns:
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the jsp [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the config [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+[Please ]put the JSP [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the configuration [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].
+ 
+10:42:32.065 DEBUG [c.g.h.jiraminer.UndergroundMining:288] - Found regular expression: ([P][l][e][a][s][e][ ])?[pP][u][t][ ][t][h][e][ ][J][S][P][ ]([f][i][l][e][ ])?[t][o][ ]([t][h][e][ ])?[']${location_Java_Struts_jsp}[']([ ][f][o][l][d][e][r])?[,][ ][t][h][e][ ][c][o][n][f][i][g][ ]([X][M][L][ ])?([ ][f][i][l][e])?[ ][t][o][ ]([t][h][e][ ])?[']${location_Java_Struts_config-xml}[']([ ][f][o][l][d][e][r])?[.] 
+10:42:32.067 DEBUG [c.g.h.jiraminer.UndergroundMining:161] - InstructionBean: com.googlecode.happymarvin.common.beans.InstructionBean[type=Java,template=Struts,project=tlem-validation-failures-report,name=GetCustomer,location=src/main/java/com/acme/server/controller,properties={location_Java_Struts_jsp=src/main/webapp/jsp,location_Java_Struts_config-xml=src/main/resources,}] 
+10:42:32.067 INFO  [c.g.h.o.operation.GenerateOperation:61] - ----- 4/4 Starting the artefact(s) generation ----- 
+10:42:32.130 INFO  [c.g.h.a.ArtefactGenerator:61] - Processing the 0th instruction - type = Java, template = Struts, name = GetCustomer 
+10:42:32.130 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=action-classextension=java,path=Java/Struts/action-class.ftl,prefix=null,suffix=Action,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/action-class.ftl,fileName=null] 
+10:42:32.221 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller is going to be created at the end of the process... 
+10:42:32.222 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller/GetCustomerAction.java. 
+10:42:32.242 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=jspextension=jsp,path=Java/Struts/jsp.ftl,prefix=null,suffix=-edit,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/jsp.ftl,fileName=null] 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp is going to be created at the end of the process... 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp/GetCustomer-edit.jsp. 
+10:42:32.245 DEBUG [c.g.h.a.ArtefactGenerator:73] - The next template file in the queue is com.googlecode.happymarvin.common.beans.simplexml.configuration.templatesConfig.TemplateFileBean[name=config-xmlextension=xml,path=Java/Struts/config-xml.ftl,prefix=null,suffix=-struts,additionalArtefactsToBeGenerated=null,extractorClass=null,path=Java/Struts/config-xml.ftl,fileName=null] 
+10:42:32.248 DEBUG [c.g.h.a.ArtefactGenerator:189] - The folder C:/work/happy-marvin/temp/generated-java/src/main/resources is going to be created at the end of the process... 
+10:42:32.248 DEBUG [c.g.h.a.ArtefactGenerator:223] - The name of the file to be generated is C:/work/happy-marvin/temp/generated-java/src/main/resources/GetCustomer-struts.xml. 
+10:42:32.248 INFO  [c.g.h.a.ArtefactGenerator:43] - Artefacts to be created: 
+10:42:32.251 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller 
+10:42:32.253 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/java/com/acme/server/controller/GetCustomerAction.java 
+10:42:32.254 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp 
+10:42:32.255 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/webapp/jsp/GetCustomer-edit.jsp 
+10:42:32.256 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FOLDER		Name: C:/work/happy-marvin/temp/generated-java/src/main/resources 
+10:42:32.257 INFO  [c.g.h.a.ArtefactGenerator:47] - 	Type: FILE		Name: C:/work/happy-marvin/temp/generated-java/src/main/resources/GetCustomer-struts.xml 
+10:42:32.258 INFO  [c.g.h.o.ArtefactGenerationOrchestrator:50] - --------------------------- END --------------------------- 

@@ -1,0 +1,8 @@
+~~~HAPPYMARVIN-INSTRUCTION~~~
+TYPE:Java
+TEMPLATE:POJO
+PROJECT:tlem-validation-failures-report
+NAME:GetCustomerBean
+LOCATION:src/main/java/com/acme
+METHOD:String callBackend(String id)
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

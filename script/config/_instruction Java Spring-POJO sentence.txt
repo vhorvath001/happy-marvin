@@ -1,0 +1,3 @@
+~~~HAPPYMARVIN-INSTRUCTION~~~
+A 'Spring-POJO' 'Java' component is needed in the project 'tlem-validation-failures-report'. Name it as 'GetCustomer'. The destination folder should be 'src/main/java/com/acme/beans'. The context XML should be generated into 'src/main/resources' folder. The bean to be injected to the Spring class is 'CustomerDataHandler'. add a method to the component: 'String getCustomer(String id)'.
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

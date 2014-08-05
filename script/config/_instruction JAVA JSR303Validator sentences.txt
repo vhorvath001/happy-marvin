@@ -1,0 +1,3 @@
+~~~HAPPYMARVIN-INSTRUCTION~~~
+A 'JSR303Validator' 'Java' component needed in the project 'tlem-validation-failures-report'. Name it as 'CheckCustomer'. You should put it into the 'src/main/java/com/acme/validators' folder. The config XML file should be put to 'src/main/resources' folder.
+~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

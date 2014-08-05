@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.googlecode.happymarvin</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>artefact-generator</artifactId>
+	<name>Happy Marvin Artefact Generator</name>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<freemarker.version>2.3.20</freemarker.version>
+	</properties>
+
+	<dependencies>
+		<!-- Freemarker template engine dependency -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
+		
+		<!-- happy-marvin common project -->
+		<dependency>
+			<groupId>com.googlecode.happymarvin</groupId>
+			<artifactId>jira-miner</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+    <build>
+	    <!--resources>
+	        <resource>
+	            <directory>src/main/resources</directory>
+	            <excludes>
+	                <exclude>hm-config.xml</exclude>
+	                <exclude>hm-templates-config.xml</exclude>
+                    <exclude>logback.xml</exclude>
+	            </excludes>
+	            <filtering>false</filtering>
+	        </resource>
+	    </resources-->    
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <!-- or any other valid maven phase -->
+                        <!--phase>install</phase -->
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeGroupIds>com.googlecode.happymarvin</includeGroupIds>
+                            <includeArtifactIds>
+                                jira-miner,
+                                common
+                            </includeArtifactIds>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+							<excludes>hm-config.xml, hm-templates-config.xml, logback.xml</excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

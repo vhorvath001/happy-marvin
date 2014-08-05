@@ -1,0 +1,36 @@
+<config>
+	<!-- simplified (like now) or regularExpression -->
+	<!-- not implemented yet  -->
+	<patternType>simplified</patternType>
+	
+    <instructionSeparationStart>~~~HAPPYMARVIN-INSTRUCTION~~~</instructionSeparationStart>
+    <instructionSeparationEnd>~~~HAPPYMARVIN-INSTRUCTIONS-END~~~</instructionSeparationEnd>
+	
+<!-- 1.TYPE, 2.TEMPLATE, 3.PROJECT, 4.NAME, 5.location -->
+<!-- in the simplified pattern the characters '[' , ']' are not allowed!!! so the '\[' and '\]' cannot be used! -->
+<!-- other not allowed characters: (,),{,} 
+TODO examine later how to make them use -->
+
+<!-- 
+this is not true at the moment: The next characters can be used in the values (in the sentence in the JIRA ticket) if the value is not put between apostrophes (e.g. see method)  : a-z , A-Z , 0-9 , - , _ , :
+I decided other way -> all the values must be between apostrophes!!! however still only the characters below can be used -> maybe later I should
+   think of changing this rule (as it seem too strict) but at this moment it is needed (see UndergroundMiningTest_sentences_successful.testMine_case1)
+ -->
+	<instructionSentencePatterns>
+		<sentence>I['d] need a '${template}' '${type}' [component]/[class]/file]/[XML file] in the [project]/[folder] '${project}'.</sentence>
+		<sentence>[A ]'${template}' '${type}' [component]/[class]/[file]/[XML file] [is ]needed in the project '${project}'.</sentence>
+		<sentence>[Please ][put]/[create] [a ]'${template}' '${type}' [component]/[class]/[file]/[XML file] in the project '${project}'.</sentence>
+		<sentence>The name [should be]/[is] '${name}'.</sentence>
+		<sentence>[You should ]put it into the '${location}' folder.</sentence>
+	</instructionSentencePatterns>
+	<instructionSentencePatterns>
+		<sentence>[Please ][put]/[create] a '${type}' component in the project '${project}'.</sentence>
+		<sentence>Use the template '${template}'.</sentence>
+		<sentence>The template [that ]should be used is '${template}'.</sentence>
+		<sentence>Name it as '${name}'.</sentence>
+		<sentence>The [destination ]folder [should be ]/[is ]'${location}'.</sentence>
+	</instructionSentencePatterns>
+
+    <jiraRestUrl>http://issuetracking.jpmchase.net/jira15/rest/api/latest/issue</jiraRestUrl>
+
+</config>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+	
+	<import resource="classpath:jira-miner-context.xml"/>
+
+	<!-- For example @Repository to tell spring that a class is a Dao without having to extend JpaDaoSupport or some other subclass of DaoSupport. 
+	     Similarly @Controller tells spring that the the class specified contains methods that will handle http requests without you having to implement 
+	     the Controller interface or extend a subclass that implements controller.
+         When spring starts up it reads its xml configuration file and looks for <bean elements within it if it sees something like <bean class="com.example.Foo" /> 
+         and Foo was marked up with @Controller it knows that the class is a controller and treats it as such. -->
+	<!-- This tag registers the DefaultAnnotationHandlerMapping and AnnotationMethodHandlerAdapter beans that are required for Spring MVC to dispatch requests 
+	     to @Controllers. -->
+	<mvc:annotation-driven/>
+
+	<!-- is telling spring that it should search the class path for all the classes under com.mycompany.maventestweapp and look at each class to see if it has 
+	     a @Controller, or @Repository, or @Service, or @Component and if it does then Spring will register the class with the bean factory as if you had 
+	     typed <bean class="..." /> in the xml configuration files. -->
+ 	<context:component-scan base-package="com.googlecode.happymarvin.webutility.controller" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/jsp/ directory -->
+<!-- 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!-- 		<property name="prefix" value="/WEB-INF/jsp/"/> -->
+<!-- 		<property name="suffix" value=".jsp"/> -->
+<!-- 	</bean> -->
+	
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    </bean>
+    	
+	<!-- Apache Tiles configuration -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/tiles-definitions.xml</value>
+			</list>
+		</property>
+	</bean>
+	    	
+</beans>

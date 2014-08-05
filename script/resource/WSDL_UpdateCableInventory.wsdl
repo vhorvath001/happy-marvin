@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://virginmedia/wsdl/UpdateCableInventory/1/0" xmlns:ns="http://virginmedia/schema/UpdateCableInventory"
+    xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://virginmedia/schema/faults/1/0" name="WSDL_UpdateCableInventory" targetNamespace="http://virginmedia/wsdl/UpdateCableInventory/1/0">
+    <types>
+        <xsd:schema targetNamespace="http://virginmedia/wsdl/UpdateCableInventory/1/0">
+            <xsd:import namespace="http://virginmedia/schema/UpdateCableInventory" schemaLocation="UpdateCableInventory.xsd"/>
+            <xsd:import namespace="http://virginmedia/schema/faults/1/0" schemaLocation="../../../../../../common_components/xsd/faults/SOAPFault.1.0.0.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="ProcessAdjustmentRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessAdjustmentRequest"/>
+    </message>
+    <message name="ProcessAdjustmentResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessAdjustmentResponse"/>
+    </message>
+    <message name="ProcessAdjustmentFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessReceiptRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessReceiptRequest"/>
+    </message>
+    <message name="ProcessReceiptResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessReceiptResponse"/>
+    </message>
+    <message name="ProcessReceiptFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessShipmentRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessShipmentRequest"/>
+    </message>
+    <message name="ProcessShipmentResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessShipmentResponse"/>
+    </message>
+    <message name="ProcessShipmentFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessInventoryAllocationRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessAllocationRequest"/>
+    </message>
+    <message name="ProcessInventoryAllocationResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessAllocationResponse"/>
+    </message>
+    <message name="ProcessInventoryAllocationFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <message name="ProcessInventoryDeallocationRequest">
+        <part name="bodyUPI" element="ns:UpdCblInvProcessDeallocationRequest"/>
+    </message>
+    <message name="ProcessInventoryDeallocationResponse">
+        <part name="bodyUPO" element="ns:UpdCblInvProcessDeallocationResponse"/>
+    </message>
+    <message name="ProcessInventoryDeallocationFault">
+        <part name="bodyUPF" element="ns1:SOAPFaultMessage"/>
+    </message>
+    <portType name="VirginMediaPortType">
+        <operation name="ProcessAdjustment">
+            <input name="inputMsgUP" message="tns:ProcessAdjustmentRequest"/>
+            <output name="outputMsgUP" message="tns:ProcessAdjustmentResponse"/>
+            <fault name="errorMsgUP" message="tns:ProcessAdjustmentFault"/>
+        </operation>
+        <operation name="ProcessReceipt">
+            <input name="inputMsgUP1" message="tns:ProcessReceiptRequest"/>
+            <output name="outputMsgUP1" message="tns:ProcessReceiptResponse"/>
+            <fault name="errorMsgUP1" message="tns:ProcessReceiptFault"/>
+        </operation>
+        <operation name="ProcessShipment">
+            <input name="inputMsgUP2" message="tns:ProcessShipmentRequest"/>
+            <output name="outputMsgUP2" message="tns:ProcessShipmentResponse"/>
+            <fault name="errorMsgUP2" message="tns:ProcessShipmentFault"/>
+        </operation>
+        <operation name="ProcessInventoryAllocation">
+            <input name="inputMsgUP3" message="tns:ProcessInventoryAllocationRequest"/>
+            <output name="outputMsgUP3" message="tns:ProcessInventoryAllocationResponse"/>
+            <fault name="errorMsgUP3" message="tns:ProcessInventoryAllocationFault"/>
+        </operation>
+        <operation name="ProcessInventoryDeallocation">
+            <input name="inputMsgUP4" message="tns:ProcessInventoryDeallocationRequest"/>
+            <output name="outputMsgUP4" message="tns:ProcessInventoryDeallocationResponse"/>
+            <fault name="errorMsgUP4" message="tns:ProcessInventoryDeallocationFault"/>
+        </operation>
+    </portType>
+    <binding name="UpdateCableInventoryBinding" type="tns:VirginMediaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="ProcessAdjustment">
+            <soap:operation soapAction="urn:ProcessAdjustment" style="document"/>
+            <input name="inputMsgUP">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP">
+                <soap:fault use="literal" name="errorMsgUP"/>
+            </fault>
+        </operation>
+        <operation name="ProcessReceipt">
+            <soap:operation soapAction="urn:ProcessReceipt" style="document"/>
+            <input name="inputMsgUP1">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP1">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP1">
+                <soap:fault name="errorMsgUP1" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessShipment">
+            <soap:operation soapAction="urn:ProcessShipment" style="document"/>
+            <input name="inputMsgUP2">
+                <soap:body use="literal" parts="bodyUPI"/>
+            </input>
+            <output name="outputMsgUP2">
+                <soap:body use="literal" parts="bodyUPO"/>
+            </output>
+            <fault name="errorMsgUP2">
+                <soap:fault name="errorMsgUP2" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessInventoryAllocation">
+            <soap:operation soapAction="urn:ProcessInventoryAllocation" style="document"/>
+            <input name="inputMsgUP3">
+                <soap:body parts="bodyUPI" use="literal"/>
+            </input>
+            <output name="outputMsgUP3">
+                <soap:body parts="bodyUPO" use="literal"/>
+            </output>
+            <fault name="errorMsgUP3">
+                <soap:fault name="errorMsgUP3" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="ProcessInventoryDeallocation">
+            <soap:operation soapAction="urn:ProcessInventoryDeallocation" style="document"/>
+            <input name="inputMsgUP4">
+                <soap:body parts="bodyUPI" use="literal"/>
+            </input>
+            <output name="outputMsgUP4">
+                <soap:body parts="bodyUPO" use="literal"/>
+            </output>
+            <fault name="errorMsgUP4">
+                <soap:fault name="errorMsgUP4" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="UpdateCableInventory">
+        <port name="VirginMedia" binding="tns:UpdateCableInventoryBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/UpdateCableInventory/VirginMedia"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="WSDL_UpdateCableInventory">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="VirginMediaPortTypeRole" portType="tns:VirginMediaPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
