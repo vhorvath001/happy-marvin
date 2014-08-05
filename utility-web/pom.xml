@@ -8,7 +8,7 @@
 	</parent>
 
 	<artifactId>utility-web</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
 	<name>Happy Marvin Utility WEB project</name>
 	<packaging>war</packaging>
 	<url>http://maven.apache.org</url>
@@ -118,7 +118,7 @@
 	<scm>
 		<connection>scm:hg:https://code.google.com/p/happy-marvin/</connection>
 		<developerConnection>scm:hg:https://code.google.com/p/happy-marvin/</developerConnection>
-	  <tag>happymarvin-modules-1.0</tag>
+	  <tag>HEAD</tag>
   </scm>	
 
 	<distributionManagement>
