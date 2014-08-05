@@ -85,7 +85,7 @@
 	</dependencies>
 
 	<scm>
-		<connection>scm:hg:https://ric.flair.wcw:BA2fx9Vy4aX4@code.google.com/p/happy-marvin</connection>
+		<connection>scm:hg:https://code.google.com/p/happy-marvin</connection>
 		<tag>HEAD</tag>
 	</scm>	
 
@@ -114,7 +114,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build-->	
+	</build-->
 	
 	<!-- <repositories> -->
 	<!-- <repository> -->
