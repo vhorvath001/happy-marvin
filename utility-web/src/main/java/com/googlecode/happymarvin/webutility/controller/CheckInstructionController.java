@@ -49,7 +49,7 @@ public class CheckInstructionController {
 /*
 ~~~HAPPYMARVIN-INSTRUCTION~~~
 I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.
-The name should be 'EmailSender'. You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'
+The name should be 'EmailSender'. You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'
 ~~~HAPPYMARVIN-INSTRUCTIONS-END~~~
 */	
 	@RequestMapping(value = "/check", method = RequestMethod.POST)

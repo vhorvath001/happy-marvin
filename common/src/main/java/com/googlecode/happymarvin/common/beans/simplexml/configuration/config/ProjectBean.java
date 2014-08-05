@@ -24,7 +24,7 @@ public class ProjectBean implements Serializable {
 
 	@Attribute
 	// it is necessary as the package field at Java classes are generated from the location but the location
-	//   contains something like 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' so we 
+	//   contains something like 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' so we 
 	//   need the path of the source folder -> 'src/main/java' in this case
 	private String srcFolder;
 

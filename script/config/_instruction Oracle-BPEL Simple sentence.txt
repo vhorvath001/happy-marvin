@@ -1,3 +1,0 @@
-~~~HAPPYMARVIN-INSTRUCTION~~~
-Put a 'Simple' 'Oracle-BPEL' component in the project 'tlem-validation-failures-report'. Name it as 'GetCustomer'. The destination folder is '.'. The BPEL process WSDL can be found in the folder 'WSDL_NotifyInventoryChange.wsdl'. The BPEL XSD file can be found in 'xsd/NotifyInventoryChange.xsd'. The partner link WSDL can be found in 'WSDL_UpdateCableInventory.wsdl'. The path of the XSD file of the partner link is 'xsd/UpdateCableInventory.xsd'.
-~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

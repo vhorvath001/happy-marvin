@@ -18,9 +18,10 @@
 	</package>
 
 	<package name="${hm.name?lower_case}" extends="default">
-		<action name="save" class="${hm.package}.${hm.name}Action">
-			<result name="input">/${hm.name?lower_case}/${hm.name?lower_case}-list.jsp</result>
-			<result name="SUCCESS" type="redirectAction">list</result>
+		<!-- TODO please add the package name to the class below! -->
+		<action name="${hm.name?lower_case}-edit" class="${hm.name}EditAction">
+			<result name="EDIT">${hm.name?lower_case}-edit.jsp</result>
+			<result name="LIST" type="redirectAction">${hm.name?lower_case}-list</result>
 		</action>	
 	</package>
 

@@ -41,7 +41,7 @@ public class UndergroundMining_sentences_successfulTest {
 				"blahblah\n" +
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.\n" +
-				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
+				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
 		
@@ -53,7 +53,7 @@ public class UndergroundMining_sentences_successfulTest {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 		
 		assertEquals(1, sentencePatternPairs.size());
@@ -74,7 +74,7 @@ public class UndergroundMining_sentences_successfulTest {
 				"blahblah\n" +
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"Create a 'Java' component in the project 'tlem-validation-failures-report'. Use the template 'POJO'.\n" +
-				"The name is 'EmailSender'. The destination folder should be 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils'.\n" +
+				"The name is 'EmailSender'. The destination folder should be 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils'.\n" +
 				"Method needed: 'int send(String emailTo, String filePath, String reportName)'.\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
@@ -86,7 +86,7 @@ public class UndergroundMining_sentences_successfulTest {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -97,7 +97,7 @@ public class UndergroundMining_sentences_successfulTest {
 		String description = 
 				"blahblah\n" +
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
-				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'. The name should be 'EmailSender'. You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
+				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'. The name should be 'EmailSender'. You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
 		
@@ -108,7 +108,7 @@ public class UndergroundMining_sentences_successfulTest {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -121,7 +121,7 @@ public class UndergroundMining_sentences_successfulTest {
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.\n" +
 				"The name should be 'EmailSender'. \n" +
-				"You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' folder. \n" +
+				"You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' folder. \n" +
 				"Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
@@ -133,7 +133,7 @@ public class UndergroundMining_sentences_successfulTest {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 
@@ -146,7 +146,7 @@ public class UndergroundMining_sentences_successfulTest {
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"I need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.\n" +
 				"The name is 'EmailSender'. \n" +
-				"Put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' folder. \n" +
+				"Put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' folder. \n" +
 				"Add a method: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
@@ -158,7 +158,7 @@ public class UndergroundMining_sentences_successfulTest {
 		assertEquals("POJO", jiraIssueBean.getInstructions().get(0).getTemplate());
 		assertEquals("tlem-validation-failures-report", jiraIssueBean.getInstructions().get(0).getProject());
 		assertEquals("EmailSender", jiraIssueBean.getInstructions().get(0).getName());
-		assertEquals("src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
+		assertEquals("src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils", jiraIssueBean.getInstructions().get(0).getLocation());
 		assertEquals("int send(String emailTo, String filePath, String reportName)", jiraIssueBean.getInstructions().get(0).getProperties().get("method"));
 	}
 

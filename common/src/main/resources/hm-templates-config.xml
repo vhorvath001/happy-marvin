@@ -18,18 +18,18 @@
 		<file name="constraint" extension="java" path="Java/JSR303Validator/constraint.ftl" suffix="Constraint"/>
 		<file name="configXML" extension="xml" path="Java/JSR303Validator/configXML.ftl"/>
 		<!-- the text attribute of the property is used when the instructions are defined in JIRA description as key-value pairs -->
-		<property name="location_Java_JSR303Validator_Validator" text="LOCATION_JAVA_JSR303VALIDATOR_VALIDATOR" 
+		<property name="location_Java_JSR303Validator_Validator" text="LOCATION_VALIDATOR" 
 				mandatory="false" locationOf="validator" textfieldLabel="The location of validator">
 			<textDef>The[ JSR303] validator[ class] should be [put to]/[in]/[generated into] '${location_Java_JSR303Validator_Validator}'[ folder].</textDef>
 			<textDef>[Please ]put the[ JSR303] validator[ class] to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the[ JSR303] constraint[ class] to[ the] '${location_Java_JSR303Validator_Constraint}'[ folder] and the[ JSR303] [config]/[configuration] XML[ file] to[ the] '${location_Java_JSR303Validator_configXML}'[ folder].</textDef>
 			<textDef>[Please ]put the[ JSR303] validator[ class] to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].</textDef>
 		</property>
-		<property name="location_Java_JSR303Validator_Constraint" text="LOCATION_JAVA_JSR303VALIDATOR_CONSTRAINT" 
+		<property name="location_Java_JSR303Validator_Constraint" text="LOCATION_CONSTRAINT" 
 				mandatory="false" locationOf="constraint" textfieldLabel="The location of constraint">
 			<textDef>The[ JSR303] constraint[ class] should be [put to]/[in]/[generated into] '${location_Java_JSR303Validator_Constraint}'[ folder].</textDef>
 			<textDef>[Please ]put the[ JSR303] constraint[ class] to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder].</textDef>
 		</property>
-		<property name="location_Java_JSR303Validator_configXML" text="LOCATION_JAVA_JSR303VALIDATOR_CONFIGXML" 
+		<property name="location_Java_JSR303Validator_configXML" text="LOCATION_CONFIG_XML" 
 				mandatory="false" locationOf="configXML" textfieldLabel="The location of config XML">
 			<textDef>The[ JSR303] [config]/[configuration] XML[ file] should be [put to]/[in]/[generated into] '${location_Java_JSR303Validator_configXML}'[ folder].</textDef>
 			<textDef>[Please ]put the[ JSR303] [config]/[configuration] XML[ file] to[ the] '${location_Java_JSR303Validator_configXML}'[ folder].</textDef>
@@ -41,18 +41,18 @@
 		<file name="stateless" extension="java" path="Java/stateless-EJB/stateless.ftl" suffix="ServiceBean" additionalArtefactsToBeGenerated="UnitTest"/>
 		<file name="local" extension="java" path="Java/stateless-EJB/local.ftl" suffix="ServiceLocal"/>
 		<file name="remote" extension="java" path="Java/stateless-EJB/remote.ftl" suffix="ServiceRemote"/>
-		<property name="location_Java_stateless-EJB_stateless" text="LOCATION_JAVA_stateless-EJB_STATELESS" 
+		<property name="location_Java_stateless-EJB_stateless" text="LOCATION_STATELESS" 
 				mandatory="false" locationOf="stateless" textfieldLabel="The location of the stateless bean">
 			<textDef>The stateless [bean]/[class] should be [put to]/[in]/[generated into] '${location_Java_stateless-EJB_stateless}' folder.</textDef>
 			<textDef>[Please ]put the stateless [bean]/[class] to [the ]'${location_Java_stateless-EJB_stateless}'[ folder].</textDef>
 			<textDef>[Please ]put the stateless [bean]/[class] to [the ]'${location_Java_stateless-EJB_stateless}'[ folder], the local interface[ class] to [the ]'${location_Java_stateless-EJB_local}'[ folder] and the remote [interface]/[component] [class ]to [the ]'${location_Java_stateless-EJB_remote}'[ folder].</textDef>
 		</property>
-		<property name="location_Java_stateless-EJB_local" text="LOCATION_JAVA_stateless-EJB_LOCAL" 
+		<property name="location_Java_stateless-EJB_local" text="LOCATION_LOCAL" 
 				mandatory="false" locationOf="local" textfieldLabel="The location of the local interface">
 			<textDef>The local interface[ class] should be [put to]/[in]/[generated into] '${location_Java_stateless-EJB_local}' folder.</textDef>
 			<textDef>[Please ]put the local [interface]/[component] [class ]to [the ]'${location_Java_stateless-EJB_local}'[ folder].</textDef>
 		</property>
-		<property name="location_Java_stateless-EJB_remote" text="LOCATION_JAVA_stateless-EJB_REMOTE" 
+		<property name="location_Java_stateless-EJB_remote" text="LOCATION_REMOTE" 
 				mandatory="false" locationOf="remote" textfieldLabel="The location of the remote interface">
 			<textDef>The remote interface[ class] should be [put to]/[in]/[generated into] '${location_Java_stateless-EJB_remote}' folder.</textDef>
 			<textDef>[Please ]put the remote [interface]/[component] [class ]to [the ]'${location_Java_stateless-EJB_remote}'[ folder].</textDef>
@@ -171,12 +171,13 @@
 			extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor"/>
 		<file name="BS" extension="biz" path="OSB/Proxy_with_facade/BS.ftl" suffix="BS" extractorClass="com.googlecode.happymarvin.artefactgenerator.extractor.XmlExtractor" />
 		
-		<property name="proxy_wsdl_path" mandatory="true" text="PROXY_WSDL_PATH" textfieldLabel="The path of the WSDL of the proxy service">
+		<!-- removeCharacters="[\.]([a-z])+$"  ->  removing the extension from the filename -->
+		<property name="proxy_wsdl_path" mandatory="true" text="PROXY_WSDL_PATH" textfieldLabel="The path of the WSDL of the proxy service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the WSDL[ file] of the proxy[ service][ in the project] is '${proxy_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the proxy[ service] can be found in[ the folder] '${proxy_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${proxy_xsd_path}'.</textDef>
 		</property>
-		<property name="proxy_xsd_path" mandatory="true" text="PROXY_XSD_PATH" textfieldLabel="The path of the XSD of the proxy service" >
+		<property name="proxy_xsd_path" mandatory="true" text="PROXY_XSD_PATH" textfieldLabel="The path of the XSD of the proxy service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [XSD]/[schema] [file ]of the proxy[ service][ in the project] is '${proxy_xsd_path}'[ in the project].</textDef>
 			<textDef>The [XSD]/[schema] [file ]of the proxy[ service] can be found in[ the folder] '${proxy_xsd_path}'[ in the project].</textDef>
 		</property>		
@@ -184,19 +185,22 @@
 			<textDef>The business service[ file] should be [put to]/[in]/[generated into] '${location_business_service}' folder.</textDef>
 			<textDef>[Please ]put the business service[ file] to [the ]'${location_business_service}'[ folder].</textDef>
 		</property>
-		<property name="business_wsdl_path" mandatory="true" text="BUSINESS_WSDL_PATH" textfieldLabel="The path of the WSDL of the business service" >
+		<property name="business_wsdl_path" mandatory="true" text="BUSINESS_WSDL_PATH" textfieldLabel="The path of the WSDL of the business service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the WSDL[ file] of the business[ service][ in the project] is '${business_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project].</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}'.</textDef>
 			<textDef>The WSDL[ file] of the business[ service] can be found in[ the folder] '${business_wsdl_path}'[ in the project], the [XSD]/[schema] [file ]is in '${business_xsd_path}' and the [xquery]/[XQuery] [file ]is in[ the folder] '${xquery_path}'.</textDef>
 		</property>
-		<property name="business_xsd_path" mandatory="true" text="BUSINESS_XSD_PATH" textfieldLabel="The path of the XSD of the business service" >
+		<property name="business_xsd_path" mandatory="true" text="BUSINESS_XSD_PATH" textfieldLabel="The path of the XSD of the business service" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [XSD]/[schema] [file ]of the business[ service][ in the project] is '${business_xsd_path}'[ in the project].</textDef>
 			<textDef>The [XSD]/[schema] [file ]of the business[ service] can be found in[ the folder] '${business_xsd_path}'[ in the project].</textDef>
 		</property>
-		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" >
+		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" removeCharacters="[\.]([a-z])+$">
 			<textDef>The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].</textDef>
 			<textDef>The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].</textDef>
+		</property>
+		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
+			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
 		</property>
 
 		<extractedProperty name="port_name" where="/*:definitions/*:service/*:port/@name" from="proxy_wsdl_path" />
@@ -239,6 +243,9 @@
 		<property name="xquery_path" mandatory="true" text="XQUERY_PATH" textfieldLabel="The path of the XQuery (for calling ext. service)" >
 			<textDef>The path of the [xquery]/[XQuery] [file ][in the project ]is '${xquery_path}'[ in the project].</textDef>
 			<textDef>The [xquery]/[XQuery] [file ]can be found in[ the folder] '${xquery_path}'[ in the project].</textDef>
+		</property>
+		<property name="osb_project_name" mandatory="true" text="OSB_PROJECT_NAME" textfieldLabel="The name of the OSB project" >
+			<textDef>The name of the [OSB]/[osb]/[Oracle Service Bus] project is '${osb_project_name}'.</textDef>
 		</property>
 		
 		<extractedProperty name="port_name" where="/*:definitions/*:service/*:port/@name" from="proxy_wsdl_path" />
@@ -304,15 +311,15 @@
 	</template>
 
 
-	<template name="Struts" type="Java">
-		<file name="action-class" extension="java" path="Java/Struts/action-class.ftl" suffix="Action"/>
-		<file name="jsp" extension="jsp" path="Java/Struts/jsp.ftl" suffix="-edit"/>
-		<file name="config-xml" extension="xml" path="Java/Struts/config-xml.ftl" suffix="-struts"/>
+	<template name="Struts-edit" type="Java">
+		<file name="action-class" extension="java" path="Java/Struts-edit/action-class.ftl" suffix="EditAction"/>
+		<file name="jsp" extension="jsp" path="Java/Struts-edit/jsp.ftl" suffix="-edit"/>
+		<file name="config-xml" extension="xml" path="Java/Struts-edit/config-xml.ftl" suffix="-struts"/>
 
 		<property name="location_Java_Struts_jsp" mandatory="false" text="LOCATION_JSP" textfieldLabel="The location of the jsp file" locationOf="jsp">
 			<textDef>The [jsp]/[JSP] [file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_jsp}' folder.</textDef>
 			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder].</textDef>
-			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][ file] to [the ]'${location_Java_Struts_config-xml}'[ folder].</textDef>
+			<textDef>[Please ]put the [jsp]/[JSP] [file ]to [the ]'${location_Java_Struts_jsp}'[ folder], the [config]/[configuration] [XML ][file ]to [the ]'${location_Java_Struts_config-xml}'[ folder].</textDef>
 		</property>
 		<property name="location_Java_Struts_config-xml" mandatory="false" text="LOCATION_CONFIG_XML" textfieldLabel="The location of the Struts config file" locationOf="config-xml">
 			<textDef>The [config]/[configuration] [XML ][file ]should be [put to]/[in]/[generated into] '${location_Java_Struts_config-xml}' folder.</textDef>

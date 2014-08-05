@@ -2,7 +2,7 @@
 
 <h1>${hm.name} - Edit</h1>
 
-<s:form action="save.action" method="post" theme="simple" validate="true">
+<s:form action="${hm.name?lower_case}-edit.action" method="post" theme="simple" validate="true">
 
    <table>
       <tr>

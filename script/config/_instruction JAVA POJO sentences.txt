@@ -1,3 +1,0 @@
-~~~HAPPYMARVIN-INSTRUCTION~~~
-I need a 'POJO' 'Java' class in the folder 'tlem-validation-failures-report'. Name it as 'GetCustomerBean'. The destination folder should be 'src/main/java/com/acme'. Please add a method to the class: 'String callBackend(String id)'.
-~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

@@ -38,7 +38,6 @@ import com.googlecode.happymarvin.common.utils.StringUtility;
 // TODO not allowed strings in the pattern: 
 //           - [${project}]
 // TODO at the moment the values have to be defined between apostrophes -> think about if the apostrophes can be avoided!!!
-// TODO creating a logic that will examine the patterns in the config files before actually trying to find a matching one...?
 // TODO writing unit tests to test when patternType = regularExpression
 public class UndergroundMining implements IUndergroundMining {
 
@@ -650,8 +649,6 @@ public class UndergroundMining implements IUndergroundMining {
 				return false;
 			}
 		}
-		// checking if the additional lines are starting with the text of the property of the specific template
-		// TODO I am not examining this here, probably I don't have to
 		
 		return true;
 	}
@@ -696,7 +693,7 @@ public class UndergroundMining implements IUndergroundMining {
 // why is it needed? => 
 //			[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder].
 //			[Please ]put the [JSR303 ]validator class to [the ]'${location_Java_JSR303Validator_Validator}'[ folder], the [JSR303 ]constraint class to [the ]'${location_Java_JSR303Validator_Constraint}'[ folder] and the [JSR303 ][config]/[configuration] XML[ file] to [the ]'${location_Java_JSR303Validator_configXML}'[ folder].
-//		the sentence is:	Please put the JSR303 validator class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/jpmorgan/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder.
+//		the sentence is:	Please put the JSR303 validator class to the 'src/main/java/com/acme/ib/cp/tlem/validator' folder, the constraint class to the 'src/main/java/com/acme/ib/cp/tlem/validator' folder and the config XML to the 'src/main/resources' folder.
 //		so the 2nd pattern should match but theoretically the 1st matches too (try in an online reg expr editor)! So I sort the list the number of the properties occurs in the pattern so 
 //			that the sentences having the max number of properties will be examined first
 class ComparatorBasedOnProperties<String> implements Comparator<String> {

@@ -77,7 +77,7 @@ public class UndergroundMining_sentences_unsuccessfulTest {
 				"blahblah\n" +
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.\n" +
-				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils' " +
+				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils' " +
 				"folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
@@ -99,7 +99,7 @@ public class UndergroundMining_sentences_unsuccessfulTest {
 				"blahblah\n" +
 				"~~~HAPPYMARVIN-INSTRUCTION~~~\n" +
 				"I'd need a 'POJO' 'Java' component in the project 'tlem-validation-failures-report'.\n" +
-				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils'" +
+				"The name should be 'EmailSender'. You should put it into the 'src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils'" +
 				" folder. Please add a method to it: 'int send(String emailTo, String filePath, String reportName)'\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);

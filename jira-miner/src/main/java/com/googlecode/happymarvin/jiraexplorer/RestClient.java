@@ -16,7 +16,6 @@ public class RestClient {
 
 	
 	public LinkedHashMap<String, Object> getJiraIssueAsJson(final String urlJira, final String numberJira) {
-		// https://ibjira.uk.jpmorgan.com/jira15/rest/api/latest/issue/DCPPPS-495
 		String url = urlJira + numberJira;
 		LOGGER.info("Getting the JIRA issue from " + url);
 		Object storage = restTemplate.getForObject(url, Object.class);

@@ -14,20 +14,35 @@ import com.opensymphony.xwork2.ActionSupport;
 * @since       ${actualDateTime?string("yyyy-MM-dd")}
 *
 */
-public class ${hm.name}Action extends ActionSupport {
+public class ${hm.name}${hm.file.suffix} extends ActionSupport {
 
 	
-	protected static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}Action.class);
+	private static final String LIST = "LIST";
+	private static final String EDIT = "EDIT";
+	protected static final Logger LOGGER = LoggerFactory.getLogger(${hm.name}${hm.file.suffix}.class);
 	
 	private String name;
 	private String buttonName;
 
 	
 	public String execute() {
-		if (buttonName.equals("Save")) {
-			// TODO Please implement the save logic!
+		String action = null;
+		
+		// clicking on the cancel button
+		if (buttonName != null && buttonName.equals("Cancel")) {
+			action = LIST;
 		}
-		return "SUCCESS";
+		// clicking on the save button
+		else if (buttonName != null && buttonName.equals("Save")) {
+			// TODO Please implement the save logic!
+			
+			action = LIST;
+		} else {
+			action = EDIT;
+		}
+				
+		return action;
+		
 	}
 
 	
@@ -40,7 +55,7 @@ public class ${hm.name}Action extends ActionSupport {
 	}
 	
 	
-	private void checkInteger(${hm.name}Action action, String value, String field, String fieldLabel, int... ranges) {
+	private void checkInteger(${hm.name}${hm.file.suffix} action, String value, String field, String fieldLabel, int... ranges) {
 		checkRequired(action, value, field, fieldLabel);
 		if (action.getFieldErrors().isEmpty()) {
 			try {
@@ -56,13 +71,13 @@ public class ${hm.name}Action extends ActionSupport {
 		}
 	}
 	
-	private void checkRequired(${hm.name}Action action, String value, String field, String fieldLabel) {
+	private void checkRequired(${hm.name}${hm.file.suffix} action, String value, String field, String fieldLabel) {
 		if (value.length() == 0) {
 			action.addFieldError(field, String.format("%s is required.",fieldLabel));
 		}
 	}
 
-	private void checkPossibleValues(${hm.name}Action action, String value, String field, String fieldLabel, String... values) {
+	private void checkPossibleValues(${hm.name}${hm.file.suffix} action, String value, String field, String fieldLabel, String... values) {
 		checkRequired(action, value, field, fieldLabel);
 		if (action.getFieldErrors().isEmpty()) {
 			if (Arrays.binarySearch(values, value) < 0) {

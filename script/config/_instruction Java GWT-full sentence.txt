@@ -1,3 +1,0 @@
-~~~HAPPYMARVIN-INSTRUCTION~~~
-I need a 'GWT-full' 'Java' component in the project 'tlem-validation-failures-report'. Name it as 'GetCustomer'. Put it into the 'src/main/java/com/acme/client/gwt' folder. Please add a method to the component: 'String getCustomerName(String id)'. The server class should be put to 'src/main/java/com/acme/client/gwt/server' folder. Also put the ui class to 'src/main/java/com/acme/client/ui' folder and the GWT XML file to the 'src/main/resources/gwt' folder.
-~~~HAPPYMARVIN-INSTRUCTIONS-END~~~

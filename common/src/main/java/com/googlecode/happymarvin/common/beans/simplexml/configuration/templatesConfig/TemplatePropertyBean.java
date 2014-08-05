@@ -19,6 +19,7 @@ public class TemplatePropertyBean implements Serializable {
 		mandatory = source.mandatory;
 		locationOf = source.locationOf;
 		textfieldLabel = source.textfieldLabel;
+		removeCharacters = source.removeCharacters;
 		
 		textDefs = new ArrayList<String>();
 		for(String textDef : source.textDefs) {
@@ -47,8 +48,19 @@ public class TemplatePropertyBean implements Serializable {
 	
 	@Attribute(required=false)
 	private String textfieldLabel;
+	
+	@Attribute(required=false)
+	private String removeCharacters;
 
 	
+	public String getRemoveCharacters() {
+		return removeCharacters;
+	}
+
+	public void setRemoveCharacters(String removeCharacters) {
+		this.removeCharacters = removeCharacters;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -111,6 +123,9 @@ public class TemplatePropertyBean implements Serializable {
 		}
 		if (textfieldLabel != null && textfieldLabel.length() > 0) {
 			sb.append(",textfieldLabel=").append(textfieldLabel);
+		}
+		if (removeCharacters != null && removeCharacters.length() > 0) {
+			sb.append(",removeCharacters=").append(removeCharacters);
 		}
 		sb.append(",textDefs=");
 		if (textDefs != null && textDefs.size() > 0) {

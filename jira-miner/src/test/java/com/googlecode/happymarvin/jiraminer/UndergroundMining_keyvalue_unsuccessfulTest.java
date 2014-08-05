@@ -43,7 +43,7 @@ public class UndergroundMining_keyvalue_unsuccessfulTest {
 				"TYPE:Java\n" +
 				"PROJECT: tlem-validation-failures-report \n" +
 				"NAME:   EmailSender\n" +
-				"LOCATION:src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils\n" +
+				"LOCATION:src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils\n" +
 				"METHOD: int send(String emailTo, String filePath, String reportName)\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
@@ -70,7 +70,7 @@ public class UndergroundMining_keyvalue_unsuccessfulTest {
 				"TEMPLATE: POJO   \n" +
 				"PROJECT: tlem-validation-failures-report \n" +
 				"NAME:   EmailSender\n" +
-				"LOCATION:src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils\n" +
+				"LOCATION:src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);
 
@@ -95,7 +95,7 @@ public class UndergroundMining_keyvalue_unsuccessfulTest {
 				"PROJECT: tlem-validation-failures-report " +
 				"TEMPLATE: POJO   \n" +
 				"NAME:   EmailSender\n" +
-				"LOCATION:src/main/java/com/jpmorgan/ib/cp/tlem/validationFailuresReport/utils\n" +
+				"LOCATION:src/main/java/com/acme/ib/cp/tlem/validationFailuresReport/utils\n" +
 				"TYPE:Java\n" +
 				"~~~HAPPYMARVIN-INSTRUCTIONS-END~~~";
 		jiraIssueBean.setDescription(description);

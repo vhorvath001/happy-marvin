@@ -107,8 +107,8 @@ public class ArtefactGenerationOrchestrator {
 
 	
 	public static void main(String[] args) throws IOException, InvalidInstructionException, ConfigurationException, TemplateException {
-//		ApplicationContext context = new ClassPathXmlApplicationContext("orchestrator-context.xml");
-		ApplicationContext context = new ClassPathXmlApplicationContext("fake-orchestrator-context.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("orchestrator-context.xml");
+//		ApplicationContext context = new ClassPathXmlApplicationContext("fake-orchestrator-context.xml");
 		ArtefactGenerationOrchestrator processOrchestrator = context.getBean("artefactGenerationOrchestrator", ArtefactGenerationOrchestrator.class);
 		
 		processOrchestrator.start(args);

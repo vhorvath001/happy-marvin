@@ -283,7 +283,14 @@ public class ArtefactGenerator {
 
 		// setting the properties
 		for(String name : instructionBean.getProperties().keySet()) {
-			dataModelProperties.put(name, instructionBean.getProperties().get(name));
+			String value = instructionBean.getProperties().get(name);
+			// if the removeCharacters attribute exists then remove the characters represented by regular expression
+			String removeCharacters = getRemoveCharacters(name, templatePropertyBeans);
+			if (removeCharacters != null) {
+				dataModelProperties.put(name, value.replaceAll(removeCharacters, ""));
+			} else {
+				dataModelProperties.put(name, value);
+			}
 		}
 		
 		// setting the extracted properties
@@ -300,6 +307,16 @@ public class ArtefactGenerator {
 		dataModelFile.put("suffix", templateFileBean.getSuffix());
 		
 		return dataModelRoot;
+	}
+
+
+	private String getRemoveCharacters(String name,	List<TemplatePropertyBean> templatePropertyBeans) {
+		for (TemplatePropertyBean templatePropertyBean : templatePropertyBeans) {
+			if (templatePropertyBean.getName().equals(name)) {
+				return templatePropertyBean.getRemoveCharacters();
+			}
+		}
+		throw new RuntimeException("Well, it is impossible that I haven't found the TemplatePropertyBean with the name '"+name+"'...");
 	}
 
 
