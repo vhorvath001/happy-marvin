@@ -84,8 +84,8 @@
 	</dependencies>
 
 	<scm>
-		<connection>scm:hg:http://happy-marvin.googlecode.com/hg/</connection>
-		<developerConnection>scm:hg:http://happy-marvin.googlecode.com/hg/</developerConnection>
+		<connection>scm:hg:http://code.google.com/p/happy-marvin/</connection>
+		<developerConnection>scm:hg:http://code.google.com/p/happy-marvin/</developerConnection>
 		<tag>parent-1.0</tag>
 	</scm>	
 
