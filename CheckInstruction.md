@@ -2,7 +2,7 @@ All you have to do is just to copy the instruction(s) to the textarea and clink 
 
 Don't be afraid if you made some mistake you will get an error message. :)
 
-![http://wiki.happy-marvin.googlecode.com/hg/images/0-check.jpg](http://wiki.happy-marvin.googlecode.com/hg/images/0-check.jpg)
+![images/0-check.jpg](images/0-check.jpg)
 
 If there are more instructions in the textarea on the left then all the instructions will be analyzed and displayed. On the picture above you can see there are two instructions in the textarea so both of them can be seen by clicking on the 'Instruction 1' or 'Instruction 2' header.
 
