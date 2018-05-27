@@ -6,7 +6,7 @@ And of course I borrowed the idea from The Hitchhiker's Guide to the Galaxy book
 The second question is what is this program? What can be achieved with its help?
 Let's have a look at the following picture!
 
-![http://wiki.happy-marvin.googlecode.com/hg/images/7-architecture.jpg](http://wiki.happy-marvin.googlecode.com/hg/images/7-architecture.jpg)
+![images/7-architecture.jpg](images/7-architecture.jpg)
 
 A short answer is you can generate artefacts (Java code, .Net code, XML files, configuration files, ...) directly from the description of a JIRA issue. Naturally it is not a Skynet so it cannot think and process the sentences written in the JIRA description. However you don't have to reject to use normal sentences when you write the instructions for the artefact generators. The key is that the sentences must fit some rules that you can define. Basically patterns have to be set for the generator and with these patterns some valueable information can be mined from the description.
 Let's see an example: you want the generator to create a stateless session bean Java class in one of your project in a package. You'd want to write a sentence like this:
